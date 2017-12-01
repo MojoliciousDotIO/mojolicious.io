@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>http://mojolicious.io/blog/tag/that/</link>
+        <atom:link href="http://mojolicious.io/blog/tag/that.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.087</generator>
+        <item>
+            <title>First Post</title>
+            <link>http://mojolicious.io/blog/2017/11/26/first-post/</link>
+            <guid>http://mojolicious.io/blog/2017/11/26/first-post/</guid>
+            <description><![CDATA[
+                <h1>Welcome To Your Blog</h1>
+
+<p>This is your first post. To edit this post, open up /blog/2017/11/26/first-post/index.markdown
+in your text editor.</p>
+
+<p><a href="http://preaction.me/statocles/pod/Statocles/Help/Content">Check the documentation for how to write Statocles
+content</a></p>
+
+<p>Some more above the fold content</p>
+
+                    <p><a href="http://mojolicious.io/blog/2017/11/26/first-post/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://mojolicious.io/blog/tag/this/">this</a>
+                        <a href="http://mojolicious.io/blog/tag/that/">that</a>
+                        <a href="http://mojolicious.io/blog/tag/the-other/">the other</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 26 Nov 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

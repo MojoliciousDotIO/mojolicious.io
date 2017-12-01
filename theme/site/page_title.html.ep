@@ -1,0 +1,16 @@
+<div id="page-title">
+
+  <div class="row">
+
+      <div class="ten columns centered text-center">
+        % my $punct = $title =~ s/(\p{Punct})$// ? $1 : '.';
+        <h1><%== $title %><span><%= $punct %></span></h1>
+
+        <p><%== $subtitle %></p>
+      </div>
+
+  </div>
+
+</div>
+
+

@@ -1,0 +1,126 @@
+%= include 'blog/title.html.ep'
+
+<div class="content-outer">
+
+  <div id="page-content" class="row">
+
+      <div id="primary" class="eight columns">
+
+        <article class="post">
+
+            <div class="entry-header cf">
+
+              <h1><%== $self->title %></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="<%= $self->date->strftime('%Y-%m-%d') %>"><%= $self->date->strftime('%b %d, %Y') %></time>
+                  <%# #categories
+                  /
+                  <span class="categories">
+                  <a href="#">Design</a> /
+                  <a href="#">User Inferface</a> /
+                  <a href="#">Web Design</a>
+                  </span>
+                  %>
+
+              </p>
+
+            </div>
+
+            % if (my $image = $self->images('banner')) {
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img src="<%== $image->src %>" alt="<%== $image->alt %>">
+              </div>
+            % }
+
+            <div class="post-content">
+              %# note that p.lead gets a slight emphasis
+
+              % my @sections = $self->sections;
+              % for my $i ( 0..$#sections ) {
+              <section id="section-<%= $i+1 %>">
+                  <%= $sections[$i] %>
+              </section>
+              % }
+
+              % my @tags = $app->tags;
+              % if (@tags) {
+              <p class="tags">
+                <span>Tagged in </span>:
+                % for my $tag ( @tags ) {
+                  <a href="<%= $tag->href %>"><%== $tag->text %></a><% unless ($tag == $tags[-1]) { %>,<% } %>
+                % }
+              </p>
+              % }
+
+              % if (my $bio = $self->data->{bio}) {
+                % if (! ref $bio) { $bio = $site->data->{bios}{$bio} || {} }
+                <div class="bio cf">
+
+                    % if (my $image = $bio->{image}) {
+                    <div class="gravatar">
+                      <img src="<%== $image %>" alt="author image">
+                    </div>
+                    % }
+                    <div class="about">
+                      <h5><a title="Posts by John Doe" href="#" rel="author"><%== $bio->{name} %></h5>
+                      <p><%= $bio->{text} %></p>
+                    </div>
+
+                </div>
+              % }
+
+              <ul class="post-nav cf">
+                %# back compatibility for before page had access to the full page objects that surround it
+                % if ($self->can('next_page')) {
+                  % if (my $next = $self->next_page) {
+                  <li class="prev"><a rel="prev" href="<%= $next->path %>"><strong>Previous Article</strong> <%== $next->title %></a></li>
+                  % }
+                  % if (my $prev = $self->prev_page) {
+                  <li class="next"><a rel="next" href="<%= $prev->path %>"><strong>Next Article</strong> <%== $prev->title %> </a></li>
+                  % }
+                % } else {
+                  % if (my $next = $self->next) {
+                  <li class="prev"><a rel="prev" href="<%= $next %>"><strong>Previous Article</strong></a></li>
+                  % }
+                  % if (my $prev = $self->prev) {
+                  <li class="next"><a rel="next" href="<%= $prev %>"><strong>Next Article</strong></a></li>
+                  % }
+                % }
+              </ul>
+
+            </div>
+
+        </article>
+
+        % if ( $site->data->{disqus}{shortname} ) {
+        <div id="comments">
+          <h3>Comments</h3>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              var disqus_shortname = '<%= $site->data->{disqus}{shortname} %>';
+              var disqus_identifier = '<%= $self->document->path %>';
+              var disqus_url = '<%= $site->url( $self->path ) %>';
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>
+        % }
+
+      </div>
+
+      <div id="secondary" class="four columns end">
+        <aside id="sidebar">
+          %= include 'site/sidebar.html.ep'
+        </aside>
+      </div>
+
+   </div>
+
+</div>

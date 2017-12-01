@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>http://mojolicious.io/blog/</link>
+        <atom:link href="http://mojolicious.io/blog/index.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.087</generator>
+        <item>
+            <title>Mojolicious Advent 2017</title>
+            <link>http://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/</link>
+            <guid>http://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/</guid>
+            <description><![CDATA[
+                <p>I&#39;m happy to announce that I&#39;ll be running a Mojolicious Advent Calendar this year!</p>
+
+<p>For those of you who are unaware, an advent calendar is a way to count down to Christmas through December.
+In many cases, the act of marking each day also provides a treat, usually chocolate.
+All told, 24 days are marked, one for each day from Dec 1 to Dec 24, Christmas Eve.</p>
+
+<p>I&#39;m not sure exactly how this moved into coding circles, but there is now a tradition of doing a similar countdown for programmers.
+The treats are little bits of wisdom on some programming topic.</p>
+
+<p>Perl has <a href="http://www.perladvent.org/">http://www.perladvent.org/</a> which has run for quite a long time.
+Other calendars have popped up for other languages and I&#39;m told it is even migrating to non-coding maker-type spaces!</p>
+
+<p>This year I&#39;ve decided that I&#39;d like there to be one for the <a href="http://mojolicious.org">Mojolicious Web Framework</a>.
+My desire is partly to put out some common starting tips and tricks and partly due to some recent additions that could really do with some extra publicity (they&#39;re cool, just wait!).</p>
+
+<p>At least at the moment it is just me so, in the hopes of actually completing it, some posts might be brief.
+Some calendars try to use holiday themes in the posts, which I may do it the muse is upon me, but I make no promises.</p>
+
+<p>I hope you&#39;ll enjoy no matter what religious or non-religious winter holidays you celebrate!</p>
+
+
+                    <p>Tags:
+                        <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 30 Nov 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Introduction</title>
+            <link>http://mojolicious.io/blog/2017/11/30/introduction/</link>
+            <guid>http://mojolicious.io/blog/2017/11/30/introduction/</guid>
+            <description><![CDATA[
+                <p>Hello and welcome to the new site!</p>
+
+<p>My name is Joel Berger.
+I&#39;m on the Core Development team of the Mojolicious web framework.</p>
+
+<p>I guess the immediate question is, why start a new site and blog?
+This site grew out of ideas I have had to promote the framework, especially outside of the Perl bubble.</p>
+
+<p>The immediate goal is to publish an Advent Calendar focused on Mojolicious.
+It is a fun tradition and an interesting challenge, blogging once a day for almost a month.
+The question was where to put it.</p>
+
+                    <p><a href="http://mojolicious.io/blog/2017/11/30/introduction/#section-2">Continue reading...</a></p>
+
+
+            ]]></description>
+            <pubDate>
+                Thu, 30 Nov 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://mojolicious.io/blog/tag/that/</id>
+    <title>mojolicious.io</title>
+    <updated>2017-11-26T00:00:00Z</updated>
+    <link href="http://mojolicious.io/blog/tag/that.atom" rel="self" />
+    <link href="http://mojolicious.io/blog/tag/that/" rel="alternate" />
+    <generator version="0.087">Statocles</generator>
+
+    <entry>
+        <id>http://mojolicious.io/blog/2017/11/26/first-post/</id>
+        <title>First Post</title>
+        <link href="http://mojolicious.io/blog/2017/11/26/first-post/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h1>Welcome To Your Blog</h1>
+
+<p>This is your first post. To edit this post, open up /blog/2017/11/26/first-post/index.markdown
+in your text editor.</p>
+
+<p><a href="http://preaction.me/statocles/pod/Statocles/Help/Content">Check the documentation for how to write Statocles
+content</a></p>
+
+<p>Some more above the fold content</p>
+
+                <p><a href="http://mojolicious.io/blog/2017/11/26/first-post/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://mojolicious.io/blog/tag/this/">this</a>
+                    <a href="http://mojolicious.io/blog/tag/that/">that</a>
+                    <a href="http://mojolicious.io/blog/tag/the-other/">the other</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-11-26T00:00:00Z</updated>
+        <category term="this" />
+        <category term="that" />
+        <category term="the other" />
+    </entry>
+</feed>
+

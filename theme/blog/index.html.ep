@@ -1,0 +1,79 @@
+%= include 'blog/title.html.ep'
+
+<div class="content-outer">
+
+  <div id="page-content" class="row">
+
+      <div id="primary" class="eight columns">
+
+        % for my $article (@$pages) {
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="<%= $app->page_url( $article ) %>"><%== $article->title %></a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="<%= $article->date->strftime('%Y-%m-%d') %>"><%= $article->date->strftime('%b %d, %Y') %></time>
+                  <%# #categories
+                  /
+                  <span class="categories">
+                  <a href="#">Design</a> /
+                  <a href="#">User Inferface</a> /
+                  <a href="#">Web Design</a>
+                  </span>
+                  %>
+
+              </p>
+
+            </div>
+
+            % if (my $image = $article->images('banner')) {
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img src="<%== $image->src %>" alt="<%== $image->alt %>">
+              </div>
+            % }
+
+            <div class="post-content">
+              % my @sections = $article->sections;
+              <p><%= $sections[0] %></p>
+              % if ( @sections > 1 ) {
+                  <p><a href="<%= $app->page_url( $article ) %>#section-2">Continue reading <%= $article->title %>...</a></p>
+              % }
+            </div>
+
+        </article>
+        % }
+
+        <nav class="col full pagination">
+          <ul>
+              % if (my $prev = $self->next) {
+              <li><a href="<%= $prev %>" rel="prev" class="page-numbers prev">Prev</a></li>
+              % } else {
+              <li><span class="page-numbers prev inactive">Prev</span></li>
+              % }
+              <%#
+                <li><span class="page-numbers current">1</span></li>
+                <li><a href="#" class="page-numbers">2</a></li>
+              %>
+              % if (my $next = $self->prev) {
+              <li><a href="<%= $next %>" rel="next" class="page-numbers next">Next</a></li>
+              % } else {
+              <li><span class="page-numbers next inactive">Next</span></li>
+              % }
+          </ul>
+        </nav>
+
+      </div>
+
+      <div id="secondary" class="four columns end">
+        <aside id="sidebar">
+          %= include 'site/sidebar.html.ep'
+        </aside>
+      </div>
+
+  </div>
+
+</div>

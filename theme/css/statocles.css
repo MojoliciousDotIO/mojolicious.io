@@ -1,0 +1,15 @@
+.post-content ul {
+  list-style-type: initial;
+  list-style-position: inside;
+}
+
+.post-content pre code {
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0px;
+}
+
+.hljs {
+  white-space: pre;
+  word-wrap: normal;
+}

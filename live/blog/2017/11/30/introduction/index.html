@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta content="" name="description">
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+
+  <link href="/theme/css/default.css" rel="stylesheet">
+  <link href="/theme/css/layout.css" rel="stylesheet">
+  <link href="/theme/css/media-queries.css" rel="stylesheet">
+  <link href="/theme/css/statocles.css" rel="stylesheet">
+
+  <script src="/theme/js/modernizr.js"></script>
+
+      <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
+
+  <title>Introduction - mojolicious.io</title>
+  <meta content="Joel Berger" name="author">
+  <meta content="Statocles 0.087" name="generator">
+  
+</head>
+
+<body>
+
+   <header>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <div class="logo">
+               <a href="/index.html">
+                 <h3 style="color: #fff">mojolicious.io</h3>
+               </a>
+            </div>
+
+            <nav id="nav-wrap">
+
+              <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+              <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+               <ul class="nav" id="nav">
+                 <!-- li.current is given a different styling -->
+                   <li><a href="/blog">Blog</a></li>
+                   <li><a href="https://mojolicious.org/perldoc">Documentation</a></li>
+
+               </ul>
+
+            </nav>
+
+         </div>
+
+      </div>
+
+   </header>
+
+     <div id="page-title">
+
+  <div class="row">
+
+      <div class="ten columns centered text-center">
+        <h1>Mojo Wonk Blog<span>.</span></h1>
+
+        <p>A semi-offical blog dedicated to the Mojolicious web framework</p>
+      </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="content-outer">
+
+  <div class="row" id="page-content">
+
+      <div class="eight columns" id="primary">
+
+        <article class="post">
+
+            <div class="entry-header cf">
+
+              <h1>Introduction</h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-11-30">Nov 30, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+
+            <div class="post-content">
+
+              <section id="section-1">
+                  <p>Hello and welcome to the new site!</p>
+
+<p>My name is Joel Berger.
+I&#39;m on the Core Development team of the Mojolicious web framework.</p>
+
+<p>I guess the immediate question is, why start a new site and blog?
+This site grew out of ideas I have had to promote the framework, especially outside of the Perl bubble.</p>
+
+<p>The immediate goal is to publish an Advent Calendar focused on Mojolicious.
+It is a fun tradition and an interesting challenge, blogging once a day for almost a month.
+The question was where to put it.</p>
+
+              </section>
+              <section id="section-2">
+                  <h2>Where to host?</h2>
+
+<p>I have an existing Perl-focused blog at <a href="http://blogs.perl.org/users/joel_berger">http://blogs.perl.org/users/joel_berger</a>.
+For a variety of reasons, while it is a nice service, it wasn&#39;t where I wanted to put this series of blogs.
+The biggest is that I want a place for semi-official Mojolicious news and articles that isn&#39;t tied to just my name and isn&#39;t so Perl focused.
+The other is that for an extended series like an Advent Calendar, the multi-user nature of BPO means that the articles wouldn&#39;t show up consecutively in the main feed.</p>
+
+<p>Mojolicious has also at times had its own blog.
+This has been both lead author Sebastian Riedel&#39;s personal blog or a shared Tumblr (maybe others?).
+Tumblr was an interesting idea but the UI leaves much to be desired.
+The primary feature, reblogging, promised to give a good halfway house between BPO and a curated multiuser feed.
+Contributors could blog on their own blog and then the main blog could reblog it to include it in the feed.
+However in practice the reblogging feature left much to be desired, notably once a reblogging happens the content is immutable.
+Not being able to correct errors in the most visible location is a non-starter for a technical blog.</p>
+
+<p>The next logical thing is to host our own blog, so it can be curated as we&#39;d like.
+However that requires servers and monitoring and patches etc.</p>
+
+<p>So finally we come to static blog generation.
+This site is generated using <a href="http://preaction.me/">Preaction</a>&#39;s <a href="http://preaction.me/statocles/">Statocles</a> static blogging engine.
+While it is a static generator, it does actually use some of the Mojo Toolkit under the hood.
+And while at launch time I am self-hosting it, static blogging hosts are a dime a dozen now and likely at some point it will get shipped to Github&#39;s hosting for peace of mind.</p>
+
+<h2>Goals</h2>
+
+<p>Now that I have a plan for hosting, what kind of content am I expecting?
+Well for starters, the Advent Calendar series.
+Beyond that, I&#39;ve been meaning to revisit my old BPO posts and brush them up for newer Mojolicious versions and best practices.
+And of course new blog entries.</p>
+
+<p>It will also be nice to have a semi-official place to put documentation and notes.
+We do have a community-edited <a href="https://github.com/kraih/mojo/wiki">wiki</a> on Github as well as the <a href="http://mojolicious.org/perldoc">official documentation</a>.
+Having something in the middle seems warrented at times though too.</p>
+
+<p>Finally, and perhaps with some help and encouragement, a screencast series could be possible.
+Tempire&#39;s excellent <a href="http://mojocasts.com/e1">Mojocast</a> have served us well, but they are getting a little long in the tooth.
+We have a list of <a href="https://github.com/kraih/mojo/wiki#screencasts">errata</a> on the wiki, but user have to know to seek that out.</p>
+
+<p>Thanks, and watch this space!</p>
+
+              </section>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/advent/">advent</a>
+              </p>
+
+                <div class="bio cf">
+
+                    <div class="gravatar">
+                      <img alt="author image" src="//gravatar.com/avatar/cc767569f5863a7c261991ee5b23f147">
+                    </div>
+                    <div class="about">
+                      <h5><a href="#" rel="author" title="Posts by John Doe">Joel Berger</a></h5>
+                      <p>Joel has Ph.D. in Physics from the University of Illinois at Chicago. He an avid Perl user and a member of the Mojolicious Core Team.</p>
+                    </div>
+
+                </div>
+
+              <ul class="post-nav cf">
+                  <li class="next"><a href="/blog/2017/11/30/mojolicious-advent-2017/index.html" rel="next"><strong>Next Article</strong> Mojolicious Advent 2017 </a></li>
+              </ul>
+
+            </div>
+
+        </article>
+
+
+      </div>
+
+      <div class="four columns end" id="secondary">
+        <aside id="sidebar">
+          
+
+
+
+
+
+
+
+<div class="widget widget_tag_cloud">
+  <h5 class="widget-title">Tags</h5>
+  <div class="tagcloud cf">
+    <a href="/blog/tag/advent/">advent</a>
+  </div>
+</div>
+
+
+
+        </aside>
+      </div>
+
+   </div>
+
+</div>
+
+
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <ul class="footer-nav">
+                <li><a href="/blog">Blog.</a></li>
+                <li><a href="https://mojolicious.org/perldoc">Documentation.</a></li>
+            </ul>
+
+            <ul class="footer-social">
+               <li><a href="https://github.com/kraih/mojo"><i class="fa fa-github"></i></a></li>
+               <li><a href="https://twitter.com/search?q=%23mojolicious"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="/blog/index.rss"><i class="fa fa-rss"></i></a></li>
+            </ul>
+
+            <ul class="copyright">
+                 <li>Copyright © 2017 Joel Berger</li>
+               <li>Design by <a href="http://www.styleshout.com/">Styleshout</a></li>
+               <li>Made with <a href="http://preaction.me/statocles">Statocles</a></li>
+               <li>Powered by <a href="http://www.perl.org">Perl</a></li>
+            </ul>
+
+         </div>
+
+         <div id="go-top" style="display: block;"><a href="#" title="Back to Top">Go To Top</a></div>
+
+      </div>
+
+   </footer>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="/theme/js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script src="/theme/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+   <script src="/theme/js/jquery.flexslider.js"></script>
+   <script src="/theme/js/doubletaptogo.js"></script>
+   <script src="/theme/js/init.js"></script>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/perl.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+      <script>
+        hljs.configure({"languages":["perl","bash"]});
+        hljs.initHighlightingOnLoad();
+      </script>
+
+
+</body>
+
+</html>

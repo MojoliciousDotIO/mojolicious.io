@@ -1,0 +1,16 @@
+%= include 'site/page_title.html.ep', title => $page->title, subtitle => ($page->data->{subtitle} // '')
+
+<div class="content-outer">
+
+  <div id="page-content" class="row page">
+
+    <section>
+
+      %= content
+
+    </section>
+
+  </div>
+
+</div>
+

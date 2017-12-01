@@ -1,0 +1,4 @@
+% if (my $title = $app->data->{title}) {
+  %= include 'site/page_title.html.ep', title => $app->data->{title}, subtitle => ($app->data->{description} // '')
+% }
+
