@@ -23,7 +23,7 @@ But for now let's ensure a level playing field by working out how to get started
 Well, [Mojolicious](http://mojolicious.org) is really two things.
 First it is a powerful web-focused toolkit called Mojo.
 Second it is a powerful web framework called Mojolicious.
-The Mojolicious framework is built using Mojo toolkit.
+The Mojolicious framework is built using the Mojo toolkit.
 
 That that doesn't mean you can't use Mojo tools elsewhere.
 If you see some tools you like but want to use with some other framework, go ahead, I won't tell!
@@ -68,7 +68,7 @@ But before that's any use to us, we have to start a web server.
 
 ## Running Your Application
 
-Mojolicious applications (as we'll see in another post) as more than just web servers.
+Mojolicious applications (as we'll see in another post) are more than just web servers.
 In order to use them as one, we need to start it as a web server.
 
 Mojolicious comes with four built-in servers
