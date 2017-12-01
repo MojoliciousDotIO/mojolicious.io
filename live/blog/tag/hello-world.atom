@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://mojolicious.io/blog/tag/hello-world/</id>
+    <title>mojolicious.io</title>
+    <updated>2017-12-01T00:00:00Z</updated>
+    <link href="http://mojolicious.io/blog/tag/hello-world.atom" rel="self" />
+    <link href="http://mojolicious.io/blog/tag/hello-world/" rel="alternate" />
+    <generator version="0.087">Statocles</generator>
+
+    <entry>
+        <id>http://mojolicious.io/blog/2017/12/01/day-1-getting-started/</id>
+        <title>Day 1: Getting Started</title>
+        <author><name>Joel Berger</name></author>
+        <link href="http://mojolicious.io/blog/2017/12/01/day-1-getting-started/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h2>Start at the Beginning</h2>
+
+<p>In this Advent Calendar series, some posts will be introductory, some will be advanced, some will be on new features.
+Who knows what could be next?
+But for now let&#39;s ensure a level playing field by working out how to get started.</p>
+
+                <p><a href="http://mojolicious.io/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="http://mojolicious.io/blog/tag/installing/">installing</a>
+                    <a href="http://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                    <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-01T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="installing" />
+        <category term="hello world" />
+        <category term="lite" />
+    </entry>
+</feed>
+

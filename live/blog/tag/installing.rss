@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>http://mojolicious.io/blog/tag/installing/</link>
+        <atom:link href="http://mojolicious.io/blog/tag/installing.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.087</generator>
+        <item>
+            <title>Day 1: Getting Started</title>
+            <link>http://mojolicious.io/blog/2017/12/01/day-1-getting-started/</link>
+            <guid>http://mojolicious.io/blog/2017/12/01/day-1-getting-started/</guid>
+            <description><![CDATA[
+                <h2>Start at the Beginning</h2>
+
+<p>In this Advent Calendar series, some posts will be introductory, some will be advanced, some will be on new features.
+Who knows what could be next?
+But for now let&#39;s ensure a level playing field by working out how to get started.</p>
+
+                    <p><a href="http://mojolicious.io/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="http://mojolicious.io/blog/tag/installing/">installing</a>
+                        <a href="http://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                        <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 01 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
