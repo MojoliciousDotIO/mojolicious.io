@@ -92,4 +92,16 @@ When it starts it should tell you to visit `http://127.0.0.1:3000`.
 Open that url in your browser.
 Your first advent treat should be waiting for you!
 
+## Getting Help
+
+The documentation is available at <http://mojolicious.org/perldoc>.
+You are especially encouraged to read the Tutorial and Guides in the order suggested there.
+
+Read it carefully, unlike some documentation, it is written for brevity and conciseness.
+Users accustomed to skimming documentation filled with fluff might need a second take.
+
+If you still have trouble, we have a mailing list and an IRC channel ready to help!
+Find us at <http://mojolicious.org/perldoc#SUPPORT>!
+
+
 <small><a href="https://commons.wikimedia.org/wiki/File:Colorado_Springs_Hot_Air_Balloon_Competition.jpg">Image by DarlArthurS</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" class="external text" href="//creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported</a> license.</small>
