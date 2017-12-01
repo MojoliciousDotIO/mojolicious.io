@@ -20,7 +20,7 @@ But for now let's ensure a level playing field by working out how to get started
 ---
 ## What is Mojolicious?
 
-Mojolicious is really two things.
+Well, [Mojolicious](http://mojolicious.org) is really two things.
 First it is a powerful web-focused toolkit called Mojo.
 Second it is a powerful web framework called Mojolicious.
 The Mojolicious framework is built using Mojo toolkit.
@@ -46,7 +46,7 @@ The easiest way to install is to run
 
     curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
 
-or, you can install using any cpan client (we like [`cpanm`](https://metacpan.org/pod/App::cpanminus) or using your system's package manager.
+or, you can install using any cpan client (we like [`cpanm`](https://metacpan.org/pod/App::cpanminus)) or using your system's package manager.
 
 ## Your First Application
 
