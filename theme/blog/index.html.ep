@@ -15,7 +15,7 @@
 
               <p class="post-meta">
 
-                  <time class="date" datetime="<%= $article->date->strftime('%Y-%m-%d') %>"><%= $article->date->strftime('%b %d, %Y') %></time>
+                  <time class="date" datetime="<%= $article->date->strftime('%Y-%m-%d') %>"><%= $article->date->strftime('%b %e, %Y') %></time>
                   <%# #categories
                   /
                   <span class="categories">
