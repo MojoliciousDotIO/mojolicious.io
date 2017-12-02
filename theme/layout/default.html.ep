@@ -35,6 +35,9 @@
     % }
     % if (my $image = $page->images('banner')) {
       <meta property="og:image" content="<%== $site->url( $image->src ) %>">
+      <meta name="twitter:card" content="summary_large_image">
+    % } else {
+      <meta name="twitter:card" content="summary">
     % }
   % }
 
