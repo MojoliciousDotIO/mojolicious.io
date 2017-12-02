@@ -98,6 +98,7 @@ site:
             $ref: 'deploy'
 
         data:
+            google_analytics_id: 'UA-110569629-1'
             highlight:
                 style: 'sunburst'
                 languages:
