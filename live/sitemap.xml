@@ -4,13 +4,13 @@
         <loc>http://mojolicious.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-12-01</lastmod>
+        <lastmod>2017-12-02</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-01</lastmod>
+        <lastmod>2017-12-02</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -31,16 +31,22 @@
         <lastmod>2017-12-01</lastmod>
     </url>
     <url>
+        <loc>http://mojolicious.io/blog/2017/12/02/day-2-the-stash/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-02</lastmod>
+    </url>
+    <url>
         <loc>http://mojolicious.io/blog/tag/advent/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-01</lastmod>
+        <lastmod>2017-12-02</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/tag/hello-world/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-01</lastmod>
+        <lastmod>2017-12-02</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/tag/installing/</loc>
@@ -53,6 +59,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-01</lastmod>
+    </url>
+    <url>
+        <loc>http://mojolicious.io/blog/tag/rendering/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-02</lastmod>
     </url>
 </urlset>
 

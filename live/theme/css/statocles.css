@@ -13,3 +13,11 @@
   white-space: pre;
   word-wrap: normal;
 }
+
+code:not(.hljs) {
+  background-color: black;
+  color: white;
+  padding: 0px 2px;
+  margin: 0px 1px;
+  border-radius: 2px;
+}
