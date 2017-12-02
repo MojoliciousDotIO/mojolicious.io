@@ -2,6 +2,7 @@
 tags:
   - advent
   - hello world
+  - lite
   - rendering
 title: Day 2: The Stash
 author: Joel Berger

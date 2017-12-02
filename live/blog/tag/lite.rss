@@ -7,6 +7,37 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.087</generator>
         <item>
+            <title>Day 2: The Stash</title>
+            <link>http://mojolicious.io/blog/2017/12/02/day-2-the-stash/</link>
+            <guid>http://mojolicious.io/blog/2017/12/02/day-2-the-stash/</guid>
+            <description><![CDATA[
+                <p>In Mojolicious, when processing a request and preparing a response one of the most important concepts is &quot;the stash&quot;.
+Since it is a non-blocking framework, your code can&#39;t use global variables to store any state during processing.
+If you did and some other code were to run, it could very easily get cross-talk between requests.</p>
+
+<p>The stash is the place you can store information while you process it.
+It is just a simple hash reference that is attached to the controller object that is processing the request.
+It lives and dies with that one transaction.</p>
+
+<p>While you can and should use it as a scratchpad, it really is much more.
+The stash controls almost every aspect of the response that you generate.
+Let&#39;s look a little closer to see how it works</p>
+
+                    <p><a href="http://mojolicious.io/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="http://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                        <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
+                        <a href="http://mojolicious.io/blog/tag/rendering/">rendering</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 02 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 1: Getting Started</title>
             <link>http://mojolicious.io/blog/2017/12/01/day-1-getting-started/</link>
             <guid>http://mojolicious.io/blog/2017/12/01/day-1-getting-started/</guid>

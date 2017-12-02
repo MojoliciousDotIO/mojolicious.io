@@ -30,6 +30,7 @@ Let&#39;s look a little closer to see how it works</p>
                 <p>Tags:
                     <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
                     <a href="http://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                    <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
                     <a href="http://mojolicious.io/blog/tag/rendering/">rendering</a>
                 </p>
 
@@ -37,6 +38,7 @@ Let&#39;s look a little closer to see how it works</p>
         <updated>2017-12-02T00:00:00Z</updated>
         <category term="advent" />
         <category term="hello world" />
+        <category term="lite" />
         <category term="rendering" />
     </entry>
     <entry>
