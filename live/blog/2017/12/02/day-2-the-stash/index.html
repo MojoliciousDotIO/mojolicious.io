@@ -210,7 +210,7 @@ If you start the server and request <code>/Joel</code> in your browser you shoul
 
 <p>If you tried to request <code>/</code> however, you would get a 404, not found.
 The router doesn&#39;t want to handle this request without a value for the placeholder, so it assumes you wanted some other route to handle it.
-While we could define another one <code>/</code>, as we did before, we can do both at once by bringing back the defaults.</p>
+While we could define another one for <code>/</code>, as we did before, we can do both at once by bringing back the defaults.</p>
 
 <pre><code>use mojolicious::lite;
 get &#39;/:name&#39; =&gt; {name =&gt; &#39;🌍 world!&#39;} =&gt; sub {
@@ -225,7 +225,7 @@ app-&gt;start;
 
 <h2>Stash Values in Templates</h2>
 
-<p>Simple stash values, those that are only a single word (no punctuation) are also available in templates.
+<p>Simple stash values, those that are only a single word (no punctuation) are also available in <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Embedded-Perl">templates</a>.
 Here is the previous example using an &quot;inline template&quot;.</p>
 
 <pre><code>use mojolicious::lite;
@@ -252,7 +252,8 @@ hello &lt;%= $name %&gt;
 </code></pre>
 
 <p>In the latter you see the first example of calling render with only one argument.
-When it is called with an odd number of arguments, the first one is the identifier (name) of a template.</p>
+When it is called with an odd number of arguments, the first one is the identifier (name) of a template.
+This is the same as stashing <code>template =&gt; &#39;hello&#39;</code>, which you could even do in the route defaults.</p>
 
 <h2>Special/Reserved Stash Keys</h2>
 

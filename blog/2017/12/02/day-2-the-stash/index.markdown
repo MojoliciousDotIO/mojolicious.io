@@ -109,7 +109,7 @@ If you start the server and request `/Joel` in your browser you should see an ap
 
 If you tried to request `/` however, you would get a 404, not found.
 The router doesn't want to handle this request without a value for the placeholder, so it assumes you wanted some other route to handle it.
-While we could define another one `/`, as we did before, we can do both at once by bringing back the defaults.
+While we could define another one for `/`, as we did before, we can do both at once by bringing back the defaults.
 
     use mojolicious::lite;
     get '/:name' => {name => '🌍 world!'} => sub {
@@ -123,7 +123,7 @@ Now that the router knows what the default for `name` should be, it can now hand
 
 ## Stash Values in Templates
 
-Simple stash values, those that are only a single word (no punctuation) are also available in templates.
+Simple stash values, those that are only a single word (no punctuation) are also available in [templates](http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Embedded-Perl).
 Here is the previous example using an "inline template".
 
     use mojolicious::lite;
@@ -149,6 +149,7 @@ Or if you'll let me use a concept without fully introducing it, here is a templa
 
 In the latter you see the first example of calling render with only one argument.
 When it is called with an odd number of arguments, the first one is the identifier (name) of a template.
+This is the same as stashing `template => 'hello'`, which you could even do in the route defaults.
 
 ## Special/Reserved Stash Keys
 
