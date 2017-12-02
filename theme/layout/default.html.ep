@@ -14,6 +14,31 @@
   <link rel="stylesheet" href="/theme/css/media-queries.css">
   <link rel="stylesheet" href="/theme/css/statocles.css">
 
+  <!-- twitter and opengraph -->
+  % if (my $title = $page->title) {
+    <meta name="twitter:card" content="summary">
+    % if (my $twitter = $site->data->{twitter}) {
+      % if ($twitter !~ /^\@/) { $twitter = '@' . $twitter }
+      <meta name="twitter:site" content="<%= $twitter %>">
+    % }
+    % if (my $bio = $page->data->{bio}) {
+      % if (! ref $bio) { $bio = $site->data->{bios}{$bio} || {} }
+      % if (my $twitter = $bio->{twitter}) {
+        % if ($twitter !~ /^\@/) { $twitter = '@' . $twitter }
+        <meta name="twitter:creator" content="<%= $twitter %>">
+      % }
+    % }
+    <meta property="og:url" content="<%== $site->url( $page->path ) %>">
+    <meta property="og:title" content="<%== $page->title %>">
+    % if (my $desc = $page->data->{description}) {
+      <meta property="og:description" content="<%== $desc %>">
+    % }
+    % if (my $image = $page->images('banner')) {
+      <meta property="og:image" content="<%== $site->url( $image->src ) %>">
+    % }
+  % }
+
+
   <script src="/theme/js/modernizr.js"></script>
 
   % if (my $hl = $site->data->{highlight}) {

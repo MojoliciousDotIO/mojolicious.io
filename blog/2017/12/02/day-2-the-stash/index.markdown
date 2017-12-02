@@ -5,11 +5,12 @@ tags:
   - rendering
 title: Day 2: The Stash
 author: Joel Berger
-bio: jberger
 images:
   banner:
     src: '/static/bag-1854148_1920.jpg'
     alt: 'leather bag'
+data:
+  bio: jberger
 ---
 In Mojolicious, when processing a request and preparing a response one of the most important concepts is "the stash".
 Since it is a non-blocking framework, your code can't use global variables to store any state during processing.

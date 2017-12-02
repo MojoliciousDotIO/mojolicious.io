@@ -70,6 +70,7 @@ But for now let&#39;s ensure a level playing field by working out how to get sta
     <entry>
         <id>http://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/</id>
         <title>Mojolicious Advent 2017</title>
+        <author><name>Joel Berger</name></author>
         <link href="http://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>I&#39;m happy to announce that I&#39;ll be running a Mojolicious Advent Calendar this year!</p>

@@ -6,11 +6,12 @@ tags:
     - lite
 title: 'Day 1: Getting Started'
 author: Joel Berger
-bio: jberger
 images:
   banner:
     src: '/static/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg'
     alt: 'hot air ballons'
+data:
+  bio: jberger
 ---
 ## Start at the Beginning
 

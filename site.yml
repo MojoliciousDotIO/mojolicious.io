@@ -116,6 +116,7 @@ site:
             bios:
                 jberger:
                     name: 'Joel Berger'
+                    twitter: '@joelaberger'
                     image: '//gravatar.com/avatar/cc767569f5863a7c261991ee5b23f147'
                     text: 'Joel has Ph.D. in Physics from the University of Illinois at Chicago. He an avid Perl user and a member of the Mojolicious Core Team.'
 

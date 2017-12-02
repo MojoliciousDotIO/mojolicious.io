@@ -2,6 +2,9 @@
 tags:
   - advent
 title: Mojolicious Advent 2017
+author: Joel Berger
+data:
+  bio: jberger
 ---
 I'm happy to announce that I'll be running a Mojolicious Advent Calendar this year!
 
