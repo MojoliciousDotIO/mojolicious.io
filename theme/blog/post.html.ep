@@ -45,7 +45,7 @@
               </section>
               % }
 
-              % my @tags = $app->tags;
+              % my @tags = $self->tags;
               % if (@tags) {
               <p class="tags">
                 <span>Tagged in </span>:
