@@ -2,11 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://mojolicious.io/blog/tag/lite/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-02T00:00:00Z</updated>
+    <updated>2017-12-03T00:00:00Z</updated>
     <link href="http://mojolicious.io/blog/tag/lite.atom" rel="self" />
     <link href="http://mojolicious.io/blog/tag/lite/" rel="alternate" />
     <generator version="0.087">Statocles</generator>
 
+    <entry>
+        <id>http://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/</id>
+        <title>Day 3: Using Named Routes</title>
+        <author><name>Joel Berger</name></author>
+        <link href="http://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>One of the things we know from years of programming is that you should never hard-code anything if you don&#39;t have to.
+And yet far too many web application hard-code their urls, especially internal ones.
+But what if you didn&#39;t have to?</p>
+
+<p>Each Mojolicious route has its own <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Routing#Named-routes">name</a> which can be used to generate urls.
+If you don&#39;t specify one, one is generated, but you shouldn&#39;t rely on that name, give it one that is meaningful and relevant to your purposes.
+In lite apps, the name is the last parameter, after any defaults or callbacks.
+(In a full app it is an attribute, but we&#39;ll talk about those in another post).</p>
+
+<p>Then when you need a url, rather than hard-coding it, use <a href="http://mojolicious.org/perldoc/Mojolicious/Controller#url_for"><code>url_for</code></a> or related functionality to generate a url by name, you can even pass placeholder values if needed.
+Let&#39;s see how it works!</p>
+
+                <p><a href="http://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
+                    <a href="http://mojolicious.io/blog/tag/routing/">routing</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-03T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="lite" />
+        <category term="routing" />
+    </entry>
     <entry>
         <id>http://mojolicious.io/blog/2017/12/02/day-2-the-stash/</id>
         <title>Day 2: The Stash</title>
