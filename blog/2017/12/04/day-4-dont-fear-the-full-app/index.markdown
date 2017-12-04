@@ -96,17 +96,15 @@ As you get deeper into Mojolicious, you might like setting up routes via attribu
 but either way works, choose the one you like!
 TIMTOWTDI again.
 
-But you must have seen that I keep qualifying my statement as 'toplevel routes', well ok so there is one small difference between Lite and Full.
+If you've only used those keywords above, translate them as I just showed you and you're done.
 
 ### Nested Routing
 
-That difference is how nested routes work.
-Since Lite apps don't have a route object to add routes to, they basically always add them to the current "global route object".
-If you've only used those keywords above, translate them as I just showed you and you're done.
+By now, you must have seen that I keep qualifying my statement as 'toplevel routes'.
+Well ok so there is one small difference between Lite and Full, and that difference is how nested routes work.
 
-But there are two other keywords, `under` and `group`.
-
-`under` lets routes share code, like say authentication.
+There are two other keywords, `under` and `group`.
+`under` allows routes share to code, like say for authentication.
 They also can share parts of their path.
 For example parts of an api that need authentication might be all under `/protected`.
 
@@ -121,7 +119,8 @@ For example parts of an api that need authentication might be all under `/protec
 
 In Lite apps, these protected routes are literally *under* their `under`.
 That works fine until you think, "now wait, that means I can't ever get back to the unprotected space."
-Well spotted, that's where `group` comes in.
+Well spotted!
+That's where `group` comes in.
 
     get '/unsafe' => 'unsafe';
 
@@ -143,7 +142,9 @@ I'm going to let you in on a little secret, I think this is confusing too.
 The Lite form of nesting routes is really more for completeness, once you need it, it is probably a good sign that you should look at switching to Full apps instead.
 Full apps have it much easier!
 
-In a Full app, the route methods all return a new route object and those can build off each other.
+In a Full app, the route methods all return a new route object.
+If you store those in a variable, you can use them to build off of each other.
+This is a much more nature api for building nested structures in my opinion.
 
     my $r = $app->routes;
     $r->get('/unsafe' => 'unsafe';
@@ -157,10 +158,10 @@ In a Full app, the route methods all return a new route object and those can bui
 
     $r->get('/another_unsafe' => ...);
 
-You'll notice that I didn't write `my $unsafe = $r->get('/unsage' => 'unsafe')`.
-You don't need to store them all to variables, you probably won't nest a `get` off of a `get` until you really know what you are doing, but you can.
+Since Lite app keywords don't have a way to attach to another route, they basically always add them to the "current global route".
+That's where the confusion comes in.
 
-Finally I'm going to let you in even deeper on my secret.
+Speaking of which, I'm going to let you in even deeper on my secret.
 I like the chained type of routing so much more than using `group` that I actually use it in my Lite apps.
 Sure I still use `app` and `plugin`, but one of the first things I do is `my $r = app->routes`.
 Then, I use that instead of the routing keywords in all but the simplest of cases.

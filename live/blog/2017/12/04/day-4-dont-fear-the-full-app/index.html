@@ -203,17 +203,15 @@ As you get deeper into Mojolicious, you might like setting up routes via attribu
 <p>but either way works, choose the one you like!
 TIMTOWTDI again.</p>
 
-<p>But you must have seen that I keep qualifying my statement as &#39;toplevel routes&#39;, well ok so there is one small difference between Lite and Full.</p>
+<p>If you&#39;ve only used those keywords above, translate them as I just showed you and you&#39;re done.</p>
 
 <h3>Nested Routing</h3>
 
-<p>That difference is how nested routes work.
-Since Lite apps don&#39;t have a route object to add routes to, they basically always add them to the current &quot;global route object&quot;.
-If you&#39;ve only used those keywords above, translate them as I just showed you and you&#39;re done.</p>
+<p>By now, you must have seen that I keep qualifying my statement as &#39;toplevel routes&#39;.
+Well ok so there is one small difference between Lite and Full, and that difference is how nested routes work.</p>
 
-<p>But there are two other keywords, <code>under</code> and <code>group</code>.</p>
-
-<p><code>under</code> lets routes share code, like say authentication.
+<p>There are two other keywords, <code>under</code> and <code>group</code>.
+<code>under</code> allows routes share to code, like say for authentication.
 They also can share parts of their path.
 For example parts of an api that need authentication might be all under <code>/protected</code>.</p>
 
@@ -229,7 +227,8 @@ get &#39;/safe&#39; =&gt; &#39;safe&#39;;
 
 <p>In Lite apps, these protected routes are literally <em>under</em> their <code>under</code>.
 That works fine until you think, &quot;now wait, that means I can&#39;t ever get back to the unprotected space.&quot;
-Well spotted, that&#39;s where <code>group</code> comes in.</p>
+Well spotted!
+That&#39;s where <code>group</code> comes in.</p>
 
 <pre><code>get &#39;/unsafe&#39; =&gt; &#39;unsafe&#39;;
 
@@ -252,7 +251,9 @@ I&#39;m going to let you in on a little secret, I think this is confusing too.
 The Lite form of nesting routes is really more for completeness, once you need it, it is probably a good sign that you should look at switching to Full apps instead.
 Full apps have it much easier!</p>
 
-<p>In a Full app, the route methods all return a new route object and those can build off each other.</p>
+<p>In a Full app, the route methods all return a new route object.
+If you store those in a variable, you can use them to build off of each other.
+This is a much more nature api for building nested structures in my opinion.</p>
 
 <pre><code>my $r = $app-&gt;routes;
 $r-&gt;get(&#39;/unsafe&#39; =&gt; &#39;unsafe&#39;;
@@ -267,10 +268,10 @@ $protected-&gt;get(&#39;/safe&#39; =&gt; &#39;safe&#39;);
 $r-&gt;get(&#39;/another_unsafe&#39; =&gt; ...);
 </code></pre>
 
-<p>You&#39;ll notice that I didn&#39;t write <code>my $unsafe = $r-&gt;get(&#39;/unsage&#39; =&gt; &#39;unsafe&#39;)</code>.
-You don&#39;t need to store them all to variables, you probably won&#39;t nest a <code>get</code> off of a <code>get</code> until you really know what you are doing, but you can.</p>
+<p>Since Lite app keywords don&#39;t have a way to attach to another route, they basically always add them to the &quot;current global route&quot;.
+That&#39;s where the confusion comes in.</p>
 
-<p>Finally I&#39;m going to let you in even deeper on my secret.
+<p>Speaking of which, I&#39;m going to let you in even deeper on my secret.
 I like the chained type of routing so much more than using <code>group</code> that I actually use it in my Lite apps.
 Sure I still use <code>app</code> and <code>plugin</code>, but one of the first things I do is <code>my $r = app-&gt;routes</code>.
 Then, I use that instead of the routing keywords in all but the simplest of cases.</p>
