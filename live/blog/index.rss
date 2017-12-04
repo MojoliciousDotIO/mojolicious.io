@@ -7,6 +7,40 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.087</generator>
         <item>
+            <title>Day 4: Don&#39;t Fear the Full App</title>
+            <link>http://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</link>
+            <guid>http://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</guid>
+            <description><![CDATA[
+                <p>One of the most common misconceptions about Mojolicious is that there is a large difference between the declarative &quot;Lite&quot; apps that we have seen so far and large-scale structured &quot;Full&quot; apps.
+Nothing could be further from the truth.
+<a href="http://mojolicious.org/perldoc/Mojolicious/Lite">Mojolicious::Lite</a> is a very tiny wrapper around the so-called &quot;Full&quot; app architecture, giving it the approachable keyword syntax.</p>
+
+<p>Because it is much nicer to have concise single-file examples for documentation most of Mojolicious&#39; documentation uses Lite syntax most of the time.
+It is understandable that people worry about migrating (or as we call it &quot;growing&quot;) even once their apps would benefit from Object-Oriented structure; after all the docs seem geared towards Lite apps.
+However, let those fears go, the transition is easy.
+And once you understand it, the documentatation examples are trivial to translate.</p>
+
+<p>Plus, Mojolicious comes with two forms of help when transitioning.
+The first is the <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing">Growing Guide</a> which covers everything this post will but from the perspective of porting an existing application (which I won&#39;t duplicate here).
+The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate">inflate command</a> which can even start you on the process by moving your templates from the data section and into their own files.</p>
+
+<p>That said, in order to futher demystify things, I&#39;m going to cover some of the differences and pull back the curtain on the Lite syntax itself.</p>
+
+                    <p><a href="http://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
+                        <a href="http://mojolicious.io/blog/tag/full/">full</a>
+                        <a href="http://mojolicious.io/blog/tag/growing/">growing</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 04 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 3: Using Named Routes</title>
             <link>http://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/</link>
             <guid>http://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/</guid>
@@ -121,31 +155,6 @@ Some calendars try to use holiday themes in the posts, which I may do it the mus
                     <p>Tags:
                         <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
                     </p>
-
-            ]]></description>
-            <pubDate>
-                Thu, 30 Nov 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Introduction</title>
-            <link>http://mojolicious.io/blog/2017/11/30/introduction/</link>
-            <guid>http://mojolicious.io/blog/2017/11/30/introduction/</guid>
-            <description><![CDATA[
-                <p>Hello and welcome to the new site!</p>
-
-<p>My name is Joel Berger.
-I&#39;m on the Core Development team of the Mojolicious web framework.</p>
-
-<p>I guess the immediate question is, why start a new site and blog?
-This site grew out of ideas I have had to promote the framework, especially outside of the Perl bubble.</p>
-
-<p>The immediate goal is to publish an Advent Calendar focused on Mojolicious.
-It is a fun tradition and an interesting challenge, blogging once a day for almost a month.
-The question was where to put it.</p>
-
-                    <p><a href="http://mojolicious.io/blog/2017/11/30/introduction/#section-2">Continue reading...</a></p>
-
 
             ]]></description>
             <pubDate>
