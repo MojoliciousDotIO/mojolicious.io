@@ -11,6 +11,7 @@ images:
     alt: '"my name is" stickers'
 data:
   bio: jberger
+  description: Avoid hard-coded URLs using Mojolicious' named routes.
 ---
 One of the things we know from years of programming is that you should never hard-code anything if you don't have to.
 And yet far too many web application hard-code their urls, especially internal ones.

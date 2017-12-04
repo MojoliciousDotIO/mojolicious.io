@@ -12,6 +12,7 @@ images:
     alt: 'hot air ballons'
 data:
   bio: jberger
+  description: Hit the ground running with Mojolicious. A working application in minutes!
 ---
 ## Start at the Beginning
 

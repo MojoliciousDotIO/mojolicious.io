@@ -12,6 +12,7 @@ images:
     alt: 'leather bag'
 data:
   bio: jberger
+  description: The stash is the most important data structure in Mojolicious.
 ---
 In Mojolicious, when processing a request and preparing a response one of the most important concepts is "the stash".
 Since it is a non-blocking framework, your code can't use global variables to store any state during processing.
