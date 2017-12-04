@@ -56,7 +56,7 @@ In truth though, most of the arguments to render are actually just merged into t
 Indeed the above example is the same as
 
     use Mojolicious::Lite;
-    gee '/' => sub {
+    get '/' => sub {
       my $c = shift;
       $c->stash(text => 'Hello 🌍 World!');
       $c->render;

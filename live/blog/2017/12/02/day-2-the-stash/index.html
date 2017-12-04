@@ -159,7 +159,7 @@ Here you see that we are going to render some text.</p>
 Indeed the above example is the same as</p>
 
 <pre><code>use Mojolicious::Lite;
-gee &#39;/&#39; =&gt; sub {
+get &#39;/&#39; =&gt; sub {
   my $c = shift;
   $c-&gt;stash(text =&gt; &#39;Hello 🌍 World!&#39;);
   $c-&gt;render;
