@@ -151,11 +151,11 @@ A callback is function reference, intended to be called in the future; in this c
 
 <p>An action is called with one argument, called the <a href="http://mojolicious.org/perldoc/Mojolicious/Controller">controller</a>.
 The controller is an object that represents our application&#39;s interaction with the current transaction.
-It contains an object representing the <a href="http://mojolicious.org/perldoc/Mojo/Transaction">transaction</a>, which in tern holds objects for the <a href="https://mojolicious.org/perldoc/Mojo/Message/Request">request</a> and <a href="https://mojolicious.org/perldoc/Mojo/Message/Response">response</a>.
+It contains an object representing the <a href="http://mojolicious.org/perldoc/Mojo/Transaction">transaction</a>, which in turn holds objects for the <a href="https://mojolicious.org/perldoc/Mojo/Message/Request">request</a> and <a href="https://mojolicious.org/perldoc/Mojo/Message/Response">response</a>.
 It has methods which can be used generate responses, one of which is <code>render</code>, which you see above.
 Here you see that we are going to render some text.</p>
 
-<p>In truth though, most of the arguements to render are actually just merged into the stash.
+<p>In truth though, most of the arguments to render are actually just merged into the stash.
 Indeed the above example is the same as</p>
 
 <pre><code>use Mojolicious::Lite;
@@ -196,7 +196,7 @@ app-&gt;start;
 
 <p>However now our action doesn&#39;t do anything, so we don&#39;t actually need it at all, and we are back to our original example.</p>
 
-<pre><code>use mojolicious::lite;
+<pre><code>use Mojolicious::Lite;
 get &#39;/&#39; =&gt; {text =&gt; &#39;hello 🌍 world!&#39;};
 app-&gt;start;
 </code></pre>
@@ -222,7 +222,7 @@ If you start the server and request <code>/Joel</code> in your browser you shoul
 The router doesn&#39;t want to handle this request without a value for the placeholder, so it assumes you wanted some other route to handle it.
 While we could define another one for <code>/</code>, as we did before, we can do both at once by bringing back the defaults.</p>
 
-<pre><code>use mojolicious::lite;
+<pre><code>use Mojolicious::Lite;
 get &#39;/:name&#39; =&gt; {name =&gt; &#39;🌍 world!&#39;} =&gt; sub {
   my $c = shift;
   my $name = $c-&gt;stash(&#39;name&#39;);
@@ -238,7 +238,7 @@ app-&gt;start;
 <p>Simple stash values, those that are only a single word (no punctuation) are also available in <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Embedded-Perl">templates</a>.
 Here is the previous example using an &quot;inline template&quot;.</p>
 
-<pre><code>use mojolicious::lite;
+<pre><code>use Mojolicious::Lite;
 get &#39;/:name&#39; =&gt; {name =&gt; &#39;🌍 world!&#39;} =&gt; sub {
   my $c = shift;
   $c-&gt;stash(inline =&gt; &#39;hello &lt;%= $name %&gt;&#39;);
@@ -248,7 +248,7 @@ app-&gt;start;
 
 <p>Or if you&#39;ll let me use a concept without fully introducing it, here is a template in the data section of your script.</p>
 
-<pre><code>use mojolicious::lite;
+<pre><code>use Mojolicious::Lite;
 get &#39;/:name&#39; =&gt; {name =&gt; &#39;🌍 world!&#39;} =&gt; sub {
   my $c = shift;
   $c-&gt;render(&#39;hello&#39;);
@@ -299,7 +299,7 @@ To render data in a binary format (or just text without being utf8 encoded) use 
 Both of those, as well as the <code>template</code> will be rendered with the content type <code>text/html</code>.
 To use something different, you can specify it with the <code>format</code> key.</p>
 
-<pre><code>use mojolicious::lite;
+<pre><code>use Mojolicious::Lite;
 get &#39;/&#39; =&gt; {text =&gt; &#39;hello 🌍 world!&#39;, format =&gt; &#39;txt&#39;};
 app-&gt;start;
 </code></pre>

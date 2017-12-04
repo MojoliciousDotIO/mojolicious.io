@@ -48,11 +48,11 @@ A callback is function reference, intended to be called in the future; in this c
 
 An action is called with one argument, called the [controller](http://mojolicious.org/perldoc/Mojolicious/Controller).
 The controller is an object that represents our application's interaction with the current transaction.
-It contains an object representing the [transaction](http://mojolicious.org/perldoc/Mojo/Transaction), which in tern holds objects for the [request](https://mojolicious.org/perldoc/Mojo/Message/Request) and [response](https://mojolicious.org/perldoc/Mojo/Message/Response).
+It contains an object representing the [transaction](http://mojolicious.org/perldoc/Mojo/Transaction), which in turn holds objects for the [request](https://mojolicious.org/perldoc/Mojo/Message/Request) and [response](https://mojolicious.org/perldoc/Mojo/Message/Response).
 It has methods which can be used generate responses, one of which is `render`, which you see above.
 Here you see that we are going to render some text.
 
-In truth though, most of the arguements to render are actually just merged into the stash.
+In truth though, most of the arguments to render are actually just merged into the stash.
 Indeed the above example is the same as
 
     use Mojolicious::Lite;
@@ -90,7 +90,7 @@ These defaults are passed as a hash reference to the route contructor `get`.
 
 However now our action doesn't do anything, so we don't actually need it at all, and we are back to our original example.
 
-    use mojolicious::lite;
+    use Mojolicious::Lite;
     get '/' => {text => 'hello 🌍 world!'};
     app->start;
 
@@ -114,7 +114,7 @@ If you tried to request `/` however, you would get a 404, not found.
 The router doesn't want to handle this request without a value for the placeholder, so it assumes you wanted some other route to handle it.
 While we could define another one for `/`, as we did before, we can do both at once by bringing back the defaults.
 
-    use mojolicious::lite;
+    use Mojolicious::Lite;
     get '/:name' => {name => '🌍 world!'} => sub {
       my $c = shift;
       my $name = $c->stash('name');
@@ -129,7 +129,7 @@ Now that the router knows what the default for `name` should be, it can now hand
 Simple stash values, those that are only a single word (no punctuation) are also available in [templates](http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Embedded-Perl).
 Here is the previous example using an "inline template".
 
-    use mojolicious::lite;
+    use Mojolicious::Lite;
     get '/:name' => {name => '🌍 world!'} => sub {
       my $c = shift;
       $c->stash(inline => 'hello <%%= $name %>');
@@ -138,7 +138,7 @@ Here is the previous example using an "inline template".
 
 Or if you'll let me use a concept without fully introducing it, here is a template in the data section of your script.
 
-    use mojolicious::lite;
+    use Mojolicious::Lite;
     get '/:name' => {name => '🌍 world!'} => sub {
       my $c = shift;
       $c->render('hello');
@@ -186,7 +186,7 @@ To render data in a binary format (or just text without being utf8 encoded) use 
 Both of those, as well as the `template` will be rendered with the content type `text/html`.
 To use something different, you can specify it with the `format` key.
 
-    use mojolicious::lite;
+    use Mojolicious::Lite;
     get '/' => {text => 'hello 🌍 world!', format => 'txt'};
     app->start;
 

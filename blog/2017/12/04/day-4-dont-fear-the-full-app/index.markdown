@@ -147,7 +147,7 @@ If you store those in a variable, you can use them to build off of each other.
 This is a much more nature api for building nested structures in my opinion.
 
     my $r = $app->routes;
-    $r->get('/unsafe' => 'unsafe';
+    $r->get('/unsafe' => 'unsafe');
 
     my $protected = $r->under('/protected' => sub {
       # check authentication
