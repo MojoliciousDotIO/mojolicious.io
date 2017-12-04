@@ -92,6 +92,9 @@ site:
                   children:
                     - text: 'Tutorial'
                       href: 'http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial'
+        images:
+            icon:
+                src: '/static/favicon.ico'
 
         # deploy: This is the deploy object, used to deploy this site.
         deploy:
