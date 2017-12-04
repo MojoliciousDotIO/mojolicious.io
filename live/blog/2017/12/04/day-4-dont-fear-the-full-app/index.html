@@ -181,8 +181,12 @@ The keywords <code>helper</code>, <code>hook</code>, and <code>plugin</code> are
 </ul>
 
 <p>are methods on route objects used exactly as they were before.
-To get the toplevel route object, call <code>$app-&gt;routes</code>; by convention we call this toplevel route object <code>$r</code>.
-So <code>get &#39;/&#39; =&gt; sub { ... } =&gt; &#39;route_name&#39;;</code> becomes</p>
+To get the toplevel route object, call <code>$app-&gt;routes</code>; by convention we call this toplevel route object <code>$r</code>.</p>
+
+<pre><code>get &#39;/&#39; =&gt; sub { ... } =&gt; &#39;route_name&#39;;
+</code></pre>
+
+<p>becomes</p>
 
 <pre><code>my $r = $app-&gt;routes;
 $r-&gt;get(&#39;/&#39; =&gt; sub { ... } =&gt; &#39;route_name&#39;);
@@ -191,7 +195,7 @@ $r-&gt;get(&#39;/&#39; =&gt; sub { ... } =&gt; &#39;route_name&#39;);
 
 <p>These are what we call &#39;hybrid routes&#39;.
 They basically use the Lite arguments but are given to the methods.
-As you get deeper into Mojolicious, you might like setting the route name via an attribute better than by a positional argument</p>
+As you get deeper into Mojolicious, you might like setting up routes via attributes better than by a positional argument</p>
 
 <pre><code>$r-&gt;get(&#39;/&#39;)-&gt;to(cb =&gt; sub { ... })-&gt;name(&#39;route_name&#39;);
 </code></pre>
@@ -204,7 +208,7 @@ TIMTOWTDI again.</p>
 <h3>Nested Routing</h3>
 
 <p>That difference is how nested routes work.
-You see since Lite apps don&#39;t have a route object to add routes to, they basically always add them to the current &quot;global route object&quot;.
+Since Lite apps don&#39;t have a route object to add routes to, they basically always add them to the current &quot;global route object&quot;.
 If you&#39;ve only used those keywords above, translate them as I just showed you and you&#39;re done.</p>
 
 <p>But there are two other keywords, <code>under</code> and <code>group</code>.</p>
@@ -240,6 +244,8 @@ group {
 
 get &#39;/another_unsafe&#39; =&gt; ...;
 </code></pre>
+
+<h3>Wait, What?</h3>
 
 <p>If you are confused, that&#39;s ok.
 I&#39;m going to let you in on a little secret, I think this is confusing too.

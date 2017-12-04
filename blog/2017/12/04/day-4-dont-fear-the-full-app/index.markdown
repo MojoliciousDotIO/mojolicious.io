@@ -78,7 +78,10 @@ The routing methods
 
 are methods on route objects used exactly as they were before.
 To get the toplevel route object, call `$app->routes`; by convention we call this toplevel route object `$r`.
-So `get '/' => sub { ... } => 'route_name';` becomes
+
+    get '/' => sub { ... } => 'route_name';
+
+becomes
 
     my $r = $app->routes;
     $r->get('/' => sub { ... } => 'route_name');
@@ -86,7 +89,7 @@ So `get '/' => sub { ... } => 'route_name';` becomes
 
 These are what we call 'hybrid routes'.
 They basically use the Lite arguments but are given to the methods.
-As you get deeper into Mojolicious, you might like setting the route name via an attribute better than by a positional argument
+As you get deeper into Mojolicious, you might like setting up routes via attributes better than by a positional argument
 
     $r->get('/')->to(cb => sub { ... })->name('route_name');
 
@@ -98,7 +101,7 @@ But you must have seen that I keep qualifying my statement as 'toplevel routes',
 ### Nested Routing
 
 That difference is how nested routes work.
-You see since Lite apps don't have a route object to add routes to, they basically always add them to the current "global route object".
+Since Lite apps don't have a route object to add routes to, they basically always add them to the current "global route object".
 If you've only used those keywords above, translate them as I just showed you and you're done.
 
 But there are two other keywords, `under` and `group`.
@@ -132,6 +135,8 @@ Well spotted, that's where `group` comes in.
     };
 
     get '/another_unsafe' => ...;
+
+### Wait, What?
 
 If you are confused, that's ok.
 I'm going to let you in on a little secret, I think this is confusing too.
