@@ -65,7 +65,11 @@
                     </div>
                     % }
                     <div class="about">
-                      <h5><a title="Posts by John Doe" href="#" rel="author"><%== $bio->{name} %></h5>
+                      % if (my $homepage = $bio->{homepage}) {
+                      <h5><a title="Posts by <%== $bio->{name} %>" href="<%== $homepage %>" rel="author"><%== $bio->{name} %></a></h5>
+                      % } else {
+                      <h5><%== $bio->{name} %></h5>
+                      % }
                       <p><%= $bio->{text} %></p>
                     </div>
 
