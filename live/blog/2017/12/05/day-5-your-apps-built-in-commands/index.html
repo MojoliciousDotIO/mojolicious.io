@@ -270,9 +270,9 @@ To do so we fetch the url (following redirects with <code>-r</code>), then we gi
 <li>See lots more examples in the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/get#SYNOPSIS">documentation</a>.</li>
 </ul>
 
-<p>But I haven&#39;t even hit to coolest feature yet.
-This command also works on your application if you use relative paths.
-This is so handy for debugging requests, you don&#39;t even need a browser!</p>
+<p>But I haven&#39;t even touched on its coolest feature yet.
+This command also works on your application when you request a relative url.
+This is so handy for debugging requests during rapid development; you don&#39;t even need a browser!</p>
 
 <pre><code>perl santa.pl get /meet/rudolph &#39;p&#39; text
 </code></pre>
@@ -313,7 +313,7 @@ Or maybe you want to deploy your schema, or roll it back.</p>
 <pre><code>perl myapp.pl eval -V &#39;app-&gt;pg-&gt;db-&gt;query(&quot;SELECT NOW()&quot;)-&gt;hash&#39;
 </code></pre>
 
-<p>These last two database examples assumed that your app was using <a href="http://mojolicious.org/perldoc/Mojo/Pg">Mojo::Pg</a> but similar examles could work for any database that your app knows about.</p>
+<p>These last two database examples assumed that your app was using <a href="http://mojolicious.org/perldoc/Mojo/Pg">Mojo::Pg</a> but similar one-liners could work for any database that your app knows about.</p>
 
 <p>There really is nothing like debugging or administering your application without having to copy and paste a bunch of your logic from your app to some script.
 Although if you really find yourself using the <code>eval</code> command for the same tasks often ... well that should wait until tomorrow.</p>

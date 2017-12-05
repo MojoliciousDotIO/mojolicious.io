@@ -160,9 +160,9 @@ How fun is that?!
   - You can pipe data to the command if you just want to send the raw contents of a file rather than url-encode it.
   - See lots more examples in the [documentation](http://mojolicious.org/perldoc/Mojolicious/Command/get#SYNOPSIS).
 
-But I haven't even hit to coolest feature yet.
-This command also works on your application if you use relative paths.
-This is so handy for debugging requests, you don't even need a browser!
+But I haven't even touched on its coolest feature yet.
+This command also works on your application when you request a relative url.
+This is so handy for debugging requests during rapid development; you don't even need a browser!
 
     perl santa.pl get /meet/rudolph 'p' text
 
@@ -197,7 +197,7 @@ Or just check that the database is reachable.
 
     perl myapp.pl eval -V 'app->pg->db->query("SELECT NOW()")->hash'
 
-These last two database examples assumed that your app was using [Mojo::Pg](http://mojolicious.org/perldoc/Mojo/Pg) but similar examles could work for any database that your app knows about.
+These last two database examples assumed that your app was using [Mojo::Pg](http://mojolicious.org/perldoc/Mojo/Pg) but similar one-liners could work for any database that your app knows about.
 
 There really is nothing like debugging or administering your application without having to copy and paste a bunch of your logic from your app to some script.
 Although if you really find yourself using the `eval` command for the same tasks often ... well that should wait until tomorrow.
