@@ -48,7 +48,7 @@ A callback is function reference, intended to be called in the future; in this c
 
 An action is called with one argument, called the [controller](http://mojolicious.org/perldoc/Mojolicious/Controller).
 The controller is an object that represents our application's interaction with the current transaction.
-It contains an object representing the [transaction](http://mojolicious.org/perldoc/Mojo/Transaction), which in turn holds objects for the [request](https://mojolicious.org/perldoc/Mojo/Message/Request) and [response](https://mojolicious.org/perldoc/Mojo/Message/Response).
+It contains an object representing the [transaction](http://mojolicious.org/perldoc/Mojo/Transaction), which in turn holds objects for the [request](http://mojolicious.org/perldoc/Mojo/Message/Request) and [response](http://mojolicious.org/perldoc/Mojo/Message/Response).
 It has methods which can be used generate responses, one of which is `render`, which you see above.
 Here you see that we are going to render some text.
 
