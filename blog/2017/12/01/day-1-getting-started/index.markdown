@@ -34,7 +34,7 @@ Use it in any Perl code you want!
 Shoot I wasn't going to mention Perl!
 Yes, Mojolicious is written in Perl.
 Don't let that scare you.
-It has tons of ways to keep you safe and you code safe!
+It has tons of ways to keep you and your code safe!
 From a built-in object system to a consistent api with chainable methods Mojolicious is designed to keep your code clean and readable.
 Hopefully you'll even have some fun using it!
 

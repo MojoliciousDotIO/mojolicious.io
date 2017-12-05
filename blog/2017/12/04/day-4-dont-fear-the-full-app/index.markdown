@@ -144,7 +144,7 @@ Full apps have it much easier!
 
 In a Full app, the route methods all return a new route object.
 If you store those in a variable, you can use them to build off of each other.
-This is a much more nature api for building nested structures in my opinion.
+This is a much more natural api for building nested structures in my opinion.
 
     my $r = $app->routes;
     $r->get('/unsafe' => 'unsafe');
