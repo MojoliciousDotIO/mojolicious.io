@@ -2,11 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-04T00:00:00Z</updated>
+    <updated>2017-12-05T00:00:00Z</updated>
     <link href="http://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="http://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.087">Statocles</generator>
 
+    <entry>
+        <id>http://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/</id>
+        <title>Day 5: Your App&#39;s Built-In Commands</title>
+        <author><name>Joel Berger</name></author>
+        <link href="http://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I mentioned at the outset of this series that Mojolicious applications are more than just web servers.
+I then showed how you can start a web server using the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>daemon</code></a> or <a href="http://mojolicious.org/perldoc/Mojolicious/Command/prefork"><code>prefork</code></a> commands.
+In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate"><code>inflate</code></a> command that can help you with growing your app from Lite to Full.</p>
+
+<p>But there are other commands, built right in to your app, that can help you be more productive right away!</p>
+
+                <p><a href="http://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="http://mojolicious.io/blog/tag/command/">command</a>
+                    <a href="http://mojolicious.io/blog/tag/debugging/">debugging</a>
+                    <a href="http://mojolicious.io/blog/tag/administration/">administration</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-05T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="command" />
+        <category term="debugging" />
+        <category term="administration" />
+    </entry>
     <entry>
         <id>http://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</id>
         <title>Day 4: Don&#39;t Fear the Full App</title>
@@ -137,41 +165,6 @@ But for now let&#39;s ensure a level playing field by working out how to get sta
         <category term="installing" />
         <category term="hello world" />
         <category term="lite" />
-    </entry>
-    <entry>
-        <id>http://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/</id>
-        <title>Mojolicious Advent 2017</title>
-        <author><name>Joel Berger</name></author>
-        <link href="http://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>I&#39;m happy to announce that I&#39;ll be running a Mojolicious Advent Calendar this year!</p>
-
-<p>For those of you who are unaware, an advent calendar is a way to count down to Christmas through December.
-In many cases, the act of marking each day also provides a treat, usually chocolate.
-All told, 24 days are marked, one for each day from Dec 1 to Dec 24, Christmas Eve.</p>
-
-<p>I&#39;m not sure exactly how this moved into coding circles, but there is now a tradition of doing a similar countdown for programmers.
-The treats are little bits of wisdom on some programming topic.</p>
-
-<p>Perl has <a href="http://www.perladvent.org/">http://www.perladvent.org/</a> which has run for quite a long time.
-Other calendars have popped up for other languages and I&#39;m told it is even migrating to non-coding maker-type spaces!</p>
-
-<p>This year I&#39;ve decided that I&#39;d like there to be one for the <a href="http://mojolicious.org">Mojolicious Web Framework</a>.
-My desire is partly to put out some common starting tips and tricks and partly due to some recent additions that could really do with some extra publicity (they&#39;re cool, just wait!).</p>
-
-<p>At least at the moment it is just me so, in the hopes of actually completing it, some posts might be brief.
-Some calendars try to use holiday themes in the posts, which I may do it the muse is upon me, but I make no promises.</p>
-
-<p>I hope you&#39;ll enjoy no matter what religious or non-religious winter holidays you celebrate!</p>
-
-
-                <p>Tags:
-                    <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
-                </p>
-
-        ]]></content>
-        <updated>2017-11-30T00:00:00Z</updated>
-        <category term="advent" />
     </entry>
 </feed>
 
