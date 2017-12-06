@@ -28,10 +28,11 @@
 
             </div>
 
-            % if (my $image = $self->images('banner')) {
+            % my $banner = $self->images('banner');
+            % if ($banner) {
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img src="<%== $image->src %>" alt="<%== $image->alt %>">
+                <img src="<%== $banner->src %>" alt="<%== $banner->alt %>">
               </div>
             % }
 
@@ -43,6 +44,9 @@
               <section id="section-<%= $i+1 %>">
                   <%= $sections[$i] %>
               </section>
+                % if ($banner && (my $attribution = $banner->data->{attribution})) {
+                <small><%= markdown $attribution %></small>
+                % }
               % }
 
               % my @tags = $self->tags;

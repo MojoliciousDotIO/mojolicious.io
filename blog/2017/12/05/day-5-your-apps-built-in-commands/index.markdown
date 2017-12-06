@@ -10,6 +10,8 @@ images:
   banner:
     src: '/static/1200px-Rocket_prolant.jpg'
     alt: 'Space shuttle Atlantis liftoff'
+    data:
+      attribution: '<a href="https://commons.wikimedia.org/w/index.php?curid=44576486">Image</a> by <a href="//commons.wikimedia.org/w/index.php?title=User:Gsaisudha75&amp;action=edit&amp;redlink=1" title="User:Gsaisudha75 (page does not exist)">Gsaisudha75</a> (editor). For the original file: NASA/Scott Andrews - Derivative work of: <a href="//commons.wikimedia.org/wiki/File:STS-125_Atlantis_Liftoff_02.jpg" title="File:STS-125 Atlantis Liftoff 02.jpg">File:STS-125 Atlantis Liftoff 02.jpg</a> (while the modifications is Own work). Original file: <a rel="nofollow"  href="http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=41220">http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=41220</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>'
 data:
   bio: jberger
   description: Exploring the built-in commands that come with every Mojolicious Application.
@@ -202,7 +204,3 @@ These last two database examples assumed that your app was using [Mojo::Pg](http
 There really is nothing like debugging or administering your application without having to copy and paste a bunch of your logic from your app to some script.
 Although if you really find yourself using the `eval` command for the same tasks often ... well that should wait until tomorrow.
 
-
-<small>
-  <a href="https://commons.wikimedia.org/w/index.php?curid=44576486">Image</a> by <a href="//commons.wikimedia.org/w/index.php?title=User:Gsaisudha75&amp;action=edit&amp;redlink=1" title="User:Gsaisudha75 (page does not exist)">Gsaisudha75</a> (editor). For the original file: NASA/Scott Andrews - Derivative work of: <a href="//commons.wikimedia.org/wiki/File:STS-125_Atlantis_Liftoff_02.jpg" title="File:STS-125 Atlantis Liftoff 02.jpg">File:STS-125 Atlantis Liftoff 02.jpg</a> (while the modifications is Own work). Original file: <a rel="nofollow"  href="http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=41220">http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=41220</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>
-</small>

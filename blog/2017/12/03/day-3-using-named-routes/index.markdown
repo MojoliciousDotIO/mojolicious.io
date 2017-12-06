@@ -9,6 +9,8 @@ images:
   banner:
     src: '/static/my_name_is.jpg'
     alt: '"my name is" stickers'
+    data:
+      attribution: '<a href="https://flickr.com/photos/94599716@N06/15283079263">Image</a> by <a href="https://www.flickr.com/people/94599716@N06">Travis Wise</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by/2.0/deed.en">Attribution 2.0 Generic</a> license.'
 data:
   bio: jberger
   description: Avoid hard-coded URLs using Mojolicious' named routes.
@@ -111,4 +113,3 @@ I also like to separate concerns.
 Anyway, you can choose whichever you like best.
 After all, there's more than one way to do it!
 
-<small><a href="https://flickr.com/photos/94599716@N06/15283079263">Image</a> by <a href="https://www.flickr.com/people/94599716@N06">Travis Wise</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by/2.0/deed.en">Attribution 2.0 Generic</a> license.</small>

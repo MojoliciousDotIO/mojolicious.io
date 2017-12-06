@@ -10,6 +10,8 @@ images:
   banner:
     src: '/static/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg'
     alt: 'hot air ballons'
+    data:
+      attribution: '<a href="https://commons.wikimedia.org/wiki/File:Colorado_Springs_Hot_Air_Balloon_Competition.jpg">Image by DarlArthurS</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported</a> license.'
 data:
   bio: jberger
   description: Hit the ground running with Mojolicious. A working application in minutes!
@@ -106,4 +108,3 @@ If you still have trouble, we have a mailing list and an IRC channel ready to he
 Find us at <http://mojolicious.org/perldoc#SUPPORT>!
 
 
-<small><a href="https://commons.wikimedia.org/wiki/File:Colorado_Springs_Hot_Air_Balloon_Competition.jpg">Image by DarlArthurS</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported</a> license.</small>

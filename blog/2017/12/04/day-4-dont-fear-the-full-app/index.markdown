@@ -10,6 +10,11 @@ images:
   banner:
     src: '/static/arucaria.jpg'
     alt: 'Arucaria trees in Curitiba Brazil'
+    data:
+      attribution: |-
+        Image is copyright (c) 2013 Joel Berger.
+        It shows a pair of Arucaria trees in the city of Curitiba, during YAPC::Brasil 2013.
+        It is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 data:
   bio: jberger
   description: Growing from Lite to Full apps is easy. There's no magic to worry about.
@@ -172,8 +177,3 @@ That's it, with the exception of using `group` for nested routing, it is just di
 And if you always use the method forms of routing you don't even need to worry about that!
 With that, I encourage you to go back and read the [Tutorial and Guides](http://mojolicious.org/perldoc#TUTORIAL) and realize that everything that looks like Lite apps is really just as true for Full ones.
 
-<small>
-  Image is copyright (c) 2013 Joel Berger.
-  It shows a pair of Arucaria trees in the city of Curitiba, during YAPC::Brasil 2013.
-  It is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-</small>
