@@ -1,0 +1,47 @@
+<!-- code from https://codepen.io/dudleystorey/pen/MagNaY -->
+
+% content 'component-head' => begin
+<link rel="stylesheet" href="/theme/css/calendar.css" type="text/css">
+<noscript>
+  <style>
+    .calendar .hidden {
+      opacity: initial;
+    };
+  </style>
+</noscript>
+% end
+
+<div class="calendar">
+  % for my $day (@{ $page->data->{calendar} }) {
+    % my $day_of_month = $day->{day} // (split /-/, $day->{date})[2];
+    % if (my $title = $day->{title}) {
+    <time datetime="<%= $day->{date} %>" class="hidden">
+      <a href="<%= $day->{href} // '#' %>">
+        %# img could include srcset
+        % if (my $image = $day->{image}) {
+        <img src="<%= $image %>" alt="<%= $day->{alt} || $title %>">
+        % }
+        <span class="caldate"><%= $day_of_month %></span>
+        <span class="title"><%= $title %></span>
+      </a>
+    </time>
+    % } else {
+    <time datetime="<%= $day->{date} %>" class="blank"><span class="caldate"><%= $day_of_month %></span></time>
+    % }
+  % }
+</div>
+<small>
+  <a href="http://thenewcode.com/355/Responsive-HTML5-Calendar-with-Flexbox">Calendar</a> <a href="https://codepen.io/dudleystorey/pen/MagNaY">code and style</a> courtesy of <a href="http://dudleystorey.com/">Dudley Storey</a>.
+  Content of his site is released (and thus used) under a <a href="https://creativecommons.org/licenses/by-nc-sa/2.5/ca" rel="license">Creative Commons license that permits non-commercial sharing with attribution</a>.
+</small>
+
+<script>
+  (function(){
+    var dates = document.querySelectorAll(".calendar time.hidden");
+    var i = 1;
+    Array.prototype.forEach.call(dates, function(caldate) {
+      setTimeout(function(){ caldate.classList.remove("hidden") }, 250*i)
+      i++;
+    });
+  })();
+</script>

@@ -68,6 +68,7 @@
   % for my $link ( $site->links( 'script' ) ) {
   <script src="<%= $link->href %>"></script>
   % }
+  %= content 'component-head'
 </head>
 
 <body>
