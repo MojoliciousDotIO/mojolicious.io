@@ -121,7 +121,16 @@ site:
                     name: 'Joel Berger'
                     twitter: '@joelaberger'
                     image: '//gravatar.com/avatar/cc767569f5863a7c261991ee5b23f147'
-                    text: 'Joel has Ph.D. in Physics from the University of Illinois at Chicago. He an avid Perl user and a member of the Mojolicious Core Team.'
+                    text: |-
+                      Joel has Ph.D. in Physics from the University of Illinois at Chicago.
+                      He an avid Perl user and [author](https://metacpan.org/author/JBERGER) and is a member of the Mojolicious Core Team.
+                preaction:
+                    name: 'Doug Bell'
+                    twitter: '@preaction'
+                    image: '//secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png'
+                    text: |-
+                      Doug ([preaction](http://preaction.me)) is a long time Perl user.
+                      He is the current maintainer of [CPAN Testers](http://www.cpantesters.org/) and the author of many [CPAN modules](https://metacpan.org/author/PREACTION) including the [Statocles](http://preaction.me/statocles/) blog engine that powers this site.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
