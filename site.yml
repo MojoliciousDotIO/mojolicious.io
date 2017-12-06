@@ -64,6 +64,10 @@ site:
         plugins:
             link_check:
                 $class: 'Statocles::Plugin::LinkCheck'
+            highlight:
+                $class: Statocles::Plugin::Highlight
+                $args:
+                    style: sunburst
 
         # theme: The theme builds and manages the templates. Use themes to
         # change how your site looks.

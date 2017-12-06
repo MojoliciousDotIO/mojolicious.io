@@ -15,9 +15,10 @@
 }
 
 code:not(.hljs) {
-  background-color: black;
-  color: white;
+  color: black;
+  background-color:#EEEEEE;
   padding: 0px 2px;
   margin: 0px 1px;
   border-radius: 2px;
+  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 }
