@@ -35,6 +35,10 @@ data:
       image: '/static/1200px-Rocket_prolant.jpg'
       alt: "Day 5: Your App's Built-In Commands"
     - date: 2017-12-06
+      title: 'Adding Your Own Commands'
+      href: '/blog/2017/12/06/day-6-adding-your-own-commands'
+      image: '/static/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg'
+      alt: 'Day 6: Adding Your Own Commands'
     - date: 2017-12-07
     - date: 2017-12-08
     - date: 2017-12-09

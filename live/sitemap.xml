@@ -10,7 +10,7 @@
         <loc>http://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-05</lastmod>
+        <lastmod>2017-12-06</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -55,10 +55,16 @@
         <lastmod>2017-12-05</lastmod>
     </url>
     <url>
+        <loc>http://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-06</lastmod>
+    </url>
+    <url>
         <loc>http://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-05</lastmod>
+        <lastmod>2017-12-06</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/tag/administration/</loc>
@@ -70,25 +76,31 @@
         <loc>http://mojolicious.io/blog/tag/advent/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-05</lastmod>
+        <lastmod>2017-12-06</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/tag/advent/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-05</lastmod>
+        <lastmod>2017-12-06</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/tag/command/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-05</lastmod>
+        <lastmod>2017-12-06</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/tag/debugging/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-05</lastmod>
+    </url>
+    <url>
+        <loc>http://mojolicious.io/blog/tag/example/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-06</lastmod>
     </url>
     <url>
         <loc>http://mojolicious.io/blog/tag/full/</loc>
