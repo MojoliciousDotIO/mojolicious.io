@@ -15,10 +15,14 @@
 }
 
 code:not(.hljs) {
-  color: black;
-  background-color:#EEEEEE;
-  padding: 0px 2px;
+  /* color: black; */
+  background-color: #EEEEEE;
+  padding: 1px 3px;
   margin: 0px 1px;
   border-radius: 2px;
-  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+  border-color: #DDDDDD;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 }
+
