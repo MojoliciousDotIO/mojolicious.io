@@ -442,19 +442,24 @@ Run it a few times if you want or for a few locations.</p>
 By now it should be clear what it is going to do.
 Let&#39;s look at <a href="https://github.com/jberger/MyWeatherApp/blob/master/lib/MyWeatherApp/Controller/Weather.pm">lib/MyWeatherApp/Controller/Weather.pm</a> just to be sure.</p>
 
-<p>package MyWeatherApp::Controller::Weather;
-  use Mojo::Base &#39;Mojolicious::Controller&#39;;</p>
+<pre><code>package MyWeatherApp::Controller::Weather;
+use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
-<p>sub recall {
-    my $c = shift;
-    my $search = $c-&gt;param(&#39;q&#39;);
-    return $c-&gt;render(status =&gt; 400, text =&gt; &#39;q parameter is required&#39;)
-      unless $search;
-    my $data = $c-&gt;weather-&gt;recall($search);
-    $c-&gt;render(json =&gt; $data);
-  }</p>
+sub recall {
+  my $c = shift;
+  my $search = $c-&gt;param(&#39;q&#39;);
 
-<p>1;</p>
+  return $c-&gt;render(
+    status =&gt; 400,
+    text =&gt; &#39;q parameter is required&#39;,
+  ) unless $search;
+
+  my $data = $c-&gt;weather-&gt;recall($search);
+  $c-&gt;render(json =&gt; $data);
+}
+
+1;
+</code></pre>
 
 <p>When you request the <code>/weather</code> route with a query parameter that we&#39;ve cached some data for, it will return that data.
 Given that you could write some fancy front-end to display the data but for now lets just revert to the <code>get</code> command; a great use of its talents.</p>

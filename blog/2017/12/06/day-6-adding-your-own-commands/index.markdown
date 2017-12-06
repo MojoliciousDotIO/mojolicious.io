@@ -334,19 +334,23 @@ Finally, and almost just for completeness, we have the controller.
 By now it should be clear what it is going to do.
 Let's look at [lib/MyWeatherApp/Controller/Weather.pm](https://github.com/jberger/MyWeatherApp/blob/master/lib/MyWeatherApp/Controller/Weather.pm) just to be sure.
 
-  package MyWeatherApp::Controller::Weather;
-  use Mojo::Base 'Mojolicious::Controller';
+    package MyWeatherApp::Controller::Weather;
+    use Mojo::Base 'Mojolicious::Controller';
 
-  sub recall {
-    my $c = shift;
-    my $search = $c->param('q');
-    return $c->render(status => 400, text => 'q parameter is required')
-      unless $search;
-    my $data = $c->weather->recall($search);
-    $c->render(json => $data);
-  }
+    sub recall {
+      my $c = shift;
+      my $search = $c->param('q');
 
-  1;
+      return $c->render(
+        status => 400,
+        text => 'q parameter is required',
+      ) unless $search;
+
+      my $data = $c->weather->recall($search);
+      $c->render(json => $data);
+    }
+
+    1;
 
 When you request the `/weather` route with a query parameter that we've cached some data for, it will return that data.
 Given that you could write some fancy front-end to display the data but for now lets just revert to the `get` command; a great use of its talents.
