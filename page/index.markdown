@@ -55,7 +55,7 @@ data:
     - date: 2017-12-24
 ---
 
-This is a site dedicated to [Mojolicious](http://mojolicious.org) web framework.
+This is a site dedicated to the [Mojolicious](http://mojolicious.org) web framework.
 It was lauched in 2017, just in time for the ...
 
 # 2017 Mojolicious Advent Calendar
