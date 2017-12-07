@@ -1,4 +1,4 @@
-Sitemap: http://mojolicious.io/sitemap.xml
+Sitemap: https://mojolicious.io/sitemap.xml
 User-Agent: *
 Disallow:
 

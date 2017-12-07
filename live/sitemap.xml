@@ -1,148 +1,160 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://mojolicious.io/</loc>
+        <loc>https://mojolicious.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-12-06</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/</loc>
+        <loc>https://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-06</lastmod>
+        <lastmod>2017-12-07</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/11/30/introduction/</loc>
+        <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-11-30</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/</loc>
+        <loc>https://mojolicious.io/blog/2017/11/30/mojolicious-advent-2017/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-11-30</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/12/01/day-1-getting-started/</loc>
+        <loc>https://mojolicious.io/blog/2017/12/01/day-1-getting-started/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-12-01</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/12/02/day-2-the-stash/</loc>
+        <loc>https://mojolicious.io/blog/2017/12/02/day-2-the-stash/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-12-02</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/</loc>
+        <loc>https://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-12-03</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</loc>
+        <loc>https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-12-04</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/</loc>
+        <loc>https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-12-05</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/</loc>
+        <loc>https://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
         <lastmod>2017-12-06</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2017-12-06</lastmod>
+        <loc>https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-07</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/administration/</loc>
+        <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-05</lastmod>
+        <lastmod>2017-12-07</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/advent/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2017-12-06</lastmod>
-    </url>
-    <url>
-        <loc>http://mojolicious.io/blog/tag/advent/page/2/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2017-12-06</lastmod>
-    </url>
-    <url>
-        <loc>http://mojolicious.io/blog/tag/command/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2017-12-06</lastmod>
-    </url>
-    <url>
-        <loc>http://mojolicious.io/blog/tag/debugging/</loc>
+        <loc>https://mojolicious.io/blog/tag/administration/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-05</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/example/</loc>
+        <loc>https://mojolicious.io/blog/tag/advent/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-07</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/advent/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-07</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/command/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-06</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/full/</loc>
+        <loc>https://mojolicious.io/blog/tag/debugging/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-05</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/example/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-06</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/full/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-04</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/growing/</loc>
+        <loc>https://mojolicious.io/blog/tag/growing/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-04</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/hello-world/</loc>
+        <loc>https://mojolicious.io/blog/tag/hello-world/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-02</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/installing/</loc>
+        <loc>https://mojolicious.io/blog/tag/installing/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-01</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/lite/</loc>
+        <loc>https://mojolicious.io/blog/tag/lite/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-04</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/rendering/</loc>
+        <loc>https://mojolicious.io/blog/tag/rendering/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-02</lastmod>
+        <lastmod>2017-12-07</lastmod>
     </url>
     <url>
-        <loc>http://mojolicious.io/blog/tag/routing/</loc>
+        <loc>https://mojolicious.io/blog/tag/routing/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-03</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/template/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-07</lastmod>
     </url>
 </urlset>
 

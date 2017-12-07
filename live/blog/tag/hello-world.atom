@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://mojolicious.io/blog/tag/hello-world/</id>
+    <id>https://mojolicious.io/blog/tag/hello-world/</id>
     <title>mojolicious.io</title>
     <updated>2017-12-02T00:00:00Z</updated>
-    <link href="http://mojolicious.io/blog/tag/hello-world.atom" rel="self" />
-    <link href="http://mojolicious.io/blog/tag/hello-world/" rel="alternate" />
+    <link href="https://mojolicious.io/blog/tag/hello-world.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/hello-world/" rel="alternate" />
     <generator version="0.087">Statocles</generator>
 
     <entry>
-        <id>http://mojolicious.io/blog/2017/12/02/day-2-the-stash/</id>
+        <id>https://mojolicious.io/blog/2017/12/02/day-2-the-stash/</id>
         <title>Day 2: The Stash</title>
         <author><name>Joel Berger</name></author>
-        <link href="http://mojolicious.io/blog/2017/12/02/day-2-the-stash/" rel="alternate" />
+        <link href="https://mojolicious.io/blog/2017/12/02/day-2-the-stash/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>In Mojolicious, when processing a request and preparing a response one of the most important concepts is &quot;the stash&quot;.
 Since it is a non-blocking framework, your code can&#39;t use global variables to store any state during processing.
@@ -25,13 +25,13 @@ It lives and dies with that one transaction.</p>
 The stash controls almost every aspect of the response that you generate.
 Let&#39;s look a little closer to see how it works</p>
 
-                <p><a href="http://mojolicious.io/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading...</a></p>
+                <p><a href="https://mojolicious.io/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="http://mojolicious.io/blog/tag/hello-world/">hello world</a>
-                    <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
-                    <a href="http://mojolicious.io/blog/tag/rendering/">rendering</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                    <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                    <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
                 </p>
 
         ]]></content>
@@ -42,10 +42,10 @@ Let&#39;s look a little closer to see how it works</p>
         <category term="rendering" />
     </entry>
     <entry>
-        <id>http://mojolicious.io/blog/2017/12/01/day-1-getting-started/</id>
+        <id>https://mojolicious.io/blog/2017/12/01/day-1-getting-started/</id>
         <title>Day 1: Getting Started</title>
         <author><name>Joel Berger</name></author>
-        <link href="http://mojolicious.io/blog/2017/12/01/day-1-getting-started/" rel="alternate" />
+        <link href="https://mojolicious.io/blog/2017/12/01/day-1-getting-started/" rel="alternate" />
         <content type="html"><![CDATA[
             <h2>Start at the Beginning</h2>
 
@@ -53,13 +53,13 @@ Let&#39;s look a little closer to see how it works</p>
 Who knows what could be next?
 But for now let&#39;s ensure a level playing field by working out how to get started.</p>
 
-                <p><a href="http://mojolicious.io/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading...</a></p>
+                <p><a href="https://mojolicious.io/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="http://mojolicious.io/blog/tag/installing/">installing</a>
-                    <a href="http://mojolicious.io/blog/tag/hello-world/">hello world</a>
-                    <a href="http://mojolicious.io/blog/tag/lite/">lite</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/installing/">installing</a>
+                    <a href="https://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                    <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
                 </p>
 
         ]]></content>

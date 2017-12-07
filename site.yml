@@ -41,7 +41,7 @@ site:
         #
         # If the base_url contains a path, all internal links will be
         # rewritten appropriately.
-        base_url: 'http://mojolicious.io'
+        base_url: 'https://mojolicious.io'
 
         # apps: These are the applications in this site. The name of the app,
         # "blog", "page", or "static", is used to refer to it in commands.
@@ -111,6 +111,7 @@ site:
                 languages:
                     - perl
                     - bash
+                    - xml
             logo_text: 'mojolicious.io'
             copyright: '2017 Joel Berger'
             social:

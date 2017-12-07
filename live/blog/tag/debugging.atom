@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://mojolicious.io/blog/tag/debugging/</id>
+    <id>https://mojolicious.io/blog/tag/debugging/</id>
     <title>mojolicious.io</title>
     <updated>2017-12-05T00:00:00Z</updated>
-    <link href="http://mojolicious.io/blog/tag/debugging.atom" rel="self" />
-    <link href="http://mojolicious.io/blog/tag/debugging/" rel="alternate" />
+    <link href="https://mojolicious.io/blog/tag/debugging.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/debugging/" rel="alternate" />
     <generator version="0.087">Statocles</generator>
 
     <entry>
-        <id>http://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/</id>
+        <id>https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/</id>
         <title>Day 5: Your App&#39;s Built-In Commands</title>
         <author><name>Joel Berger</name></author>
-        <link href="http://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/" rel="alternate" />
+        <link href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>I mentioned at the outset of this series that Mojolicious applications are more than just web servers.
 I then showed how you can start a web server using the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>daemon</code></a> or <a href="http://mojolicious.org/perldoc/Mojolicious/Command/prefork"><code>prefork</code></a> commands.
@@ -19,13 +19,13 @@ In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Moj
 
 <p>But there are other commands, built right in to your app, that can help you be more productive right away!</p>
 
-                <p><a href="http://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/#section-2">Continue reading...</a></p>
+                <p><a href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
-                    <a href="http://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="http://mojolicious.io/blog/tag/command/">command</a>
-                    <a href="http://mojolicious.io/blog/tag/debugging/">debugging</a>
-                    <a href="http://mojolicious.io/blog/tag/administration/">administration</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/command/">command</a>
+                    <a href="https://mojolicious.io/blog/tag/debugging/">debugging</a>
+                    <a href="https://mojolicious.io/blog/tag/administration/">administration</a>
                 </p>
 
         ]]></content>

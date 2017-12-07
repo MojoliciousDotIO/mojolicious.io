@@ -40,6 +40,10 @@ data:
       image: '/static/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg'
       alt: 'Day 6: Adding Your Own Commands'
     - date: 2017-12-07
+      title: 'Using Template Variants'
+      href: '/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page'
+      image: '/static/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg'
+      alt: 'Day 7: Using Template Variants For a Beta Landing Page'
     - date: 2017-12-08
     - date: 2017-12-09
     - date: 2017-12-10
