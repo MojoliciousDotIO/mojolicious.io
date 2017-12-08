@@ -4,13 +4,13 @@
         <loc>https://mojolicious.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-12-06</lastmod>
+        <lastmod>2017-12-07</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-07</lastmod>
+        <lastmod>2017-12-08</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -67,10 +67,16 @@
         <lastmod>2017-12-07</lastmod>
     </url>
     <url>
+        <loc>https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-08</lastmod>
+    </url>
+    <url>
         <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-07</lastmod>
+        <lastmod>2017-12-08</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/administration/</loc>
@@ -82,13 +88,19 @@
         <loc>https://mojolicious.io/blog/tag/advent/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-07</lastmod>
+        <lastmod>2017-12-08</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-07</lastmod>
+        <lastmod>2017-12-08</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/api/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-08</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/command/</loc>
@@ -137,6 +149,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-04</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/mocking/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-08</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/rendering/</loc>

@@ -45,6 +45,10 @@ data:
       image: '/static/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg'
       alt: 'Day 7: Using Template Variants For a Beta Landing Page'
     - date: 2017-12-08
+      title: 'Mocking a REST API'
+      href: '/blog/2017/12/08/day-8-mocking-a-rest-api'
+      image: '/static/1280px-crash-test-dummies.jpg'
+      alt: 'Day 8: Mocking a REST API'
     - date: 2017-12-09
     - date: 2017-12-10
     - date: 2017-12-11
