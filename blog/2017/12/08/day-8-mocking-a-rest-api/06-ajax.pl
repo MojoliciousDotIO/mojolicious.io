@@ -1,6 +1,6 @@
 use Mojolicious::Lite;
 hook after_build_tx => sub {
-my ($tx, $app) = @_;
+    my ($tx, $app) = @_;
     $tx->res->headers->header( 'Access-Control-Allow-Origin' => '*' );
     $tx->res->headers->header( 'Access-Control-Allow-Methods' => 'GET, POST, PUT, PATCH, DELETE, OPTIONS' );
     $tx->res->headers->header( 'Access-Control-Max-Age' => 3600 );

@@ -29,68 +29,9 @@ production website. The front page of the production website would be
 completely different from the front page of the beta testing website.</p>
 
 <p>To achieve this, I used <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Template-variants">Mojolicious&#39;s template variants
-feature</a>.
-First, I created a variant of my index.html template for my beta site
-and called it <code>index.html+beta.ep</code>.</p>
+feature</a>.</p>
 
-<pre><code class="hljs"><span class="hljs-keyword">&lt;h1&gt;</span>CPAN Testers Beta<span class="hljs-keyword">&lt;/h1&gt;</span>
-<span class="hljs-keyword">&lt;p&gt;</span>This site shows off some new features currently being tested.<span class="hljs-keyword">&lt;/p&gt;</span>
-<span class="hljs-keyword">&lt;h2&gt;&lt;a</span> href=<span class="hljs-string">&quot;/chart.html&quot;</span><span class="hljs-keyword">&gt;</span>Release Dashboard<span class="hljs-keyword">&lt;/a&gt;&lt;/h2&gt;</span>
-</code></pre>
-
-<p>Next, I told Mojolicious to use the &quot;beta&quot; variant when in &quot;beta&quot; mode
-by passing <code>$app-&gt;mode</code> to the <code>variant</code> stash variable.</p>
-
-<pre><code class="hljs"><span class="hljs-comment"># myapp.pl</span><span class="hljs-comment">
-</span><span class="hljs-keyword">use</span> <span class="hljs-function">Mojolicious::Lite</span>;
-get &#39;<span class="hljs-string">/*path</span>&#39;, { path =&gt; &#39;<span class="hljs-string">index</span>&#39; }, <span class="hljs-keyword">sub </span>{
-    <span class="hljs-keyword">my</span> ( <span class="hljs-type">$c</span> ) = <span class="hljs-type">@_</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-type">$c</span>-&gt;<span class="hljs-type">render</span>(
-        template =&gt; <span class="hljs-type">$c</span>-&gt;<span class="hljs-type">stash</span>( &#39;<span class="hljs-string">path</span>&#39; ),
-        variant =&gt; <span class="hljs-type">$c</span>-&gt;<span class="hljs-type">app</span>-&gt;<span class="hljs-type">mode</span>,
-    );
-};
-app-&gt;start;
-</code></pre>
-
-<p>The mode is set by passing the <code>-m beta</code> option to Mojolicious&#39;s <code>daemon</code> or
-<code>prefork</code> command.</p>
-
-<pre><code>$ perl myapp.pl daemon -m beta
-</code></pre>
-
-<p>This gives me the <a href="http://beta.cpantesters.org">new landing page for beta.cpantesters.org</a>.</p>
-
-<pre><code>$ perl myapp.pl get / -m beta
-&lt;h1&gt;CPAN Testers Beta&lt;/h1&gt;
-&lt;p&gt;This site shows off some new features currently being tested.&lt;/p&gt;
-&lt;h2&gt;&lt;a href=&quot;/chart.html&quot;&gt;Release Dashboard&lt;/a&gt;&lt;/h2&gt;
-</code></pre>
-
-<p>But now I also need to replace the original landing page (index.html.ep)
-so it can still be seen on the beta website. I do this with a simple
-trick: I created a new template called <code>web.html+beta.ep</code> that imports
-the original template and unsets the <code>variant</code> stash variable. Now
-I can see the <a href="http://beta.cpantesters.org/web">main index page on the beta site at
-http://beta.cpantesters.org/web</a>.</p>
-
-<pre><code class="hljs">%= include &#39;index&#39;, variant =&gt; undef
-</code></pre>
-
-<pre><code>$ perl myapp.pl get /web -m beta
-&lt;h1&gt;CPAN Testers&lt;/h1&gt;
-&lt;p&gt;This is the main CPAN Testers application.&lt;/p&gt;
-</code></pre>
-
-<p>Template variants are a useful feature in some edge cases, and this isn&#39;t the
-first time I&#39;ve found a good use for them. I&#39;ve also used them to provide a
-different layout template in &quot;development&quot; mode to display a banner saying
-&quot;You&#39;re on the development site&quot;. Useful for folks who are undergoing user
-acceptance testing. The best part is that if the desired variant for that
-specific template is not found, Mojolicious falls back to the main template. I
-built a mock JSON API application which made extensive use of this fallback
-feature, but that&#39;s another blog post for another time.</p>
-
+                <p><a href="https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
                     <a href="https://mojolicious.io/blog/tag/advent/">advent</a>

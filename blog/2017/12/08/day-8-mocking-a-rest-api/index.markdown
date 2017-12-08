@@ -29,6 +29,7 @@ data.
 
 It would be a lot easier to set up a mock public API that I could use to
 test my UI, and it turns out that Mojolicious makes this very easy.
+---
 
 So let's set up a simple Mojolicious::Lite app that responds to a path
 with a JSON response:

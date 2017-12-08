@@ -127,7 +127,9 @@ data.</p>
 <p>It would be a lot easier to set up a mock public API that I could use to
 test my UI, and it turns out that Mojolicious makes this very easy.</p>
 
-<p>So let&#39;s set up a simple Mojolicious::Lite app that responds to a path
+              </section>
+              <section id="section-2">
+                  <p>So let&#39;s set up a simple Mojolicious::Lite app that responds to a path
 with a JSON response:</p>
 
 <pre><code class="hljs"><span class="hljs-comment"># test-api.pl</span><span class="hljs-comment">
@@ -333,7 +335,7 @@ to allow for cross-origin requests.</p>
 <pre><code class="hljs"><span class="hljs-comment"># test-api.pl</span><span class="hljs-comment">
 </span><span class="hljs-keyword">use</span> <span class="hljs-function">Mojolicious::Lite</span>;
 hook after_build_tx =&gt; <span class="hljs-keyword">sub </span>{
-<span class="hljs-keyword">my</span> (<span class="hljs-type">$tx</span>, <span class="hljs-type">$app</span>) = <span class="hljs-type">@_</span>;
+    <span class="hljs-keyword">my</span> (<span class="hljs-type">$tx</span>, <span class="hljs-type">$app</span>) = <span class="hljs-type">@_</span>;
     <span class="hljs-type">$tx</span>-&gt;<span class="hljs-type">res</span>-&gt;<span class="hljs-type">headers</span>-&gt;<span class="hljs-type">header</span>( &#39;<span class="hljs-string">Access-Control-Allow-Origin</span>&#39; =&gt; &#39;<span class="hljs-string">*</span>&#39; );
     <span class="hljs-type">$tx</span>-&gt;<span class="hljs-type">res</span>-&gt;<span class="hljs-type">headers</span>-&gt;<span class="hljs-type">header</span>( &#39;<span class="hljs-string">Access-Control-Allow-Methods</span>&#39; =&gt; &#39;<span class="hljs-string">GET, POST, PUT, PATCH, DELETE, OPTIONS</span>&#39; );
     <span class="hljs-type">$tx</span>-&gt;<span class="hljs-type">res</span>-&gt;<span class="hljs-type">headers</span>-&gt;<span class="hljs-type">header</span>( &#39;<span class="hljs-string">Access-Control-Max-Age</span>&#39; =&gt; <span class="hljs-number">3600</span> );

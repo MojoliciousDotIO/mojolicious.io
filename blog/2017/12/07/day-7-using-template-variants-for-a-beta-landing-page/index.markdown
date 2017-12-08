@@ -33,6 +33,8 @@ completely different from the front page of the beta testing website.
 
 To achieve this, I used [Mojolicious's template variants
 feature](http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Template-variants).
+---
+
 First, I created a variant of my index.html template for my beta site
 and called it `index.html+beta.ep`.
 
