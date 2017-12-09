@@ -1,0 +1,25 @@
+<section id="intro">
+  <div id="intro-slider" class="flexslider">
+    <ul class="slides">
+
+      % for my $slide (@$slides) {
+      <li>
+        <div class="row">
+          <div class="twelve columns">
+            <div class="slider-text">
+              %= include 'site/title.html.ep', title => $slide->{title}
+              <p><%== markdown $slide->{text} %></p>
+            </div>
+            <div class="slider-image">
+              <img src="<%= $slide->{image} %>" alt="<%= $slide->{alt} %>">
+            </div>
+          </div>
+        </div>
+      </li>
+      % }
+
+    </ul>
+  </div>
+</section>
+
+

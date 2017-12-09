@@ -3,9 +3,7 @@
   <div class="row">
 
       <div class="ten columns centered text-center">
-        % my $punct = $title =~ s/(\p{Punct})$// ? $1 : '.';
-        <h1><%== $title %><span><%= $punct %></span></h1>
-
+        %= include 'site/title.html.ep', title => $title
         <p><%== $subtitle %></p>
       </div>
 

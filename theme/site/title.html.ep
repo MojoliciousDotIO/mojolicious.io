@@ -1,0 +1,3 @@
+% my $punct = $title =~ s/(\p{Punct})$// ? $1 : '.';
+<h1><%== $title %><span><%= $punct %></span></h1>
+
