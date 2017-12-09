@@ -7,6 +7,34 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.087</generator>
         <item>
+            <title>Day 9: The Best Way to Test</title>
+            <link>https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/</link>
+            <guid>https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/</guid>
+            <description><![CDATA[
+                <p>Ok so it is a bit of a click-bait headline.
+But that doesn&#39;t mean I don&#39;t believe it.</p>
+
+<p><a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a> is a test framework for websites and related technologies.
+While its true that there are many such tools, this one gets its power comes from combining so many of the tools that Mojolicious provides.
+A full non-blocking web server, including websockets, an <a href="http://mojolicious.org/perldoc/Mojo/IOLoop">event loop</a>, an <a href="http://mojolicious.org/perldoc/Mojo/DOM">XML/HTML DOM parser</a>, <a href="http://mojolicious.org/perldoc/Mojo/JSON">JSON parser and emitter</a>, and more all come together to make to make incredibly detailed testing simple.
+Further, with the recent additions in support of <a href="http://mojolicious.org/perldoc/Mojo/Base#with_roles">roles</a> (which will be discussed in a future post), Test::Mojo is becoming an extensible testing platform.</p>
+
+<p>In this article, I&#39;ll give a quick overview of how to use Test::Mojo and some of its methods.
+Rest assured you&#39;ll see more of it as the series continues.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 09 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 8: Mocking a REST API</title>
             <link>https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/</link>
             <guid>https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/</guid>
@@ -131,40 +159,6 @@ In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Moj
             ]]></description>
             <pubDate>
                 Tue, 05 Dec 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 4: Don&#39;t Fear the Full App</title>
-            <link>https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</link>
-            <guid>https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</guid>
-            <description><![CDATA[
-                <p>One of the most common misconceptions about Mojolicious is that there is a large difference between the declarative &quot;Lite&quot; apps that we have seen so far and large-scale structured &quot;Full&quot; apps.
-Nothing could be further from the truth.
-<a href="http://mojolicious.org/perldoc/Mojolicious/Lite">Mojolicious::Lite</a> is a very tiny wrapper around the so-called &quot;Full&quot; app architecture, giving it the approachable keyword syntax.</p>
-
-<p>Because it is much nicer to have concise single-file examples for documentation most of Mojolicious&#39; documentation uses Lite syntax most of the time.
-It is understandable that people worry about migrating (or as we call it &quot;growing&quot;) even once their apps would benefit from Object-Oriented structure; after all the docs seem geared towards Lite apps.
-However, let those fears go, the transition is easy.
-And once you understand it, the documentatation examples are trivial to translate.</p>
-
-<p>Plus, Mojolicious comes with two forms of help when transitioning.
-The first is the <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing">Growing Guide</a> which covers everything this post will but from the perspective of porting an existing application (which I won&#39;t duplicate here).
-The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate">inflate command</a> which can even start you on the process by moving your templates from the data section and into their own files.</p>
-
-<p>That said, in order to futher demystify things, I&#39;m going to cover some of the differences and pull back the curtain on the Lite syntax itself.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
-                        <a href="https://mojolicious.io/blog/tag/full/">full</a>
-                        <a href="https://mojolicious.io/blog/tag/growing/">growing</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Mon, 04 Dec 2017 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

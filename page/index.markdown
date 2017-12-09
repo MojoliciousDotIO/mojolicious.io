@@ -50,6 +50,10 @@ data:
       image: '/static/1280px-crash-test-dummies.jpg'
       alt: 'Day 8: Mocking a REST API'
     - date: 2017-12-09
+      title: 'The Best Way to Test'
+      href: '/blog/2017/12/09/day-9-the-best-way-to-test'
+      image: '/static/1280px-CSIRO_ScienceImage_2798_Testing_in_the_Laboratory.jpg'
+      alt: 'Day 9: The Best Way to Test'
     - date: 2017-12-10
     - date: 2017-12-11
     - date: 2017-12-12

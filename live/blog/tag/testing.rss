@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/testing/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/testing.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.087</generator>
+        <item>
+            <title>Day 9: The Best Way to Test</title>
+            <link>https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/</link>
+            <guid>https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/</guid>
+            <description><![CDATA[
+                <p>Ok so it is a bit of a click-bait headline.
+But that doesn&#39;t mean I don&#39;t believe it.</p>
+
+<p><a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a> is a test framework for websites and related technologies.
+While its true that there are many such tools, this one gets its power comes from combining so many of the tools that Mojolicious provides.
+A full non-blocking web server, including websockets, an <a href="http://mojolicious.org/perldoc/Mojo/IOLoop">event loop</a>, an <a href="http://mojolicious.org/perldoc/Mojo/DOM">XML/HTML DOM parser</a>, <a href="http://mojolicious.org/perldoc/Mojo/JSON">JSON parser and emitter</a>, and more all come together to make to make incredibly detailed testing simple.
+Further, with the recent additions in support of <a href="http://mojolicious.org/perldoc/Mojo/Base#with_roles">roles</a> (which will be discussed in a future post), Test::Mojo is becoming an extensible testing platform.</p>
+
+<p>In this article, I&#39;ll give a quick overview of how to use Test::Mojo and some of its methods.
+Rest assured you&#39;ll see more of it as the series continues.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 09 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

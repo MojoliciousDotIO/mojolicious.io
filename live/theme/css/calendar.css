@@ -20,6 +20,7 @@
   flex: 1;
   min-width: 14.2857%;
   max-width: 14.2857vw;
+  min-height: 10vw;
   position: relative;
   font-size: 1.8vw;
   line-height: 0;
@@ -27,9 +28,11 @@
   transition: .35s opacity;
 }
 
+/* superceded by above
 .calendar time.blank {
   min-height: 10vw;
 }
+*/
 
 .calendar time a {
   display: inline-block;
