@@ -20,7 +20,7 @@ But that doesn't mean I don't believe it.
 
 [Test::Mojo](http://mojolicious.org/perldoc/Test/Mojo) is a test framework for websites and related technologies.
 While its true that there are many such tools, this one gets its power comes from combining so many of the tools that Mojolicious provides.
-A full non-blocking web server, including websockets, an [event loop](http://mojolicious.org/perldoc/Mojo/IOLoop), an [XML/HTML DOM parser](http://mojolicious.org/perldoc/Mojo/DOM), [JSON parser and emitter](http://mojolicious.org/perldoc/Mojo/JSON), and more all come together to make to make incredibly detailed testing simple.
+A full non-blocking web server, including websockets, an [event loop](http://mojolicious.org/perldoc/Mojo/IOLoop), an [XML/HTML DOM parser](http://mojolicious.org/perldoc/Mojo/DOM), [JSON parser and emitter](http://mojolicious.org/perldoc/Mojo/JSON), and more all come together to make incredibly detailed testing simple.
 Further, with the recent additions in support of [roles](http://mojolicious.org/perldoc/Mojo/Base#with_roles) (which will be discussed in a future post), Test::Mojo is becoming an extensible testing platform.
 
 In this article, I'll give a quick overview of how to use Test::Mojo and some of its methods.
