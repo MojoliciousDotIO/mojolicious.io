@@ -14,7 +14,7 @@ images:
         <a href="https://commons.wikimedia.org/w/index.php?curid=37564272">Image</a> by Calspan Corporation, National Highway Traffic Safety Administration - Public Domain.
 data:
   bio: preaction
-  description: 'Doug uses Mojolicious to quickly build a mock api for testing a front-end application.'
+  description: 'Doug uses Mojolicious to quickly build a mock API for testing a front-end application.'
 ---
 
 One of my applications is a pure-JavaScript UI for a JSON API. This UI
