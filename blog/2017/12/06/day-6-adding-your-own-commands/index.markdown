@@ -62,7 +62,7 @@ I'm going to copy portions of the code into this article for clarity, but consid
 Of course, we'll need some data.
 I've chosen to use <https://openweathermap.org/>
 To do run this you'll need to sign up for a [free account](http://home.openweathermap.org/users/sign_up).
-It only needs an email address, I tried but I really couldn't find a totally open access weather api.
+It only needs an email address, I tried but I really couldn't find a totally open access weather API.
 From there you can get an API key, which will need to go in a configuration file.
 Once you have it create a configuration file called `myweatherapp.conf` and fill it in like so:
 
