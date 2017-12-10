@@ -7,6 +7,36 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.087</generator>
         <item>
+            <title>Day 10: Give the Customer What They Want</title>
+            <link>https://mojolicious.io/blog/2017/12/10/day-10-give-the-customer-what-they-want/</link>
+            <guid>https://mojolicious.io/blog/2017/12/10/day-10-give-the-customer-what-they-want/</guid>
+            <description><![CDATA[
+                <p>Writing an API can be as easy as taking the results of some database query and presenting it to the user.
+A more advanced can often present the data in one of multiple formats.
+The user can then specify which format they want.</p>
+
+<p>JSON is currently the most popular format for new APIs.
+XML is another common one and was certainly king before JSON hit the scene.
+An API might choose to make an HTML format of the data available, whether in some representation of the data or to render documentation about the API itself.
+Of course there are many others.</p>
+
+<p>Mojolicious believes in <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-negotiation">Content Negotiation</a>, as it is called, and supports it throughout the stack.
+Mojolicious makes it easy and convenient for users to pick a format they would like.
+Similarly it makes rendering the different formats easy on the site author, as you would expect.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/10/day-10-give-the-customer-what-they-want/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 10 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 7: Using Template Variants For a Beta Landing Page</title>
             <link>https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/</link>
             <guid>https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/</guid>
