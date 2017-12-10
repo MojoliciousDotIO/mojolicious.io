@@ -120,7 +120,7 @@ Getting ahead of myself, one of my favorite tester roles on CPAN, [Test::Mojo::R
 
 giving you context when a failure occurs.
 
-## Making Requests
+<h2 id="making-requests">Making Requests</h2>
 
 Now that we have a running application and a tester to test it, what can we do?
 The Mojolicious documentation has lots of examples both in the [class documenation](http://mojolicious.org/perldoc/Test/Mojo) that we've already seen and in the [testing guide](http://mojolicious.org/perldoc/Mojolicious/Guides/Testing).

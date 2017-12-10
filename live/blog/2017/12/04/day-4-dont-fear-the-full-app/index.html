@@ -214,7 +214,7 @@ Well ok so there is one small difference between Lite and Full, and that differe
 <p>There are two other keywords, <code>under</code> and <code>group</code>.
 <code>under</code> allows routes share to code, like say for authentication.
 They also can share parts of their path.
-For example parts of an api that need authentication might be all under <code>/protected</code>.</p>
+For example, parts of an API that need authentication might be all under <code>/protected</code>.</p>
 
 <pre><code>get &#39;/unsafe&#39; =&gt; &#39;unsafe&#39;;
 
@@ -254,7 +254,7 @@ Full apps have it much easier!</p>
 
 <p>In a Full app, the route methods all return a new route object.
 If you store those in a variable, you can use them to build off of each other.
-This is a much more natural api for building nested structures in my opinion.</p>
+This is a much more natural API for building nested structures in my opinion.</p>
 
 <pre><code>my $r = $app-&gt;routes;
 $r-&gt;get(&#39;/unsafe&#39; =&gt; &#39;unsafe&#39;);

@@ -12,7 +12,7 @@
             <guid>https://mojolicious.io/blog/2017/12/10/day-10-give-the-customer-what-they-want/</guid>
             <description><![CDATA[
                 <p>Writing an API can be as easy as taking the results of some database query and presenting it to the user.
-A more advanced can often present the data in one of multiple formats.
+A more advanced one can often present the data in one of multiple formats.
 The user can then specify which format they want.</p>
 
 <p>JSON is currently the most popular format for new APIs.
