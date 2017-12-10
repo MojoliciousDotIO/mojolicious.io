@@ -13,7 +13,7 @@ data:
   description: Using content negotiation to create APIs that support multiple response formats.
 ---
 Writing an API can be as easy as taking the results of some database query and presenting it to the user.
-A more advanced can often present the data in one of multiple formats.
+A more advanced one can often present the data in one of multiple formats.
 The user can then specify which format they want.
 
 JSON is currently the most popular format for new APIs.
@@ -73,7 +73,7 @@ In Mojolicious the overall [default format](http://mojolicious.org/perldoc/Mojol
 
     app->renderer->default_value('json');
 
-There are also mechanims to limit the format detection, but those are beyond the scope of this article.
+There are also mechanisms to limit the format detection, but those are beyond the scope of this article.
 The links above contain more.
 
 Note also that the mappings between file extensions and MIME types obviously are in play here.
@@ -93,13 +93,13 @@ Imagine a test for an application that returns information about Santa's Reindee
 %= highlight 'Perl' => include -raw => 'reindeer.t'
 
 In it you can see each file type maps to a set of stash values.
-The test cases use a varity of ways to request the different response types.
+The test cases use a variety of ways to request the different response types.
 
 N.B. I like showing test cases as examples because it not only shows the code, it shows how to test it and what the expected responses should be.
 
 ## A More Advanced Case
 
-To demonstrate how powerful this mechanism, let me show you some code that I wrote for a previous job.
+To demonstrate how powerful this mechanism is, let me show you some code that I wrote for a previous job.
 That company was friendly to Open Source and so it lives on CPAN as [Mojolicious::Plugin::ReplyTable](https://metacpan.org/pod/Mojolicious::Plugin::ReplyTable).
 I won't copy and paste the whole module, you can see it on [Github](https://github.com/jberger/Mojolicious-Plugin-ReplyTable/blob/master/lib/Mojolicious/Plugin/ReplyTable.pm).
 
@@ -122,4 +122,3 @@ The upshot is that it provides a `reply->table` helper which takes a set of "rec
 Of course under the hood this is using Content Negotiation and several other modules to provide CSV, HTML, JSON, text, XLS, and XLSX outputs.
 It is configurable via several stash values that might be set.
 If you'd like to dig into that code to see how it works, please feel free.
-
