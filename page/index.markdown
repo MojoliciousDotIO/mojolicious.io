@@ -55,6 +55,10 @@ data:
       image: '/static/1280px-CSIRO_ScienceImage_2798_Testing_in_the_Laboratory.jpg'
       alt: 'Day 9: The Best Way to Test'
     - date: 2017-12-10
+      title: "Give 'em What They Want"
+      href: '/blog/2017/12/10/day-10-give-the-customer-what-they-want'
+      image: '/static/cafe-wood-vintage-retro-seat-restaurant-946984-pxhere.com.jpg'
+      alt: 'Day 10: Give the Customer What They Want'
     - date: 2017-12-11
     - date: 2017-12-12
     - date: 2017-12-13
