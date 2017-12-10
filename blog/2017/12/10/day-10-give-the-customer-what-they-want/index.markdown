@@ -71,7 +71,7 @@ With that knowledge therefore this way you might guess, correctly, that if you'd
 
 In Mojolicious the overall [default format](http://mojolicious.org/perldoc/Mojolicious/Renderer#default_format) is html, but of course can be changed.
 
-    app->renderer->default_value('json');
+    app->renderer->default_format('json');
 
 There are also mechanisms to limit the format detection, but those are beyond the scope of this article.
 The links above contain more.
