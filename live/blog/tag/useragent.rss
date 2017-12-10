@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/useragent/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/useragent.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.087</generator>
+        <item>
+            <title>Day 11: UserAgent Content Generators</title>
+            <link>https://mojolicious.io/blog/2017/12/11/day-11-useragent-content-generators/</link>
+            <guid>https://mojolicious.io/blog/2017/12/11/day-11-useragent-content-generators/</guid>
+            <description><![CDATA[
+                <p>We have already seen <a href="http://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a> used to make HTTP requests in this series.
+In fact we&#39;ve already seen how you can use <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#USER-AGENT">Content Generators</a> to build requests <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test#making-requests">in tests</a>.
+But we didn&#39;t look at how they work or how you can add new ones.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/11/day-11-useragent-content-generators/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/useragent/">useragent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 11 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

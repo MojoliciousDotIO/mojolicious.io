@@ -60,6 +60,10 @@ data:
       image: '/static/cafe-wood-vintage-retro-seat-restaurant-946984-pxhere.com.jpg'
       alt: 'Day 10: Give the Customer What They Want'
     - date: 2017-12-11
+      title: 'UserAgent Content Generators'
+      href: '/blog/2017/12/11/day-11-useragent-content-generators'
+      image: '/static/artist-painting-1459778857j86.jpg'
+      alt: 'Day 11: UserAgent Content Generators'
     - date: 2017-12-12
     - date: 2017-12-13
     - date: 2017-12-14

@@ -16,7 +16,7 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/tag/api/" property="og:url">
+  <meta content="https://mojolicious.io/blog/tag/useragent/" property="og:url">
   <meta content="mojolicious.io" property="og:title">
     <meta content="summary" name="twitter:card">
 
@@ -26,8 +26,8 @@
 
   <title>mojolicious.io</title>
   <meta content="Statocles 0.087" name="generator">
-  <link href="/blog/tag/api.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/tag/api.rss" rel="alternate" type="application/rss+xml">
+  <link href="/blog/tag/useragent.atom" rel="alternate" type="application/atom+xml">
+  <link href="/blog/tag/useragent.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -93,11 +93,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/">Day 8: Mocking a REST API</a></h1>
+            <h1><a href="/blog/2017/12/11/day-11-useragent-content-generators/">Day 11: UserAgent Content Generators</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-08">Dec  8, 2017</time>
+                  <time class="date" datetime="2017-12-11">Dec 11, 2017</time>
                   
 
               </p>
@@ -106,24 +106,15 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Two crash test dummies" src="/static/1280px-crash-test-dummies.jpg">
+                <img alt="Artist painting" src="/static/artist-painting-1459778857j86.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>One of my applications is a pure-JavaScript UI for a JSON API. This UI
-is an entirely different project that communicates with a public API
-using an OpenAPI specification.</p>
+              <p></p><p>We have already seen <a href="http://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a> used to make HTTP requests in this series.
+In fact we&#39;ve already seen how you can use <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#USER-AGENT">Content Generators</a> to build requests <a href="/blog/2017/12/09/day-9-the-best-way-to-test#making-requests">in tests</a>.
+But we didn&#39;t look at how they work or how you can add new ones.</p>
 
-<p>Our public API is huge and complex: To set up the public API, I need
-a database, sample data, and three other private API servers that
-perform individual tasks as directed by the public API. Worse, I would
-need to set up a lot of different test scenarios with different kinds of
-data.</p>
-
-<p>It would be a lot easier to set up a mock public API that I could use to
-test my UI, and it turns out that Mojolicious makes this very easy.</p>
-
-                  <p><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/#section-2">Continue reading Day 8: Mocking a REST API...</a></p>
+                  <p><a href="/blog/2017/12/11/day-11-useragent-content-generators/#section-2">Continue reading Day 11: UserAgent Content Generators...</a></p>
             </div>
 
         </article>

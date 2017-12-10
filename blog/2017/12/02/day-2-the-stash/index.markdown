@@ -10,6 +10,9 @@ images:
   banner:
     src: '/static/bag-1854148_1920.jpg'
     alt: 'leather bag'
+    data:
+      attribution: |-
+        [Image](https://pixabay.com/en/bag-classic-leather-messenger-bag-1854148/) in the Public Domain.
 data:
   bio: jberger
   description: The stash is the most important data structure in Mojolicious.

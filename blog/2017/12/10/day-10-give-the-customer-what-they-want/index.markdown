@@ -8,6 +8,9 @@ images:
   banner:
     src: '/static/cafe-wood-vintage-retro-seat-restaurant-946984-pxhere.com.jpg'
     alt: 'Wood bar counter with chairs'
+    data:
+      attribution: |-
+        [Image](https://pxhere.com/en/photo/946984) in the Public Domain.
 data:
   bio: jberger
   description: Using content negotiation to create APIs that support multiple response formats.
