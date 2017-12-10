@@ -101,7 +101,7 @@ N.B. I like showing test cases as examples because it not only shows the code, i
 
 To demonstrate how powerful this mechanism, let me show you some code that I wrote for a previous job.
 That company was friendly to Open Source and so it lives on CPAN as [Mojolicious::Plugin::ReplyTable](https://metacpan.org/pod/Mojolicious::Plugin::ReplyTable).
-I won't copy and paste the whole module, you can see it on MetCPAN.
+I won't copy and paste the whole module, you can see it on [Github](https://github.com/jberger/Mojolicious-Plugin-ReplyTable/blob/master/lib/Mojolicious/Plugin/ReplyTable.pm).
 
 The upshot is that it provides a `reply->table` helper which takes a set of "rectangular" data and renders it as one of many forms.
 
