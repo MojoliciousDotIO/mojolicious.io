@@ -49,7 +49,7 @@ A callback is function reference, intended to be called in the future; in this c
 An action is called with one argument, called the [controller](http://mojolicious.org/perldoc/Mojolicious/Controller).
 The controller is an object that represents our application's interaction with the current transaction.
 It contains an object representing the [transaction](http://mojolicious.org/perldoc/Mojo/Transaction), which in turn holds objects for the [request](http://mojolicious.org/perldoc/Mojo/Message/Request) and [response](http://mojolicious.org/perldoc/Mojo/Message/Response).
-It has methods which can be used generate responses, one of which is `render`, which you see above.
+It has methods which can be used to generate responses, one of which is `render`, which you see above.
 Here you see that we are going to render some text.
 
 In truth though, most of the arguments to render are actually just merged into the stash.
@@ -80,7 +80,7 @@ Remember that the action callback is only called when a request comes in.
 However, there is nothing special about the requst that we need to wait for to understand how to respond to it.
 
 In Mojolicious, when establishing a route, we can also specify some default values to add to the stash on each request (unless they are changed).
-These defaults are passed as a hash reference to the route contructor `get`.
+These defaults are passed as a hash reference to the route constructor `get`.
 
     use Mojolicious::Lite;
     get '/' => {text => 'Hello 🌍 World!'} => sub {
