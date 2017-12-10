@@ -10,7 +10,7 @@ images:
     alt: 'Wood bar counter with chairs'
 data:
   bio: jberger
-  description: Using content negotiation to support multiple response formats.
+  description: Using content negotiation to create APIs that support multiple response formats.
 ---
 Writing an API can be as easy as taking the results of some database query and presenting it to the user.
 A more advanced can often present the data in one of multiple formats.
