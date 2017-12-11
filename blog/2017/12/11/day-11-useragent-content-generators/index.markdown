@@ -139,8 +139,8 @@ Although the usage isn't terribly difficult, how would it look as a Content Gene
 
 which produces an output essentially identical to the first.
 
-At first glance it only appeart to be a modest improvement.
-Howver once defined, it does cut down on repeated code for subsequent requests.
+At first glance it only appears to be a modest improvement.
+However, once defined, it does cut down on repeated code for subsequent requests.
 Thus the benefit grows the more times it is used.
 In a larger code base, that adherence to the DRY mantra (Don't Repeat Yourself) might be invaluable.
 
