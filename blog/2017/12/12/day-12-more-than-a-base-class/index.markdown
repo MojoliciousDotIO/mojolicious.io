@@ -52,7 +52,7 @@ Otherwise, if you use the class or roles functionality then these imports come a
 In the past few years, Perl has added [signatures](https://metacpan.org/pod/perlsub#Signatures) to subroutines as an [experimental](https://metacpan.org/pod/perlexperiment) feature.
 With Mojolicious' emphasis on non-blocking functionality, and the frequent use of callbacks that that entails, the Mojo community has been especially anxious to use them.
 However since these are still experimental, and are still subject to change, when Mojo::Base recently added this functionality, it was decided that it should be an additional opt-in flag.
-Using it, suddently
+Using it, suddenly
 
     use Mojo::Base -strict;
     $ua->get('/url' => sub {

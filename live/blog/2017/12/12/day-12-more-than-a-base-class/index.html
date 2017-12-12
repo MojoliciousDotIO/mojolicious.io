@@ -29,7 +29,7 @@
 
   <title>Day 12: More Than a Base Class - mojolicious.io</title>
   <meta content="Joel Berger" name="author">
-  <meta content="Statocles 0.087" name="generator">
+  <meta content="Statocles 0.088" name="generator">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -57,7 +57,12 @@
                <ul class="nav" id="nav">
                  <!-- li.current is given a different styling -->
                    <li><a href="/blog">Blog</a></li>
-                   <li><a href="http://mojolicious.org/perldoc">Documentation</a></li>
+                   <li><span><a href="http://mojolicious.org">Official Site</a></span>
+                     <ul>
+                       <li><a href="http://mojolicious.org/perldoc">Documentation</a></li>
+                       <li><a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial">Tutorial</a></li>
+                      </ul>
+                   </li>
 
                </ul>
 
@@ -151,7 +156,7 @@ Otherwise, if you use the class or roles functionality then these imports come a
 <p>In the past few years, Perl has added <a href="https://metacpan.org/pod/perlsub#Signatures">signatures</a> to subroutines as an <a href="https://metacpan.org/pod/perlexperiment">experimental</a> feature.
 With Mojolicious&#39; emphasis on non-blocking functionality, and the frequent use of callbacks that that entails, the Mojo community has been especially anxious to use them.
 However since these are still experimental, and are still subject to change, when Mojo::Base recently added this functionality, it was decided that it should be an additional opt-in flag.
-Using it, suddently</p>
+Using it, suddenly</p>
 
 <pre><code>use Mojo::Base -strict;
 $ua-&gt;get(&#39;/url&#39; =&gt; sub {
@@ -392,7 +397,7 @@ He an avid Perl user and <a href="https://metacpan.org/author/JBERGER">author</a
 
             <ul class="footer-nav">
                 <li><a href="/blog">Blog.</a></li>
-                <li><a href="http://mojolicious.org/perldoc">Documentation.</a></li>
+                <li><a href="http://mojolicious.org">Official Site.</a></li>
             </ul>
 
             <ul class="footer-social">

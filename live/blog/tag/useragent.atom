@@ -5,7 +5,7 @@
     <updated>2017-12-11T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/useragent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/useragent/" rel="alternate" />
-    <generator version="0.087">Statocles</generator>
+    <generator version="0.088">Statocles</generator>
 
     <entry>
         <id>https://mojolicious.io/blog/2017/12/11/day-11-useragent-content-generators/</id>

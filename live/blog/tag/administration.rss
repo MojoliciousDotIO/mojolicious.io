@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/administration/</link>
         <atom:link href="https://mojolicious.io/blog/tag/administration.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.087</generator>
+        <generator>Statocles 0.088</generator>
         <item>
             <title>Day 5: Your App&#39;s Built-In Commands</title>
             <link>https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/</link>
