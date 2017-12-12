@@ -13,7 +13,7 @@
         <author><name>Joel Berger</name></author>
         <link href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Through this series, you&#39;ve seen the module <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> referenced several times, though briegly and mostly in passing.
+            <p>Through this series, you&#39;ve seen the module <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> referenced several times, though briefly and mostly in passing.
 It shouldn&#39;t be taken lightly however, it packs a lot of punch in one import statement!
 Nearly every file in the Mojolicious distribution uses it, either directly or indirectly.
 So what is it?</p>

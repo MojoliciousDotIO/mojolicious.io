@@ -17,7 +17,7 @@ data:
   description: Mojo::Base is a streamlined base class with lots of extra goodies.
 ---
 
-Through this series, you've seen the module [Mojo::Base](http://mojolicious.org/perldoc/Mojo/Base) referenced several times, though briegly and mostly in passing.
+Through this series, you've seen the module [Mojo::Base](http://mojolicious.org/perldoc/Mojo/Base) referenced several times, though briefly and mostly in passing.
 It shouldn't be taken lightly however, it packs a lot of punch in one import statement!
 Nearly every file in the Mojolicious distribution uses it, either directly or indirectly.
 So what is it?
