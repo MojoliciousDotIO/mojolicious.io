@@ -300,7 +300,7 @@ It is located at [lib/MyWeatherApp/Command/fetch_weather.pm](https://github.com/
       my $app = $self->app;
 
       unless (@args) {
-        @args = @{ $app->config->search || [] };
+        @args = @{ $app->config->{search} || [] };
       }
 
       for my $search (@args) {

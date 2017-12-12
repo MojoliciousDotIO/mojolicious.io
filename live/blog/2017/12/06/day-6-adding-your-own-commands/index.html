@@ -410,7 +410,7 @@ sub run {
   my $app = $self-&gt;app;
 
   unless (@args) {
-    @args = @{ $app-&gt;config-&gt;search || [] };
+    @args = @{ $app-&gt;config-&gt;{search} || [] };
   }
 
   for my $search (@args) {
