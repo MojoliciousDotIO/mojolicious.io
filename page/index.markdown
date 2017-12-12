@@ -65,6 +65,10 @@ data:
       image: '/static/artist-painting-1459778857j86.jpg'
       alt: 'Day 11: UserAgent Content Generators'
     - date: 2017-12-12
+      title: 'More Than a Base Class'
+      href: '/blog/2017/12/12/day-12-more-than-a-base-class'
+      image: '/static/1280px-GG-ftpoint-bridge-2.jpg'
+      alt: 'Day 12: More Than a Base Class'
     - date: 2017-12-13
     - date: 2017-12-14
     - date: 2017-12-15
