@@ -2,11 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-11T00:00:00Z</updated>
+    <updated>2017-12-12T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.087">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/</id>
+        <title>Day 12: More Than a Base Class</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Through this series, you&#39;ve seen the module <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> referenced several times, though briegly and mostly in passing.
+It shouldn&#39;t be taken lightly however, it packs a lot of punch in one import statement!
+Nearly every file in the Mojolicious distribution uses it, either directly or indirectly.
+So what is it?</p>
+
+<p>First it imports several handy pragma that make your code safer and some features that are useful.
+Second, it can be a base class to the current package, or establish a parent class, or even define a role.
+Let&#39;s see how it does it.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/fluent/">fluent</a>
+                    <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-12T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="fluent" />
+        <category term="roles" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/11/day-11-useragent-content-generators/</id>
         <title>Day 11: UserAgent Content Generators</title>
@@ -121,44 +150,6 @@ test my UI, and it turns out that Mojolicious makes this very easy.</p>
         <category term="advent" />
         <category term="mocking" />
         <category term="api" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/</id>
-        <title>Day 7: Using Template Variants For a Beta Landing Page</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="http://cpantesters.org">CPAN Testers</a> is a pretty big project with a long,
-storied history. At its heart is a data warehouse holding all the test reports
-made by people installing CPAN modules. Around that exists an ecosystem of
-tools and visualizations that use this data to provide useful insight into the
-status of CPAN distributions.</p>
-
-<p>For the <a href="http://github.com/cpan-testers/cpantesters-web">CPAN Testers webapp
-project</a>, I needed a way to
-show off some pre-release tools with some context about what they are and how
-they might be made ready for release. I needed a &quot;beta&quot; website with a front
-page that introduced the beta projects. But, I also needed the same
-<a href="http://mojolicious.org">Mojolicious</a> application to serve (in the future) as a
-production website. The front page of the production website would be
-completely different from the front page of the beta testing website.</p>
-
-<p>To achieve this, I used <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Template-variants">Mojolicious&#39;s template variants
-feature</a>.</p>
-
-                <p><a href="https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
-                    <a href="https://mojolicious.io/blog/tag/template/">template</a>
-                </p>
-
-        ]]></content>
-        <updated>2017-12-07T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="rendering" />
-        <category term="template" />
     </entry>
 </feed>
 
