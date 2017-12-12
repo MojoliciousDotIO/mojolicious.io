@@ -91,9 +91,11 @@ site:
             main:
                 - text: 'Blog'
                   href: '/blog'
-                - text: 'Documentation'
-                  href: 'http://mojolicious.org/perldoc'
+                - text: 'Official Site'
+                  href: 'http://mojolicious.org'
                   children:
+                    - text: 'Documentation'
+                      href: 'http://mojolicious.org/perldoc'
                     - text: 'Tutorial'
                       href: 'http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial'
         images:
