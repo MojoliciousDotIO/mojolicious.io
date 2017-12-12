@@ -34,7 +34,7 @@
   % if (my $desc = $page->data->{description}) {
     <meta property="og:description" content="<%== $desc %>">
   % }
-  % if (my $image = $page->images('banner')) {
+  % if (my $image = $page->images('card') || $page->images('banner')) {
     <meta property="og:image" content="<%== $site->url( $image->src ) %>">
     <meta name="twitter:card" content="summary_large_image">
   % } else {
