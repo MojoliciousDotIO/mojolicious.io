@@ -59,7 +59,7 @@ Say we want to make a role that finds all the tags matching elements in a [Mojo:
 This example shows three interesting features.
 First is that even though it is not a class, the package still gets Mojo::Base's [has](http://mojolicious.org/perldoc/Mojo/Base#has) keyword, used to make accessors for attributes.
 Second is that a new keyword, `requires`, has been added, coming from [Role::Tiny](https://metacpan.org/pod/Role::Tiny#requires).
-This keyword tells the role that it can only be composed into a class that provides a `find` keyword.
+This keyword tells the role that it can only be composed into a class that provides a `find` method.
 Consider the new `find_custom` method, since it uses `find` if the class it is composed into didn't provide that method our new method couldn't behave as expected.
 
 Indeed several keywords are imported from Role::Tiny including `with` to compose other roles and several method modifiers coming from [Class::Method::Modifiers](https://metacpan.org/pod/Class::Method::Modifiers) (which is an optional dependency only required if used).

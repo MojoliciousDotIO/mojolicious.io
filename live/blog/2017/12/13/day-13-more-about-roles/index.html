@@ -165,7 +165,7 @@ sub find_custom {
 <p>This example shows three interesting features.
 First is that even though it is not a class, the package still gets Mojo::Base&#39;s <a href="http://mojolicious.org/perldoc/Mojo/Base#has">has</a> keyword, used to make accessors for attributes.
 Second is that a new keyword, <code>requires</code>, has been added, coming from <a href="https://metacpan.org/pod/Role::Tiny#requires">Role::Tiny</a>.
-This keyword tells the role that it can only be composed into a class that provides a <code>find</code> keyword.
+This keyword tells the role that it can only be composed into a class that provides a <code>find</code> method.
 Consider the new <code>find_custom</code> method, since it uses <code>find</code> if the class it is composed into didn&#39;t provide that method our new method couldn&#39;t behave as expected.</p>
 
 <p>Indeed several keywords are imported from Role::Tiny including <code>with</code> to compose other roles and several method modifiers coming from <a href="https://metacpan.org/pod/Class::Method::Modifiers">Class::Method::Modifiers</a> (which is an optional dependency only required if used).
