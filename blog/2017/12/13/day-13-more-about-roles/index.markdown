@@ -73,7 +73,9 @@ Howver clearly this role is intended to work with functionality provided by Mojo
 
 Now that we know how to create a role, how is it used?
 Well, let's continue with the prior example.
-To use the role, we use the [`with_roles`](http://mojolicious.org/perldoc/Mojo/Base#with_roles) method provided by Mojo::Base.
+
+A role cannot be instantiated on its own, indeed it doesn't even have a constructor (e.g. a `new` method).
+To use the role we employ the [`with_roles`](http://mojolicious.org/perldoc/Mojo/Base#with_roles) method, provided by Mojo::Base, to compose it with Mojo::DOM.
 
 This method is slightly different when used on class versus when it is used on an object.
 When used as a class method, the return value is a new semi-anonymous class that composes all the given roles.
