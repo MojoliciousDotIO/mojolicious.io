@@ -191,5 +191,5 @@ If you'd rather pass on this method, that's fine too.
 ## Roles
 
 While Mojo::Base has always tacitly supported roles via external modules, just recently has it started to offer explicit functionality in this area.
-That said, I have lots ot say on the matter, so if you'll permit me, I'm going to keep you in suspense until tomorrow.
+That said, I have lots ot say on the matter, so if you'll permit me, I'm going to keep you in suspense until [tomorrow](/blog/2017/12/13/day-13-more-about-roles).
 
