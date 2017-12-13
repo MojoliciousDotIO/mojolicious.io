@@ -7,6 +7,37 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.088</generator>
         <item>
+            <title>Day 13: More About Roles</title>
+            <link>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</link>
+            <guid>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</guid>
+            <description><![CDATA[
+                <p>Before we get ahead of ourselves, what are roles?
+Briefly stated, roles enable composing functionality (usually methods) into a class without without implying a change of inheritence.
+Said another way, roles let you specify what a class does without changing what it is.
+For a better description, check out Toby Inkster&#39;s article <a href="http://radar.oreilly.com/2014/01/horizontal-reuse-an-alternative-to-inheritance.html">Horizontal Reuse: An Alternative to Inheritance</a>.</p>
+
+<p>An important utility of roles is that you can easily use more than one role at the same time in the same consuming class.
+With inheritance, especially of third-party functionality, you have to choose one set of extensions to utilize.
+This is because the author of the subclass establishes the inheritance.
+In roles, the user determines which roles to compose into the base class.</p>
+
+<p><a href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class">Yesterday</a> I ended the discussion of <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> before discussing the roles support.
+Added in several installments between Mojolicious versions <a href="https://metacpan.org/release/SRI/Mojolicious-7.40">7.40</a> and <a href="https://metacpan.org/release/SRI/Mojolicious-7.55">7.55</a>, this role support is one of the most recently added features in the ecosystem (along with <a href="http://mojolicious.org/perldoc/Mojo/Promise">promises</a>, which will be covered in an upcoming article).
+The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role::Tiny</a> which is an optional dependency in Mojolicious, but is required in order to use the functionality that I will describe.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 13 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 12: More Than a Base Class</title>
             <link>https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/</link>
             <guid>https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/</guid>

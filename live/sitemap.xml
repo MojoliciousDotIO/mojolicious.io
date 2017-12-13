@@ -10,7 +10,7 @@
         <loc>https://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-12</lastmod>
+        <lastmod>2017-12-13</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -97,16 +97,22 @@
         <lastmod>2017-12-12</lastmod>
     </url>
     <url>
+        <loc>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-13</lastmod>
+    </url>
+    <url>
         <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-12</lastmod>
+        <lastmod>2017-12-13</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-12</lastmod>
+        <lastmod>2017-12-13</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/administration/</loc>
@@ -118,19 +124,19 @@
         <loc>https://mojolicious.io/blog/tag/advent/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-12</lastmod>
+        <lastmod>2017-12-13</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-12</lastmod>
+        <lastmod>2017-12-13</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-12</lastmod>
+        <lastmod>2017-12-13</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/api/</loc>
@@ -208,7 +214,7 @@
         <loc>https://mojolicious.io/blog/tag/roles/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-12</lastmod>
+        <lastmod>2017-12-13</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/routing/</loc>

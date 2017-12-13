@@ -76,6 +76,10 @@ data:
       image: '/static/1280px-GG-ftpoint-bridge-2.jpg'
       alt: 'Day 12: More Than a Base Class'
     - date: 2017-12-13
+      title: 'More About Roles'
+      href: '/blog/2017/12/13/day-13-more-about-roles'
+      image: '/static/amsterdam_hats.jpg'
+      alt: 'Day 13: More About Roles'
     - date: 2017-12-14
     - date: 2017-12-15
     - date: 2017-12-16
