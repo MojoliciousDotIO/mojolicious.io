@@ -138,6 +138,11 @@ site:
                     text: |-
                       Doug ([preaction](http://preaction.me)) is a long time Perl user.
                       He is the current maintainer of [CPAN Testers](http://www.cpantesters.org/) and the author of many [CPAN modules](https://metacpan.org/author/PREACTION) including the [Statocles](http://preaction.me/statocles/) blog engine that powers this site.
+                mohawk:
+                    name: Ed J
+                    image: '//secure.gravatar.com/avatar/c6e74e4e0ab61c61db655f0e60c9f8a6.jpg'
+                    text: |-
+                      Ed J (aka "mohawk" on IRC) has been using Perl for a long time. He is currently porting the reference [GraphQL](http://graphql.org/) implementation from the [JavaScript version](http://graphql.org/graphql-js/) to [Perl](https://metacpan.org/pod/GraphQL). Find out more by [joining the `#graphql-perl` channel on irc.perl.org](https://chat.mibbit.com/?channel=%23graphql-perl&server=irc.perl.org)!
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what

@@ -26,7 +26,7 @@ This is because the author of the subclass establishes the inheritance.
 In roles, the user determines which roles to compose into the base class.
 
 [Yesterday](/blog/2017/12/12/day-12-more-than-a-base-class) I ended the discussion of [Mojo::Base](http://mojolicious.org/perldoc/Mojo/Base) before discussing the roles support.
-Added in several installments between Mojolicious versions [7.40](https://metacpan.org/release/SRI/Mojolicious-7.40) and [7.55](https://metacpan.org/release/SRI/Mojolicious-7.55), this role support is one of the most recently added features in the ecosystem (along with [promises](http://mojolicious.org/perldoc/Mojo/Promise), which will be covered in an upcoming article).
+Added in several installments between Mojolicious versions [7.40](https://metacpan.org/release/SRI/Mojolicious-7.40) and [7.55](https://metacpan.org/release/SRI/Mojolicious-7.55), this role support is one of the most recently added features in the ecosystem (along with [promises](http://mojolicious.org/perldoc/Mojo/Promise), which will be covered in [an upcoming article](/blog/2017/12/14/day-14-you-promised-to-call)).
 The role handling comes from [Role::Tiny](https://metacpan.org/pod/Role::Tiny) which is an optional dependency in Mojolicious, but is required in order to use the functionality that I will describe.
 ---
 

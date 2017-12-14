@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/non-blocking/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/non-blocking.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.088</generator>
+        <item>
+            <title>Day 14: You Promised To Call!</title>
+            <link>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</link>
+            <guid>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</guid>
+            <description><![CDATA[
+                <p>A new feature of <a href="http://mojolicious.org/">Mojolicious</a>, as of <a href="https://metacpan.org/release/SRI/Mojolicious-7.49">7.49</a>, is the implementation of the <a href="https://promisesaplus.com/implementations#in-other-languages">Promises/A+ specification</a>. In this posting, we&#39;re going to use promises to implement non-blocking, parallel fetching of a number of web pages.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/non-blocking/">non-blocking</a>
+                        <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 14 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

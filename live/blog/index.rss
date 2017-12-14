@@ -7,6 +7,26 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.088</generator>
         <item>
+            <title>Day 14: You Promised To Call!</title>
+            <link>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</link>
+            <guid>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</guid>
+            <description><![CDATA[
+                <p>A new feature of <a href="http://mojolicious.org/">Mojolicious</a>, as of <a href="https://metacpan.org/release/SRI/Mojolicious-7.49">7.49</a>, is the implementation of the <a href="https://promisesaplus.com/implementations#in-other-languages">Promises/A+ specification</a>. In this posting, we&#39;re going to use promises to implement non-blocking, parallel fetching of a number of web pages.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/non-blocking/">non-blocking</a>
+                        <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 14 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 13: More About Roles</title>
             <link>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</link>
             <guid>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</guid>
@@ -22,7 +42,7 @@ This is because the author of the subclass establishes the inheritance.
 In roles, the user determines which roles to compose into the base class.</p>
 
 <p><a href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class">Yesterday</a> I ended the discussion of <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> before discussing the roles support.
-Added in several installments between Mojolicious versions <a href="https://metacpan.org/release/SRI/Mojolicious-7.40">7.40</a> and <a href="https://metacpan.org/release/SRI/Mojolicious-7.55">7.55</a>, this role support is one of the most recently added features in the ecosystem (along with <a href="http://mojolicious.org/perldoc/Mojo/Promise">promises</a>, which will be covered in an upcoming article).
+Added in several installments between Mojolicious versions <a href="https://metacpan.org/release/SRI/Mojolicious-7.40">7.40</a> and <a href="https://metacpan.org/release/SRI/Mojolicious-7.55">7.55</a>, this role support is one of the most recently added features in the ecosystem (along with <a href="http://mojolicious.org/perldoc/Mojo/Promise">promises</a>, which will be covered in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call">an upcoming article</a>).
 The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role::Tiny</a> which is an optional dependency in Mojolicious, but is required in order to use the functionality that I will describe.</p>
 
                     <p><a href="https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/#section-2">Continue reading...</a></p>
@@ -113,34 +133,6 @@ Similarly it makes rendering the different formats easy on the site author, as y
             ]]></description>
             <pubDate>
                 Sun, 10 Dec 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 9: The Best Way to Test</title>
-            <link>https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/</link>
-            <guid>https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/</guid>
-            <description><![CDATA[
-                <p>Ok so it is a bit of a click-bait headline.
-But that doesn&#39;t mean I don&#39;t believe it.</p>
-
-<p><a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a> is a test framework for websites and related technologies.
-While its true that there are many such tools, this one gets its power comes from combining so many of the tools that Mojolicious provides.
-A full non-blocking web server, including websockets, an <a href="http://mojolicious.org/perldoc/Mojo/IOLoop">event loop</a>, an <a href="http://mojolicious.org/perldoc/Mojo/DOM">XML/HTML DOM parser</a>, <a href="http://mojolicious.org/perldoc/Mojo/JSON">JSON parser and emitter</a>, and more all come together to make incredibly detailed testing simple.
-Further, with the recent additions in support of <a href="http://mojolicious.org/perldoc/Mojo/Base#with_roles">roles</a> (which will be discussed in a future post), Test::Mojo is becoming an extensible testing platform.</p>
-
-<p>In this article, I&#39;ll give a quick overview of how to use Test::Mojo and some of its methods.
-Rest assured you&#39;ll see more of it as the series continues.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 09 Dec 2017 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

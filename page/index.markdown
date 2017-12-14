@@ -81,6 +81,10 @@ data:
       image: '/static/amsterdam_hats.jpg'
       alt: 'Day 13: More About Roles'
     - date: 2017-12-14
+      title: 'You Promised To Call!'
+      href: '/blog/2017/12/14/day-14-you-promised-to-call'
+      image: '/static/pinky_swear.jpg'
+      alt: 'Day 14: You Promised To Call!'
     - date: 2017-12-15
     - date: 2017-12-16
     - date: 2017-12-17
