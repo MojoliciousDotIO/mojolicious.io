@@ -91,6 +91,10 @@ data:
       image: '/static/scaffold.jpg'
       alt: Day 15: Start a New Yancy App
     - date: 2017-12-16
+      title: 'The Secret Life of Sessions'
+      href: '/blog/2017/12/16/day-16-the-secret-life-of-sessions'
+      image: '/static/scrabble.jpg'
+      alt: 'Day 16: The Secret Life of Sessions'
     - date: 2017-12-17
     - date: 2017-12-18
     - date: 2017-12-19
