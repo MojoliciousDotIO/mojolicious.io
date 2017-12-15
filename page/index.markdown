@@ -1,6 +1,5 @@
 ---
 title: Welcome To mojolicious.io!
-subtitle: A semi-official website dedicated to the Mojolicious web framework
 template: page/full_width.html
 images:
   card:
@@ -9,6 +8,7 @@ images:
     data:
       attribution: '<a href="https://commons.wikimedia.org/wiki/File:Colorado_Springs_Hot_Air_Balloon_Competition.jpg">Image by DarlArthurS</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported</a> license.'
 data:
+  subtitle: A semi-official website dedicated to the Mojolicious web framework
   calendar:
     - date: 2017-11-26
     - date: 2017-11-27

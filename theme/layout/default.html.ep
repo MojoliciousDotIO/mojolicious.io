@@ -31,7 +31,7 @@
   % if (my $title = $page->title || $site->title) {
   <meta property="og:title" content="<%== $title %>">
   % }
-  % if (my $desc = $page->data->{description}) {
+  % if (my $desc = $page->data->{description} || $page->data->{subtitle}) {
     <meta property="og:description" content="<%== $desc %>">
   % }
   % if (my $image = $page->images('card') || $page->images('banner')) {
