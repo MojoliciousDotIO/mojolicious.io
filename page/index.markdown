@@ -86,6 +86,10 @@ data:
       image: '/static/pinky_swear.jpg'
       alt: 'Day 14: You Promised To Call!'
     - date: 2017-12-15
+      title: 'Start a New Yancy App'
+      href: '/blog/2017/12/15/day-15-start-a-new-yancy-app'
+      image: '/static/scaffold.jpg'
+      alt: Day 15: Start a New Yancy App
     - date: 2017-12-16
     - date: 2017-12-17
     - date: 2017-12-18
