@@ -16,7 +16,7 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/tag/template/" property="og:url">
+  <meta content="https://mojolicious.io/blog/tag/session/" property="og:url">
   <meta content="mojolicious.io" property="og:title">
     <meta content="summary" name="twitter:card">
 
@@ -26,8 +26,8 @@
 
   <title>mojolicious.io</title>
   <meta content="Statocles 0.088" name="generator">
-  <link href="/blog/tag/template.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/tag/template.rss" rel="alternate" type="application/rss+xml">
+  <link href="/blog/tag/session.atom" rel="alternate" type="application/atom+xml">
+  <link href="/blog/tag/session.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -98,11 +98,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/">Day 7: Using Template Variants For a Beta Landing Page</a></h1>
+            <h1><a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions/">Day 16: The Secret Life of Sessions</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-07">Dec  7, 2017</time>
+                  <time class="date" datetime="2017-12-16">Dec 16, 2017</time>
                   
 
               </p>
@@ -111,29 +111,28 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Single yellow tulip in a field of red tulips" src="/static/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg">
+                <img alt="Pile of Scrabble tiles" src="/static/scrabble.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p><a href="http://cpantesters.org">CPAN Testers</a> is a pretty big project with a long,
-storied history. At its heart is a data warehouse holding all the test reports
-made by people installing CPAN modules. Around that exists an ecosystem of
-tools and visualizations that use this data to provide useful insight into the
-status of CPAN distributions.</p>
+              <p></p><p>As you all know, HTTP is a stateless protocol.
+In Mojolicious applications the session is used to maintain state between requests.
+These sessions are managed by the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious/#sessions">session manager</a>.</p>
 
-<p>For the <a href="http://github.com/cpan-testers/cpantesters-web">CPAN Testers webapp
-project</a>, I needed a way to
-show off some pre-release tools with some context about what they are and how
-they might be made ready for release. I needed a &quot;beta&quot; website with a front
-page that introduced the beta projects. But, I also needed the same
-<a href="http://mojolicious.org">Mojolicious</a> application to serve (in the future) as a
-production website. The front page of the production website would be
-completely different from the front page of the beta testing website.</p>
+<p>During each request, the <a href="http://mojolicious.org/perldoc/Mojolicious/Controller#session">session</a> is just another hash reference attached to the controller, in some ways like the <a href="/blog/2017/12/02/day-2-the-stash">stash</a>, except this one persists between requests.
+Mojolicious does this by encoding the structure, first as JSON then Base64.
+It then signs the resulting string using HMAC-SHA1 and the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious#secrets">secret</a> to prevent tampering and stores it as a cookie on the response to the client.</p>
 
-<p>To achieve this, I used <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Template-variants">Mojolicious&#39;s template variants
-feature</a>.</p>
+<p>On subsequent requests, the client sends the cookie along with the request (as cookies do).
+Mojolicious then checks if the document and signature validate against the secret, if so the cookie is decoded and made available again via the session method.</p>
 
-                  <p><a href="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/#section-2">Continue reading Day 7: Using Template Variants For a Beta Landing Page...</a></p>
+<p>Two important things to note.
+First, though the data is safe from tampering, it isn&#39;t encrypted; a savvy user can decode the cookie and see the stored data, so don&#39;t put anything in it that shouldn&#39;t be seen.
+Second, this is only useful if the secret is strong and safe.
+If not, the client could forge a cookie that appeared to come from your application, possibly with catastrophic results!
+So while Mojolicious makes it easy, a little care can go a long way toward keeping your session data safe and trusted.</p>
+
+                  <p><a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions/#section-2">Continue reading Day 16: The Secret Life of Sessions...</a></p>
             </div>
 
         </article>

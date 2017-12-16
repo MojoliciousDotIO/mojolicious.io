@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/session/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/session.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.088</generator>
+        <item>
+            <title>Day 16: The Secret Life of Sessions</title>
+            <link>https://mojolicious.io/blog/2017/12/16/day-16-the-secret-life-of-sessions/</link>
+            <guid>https://mojolicious.io/blog/2017/12/16/day-16-the-secret-life-of-sessions/</guid>
+            <description><![CDATA[
+                <p>As you all know, HTTP is a stateless protocol.
+In Mojolicious applications the session is used to maintain state between requests.
+These sessions are managed by the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious/#sessions">session manager</a>.</p>
+
+<p>During each request, the <a href="http://mojolicious.org/perldoc/Mojolicious/Controller#session">session</a> is just another hash reference attached to the controller, in some ways like the <a href="https://mojolicious.io/blog/2017/12/02/day-2-the-stash">stash</a>, except this one persists between requests.
+Mojolicious does this by encoding the structure, first as JSON then Base64.
+It then signs the resulting string using HMAC-SHA1 and the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious#secrets">secret</a> to prevent tampering and stores it as a cookie on the response to the client.</p>
+
+<p>On subsequent requests, the client sends the cookie along with the request (as cookies do).
+Mojolicious then checks if the document and signature validate against the secret, if so the cookie is decoded and made available again via the session method.</p>
+
+<p>Two important things to note.
+First, though the data is safe from tampering, it isn&#39;t encrypted; a savvy user can decode the cookie and see the stored data, so don&#39;t put anything in it that shouldn&#39;t be seen.
+Second, this is only useful if the secret is strong and safe.
+If not, the client could forge a cookie that appeared to come from your application, possibly with catastrophic results!
+So while Mojolicious makes it easy, a little care can go a long way toward keeping your session data safe and trusted.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/16/day-16-the-secret-life-of-sessions/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/session/">session</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 16 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
