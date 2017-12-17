@@ -1,10 +1,20 @@
 % title 'Add an item';
 % layout 'default';
 
+% content_for 'head' => begin
+  <style>
+    #item-detail img {
+      max-width: 40%;
+      float: left;
+      margin: 20px;
+    }
+  </style>
+% end
+
 % content_for 'sidebar' => begin
   <div class="panel panel-default">
     <div class="panel-heading">
-      Do you want to add?
+      Add this item to your list?
     </div>
     <div class="panel-body">
       %= form_for 'add' => (method => 'POST') => begin
@@ -19,7 +29,7 @@
 % end
 
 <div class="panel panel-default">
-  <div class="panel-body">
+  <div id="item-detail" class="panel-body">
     <%== $link->html %>
   </div>
 </div>

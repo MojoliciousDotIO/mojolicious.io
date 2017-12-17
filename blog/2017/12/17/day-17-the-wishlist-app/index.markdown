@@ -60,8 +60,9 @@ This is a shortcut helper to get the value of the [`title` key of the stash](htt
 Well shall see in a moment how this value gets set.
 
 The remaining template portions are each getting the contents of named content buffers.
-While I employ five such inclusions, I will only actually use two: the `sidebar` and the default unnamed buffer.
-The other three are useful in many practical circumstances.
+While I establish five such inclusions, I will only actually use three: `head`, `sidebar` and the default unnamed buffer.
+
+With the possible exception of `sidebar`, buffers like these are useful in almost all application layouts.
 The `head` and `end` buffers let you add contents to those locations, especially useful to include extra stylesheets and javascript respectively.
 The `footer` buffer would allow additions to be placed at the end of the body but before any javascript inclusions.
 
@@ -133,11 +134,13 @@ There are two routes for `/add` a `GET` and a `POST`.
 %= highlight Perl => include -raw => 'wishlist/templates/add.html.ep'
 <small>templates/add.html.ep</small>
 
-Beyond being interesting to see how the link is used to embed HTML into the page, we also see our first use of a named content buffer via [`content_for`](http://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#content_for).
-Because the resulting main page might be quite large, and I want the user to have easy access to decide if they want to add the item, I've placed it in the left hand column.
-Perhaps this is bad UX, but for our purposes, it shows my point.
+Beyond being interesting to see how the link is used to embed HTML into the page, we also see our first uses of named content buffers via [`content_for`](http://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#content_for).
+These add styling that is specific to the page into the `<head>` tag and inject a panel into the sidebar.
 Once this page renders, again before the layout is rendered, the content of that section is available in the `sidebar` buffer.
-In this case, the result is a tiny form that contains the data to be stored if the user wants to add it to their wishlist.
+
+The result is a tiny form that contains the data to be stored if the user wants to add it to their wishlist.
+Because the resulting main page might be quite large, and I want the user to have easy access to decide if they want to add the item, I've placed it in the left hand column.
+Perhaps this is bad UX, but for educational purposes, it shows how these buffers can be used.
 
 We also see our first example of [`include`](http://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#include).
 When called, the renderer immediately renders the template specified and returns the result.

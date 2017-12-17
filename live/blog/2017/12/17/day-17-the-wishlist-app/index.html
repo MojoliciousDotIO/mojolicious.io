@@ -200,8 +200,9 @@ This is a shortcut helper to get the value of the <a href="http://mojolicious.or
 Well shall see in a moment how this value gets set.</p>
 
 <p>The remaining template portions are each getting the contents of named content buffers.
-While I employ five such inclusions, I will only actually use two: the <code>sidebar</code> and the default unnamed buffer.
-The other three are useful in many practical circumstances.
+While I establish five such inclusions, I will only actually use three: <code>head</code>, <code>sidebar</code> and the default unnamed buffer.</p>
+
+<p>With the possible exception of <code>sidebar</code>, buffers like these are useful in almost all application layouts.
 The <code>head</code> and <code>end</code> buffers let you add contents to those locations, especially useful to include extra stylesheets and javascript respectively.
 The <code>footer</code> buffer would allow additions to be placed at the end of the body but before any javascript inclusions.</p>
 
@@ -368,10 +369,20 @@ The <code>/login</code> and <code>/logout</code> handlers, for example.</p>
 <pre><code class="hljs">% title &#39;<span class="hljs-string">Add an item</span>&#39;;
 % layout &#39;<span class="hljs-string">default</span>&#39;;
 
+% content_for &#39;<span class="hljs-string">head</span>&#39; =&gt; <span class="hljs-keyword">begin</span>
+  &lt;style&gt;
+    <span class="hljs-comment">#item-detail img {</span><span class="hljs-comment">
+</span>      max-width: 40%;
+      float: left;
+      margin: <span class="hljs-number">20</span>px;
+    }
+  &lt;/style&gt;
+% <span class="hljs-keyword">end</span>
+
 % content_for &#39;<span class="hljs-string">sidebar</span>&#39; =&gt; <span class="hljs-keyword">begin</span>
   &lt;div class=&quot;<span class="hljs-string">panel panel-default</span>&quot;&gt;
     &lt;div class=&quot;<span class="hljs-string">panel-heading</span>&quot;&gt;
-      <span class="hljs-keyword">Do</span> you want to add?
+      Add this item to your list?
     &lt;/div&gt;
     &lt;div class=&quot;<span class="hljs-string">panel-body</span>&quot;&gt;
       %= form_for &#39;<span class="hljs-string">add</span>&#39; =&gt; (method =&gt; &#39;<span class="hljs-string">POST</span>&#39;) =&gt; <span class="hljs-keyword">begin</span>
@@ -386,7 +397,7 @@ The <code>/login</code> and <code>/logout</code> handlers, for example.</p>
 % <span class="hljs-keyword">end</span>
 
 &lt;div class=&quot;<span class="hljs-string">panel panel-default</span>&quot;&gt;
-  &lt;div class=&quot;<span class="hljs-string">panel-body</span>&quot;&gt;
+  &lt;div id=&quot;<span class="hljs-string">item-detail</span>&quot; class=&quot;<span class="hljs-string">panel-body</span>&quot;&gt;
     &lt;%== <span class="hljs-type">$link</span>-&gt;<span class="hljs-type">html</span> %&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -395,11 +406,13 @@ The <code>/login</code> and <code>/logout</code> handlers, for example.</p>
 
 <p><small>templates/add.html.ep</small></p>
 
-<p>Beyond being interesting to see how the link is used to embed HTML into the page, we also see our first use of a named content buffer via <a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#content_for"><code>content_for</code></a>.
+<p>Beyond being interesting to see how the link is used to embed HTML into the page, we also see our first uses of named content buffers via <a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#content_for"><code>content_for</code></a>.
+These add styling that is specific to the page into the <code>&lt;head&gt;</code> tag and inject a panel into the sidebar.
+Once this page renders, again before the layout is rendered, the content of that section is available in the <code>sidebar</code> buffer.</p>
+
+<p>The result is a tiny form that contains the data to be stored if the user wants to add it to their wishlist.
 Because the resulting main page might be quite large, and I want the user to have easy access to decide if they want to add the item, I&#39;ve placed it in the left hand column.
-Perhaps this is bad UX, but for our purposes, it shows my point.
-Once this page renders, again before the layout is rendered, the content of that section is available in the <code>sidebar</code> buffer.
-In this case, the result is a tiny form that contains the data to be stored if the user wants to add it to their wishlist.</p>
+Perhaps this is bad UX, but for educational purposes, it shows how these buffers can be used.</p>
 
 <p>We also see our first example of <a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#include"><code>include</code></a>.
 When called, the renderer immediately renders the template specified and returns the result.</p>
