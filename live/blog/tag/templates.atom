@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/templates/</id>
+    <title>mojolicious.io</title>
+    <updated>2017-12-17T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/templates.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/templates/" rel="alternate" />
+    <generator version="0.088">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</id>
+        <title>Day 17: The Wishlist App</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example appliation.
+It is possible I let the exaxmple get away from me!</p>
+
+<p>In today&#39;s article I indend to show how to use template composition techniques to produce a wishlist app.
+We will cover <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layouts</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">partial templates</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">content blocks</a>.</p>
+
+<p>The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
+Today we will example concepts mostly relating to the templates, then in tomorrows post I will migrate the model from using the simplistic persistence of <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> that it uses now to <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                    <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                    <a href="https://mojolicious.io/blog/tag/example/">example</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-17T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="rendering" />
+        <category term="templates" />
+        <category term="example" />
+    </entry>
+</feed>
+

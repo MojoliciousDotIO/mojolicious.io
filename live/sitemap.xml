@@ -4,13 +4,13 @@
         <loc>https://mojolicious.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2017-12-15</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -121,22 +121,28 @@
         <lastmod>2017-12-16</lastmod>
     </url>
     <url>
+        <loc>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-17</lastmod>
+    </url>
+    <url>
         <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/administration/</loc>
@@ -148,25 +154,25 @@
         <loc>https://mojolicious.io/blog/tag/advent/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-16</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/api/</loc>
@@ -196,7 +202,7 @@
         <loc>https://mojolicious.io/blog/tag/example/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-06</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/fluent/</loc>
@@ -256,7 +262,7 @@
         <loc>https://mojolicious.io/blog/tag/rendering/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-10</lastmod>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/roles/</loc>
@@ -281,6 +287,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-07</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/templates/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-17</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/testing/</loc>

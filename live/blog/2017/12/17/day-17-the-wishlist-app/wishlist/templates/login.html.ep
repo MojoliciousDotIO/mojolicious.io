@@ -1,0 +1,13 @@
+% title 'Welcome to the Wishlist!';
+% layout 'default';
+
+<h2><%= title %></h2>
+
+%= form_for 'login' => (method => 'POST', class => 'form-inline') => begin
+  <div class="form-group">
+    <label>Please tell us your name to get started</label>
+    <input name="name" class="form-control">
+  </div>
+% end
+
+

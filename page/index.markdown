@@ -96,6 +96,10 @@ data:
       image: '/static/scrabble.jpg'
       alt: 'Day 16: The Secret Life of Sessions'
     - date: 2017-12-17
+      title: 'The Wishlist App'
+      href: '/blog/2017/12/17/day-17-the-wishlist-app'
+      image: '/static/xmas_tree.jpg'
+      alt: 'Day 17: The Wishlist App'
     - date: 2017-12-18
     - date: 2017-12-19
     - date: 2017-12-20
