@@ -101,6 +101,10 @@ data:
       image: '/static/xmas_tree.jpg'
       alt: 'Day 17: The Wishlist App'
     - date: 2017-12-18
+      title: 'The Wishlist Model'
+      href: '/blog/2017/12/18/day-18-the-wishlist-model'
+      image: '/static/van_gogh_still_life.jpg'
+      alt: 'Day 18: The Wishlist Model'
     - date: 2017-12-19
     - date: 2017-12-20
     - date: 2017-12-21

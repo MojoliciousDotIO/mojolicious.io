@@ -2,11 +2,50 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-17T00:00:00Z</updated>
+    <updated>2017-12-18T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.088">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</id>
+        <title>Day 18: The Wishlist Model</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
+We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
+That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
+While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
+Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
+
+<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
+I have also added several tags.
+While development on the application may continue, those tags will remain for future readers.</p>
+
+<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
+You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
+
+<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
+At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
+Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/model/">model</a>
+                    <a href="https://mojolicious.io/blog/tag/example/">example</a>
+                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-18T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="model" />
+        <category term="example" />
+        <category term="wishlist" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</id>
         <title>Day 17: The Wishlist App</title>
@@ -29,6 +68,7 @@ Today we will example concepts mostly relating to the templates, then in tomorro
                     <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
                     <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
                     <a href="https://mojolicious.io/blog/tag/example/">example</a>
+                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
                 </p>
 
         ]]></content>
@@ -37,6 +77,7 @@ Today we will example concepts mostly relating to the templates, then in tomorro
         <category term="rendering" />
         <category term="templates" />
         <category term="example" />
+        <category term="wishlist" />
     </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/16/day-16-the-secret-life-of-sessions/</id>
@@ -261,38 +302,6 @@ focus on what makes their site unique.</p>
         <category term="advent" />
         <category term="non-blocking" />
         <category term="promises" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</id>
-        <title>Day 13: More About Roles</title>
-        <author><name>Joel Berger</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Before we get ahead of ourselves, what are roles?
-Briefly stated, roles enable composing functionality (usually methods) into a class without without implying a change of inheritence.
-Said another way, roles let you specify what a class does without changing what it is.
-For a better description, check out Toby Inkster&#39;s article <a href="http://radar.oreilly.com/2014/01/horizontal-reuse-an-alternative-to-inheritance.html">Horizontal Reuse: An Alternative to Inheritance</a>.</p>
-
-<p>An important utility of roles is that you can easily use more than one role at the same time in the same consuming class.
-With inheritance, especially of third-party functionality, you have to choose one set of extensions to utilize.
-This is because the author of the subclass establishes the inheritance.
-In roles, the user determines which roles to compose into the base class.</p>
-
-<p><a href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class">Yesterday</a> I ended the discussion of <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> before discussing the roles support.
-Added in several installments between Mojolicious versions <a href="https://metacpan.org/release/SRI/Mojolicious-7.40">7.40</a> and <a href="https://metacpan.org/release/SRI/Mojolicious-7.55">7.55</a>, this role support is one of the most recently added features in the ecosystem (along with <a href="http://mojolicious.org/perldoc/Mojo/Promise">promises</a>, which will be covered in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call">an upcoming article</a>).
-The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role::Tiny</a> which is an optional dependency in Mojolicious, but is required in order to use the functionality that I will describe.</p>
-
-                <p><a href="https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
-                </p>
-
-        ]]></content>
-        <updated>2017-12-13T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="roles" />
     </entry>
 </feed>
 

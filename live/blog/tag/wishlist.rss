@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/wishlist/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/wishlist.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.088</generator>
+        <item>
+            <title>Day 18: The Wishlist Model</title>
+            <link>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</link>
+            <guid>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</guid>
+            <description><![CDATA[
+                <p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
+We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
+That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
+While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
+Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
+
+<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
+I have also added several tags.
+While development on the application may continue, those tags will remain for future readers.</p>
+
+<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
+You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
+
+<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
+At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
+Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/model/">model</a>
+                        <a href="https://mojolicious.io/blog/tag/example/">example</a>
+                        <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 18 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 17: The Wishlist App</title>
+            <link>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</link>
+            <guid>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</guid>
+            <description><![CDATA[
+                <p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example appliation.
+It is possible I let the exaxmple get away from me!</p>
+
+<p>In today&#39;s article I indend to show how to use template composition techniques to produce a wishlist app.
+We will cover <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layouts</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">partial templates</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">content blocks</a>.</p>
+
+<p>The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
+Today we will example concepts mostly relating to the templates, then in tomorrows post I will migrate the model from using the simplistic persistence of <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> that it uses now to <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                        <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                        <a href="https://mojolicious.io/blog/tag/example/">example</a>
+                        <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 17 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

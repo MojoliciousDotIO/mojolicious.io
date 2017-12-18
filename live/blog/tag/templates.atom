@@ -29,6 +29,7 @@ Today we will example concepts mostly relating to the templates, then in tomorro
                     <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
                     <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
                     <a href="https://mojolicious.io/blog/tag/example/">example</a>
+                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
                 </p>
 
         ]]></content>
@@ -37,6 +38,7 @@ Today we will example concepts mostly relating to the templates, then in tomorro
         <category term="rendering" />
         <category term="templates" />
         <category term="example" />
+        <category term="wishlist" />
     </entry>
 </feed>
 

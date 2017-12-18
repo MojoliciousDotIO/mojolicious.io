@@ -5,6 +5,7 @@ tags:
     - rendering
     - templates
     - example
+    - wishlist
 author: Joel Berger
 images:
   banner:
