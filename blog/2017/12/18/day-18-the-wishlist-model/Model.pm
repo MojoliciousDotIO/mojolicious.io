@@ -30,16 +30,14 @@ sub user {
             'id',        items.id,
             'title',     items.title,
             'url',       items.url,
-            'purchased', item.purchased
+            'purchased', items.purchased
           ) as item
           from items
           where items.user_id=user.id
         )
       ) as items
     from users user
-    left outer join items item
     where user.name=?
-    group by user.id
   SQL
   return $self
     ->sqlite

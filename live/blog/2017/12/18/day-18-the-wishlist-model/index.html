@@ -245,16 +245,14 @@ has sqlite =&gt; <span class="hljs-keyword">sub </span>{ <span class="hljs-funct
             &#39;id&#39;,        items.id,
             &#39;title&#39;,     items.title,
             &#39;url&#39;,       items.url,
-            &#39;purchased&#39;, item.purchased
+            &#39;purchased&#39;, items.purchased
           ) as item
           from items
           where items.user_id=user.id
         )
       ) as items
     from users user
-    left outer join items item
     where user.name=?
-    group by user.id
 <span class="hljs-keyword">  SQL</span>
   <span class="hljs-keyword">return</span> <span class="hljs-type">$self</span><span class="hljs-type">
 </span>    -&gt;sqlite
