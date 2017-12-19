@@ -102,7 +102,7 @@ Most people don't need to worry about that but for doing very complex things, kn
 
 When you make a request with Test::Mojo, its useragent will make the request, whether locally or externally and return to it the [transaction](http://mojolicious.org/perldoc/Mojo/Transaction) object.
 Test::Mojo then keeps that object in its [tx](http://mojolicious.org/perldoc/Test/Mojo#tx) attribute for subsequent tests until the next request is made.
-If none of the test methods that it provides will allow you to test what you need, you are welcome to fish the data out that that object.
+If none of the test methods that it provides will allow you to test what you need, you are welcome to fish the data out of that object.
 
 When you use Test::More, when a test fails the test function returns a false value, allowing you to take some action on failure.
 

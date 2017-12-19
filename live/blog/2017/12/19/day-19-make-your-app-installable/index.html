@@ -136,7 +136,7 @@ N.B. there is even a DarkPAN tool written using Mojolicious called <a href="http
                   <h2>The Challenge</h2>
 
 <p>The hardest part of this process is managing static files.
-There are seveal Perl install tools that each handle static files slightly differently.
+There are several Perl install tools that each handle static files slightly differently.
 Some will happily bundle any files in the project directory, others will only bundle Perl files by default.</p>
 
 <p>Then once installed that bundle location is usually different that what it was during development (even relative to the project).
@@ -162,7 +162,7 @@ Create a directory in your project root called <code>share</code> which will ser
 Then move the <code>templates</code> and <code>public</code> directories from your project root into that directory.
 You should also move any other static files like say database migration files (e.g. <code>wishlist.sql</code> from <a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/">yesterday</a>).</p>
 
-<p>Although each install tool has different ways of specifying where the the share directory is located during the development phase, none is espectially difficult to work with.
+<p>Although each install tool has different ways of specifying where the share directory is located during the development phase, none is espectially difficult to work with.
 One reason I chose the name <code>share</code> is because my preferred installation tool <a href="https://metacpan.org/pod/Module::Build::Tiny">Module::Build::Tiny</a> (which I use via <a href="https://metacpan.org/pod/App::ModuleBuildTiny">App::ModuleBuildTiny</a> requires it to be called that.
 The others are configurable in the install scripts themselves (Makefile.PL/Build.PL/dist.ini).
 For <a href="https://metacpan.org/pod/Module::Build">Module::Build</a>, you set the <a href="https://metacpan.org/pod/Module::Build::API#share_dir"><code>share_dir</code></a> parameter</p>

@@ -32,7 +32,7 @@ And hey if you needed even more more reason, it cleans up your project root dire
 ## The Challenge
 
 The hardest part of this process is managing static files.
-There are seveal Perl install tools that each handle static files slightly differently.
+There are several Perl install tools that each handle static files slightly differently.
 Some will happily bundle any files in the project directory, others will only bundle Perl files by default.
 
 Then once installed that bundle location is usually different that what it was during development (even relative to the project).

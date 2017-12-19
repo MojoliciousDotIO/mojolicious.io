@@ -238,7 +238,7 @@ Each section is defined with a version number and the word `up` or `down`.
 When migrating versions, it will apply each change set from the current version (beginning at 0) until the version you request.
 If you don't request a version it gets the highest version.
 
-Noe that all that is done, we can try it out!
+Now that all that is done, we can try it out!
 
     $ perl bin/myweatherapp eval -V 'app->weather->fetch("Chicago")'
 
