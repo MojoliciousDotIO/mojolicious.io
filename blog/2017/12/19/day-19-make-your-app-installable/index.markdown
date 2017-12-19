@@ -58,7 +58,7 @@ Create a directory in your project root called `share` which will serve for this
 Then move the `templates` and `public` directories from your project root into that directory.
 You should also move any other static files like say database migration files (e.g. `wishlist.sql` from [yesterday](https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/)).
 
-Although each install tool has different ways of specifying where the the share directory is located during the development phase, none is espectially difficult to work with.
+Although each install tool has different ways of specifying where the share directory is located during the development phase, none is espectially difficult to work with.
 One reason I chose the name `share` is because my preferred installation tool [Module::Build::Tiny](https://metacpan.org/pod/Module::Build::Tiny) (which I use via [App::ModuleBuildTiny](https://metacpan.org/pod/App::ModuleBuildTiny) requires it to be called that.
 The others are configurable in the install scripts themselves (Makefile.PL/Build.PL/dist.ini).
 For [Module::Build](https://metacpan.org/pod/Module::Build), you set the [`share_dir`](https://metacpan.org/pod/Module::Build::API#share_dir) parameter
