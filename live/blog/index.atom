@@ -2,11 +2,41 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-18T00:00:00Z</updated>
+    <updated>2017-12-19T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.088">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/</id>
+        <title>Day 19: Make Your App Installable</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Thus far we have always run our applications from the local directory.
+That is usually the project root directory and/or the repository checkout.
+But did you know that with only a few changes you can make your application installable like other Perl modules?</p>
+
+<p>While, you must do this if you want to upload your application to CPAN, even if you don&#39;t intend to do that, it still has benefits.
+You can install the application on your personal computer, especially if you want to be able to run the script while in other directories.
+Having an installable module also means that you can use a so-called &quot;DarkPAN&quot; and related tools to build yourself a local &quot;CPAN&quot;.
+If you have multiple Perl modules at your company (or as part of any project) using a DarkPAN can ease integration and deployment immensely!
+N.B. there is even a DarkPAN tool written using Mojolicious called <a href="https://metacpan.org/pod/App::opan">opan</a>.</p>
+
+<p>And hey if you needed even more more reason, it cleans up your project root directory somewhat too!</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-19T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="wishlist" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</id>
         <title>Day 18: The Wishlist Model</title>
@@ -280,28 +310,6 @@ focus on what makes their site unique.</p>
         <updated>2017-12-15T00:00:00Z</updated>
         <category term="advent" />
         <category term="app" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</id>
-        <title>Day 14: You Promised To Call!</title>
-        <author><name>Ed J</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>A new feature of <a href="http://mojolicious.org/">Mojolicious</a>, as of <a href="https://metacpan.org/release/SRI/Mojolicious-7.49">7.49</a>, is the implementation of the <a href="https://promisesaplus.com/implementations#in-other-languages">Promises/A+ specification</a>. In this posting, we&#39;re going to use promises to implement non-blocking, parallel fetching of a number of web pages.</p>
-
-                <p><a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/non-blocking/">non-blocking</a>
-                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
-                </p>
-
-        ]]></content>
-        <updated>2017-12-14T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="non-blocking" />
-        <category term="promises" />
     </entry>
 </feed>
 

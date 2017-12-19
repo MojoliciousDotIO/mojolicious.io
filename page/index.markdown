@@ -106,6 +106,10 @@ data:
       image: '/static/van_gogh_still_life.jpg'
       alt: 'Day 18: The Wishlist Model'
     - date: 2017-12-19
+      title: 'Make Your App Installable'
+      href: '/blog/2017/12/19/day-19-make-your-app-installable'
+      image: '/static/container_ship.jpg'
+      alt: 'Day 19: Make Your App Installable'
     - date: 2017-12-20
     - date: 2017-12-21
     - date: 2017-12-22

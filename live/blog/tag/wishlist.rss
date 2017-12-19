@@ -7,6 +7,35 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.088</generator>
         <item>
+            <title>Day 19: Make Your App Installable</title>
+            <link>https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/</link>
+            <guid>https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/</guid>
+            <description><![CDATA[
+                <p>Thus far we have always run our applications from the local directory.
+That is usually the project root directory and/or the repository checkout.
+But did you know that with only a few changes you can make your application installable like other Perl modules?</p>
+
+<p>While, you must do this if you want to upload your application to CPAN, even if you don&#39;t intend to do that, it still has benefits.
+You can install the application on your personal computer, especially if you want to be able to run the script while in other directories.
+Having an installable module also means that you can use a so-called &quot;DarkPAN&quot; and related tools to build yourself a local &quot;CPAN&quot;.
+If you have multiple Perl modules at your company (or as part of any project) using a DarkPAN can ease integration and deployment immensely!
+N.B. there is even a DarkPAN tool written using Mojolicious called <a href="https://metacpan.org/pod/App::opan">opan</a>.</p>
+
+<p>And hey if you needed even more more reason, it cleans up your project root directory somewhat too!</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 19 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 18: The Wishlist Model</title>
             <link>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</link>
             <guid>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</guid>
