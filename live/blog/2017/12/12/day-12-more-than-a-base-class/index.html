@@ -261,7 +261,7 @@ my $value = $self-&gt;data-&gt;{key};
 </code></pre>
 
 <p>the setters (ie, when passing an argument to change the stored value) return the object itself, not the value.
-THe reason for this is to create what is called a <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent interface</a>, more commonly known as chaining.</p>
+The reason for this is to create what is called a <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent interface</a>, more commonly known as chaining.</p>
 
 <pre><code>my $ua = Mojo::UserAgent-&gt;new-&gt;max_redirects(10)-&gt;inactivity_timeout(1200);
 </code></pre>

@@ -149,7 +149,7 @@ While the getters return the value as expected,
     my $value = $self->data->{key};
 
 the setters (ie, when passing an argument to change the stored value) return the object itself, not the value.
-THe reason for this is to create what is called a [fluent interface](https://en.wikipedia.org/wiki/Fluent_interface), more commonly known as chaining.
+The reason for this is to create what is called a [fluent interface](https://en.wikipedia.org/wiki/Fluent_interface), more commonly known as chaining.
 
     my $ua = Mojo::UserAgent->new->max_redirects(10)->inactivity_timeout(1200);
 
