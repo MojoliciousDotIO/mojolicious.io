@@ -111,6 +111,10 @@ data:
       image: '/static/container_ship.jpg'
       alt: 'Day 19: Make Your App Installable'
     - date: 2017-12-20
+      title: 'Practical Testing'
+      href: '/blog/2017/12/20/day-20-practical-testing'
+      image: '/static/lava.jpg'
+      alt: 'Day 20: Practical Testing'
     - date: 2017-12-21
     - date: 2017-12-22
     - date: 2017-12-23
