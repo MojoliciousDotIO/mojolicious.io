@@ -2,7 +2,15 @@
 title: "Day 21: Virtual(ly a) Lumberjack"
 tags:
   - advent
+  - 'non-web'
 author: CandyAngel
+images:
+  banner:
+    src: '/static/vr.jpg'
+    alt: 'Woman wearing VR goggles outside'
+    data:
+      attribution: |-
+        [Image](https://www.pexels.com/photo/sky-woman-clouds-girl-123335/) by Bradley Hook, in the Public Domain.
 data:
   bio: candyangel
   description: Using the Mojo toolkit to help reverse-engineer HMDs
