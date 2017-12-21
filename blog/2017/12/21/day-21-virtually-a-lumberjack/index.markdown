@@ -110,16 +110,19 @@ fixing later) and writes the bytes it receives from STDIN into that file in
 the correct format.
 
 We have used various bits from the Mojolicious framework to achieve this.
-Mojo::Loader lets us put our PGM header separate from the rest of the code,
-just like an inline template for a Lite app.
-Mojo::Asset::File gives us even simpler file creation and append mechanics
-than Mojo::File, for outputting the re-formatted data input.
+[Mojo::Loader](http://mojolicious.org/perldoc/Mojo/Loader) lets us put our PGM
+header separate from the rest of the code, just like an inline template for a
+Lite app.
+[Mojo::Asset::File](http://mojolicious.org/perldoc/Mojo/Asset/File) gives us
+even simpler file creation and append mechanics than [Mojo::File](http://mojolicious.org/perldoc/Mojo/File),
+for outputting the re-formatted data input.
 We do have to tell Mojolicious not to *cleanup* the file once it is done with
 it, though this is small price to pay!
 The heavier price is the frowns of disapproval in IRC for such (ab)use.. :)
 
-Mojo::IOLoop and Mojo::IOLoop::Stream give us a nice callback interface for
-reading STDIN.
+[Mojo::IOLoop](http://mojolicious.org/perldoc/Mojo/IOLoop) and
+[Mojo::IOLoop::Stream](http://mojolicious.org/perldoc/Mojo/IOLoop/Stream) give
+us a nice callback interface for reading STDIN.
 This doesn't seem too important right now, but the next stage will show why.
 It allows us to direct the information coming in from STDIN while we instruct
 the user which motion we want them to make with the HMD.
