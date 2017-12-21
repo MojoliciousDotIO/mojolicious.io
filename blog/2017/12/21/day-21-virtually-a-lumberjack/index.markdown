@@ -13,13 +13,27 @@ giving the user instructions?
 This is just what I wanted to do to aid in reverse-engineering the USB
 protocol of Virtual Reality devices known as Head Mounted Displays (HMD), for
 the [OpenHMD](http://www.openhmd.net/) project.
-By logging the packets by each action (roll/pitch/yaw/sway/surge/heave), we
-can compare the content of each log to identify which bytes are related to
-which action.
+
+HMDs are used to create virtual reality environments. When worn, two slightly
+different images are drawn to each side of the screen, with each side visible
+to only one eye. The imitates binocular vision and creates an image with a
+feeling of depth. By tracking the rotation of the unit, the user can then look
+around this environment.
+
+The recent resurge of Virtual Reality devices can be attributed to the Rift
+DK1, released by Oculus in March 2013.
+
+By logging the packets generated during each movement, we can compare the
+content of each log to identify which bytes are related to which action. Such
+movements include roll (tilting head side-to-side), pitch (looking up and
+down) and yaw (turning left/right). Though position isn't tracked, we also
+look for sway (left-right translation), surge (back and forth) and heave (up
+and down) information as this is used in combination with the other values for
+accurate tracking of rotation.
 
 Mojo is an amazing toolkit for web development, as shown in previous
 calendar entries, but using components of it can also solve problems in other
-spaces like these.
+non-web spaces like these. Why use Mojo for this? Because it makes it *easy*.
 ---
 
 ## Down By The Riverside
