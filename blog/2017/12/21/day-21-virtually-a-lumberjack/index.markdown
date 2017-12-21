@@ -24,11 +24,11 @@ the [OpenHMD](http://www.openhmd.net/) project.
 
 HMDs are used to create virtual reality environments. When worn, two slightly
 different images are drawn to each side of the screen, with each side visible
-to only one eye. The imitates binocular vision and creates an image with a
+to only one eye. This imitates binocular vision and creates an image with a
 feeling of depth. By tracking the rotation of the unit, the user can then look
 around this environment.
 
-The recent resurge of Virtual Reality devices can be attributed to the Rift
+The recent resurgence of Virtual Reality devices can be attributed to the Rift
 DK1, released by Oculus in March 2013.
 
 By logging the packets generated during each movement, we can compare the
