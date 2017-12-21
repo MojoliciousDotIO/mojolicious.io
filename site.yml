@@ -143,6 +143,11 @@ site:
                     image: '//secure.gravatar.com/avatar/c6e74e4e0ab61c61db655f0e60c9f8a6.jpg'
                     text: |-
                       Ed J (aka "mohawk" on IRC) has been using Perl for a long time. He is currently porting the reference [GraphQL](http://graphql.org/) implementation from the [JavaScript version](http://graphql.org/graphql-js/) to [Perl](https://metacpan.org/pod/GraphQL). Find out more by [joining the `#graphql-perl` channel on irc.perl.org](https://chat.mibbit.com/?channel=%23graphql-perl&server=irc.perl.org)!
+                candyangel:
+                    name: 'CandyAngel'
+                    image: '/static/avatar_candyangel.jpg'
+                    text: |-
+                      CandyAngel is a Perl developer who tends to demonstrate her love of any particular piece of software by making it do things it was never intended to do.. yet still do it well.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
