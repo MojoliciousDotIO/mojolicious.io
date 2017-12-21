@@ -10,7 +10,7 @@
         <loc>https://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -145,28 +145,34 @@
         <lastmod>2017-12-20</lastmod>
     </url>
     <url>
+        <loc>https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2017-12-21</lastmod>
+    </url>
+    <url>
         <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/administration/</loc>
@@ -178,31 +184,31 @@
         <loc>https://mojolicious.io/blog/tag/advent/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/advent/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-20</lastmod>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/api/</loc>
@@ -287,6 +293,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-14</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/non-web/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2017-12-21</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/promises/</loc>
