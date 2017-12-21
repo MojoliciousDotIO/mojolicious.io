@@ -127,9 +127,11 @@ We have used various bits from the Mojolicious framework to achieve this.
 [Mojo::Loader](http://mojolicious.org/perldoc/Mojo/Loader) lets us put our PGM
 header separate from the rest of the code, just like an inline template for a
 Lite app.
+Since it is usually used to receive file uploads,
 [Mojo::Asset::File](http://mojolicious.org/perldoc/Mojo/Asset/File) gives us
-even simpler file creation and append mechanics than [Mojo::File](http://mojolicious.org/perldoc/Mojo/File),
-for outputting the re-formatted data input.
+even simpler file creation and append mechanics than
+[Mojo::File](http://mojolicious.org/perldoc/Mojo/File), for outputting the
+re-formatted data input.
 We do have to tell Mojolicious not to *cleanup* the file once it is done with
 it, though this is small price to pay!
 The heavier price is the frowns of disapproval in IRC for such (ab)use.. :)
