@@ -1,5 +1,5 @@
 ---
-title: 'Day 22: A restful API with OpenAPI'
+title: 'Day 22: A RESTful API with OpenAPI'
 tags:
     - advent
     - api
@@ -9,11 +9,11 @@ tags:
 author: Jan Henning Thorsen & Ed J
 images:
   banner:
-    src: '/static/pinky_swear.jpg'
-    alt: 'Two hands with interlocked pinkies, a pinky swear'
+    src: '/static/hammock_beach.jpg'
+    alt: 'A hammock on a beach'
     data:
       attribution: |-
-        [Image](https://www.flickr.com/photos/elsabordelossegundos/15418211523) by [mariadelajuana](https://www.flickr.com/photos/elsabordelossegundos/), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
+        [Image](https://www.pexels.com/photo/hammock-palm-trees-bungalows-bora-bora-104750) by Chris McClave, in the Public Domain.
 data:
   bio:
     - batman

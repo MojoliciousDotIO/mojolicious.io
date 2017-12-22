@@ -121,6 +121,10 @@ data:
       image: '/static/vr.jpg'
       alt: 'Day 21: Virtual(ly a) Lumberjack'
     - date: 2017-12-22
+      title: 'A RESTful API with OpenAPI'
+      href: '/blog/2017/12/22/day-22-how-to-build-a-public-rest-api'
+      image: '/static/hammock_beach.jpg'
+      alt: 'Day 22: A RESTful API with OpenAPI'
     - date: 2017-12-23
     - date: 2017-12-24
 ---
