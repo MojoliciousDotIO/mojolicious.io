@@ -73,7 +73,7 @@ I'm not sure if I would care much about OpenAPI either.
 
 Note that the OpenAPI spec is not just for the server, but can also be used to
 generate [JavaScript](int://github.com/swagger-api/swagger-js) and
-[Perl client side code](https://metacpan.org/pod/OpenAPI::Client) code.
+[Perl client side code](https://metacpan.org/pod/OpenAPI::Client).
 
 ## Prerequisites
 
@@ -142,19 +142,18 @@ There's a bunch of things to dive into, but here is a quick overview:
 * `parameters` and `responses` contains a description of the acceptable input
   and output.
 
-While this article will not talk further about how to make a
-`Mojolicious::Lite` web app, the key to getting your routes recognised
-are to make them have the right path (in this case, `/echo` - it will
-get moved by the plugin under `/api`) and the right `name` (the third
-parameter to eg `get`) to match either the `x-mojo-name` or `operationId`.
+While the remainder of this article will focus on Full apps, you can also use
+the plugin for Lite apps as well. In that case, the key to getting your routes
+recognised is to make them have the right path (in this case, `/echo` - it will
+get moved by the plugin under `/api`) and the right `name` (the third parameter
+to eg `get`) to match either the `x-mojo-name` or `operationId`.
 
 ## How to use the specification in your Mojolicious application
 
-The example application will use the specification above to generate routes
-and input/output validation rules. The app is a full-app, but you can also
-write Mojolicious lite-apps and still use the plugin.
-
-To start off, we can use the "generate" command to create the app:
+The example application will use the specification above to generate routes and
+input/output validation rules. To start off, we can use the
+[`generate`](http://mojolicious.org/perldoc/Mojolicious/Command/generate/app)
+command to create the app:
 
     $ mojo generate app MyApp
 
@@ -194,7 +193,8 @@ And you're done creating an OpenAPI powered application!
 
 ## Running your application
 
-To see what you just created, you can run your application:
+To see what you just created, you can run your application using the
+[`routes`](http://mojolicious.org/perldoc/Mojolicious/Command/routes) command:
 
     $ ./script/my_app routes
     /api      *        api
