@@ -6,7 +6,7 @@ tags:
     - openapi
     - rest
     - swagger
-author: Ed J
+author: Jan Henning Thorsen & Ed J
 images:
   banner:
     src: '/static/pinky_swear.jpg'
@@ -15,7 +15,9 @@ images:
       attribution: |-
         [Image](https://www.flickr.com/photos/elsabordelossegundos/15418211523) by [mariadelajuana](https://www.flickr.com/photos/elsabordelossegundos/), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
 data:
-  bio: batman
+  bio:
+    - batman
+    - mohawk
   description: 'How to build a public REST API for your Mojolicious application'
 ---
 The [OpenAPI](https://www.openapis.org/) Specification is an API description
