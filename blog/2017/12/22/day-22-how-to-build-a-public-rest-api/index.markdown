@@ -80,11 +80,9 @@ generate [JavaScript](int://github.com/swagger-api/swagger-js) and
 To run any of the example code below, you need to install the following
 modules:
 
-```shell
-$ cpanm Mojolicious::Plugin::OpenAPI # server side plugin
-$ cpanm OpenAPI::Client              # client to talk with the server
-$ cpanm YAML::XS                     # to read YAML formatted specifications
-```
+    $ cpanm Mojolicious::Plugin::OpenAPI # server side plugin
+    $ cpanm OpenAPI::Client              # client to talk with the server
+    $ cpanm YAML::XS                     # to read YAML formatted specifications
 
 ## How to write the specification
 
@@ -102,29 +100,27 @@ will be available soon, so you might consider looking at that as well.
 
 Here is an example API, written in YAML:
 
-```yaml
-swagger: '2.0'
-info:
-  version: '0.42'
-  title: Dummy example
-schemes: [ http ]
-basePath: "/api"
-paths:
-  /echo:
-    post:
-      x-mojo-to: "echo#index"
-      operationId: echo
-      parameters:
-      - in: body
-        name: body
-        schema:
-          type: object
-      responses:
-        200:
-          description: Echo response
-          schema:
-            type: object
-```
+    swagger: '2.0'
+    info:
+      version: '0.42'
+      title: Dummy example
+    schemes: [ http ]
+    basePath: "/api"
+    paths:
+      /echo:
+        post:
+          x-mojo-to: "echo#index"
+          operationId: echo
+          parameters:
+          - in: body
+            name: body
+            schema:
+              type: object
+          responses:
+            200:
+              description: Echo response
+              schema:
+                type: object
 
 There's a bunch of things to dive into, but here is a quick overview:
 
@@ -160,45 +156,39 @@ write Mojolicious lite-apps and still use the plugin.
 
 To start off, we can use the "generate" command to create the app:
 
-```shell
-$ mojo generate app MyApp
-```
+    $ mojo generate app MyApp
 
 After that, edit `lib/MyApp.pm` to make it look like this:
 
-```perl
-package MyApp;
-use Mojo::Base "Mojolicious";
+    package MyApp;
+    use Mojo::Base "Mojolicious";
 
-sub startup {
-  my $self = shift;
+    sub startup {
+      my $self = shift;
 
-  # Load the "api.yaml" specification from the public directory
-  $self->plugin(OpenAPI => {spec => $self->static->file("api.yaml")->path});
-}
+      # Load the "api.yaml" specification from the public directory
+      $self->plugin(OpenAPI => {spec => $self->static->file("api.yaml")->path});
+    }
 
-1;
-```
+    1;
 
 Then copy/paste the specification from above and save it to `public/api.yaml`.
 
 Last you must create a controller `lib/MyApp/Controller/Echo.pm` to match
 `x-mojo-to` in the API specification:
 
-```perl
-package MyApp::Controller::Echo;
-use Mojo::Base "Mojolicious::Controller";
+    package MyApp::Controller::Echo;
+    use Mojo::Base "Mojolicious::Controller";
 
-sub index {
-  # Validate input request or return an error document
-  my $self = shift->openapi->valid_input or return;
+    sub index {
+      # Validate input request or return an error document
+      my $self = shift->openapi->valid_input or return;
 
-  # Render back the same data as you received using the "openapi" handler
-  $self->render(openapi => $self->req->json);
-}
+      # Render back the same data as you received using the "openapi" handler
+      $self->render(openapi => $self->req->json);
+    }
 
-1;
-```
+    1;
 
 And you're done creating an OpenAPI powered application!
 
@@ -206,13 +196,11 @@ And you're done creating an OpenAPI powered application!
 
 To see what you just created, you can run your application:
 
-```shell
-$ ./script/my_app routes
-/api      *        api
-  +/      GET
-  +/echo  POST     "echo"
-  +/echo  OPTIONS  echo
-```
+    $ ./script/my_app routes
+    /api      *        api
+      +/      GET
+      +/echo  POST     "echo"
+      +/echo  OPTIONS  echo
 
 From the output above, we can see that the expected route `/api/echo` is
 generated, so let's see if we can send/receive any data to the server. To try
@@ -221,18 +209,14 @@ it out, we use the "openapi" sub command which was installed with
 
 In this first example we try to send invalid body data using the `-c` switch:
 
-```shell
-$ MOJO_LOG_LEVEL=info ./script/my_app openapi /api echo -c '[42]'
-{"errors":[{"message":"Expected object - got array.","path":"\/body"}]}
-```
+    $ MOJO_LOG_LEVEL=info ./script/my_app openapi /api echo -c '[42]'
+    {"errors":[{"message":"Expected object - got array.","path":"\/body"}]}
 
 This next example should succeed, since we change from sending an array to
 sending an object, as described in the API specification:
 
-```shell
-$ MOJO_LOG_LEVEL=info ./script/my_app openapi /api echo -c '{"age":42}'
-{"age":42}
-```
+    $ MOJO_LOG_LEVEL=info ./script/my_app openapi /api echo -c '{"age":42}'
+    {"age":42}
 
 Yay! We see that the same input data was echoed back to us, without any error
 message. Mission accomplished!

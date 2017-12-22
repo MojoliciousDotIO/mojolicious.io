@@ -113,6 +113,7 @@ site:
                 languages:
                     - perl
                     - bash
+                    - yaml
                     - xml
             logo_text: 'mojolicious.io'
             copyright: '2017 Joel Berger'
