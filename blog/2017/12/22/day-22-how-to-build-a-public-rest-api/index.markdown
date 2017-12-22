@@ -146,6 +146,12 @@ There's a bunch of things to dive into, but here is a quick overview:
 * `parameters` and `responses` contains a description of the acceptable input
   and output.
 
+While this article will not talk further about how to make a
+`Mojolicious::Lite` web app, the key to getting your routes recognised
+are to make them have the right path (in this case, `/echo` - it will
+get moved by the plugin under `/api`) and the right `name` (the third
+parameter to eg `get`) to match either the `x-mojo-name` or `operationId`.
+
 ## How to use the specification in your Mojolicious application
 
 The example application will use the specification above to generate routes
