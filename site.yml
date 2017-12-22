@@ -148,6 +148,10 @@ site:
                     image: '/static/avatar_candyangel.jpg'
                     text: |-
                       CandyAngel is a Perl developer who tends to demonstrate her love of any particular piece of software by making it do things it was never intended to do.. yet still do it well.
+                batman:
+                    name: Jan Henning Thorsen
+                    text: |-
+                      Jan (aka batman) is a self taught Perl hacker and a member of the Mojolicious Core Team. He likes to work with anything that has to do with web - both frontend and backend. Got more questions? Send him an [e-mail](mailto:jhthorsen@cpan.org) or contact him in the `#swagger` channel on [irc.perl.org](http://www.irc.perl.org/).
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
