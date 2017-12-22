@@ -6,7 +6,7 @@ tags:
     - openapi
     - rest
     - swagger
-author: Jan Henning Thorsen & Ed J
+author: Jan Henning Thorsen
 images:
   banner:
     src: '/static/hammock_beach.jpg'
@@ -17,7 +17,6 @@ images:
 data:
   bio:
     - batman
-    - mohawk
   description: 'How to build a public REST API for your Mojolicious application'
 ---
 The [OpenAPI](https://www.openapis.org/) Specification (formerly named
