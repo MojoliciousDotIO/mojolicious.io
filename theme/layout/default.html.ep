@@ -21,6 +21,8 @@
     <meta name="twitter:site" content="<%= $twitter %>">
   % }
   % if (my $bio = $page->data->{bio}) {
+    %# only one bio allowed here
+    % if (ref $bio eq 'ARRAY') { $bio = $bio->[0] }
     % if (! ref $bio) { $bio = $site->data->{bios}{$bio} || {} }
     % if (my $twitter = $bio->{twitter}) {
       % if ($twitter !~ /^\@/) { $twitter = '@' . $twitter }

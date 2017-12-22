@@ -59,25 +59,29 @@
               </p>
               % }
 
-              % if (my $bio = $self->data->{bio}) {
-                % if (! ref $bio) { $bio = $site->data->{bios}{$bio} || {} }
-                <div class="bio cf">
+              % if (my $bios = $self->data->{bio}) {
+                % if (ref $bios ne 'ARRAY') { $bios = [$bios] }
+                % for my $bio (@$bios) {
 
-                    % if (my $image = $bio->{image}) {
-                    <div class="gravatar">
-                      <img src="<%== $image %>" alt="author image">
-                    </div>
-                    % }
-                    <div class="about">
-                      % if (my $homepage = $bio->{homepage}) {
-                      <h5><a title="Posts by <%== $bio->{name} %>" href="<%== $homepage %>" rel="author"><%== $bio->{name} %></a></h5>
-                      % } else {
-                      <h5><%== $bio->{name} %></h5>
+                  % if (! ref $bio) { $bio = $site->data->{bios}{$bio} || {} }
+                  <div class="bio cf">
+
+                      % if (my $image = $bio->{image}) {
+                      <div class="gravatar">
+                        <img src="<%== $image %>" alt="author image">
+                      </div>
                       % }
-                      <%= markdown $bio->{text} %>
-                    </div>
+                      <div class="about">
+                        % if (my $homepage = $bio->{homepage}) {
+                        <h5><a title="Posts by <%== $bio->{name} %>" href="<%== $homepage %>" rel="author"><%== $bio->{name} %></a></h5>
+                        % } else {
+                        <h5><%== $bio->{name} %></h5>
+                        % }
+                        <%= markdown $bio->{text} %>
+                      </div>
 
-                </div>
+                  </div>
+                % }
               % }
 
               <ul class="post-nav cf">
