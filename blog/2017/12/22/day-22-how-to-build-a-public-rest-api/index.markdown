@@ -20,9 +20,10 @@ data:
     - mohawk
   description: 'How to build a public REST API for your Mojolicious application'
 ---
-The [OpenAPI](https://www.openapis.org/) Specification is an API description
-format for REST APIs. An API specification written using the the rules set by
-the Open API Initiative can be used to describe:
+The [OpenAPI](https://www.openapis.org/) Specification (formerly named
+Swagger) is an API description format for REST APIs. An API specification
+written using the the rules set by the Open API Initiative can be used to
+describe:
 
 * All the available endpoints. An endpoint is a unique resource that can
   access or modify a given object.
