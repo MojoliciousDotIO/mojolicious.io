@@ -7,6 +7,46 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.088</generator>
         <item>
+            <title>Day 22: A RESTful API with OpenAPI</title>
+            <link>https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/</link>
+            <guid>https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/</guid>
+            <description><![CDATA[
+                <p>The <a href="https://www.openapis.org/">OpenAPI</a> Specification (formerly named
+Swagger) is an API description format for REST APIs. An API specification
+written using the the rules set by the Open API Initiative can be used to
+describe:</p>
+
+<ul>
+<li>All the available endpoints. An endpoint is a unique resource that can
+access or modify a given object.</li>
+<li>Input parameters, such as headers, query parameters and/or body parameters.</li>
+<li>The structure of the response, including headers status codes and the body -
+if any.</li>
+<li>Authentication methods</li>
+<li>Contact information, license, terms of use and other information</li>
+</ul>
+
+<p>This post look into how to write an API specification and how to use it
+together with
+<a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">Mojolicious::Plugin::OpenAPI</a>
+and <a href="https://metacpan.org/pod/OpenAPI::Client">OpenAPI::Client</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/api/">api</a>
+                        <a href="https://mojolicious.io/blog/tag/openapi/">openapi</a>
+                        <a href="https://mojolicious.io/blog/tag/rest/">rest</a>
+                        <a href="https://mojolicious.io/blog/tag/swagger/">swagger</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 22 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 8: Mocking a REST API</title>
             <link>https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/</link>
             <guid>https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/</guid>

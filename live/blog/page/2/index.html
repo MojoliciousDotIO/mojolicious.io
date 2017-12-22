@@ -98,6 +98,40 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2017/12/17/day-17-the-wishlist-app/">Day 17: The Wishlist App</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-17">Dec 17, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Living room, Christmas tree, and presents" src="/static/xmas_tree.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example appliation.
+It is possible I let the exaxmple get away from me!</p>
+
+<p>In today&#39;s article I indend to show how to use template composition techniques to produce a wishlist app.
+We will cover <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layouts</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">partial templates</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">content blocks</a>.</p>
+
+<p>The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
+Today we will example concepts mostly relating to the templates, then in tomorrows post I will migrate the model from using the simplistic persistence of <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> that it uses now to <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>.</p>
+
+                  <p><a href="/blog/2017/12/17/day-17-the-wishlist-app/#section-2">Continue reading Day 17: The Wishlist App...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions/">Day 16: The Secret Life of Sessions</a></h1>
 
               <p class="post-meta">
@@ -376,40 +410,6 @@ The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role:
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/12/day-12-more-than-a-base-class/">Day 12: More Than a Base Class</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-12">Dec 12, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Golden Gate Bridge viewed and Fort Point" src="/static/1280px-GG-ftpoint-bridge-2.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Through this series, you&#39;ve seen the module <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> referenced several times, though briefly and mostly in passing.
-It shouldn&#39;t be taken lightly however, it packs a lot of punch in one import statement!
-Nearly every file in the Mojolicious distribution uses it, either directly or indirectly.
-So what is it?</p>
-
-<p>First it imports several handy pragma that make your code safer and some features that are useful.
-Second, it can be a base class to the current package, or establish a parent class, or even define a role.
-Let&#39;s see how it does it.</p>
-
-                  <p><a href="/blog/2017/12/12/day-12-more-than-a-base-class/#section-2">Continue reading Day 12: More Than a Base Class...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -451,11 +451,14 @@ Let&#39;s see how it does it.</p>
     <a href="/blog/tag/model/">model</a>
     <a href="/blog/tag/non-blocking/">non-blocking</a>
     <a href="/blog/tag/non-web/">non-web</a>
+    <a href="/blog/tag/openapi/">openapi</a>
     <a href="/blog/tag/promises/">promises</a>
     <a href="/blog/tag/rendering/">rendering</a>
+    <a href="/blog/tag/rest/">rest</a>
     <a href="/blog/tag/roles/">roles</a>
     <a href="/blog/tag/routing/">routing</a>
     <a href="/blog/tag/session/">session</a>
+    <a href="/blog/tag/swagger/">swagger</a>
     <a href="/blog/tag/template/">template</a>
     <a href="/blog/tag/templates/">templates</a>
     <a href="/blog/tag/testing/">testing</a>
@@ -517,9 +520,10 @@ Let&#39;s see how it does it.</p>
       <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/perl.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/xml.min.js"></script>
       <script>
-        hljs.configure({"languages":["perl","bash","xml"]});
+        hljs.configure({"languages":["perl","bash","yaml","xml"]});
         hljs.initHighlightingOnLoad();
       </script>
 
