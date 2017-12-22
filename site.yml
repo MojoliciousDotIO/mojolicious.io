@@ -146,11 +146,14 @@ site:
                       Ed J (aka "mohawk" on IRC) has been using Perl for a long time. He is currently porting the reference [GraphQL](http://graphql.org/) implementation from the [JavaScript version](http://graphql.org/graphql-js/) to [Perl](https://metacpan.org/pod/GraphQL). Find out more by [joining the `#graphql-perl` channel on irc.perl.org](https://chat.mibbit.com/?channel=%23graphql-perl&server=irc.perl.org)!
                 candyangel:
                     name: 'CandyAngel'
+                    twitter: '@CandyAngel_Nay'
                     image: '/static/avatar_candyangel.jpg'
                     text: |-
                       CandyAngel is a Perl developer who tends to demonstrate her love of any particular piece of software by making it do things it was never intended to do.. yet still do it well.
                 batman:
                     name: Jan Henning Thorsen
+                    twitter: '@jhthorsen'
+                    image: '//secure.gravatar.com/avatar/806800a3aeddbad6af673dade958933b'
                     text: |-
                       Jan (aka batman) is a self taught Perl hacker and a member of the Mojolicious Core Team. He likes to work with anything that has to do with web - both frontend and backend. Got more questions? Send him an [e-mail](mailto:jhthorsen@cpan.org) or contact him in the `#swagger` channel on [irc.perl.org](http://www.irc.perl.org/).
 
