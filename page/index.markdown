@@ -126,6 +126,10 @@ data:
       image: '/static/hammock_beach.jpg'
       alt: 'Day 22: A RESTful API with OpenAPI'
     - date: 2017-12-23
+      title: 'One-Liners for Fun and Profit'
+      href: '/blog/2017/12/23/day-23-one-liners-for-fun-and-profit'
+      image: '/static/chess.jpg'
+      alt: 'Day 23: One-Liners for Fun and Profit'
     - date: 2017-12-24
 ---
 
