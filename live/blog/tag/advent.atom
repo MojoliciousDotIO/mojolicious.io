@@ -15,7 +15,7 @@
         <content type="html"><![CDATA[
             <p>Perl is well-known for its <a href="http://www.catonmat.net/download/perl1line.txt">one-liners</a>: short programs written as part of the <a href="http://perldoc.perl.org/perlrun.html">command line invocation of the interpreter</a>.
 Certainly every programmer or sysadmin has the need, from time to time, to do a quick one-off task programmatically.
-Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of making a full script.</p>
+Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of actually doing so.</p>
 
 <p>These tasks may include removing unwanted lines from files, collecting data from logs, or even a quick proof-of-concept of something that would become a script later.
 They can read lines in files, even multiple files, can operate on files in-place, can read from STDIN as a pipe.
@@ -171,18 +171,18 @@ While I could find the image in the repo, just making a &quot;fail app&quot; is 
 <p>You do still have to call <code>app-&gt;start</code> as ever, and the application gets called with commands, just like any application.
 Call it with <code>daemon</code> and since we want to show the production version of the page, force it into production mode.</p>
 
-<p>There is a shorter way to do this, however.
+<p>There is an even shorter way to declare a one-liner application too.
 Since one-liners are likely to be used immediately, and routing conditions aren&#39;t so important, there is one ojo keyword to shorten things.
 That keyword is <code>a</code>, whose name should cause you to think of Lite&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious/Lite#any"><code>any</code></a> keyword.</p>
 
 <p>It has a one important differences besides just the shorter name: it returns the application rather than the route instance, allowing you to chain the call to <code>start</code>.
-Another handy trick is that, when using <code>ojo</code>, actions expose the controller instance as <code>$_</code> so you don&#39;t have to unpack the arguments to get access to it.</p>
+Another handy trick is that, when using <code>ojo</code>, actions expose the controller instance as <code>$_</code> so you don&#39;t have to unpack the arguments to get access to it.
+(If you have a recent enough Perl, you can also use signatures on your functions automagically too.)</p>
 
 <pre><code>perl -Mojo -E &#39;a(&quot;/&quot; =&gt; sub { $_-&gt;render(text =&gt; scalar localtime) })-&gt;start&#39; get /
 </code></pre>
 
-<p>Since all the commands work, using the Lite app and the <code>get</code> command together can mean that you see the results of a request to your one-liner application right there on your terminal!
-Finally, if you have a recent enough Perl, you can also use signatures on your functions automagically too.</p>
+<p>Since all the commands work, using the Lite app and the <code>get</code> command together can mean that you see the results of a request to your one-liner application right there on your terminal!</p>
 
 <p>I use this functionality all the time to quickly demonstrate some concept; sometimes to others or sometimes to myself.
 What happens if I set this stash parameter?

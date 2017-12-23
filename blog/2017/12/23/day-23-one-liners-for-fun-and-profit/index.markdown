@@ -20,7 +20,7 @@ data:
 
 Perl is well-known for its [one-liners](http://www.catonmat.net/download/perl1line.txt): short programs written as part of the [command line invocation of the interpreter](http://perldoc.perl.org/perlrun.html).
 Certainly every programmer or sysadmin has the need, from time to time, to do a quick one-off task programmatically.
-Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of making a full script.
+Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of actually doing so.
 
 These tasks may include removing unwanted lines from files, collecting data from logs, or even a quick proof-of-concept of something that would become a script later.
 They can read lines in files, even multiple files, can operate on files in-place, can read from STDIN as a pipe.
@@ -160,17 +160,17 @@ If you haven't seen him, you need to run that one-liner to see him for yourself!
 You do still have to call `app->start` as ever, and the application gets called with commands, just like any application.
 Call it with `daemon` and since we want to show the production version of the page, force it into production mode.
 
-There is a shorter way to do this, however.
+There is an even shorter way to declare a one-liner application too.
 Since one-liners are likely to be used immediately, and routing conditions aren't so important, there is one ojo keyword to shorten things.
 That keyword is `a`, whose name should cause you to think of Lite's [`any`](http://mojolicious.org/perldoc/Mojolicious/Lite#any) keyword.
 
 It has a one important differences besides just the shorter name: it returns the application rather than the route instance, allowing you to chain the call to `start`.
 Another handy trick is that, when using `ojo`, actions expose the controller instance as `$_` so you don't have to unpack the arguments to get access to it.
+(If you have a recent enough Perl, you can also use signatures on your functions automagically too.)
 
     perl -Mojo -E 'a("/" => sub { $_->render(text => scalar localtime) })->start' get /
 
 Since all the commands work, using the Lite app and the `get` command together can mean that you see the results of a request to your one-liner application right there on your terminal!
-Finally, if you have a recent enough Perl, you can also use signatures on your functions automagically too.
 
 I use this functionality all the time to quickly demonstrate some concept; sometimes to others or sometimes to myself.
 What happens if I set this stash parameter?
