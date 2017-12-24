@@ -131,6 +131,10 @@ data:
       image: '/static/chess.jpg'
       alt: 'Day 23: One-Liners for Fun and Profit'
     - date: 2017-12-24
+      title: 'Release and Wrap-Up'
+      href: '/blog/2017/12/24/day-24-release-and-wrap-up'
+      image: '/static/tree_unfocused.jpg'
+      alt: 'Day 24: Release and Wrap-Up'
 ---
 
 This is a site dedicated to the [Mojolicious](http://mojolicious.org) web framework.
