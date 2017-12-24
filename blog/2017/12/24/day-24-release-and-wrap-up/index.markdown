@@ -45,9 +45,9 @@ I wrote an application called [CarPark](https://github.com/jberger/CarPark) to c
 
 And that brings us to the [Wishlist](https://github.com/jberger/Wishlist) application.
 Several sites, some large and some small, offer similar services: tracking your wishlists and aiding gift buying, all for free.
-However, this must also come at a cost.
+However, this too must also come at a cost.
 
-In this article I'm announcing that I have released the Wishlist application to [CPAN](https://metacpan.org/pod/Wishlist).
+In this article I'm announcing that after adding a few tweaks around user registration, I have now released the Wishlist application to [CPAN](https://metacpan.org/pod/Wishlist).
 I hope you can use it to keep a slightly tighter grasp on your digital footprint without sacrificing utility.
 
 You can deploy it on a VPS, like [Linode](https://www.linode.com/) or [Scaleway](https://www.scaleway.com/).

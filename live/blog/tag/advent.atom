@@ -2,11 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-23T00:00:00Z</updated>
+    <updated>2017-12-24T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.088">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</id>
+        <title>Day 24: Release and Wrap-Up</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Over the course of this advent calendar, we have discussed the <a href="https://mojolicious.io/blog/tag/wishlist/">Wishlist example application</a> several times.
+We used it to motivate discussions about <a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">templates</a>, <a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/">models</a>, <a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/">installable apps</a>, and <a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/">testing</a>.
+In this post I want to use it somewhat differently.
+I would like to motivate you, the reader, into action in a few different ways.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-24T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="wishlist" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/</id>
         <title>Day 23: One-Liners for Fun and Profit</title>
@@ -353,36 +376,6 @@ Once again the discussion will be motivated by the <a href="https://github.com/j
         <category term="advent" />
         <category term="mocking" />
         <category term="testing" />
-        <category term="wishlist" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/</id>
-        <title>Day 19: Make Your App Installable</title>
-        <author><name>Joel Berger</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Thus far we have always run our applications from the local directory.
-That is usually the project root directory and/or the repository checkout.
-But did you know that with only a few changes you can make your application installable like other Perl modules?</p>
-
-<p>While, you must do this if you want to upload your application to CPAN, even if you don&#39;t intend to do that, it still has benefits.
-You can install the application on your personal computer, especially if you want to be able to run the script while in other directories.
-Having an installable module also means that you can use a so-called &quot;DarkPAN&quot; and related tools to build yourself a local &quot;CPAN&quot;.
-If you have multiple Perl modules at your company (or as part of any project) using a DarkPAN can ease integration and deployment immensely!
-N.B. there is even a DarkPAN tool written using Mojolicious called <a href="https://metacpan.org/pod/App::opan">opan</a>.</p>
-
-<p>And hey if you needed even more more reason, it cleans up your project root directory somewhat too!</p>
-
-                <p><a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
-                </p>
-
-        ]]></content>
-        <updated>2017-12-19T00:00:00Z</updated>
-        <category term="advent" />
         <category term="wishlist" />
     </entry>
 </feed>

@@ -2,11 +2,34 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/wishlist/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-20T00:00:00Z</updated>
+    <updated>2017-12-24T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/wishlist.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/wishlist/" rel="alternate" />
     <generator version="0.088">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</id>
+        <title>Day 24: Release and Wrap-Up</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Over the course of this advent calendar, we have discussed the <a href="https://mojolicious.io/blog/tag/wishlist/">Wishlist example application</a> several times.
+We used it to motivate discussions about <a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">templates</a>, <a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/">models</a>, <a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/">installable apps</a>, and <a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/">testing</a>.
+In this post I want to use it somewhat differently.
+I would like to motivate you, the reader, into action in a few different ways.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-24T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="wishlist" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</id>
         <title>Day 20: Practical Testing</title>

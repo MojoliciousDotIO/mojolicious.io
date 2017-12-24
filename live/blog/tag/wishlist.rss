@@ -7,6 +7,28 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.088</generator>
         <item>
+            <title>Day 24: Release and Wrap-Up</title>
+            <link>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</link>
+            <guid>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</guid>
+            <description><![CDATA[
+                <p>Over the course of this advent calendar, we have discussed the <a href="https://mojolicious.io/blog/tag/wishlist/">Wishlist example application</a> several times.
+We used it to motivate discussions about <a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">templates</a>, <a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/">models</a>, <a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/">installable apps</a>, and <a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/">testing</a>.
+In this post I want to use it somewhat differently.
+I would like to motivate you, the reader, into action in a few different ways.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 24 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 20: Practical Testing</title>
             <link>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</link>
             <guid>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</guid>
