@@ -38,7 +38,7 @@ is equivalent to
 
     my $ua = Mojo::UserAgent->new;
     my $tx = $ua->build_tx(POST => '/url');
-    $tc->req->headers->header('Content-Type', 'text/plain');
+    $tx->req->headers->header('Content-Type', 'text/plain');
     $tx->req->body('some binary content');
     $ua->start($tx);
 
