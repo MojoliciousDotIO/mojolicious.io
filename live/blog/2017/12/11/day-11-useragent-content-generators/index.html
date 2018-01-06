@@ -143,7 +143,7 @@ $ua-&gt;post(
 
 <pre><code>my $ua = Mojo::UserAgent-&gt;new;
 my $tx = $ua-&gt;build_tx(POST =&gt; &#39;/url&#39;);
-$tc-&gt;req-&gt;headers-&gt;header(&#39;Content-Type&#39;, &#39;text/plain&#39;);
+$tx-&gt;req-&gt;headers-&gt;header(&#39;Content-Type&#39;, &#39;text/plain&#39;);
 $tx-&gt;req-&gt;body(&#39;some binary content&#39;);
 $ua-&gt;start($tx);
 </code></pre>
