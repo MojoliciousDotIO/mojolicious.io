@@ -109,7 +109,7 @@ By now, you must have seen that I keep qualifying my statement as 'toplevel rout
 Well ok so there is one small difference between Lite and Full, and that difference is how nested routes work.
 
 There are two other keywords, `under` and `group`.
-`under` allows routes share to code, like say for authentication.
+`under` allows routes to share code, like say for authentication.
 They also can share parts of their path.
 For example, parts of an API that need authentication might be all under `/protected`.
 
