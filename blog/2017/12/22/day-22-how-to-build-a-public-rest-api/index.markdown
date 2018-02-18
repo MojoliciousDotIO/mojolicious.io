@@ -159,6 +159,10 @@ command to create the app:
 
     $ mojo generate app MyApp
 
+Check it works right by running the provided test:
+
+    $ prove -l t
+
 After that, edit `lib/MyApp.pm` to make it look like this:
 
     package MyApp;
@@ -175,7 +179,7 @@ After that, edit `lib/MyApp.pm` to make it look like this:
 
 Then copy/paste the specification from above and save it to `public/api.yaml`.
 
-Last you must create a controller `lib/MyApp/Controller/Echo.pm` to match
+Next you must create a controller `lib/MyApp/Controller/Echo.pm` to match
 `x-mojo-to` in the API specification:
 
     package MyApp::Controller::Echo;
@@ -190,6 +194,15 @@ Last you must create a controller `lib/MyApp/Controller/Echo.pm` to match
     }
 
     1;
+
+Last, you should update the test. Change `t/basic.t` so the line with
+`get_ok` reads:
+
+    $t->post_ok('/api/echo', '{"i":"work"}')->status_is(200)->json_is({i=>"work"});
+
+Check it all works right:
+
+    $ prove -l t
 
 And you're done creating an OpenAPI powered application!
 
