@@ -267,6 +267,11 @@ command to create the app:</p>
 <pre><code>$ mojo generate app MyApp
 </code></pre>
 
+<p>Check it works right by running the provided test:</p>
+
+<pre><code>$ prove -l t
+</code></pre>
+
 <p>After that, edit <code>lib/MyApp.pm</code> to make it look like this:</p>
 
 <pre><code>package MyApp;
@@ -284,7 +289,7 @@ sub startup {
 
 <p>Then copy/paste the specification from above and save it to <code>public/api.yaml</code>.</p>
 
-<p>Last you must create a controller <code>lib/MyApp/Controller/Echo.pm</code> to match
+<p>Next you must create a controller <code>lib/MyApp/Controller/Echo.pm</code> to match
 <code>x-mojo-to</code> in the API specification:</p>
 
 <pre><code>package MyApp::Controller::Echo;
@@ -299,6 +304,17 @@ sub index {
 }
 
 1;
+</code></pre>
+
+<p>Last, you should update the test. Change <code>t/basic.t</code> so the line with
+<code>get_ok</code> reads:</p>
+
+<pre><code>$t-&gt;post_ok(&#39;/api/echo&#39;, &#39;{&quot;i&quot;:&quot;work&quot;}&#39;)-&gt;status_is(200)-&gt;json_is({i=&gt;&quot;work&quot;});
+</code></pre>
+
+<p>Check it all works right:</p>
+
+<pre><code>$ prove -l t
 </code></pre>
 
 <p>And you&#39;re done creating an OpenAPI powered application!</p>
