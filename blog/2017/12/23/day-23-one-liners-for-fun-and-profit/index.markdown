@@ -33,6 +33,7 @@ So could we take this further?
 Could we do remote data fetching and manipulation as a one-liner?
 Could we build an entire web application as a one-liner?
 Would I be asking if the answer was no?
+---
 
 ## A Note on Readability
 
