@@ -24,7 +24,9 @@ your site's content can be in
 [Postgres](http://metacpan.org/pod/Yancy::Backend::Pg),
 [MySQL](http://metacpan.org/pod/Yancy::Backend::Mysql), and
 [DBIx::Class](http://metacpan.org/pod/Yancy::Backend::Dbic).
+---
 
+## Demonstration
 For an demonstration application, let’s create a simple blog using
 [Mojolicious::Lite](http://mojolicious.org/perldoc/Mojolicious/Lite).
 First we need to create a database schema for our blog posts. Let's use
