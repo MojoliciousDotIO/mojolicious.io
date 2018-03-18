@@ -63,6 +63,7 @@ Check it still all works right:
     $ prove -l t
 
 This makes a GraphQL request as conventionally done over HTTP. There are two points to note:
+
 - it's a "mutation", which probably sounds like it would change something, but here it doesn't - it's still just an "echo" service
 - both the inputs and outputs look like hashes with `key` and `value` attributes
 
