@@ -180,7 +180,7 @@ Indeed the Mojolicious core team members often make one-liner applications to pa
 
 ### Benchmarking
 
-And speaing of development, there is one more ojo function, and it is quite unlike the others.
+And speaking of development, there is one more ojo function, and it is quite unlike the others.
 The `n` function takes a block of code to run and optionally a number of times to run it and the function will output timing statistics over the runs.
 The heavy lifting here is done by the Perl core [Benchmark](https://metacpan.org/pod/Benchmark) module.
 
