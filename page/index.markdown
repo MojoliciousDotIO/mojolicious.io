@@ -137,8 +137,9 @@ data:
       alt: 'Day 24: Release and Wrap-Up'
 ---
 
-This is a site dedicated to the [Mojolicious](http://mojolicious.org) web framework.
-It was lauched in 2017, just in time for the ...
+# The Blog
+
+Now that the 2017 Advent Calendar is over, continue following the progress of the site on the blog at <https://mojolicious.io/blog/>.
 
 # 2017 Mojolicious Advent Calendar
 
