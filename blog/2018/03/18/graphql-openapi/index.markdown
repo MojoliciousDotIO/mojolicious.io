@@ -18,7 +18,7 @@ data:
   description: 'How to easily add a GraphQL interface to the public REST API of your Mojolicious application'
 ---
 
-# How to easily add a GraphQL interface to the public REST API of your Mojolicious application
+## How to easily add a GraphQL interface to the public REST API of your Mojolicious application
 
 During the Mojolicious 2017 Advent calendar series, we looked at [how to build a public REST API using Mojolicious](https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/). A technology that is getting a lot of buzz is [GraphQL](http://graphql.org/learn/). Now that it has been [ported to Perl 5](https://metacpan.org/pod/GraphQL), what if there were an easy way to let people access your API using it?
 ---

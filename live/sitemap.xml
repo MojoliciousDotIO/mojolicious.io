@@ -4,13 +4,13 @@
         <loc>https://mojolicious.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2018-02-23</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-24</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -169,34 +169,40 @@
         <lastmod>2017-12-24</lastmod>
     </url>
     <url>
+        <loc>https://mojolicious.io/blog/2018/03/18/graphql-openapi/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2018-03-18</lastmod>
+    </url>
+    <url>
         <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-24</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-24</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-24</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-24</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-24</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/administration/</loc>
@@ -238,7 +244,7 @@
         <loc>https://mojolicious.io/blog/tag/api/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-22</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/app/</loc>
@@ -275,6 +281,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-04</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/graphql/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/growing/</loc>
@@ -328,7 +340,7 @@
         <loc>https://mojolicious.io/blog/tag/openapi/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-22</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/promises/</loc>
@@ -370,7 +382,7 @@
         <loc>https://mojolicious.io/blog/tag/swagger/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-22</lastmod>
+        <lastmod>2018-03-18</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/template/</loc>
