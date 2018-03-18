@@ -8,10 +8,11 @@ tags:
 author: Ed J
 images:
   banner:
-    src: '/static/todo.jpg'
-    alt: 'TODO'
+    src: '/static/1280px-Nanoscience_High-Performance_Computing_Facility.jpg'
+    alt: 'cables in a patch panel'
     data:
-      attribution: ""
+      attribution: |-
+        <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/35734278@N05/3404663653/">Image</a> by <a href="https://www.flickr.com/people/35734278@N05">Matt Howard</a> <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>
 data:
   bio: mohawk
   description: 'How to easily add a GraphQL interface to the public REST API of your Mojolicious application'
@@ -32,42 +33,34 @@ To learn more about how to use it, there is a translation of the [JavaScript tut
 
 To run the example code below, you need to have gone through the "build a public REST API" article and installed its prerequisites, and made your app. Then install the following modules:
 
-```shell
-$ cpanm Mojolicious::Plugin::GraphQL      # server side plugin
-$ cpanm GraphQL::Plugin::Convert::OpenAPI # convert OpenAPI spec to GraphQL
-```
+    $ cpanm Mojolicious::Plugin::GraphQL      # server side plugin
+    $ cpanm GraphQL::Plugin::Convert::OpenAPI # convert OpenAPI spec to GraphQL
 
 ## How to add GraphQL to your existing REST API
 
 To do the bare minimum to get our miniature API going with GraphQL, we just need to change `lib/MyApp.pm` a little:
 
-```perl
-# add this at the top:
-use Mojo::File 'path';
+    # add this at the top:
+    use Mojo::File 'path';
 
-# change the `OpenAPI` line to:
-my $path = $self->static->file("api.yaml")->path;
-my $api = $self->plugin(OpenAPI => {spec => $path});
-$self->plugin(GraphQL => {convert => [ qw(OpenAPI), $api->validator->bundle, $self ], graphiql => 1});
-```
+    # change the `OpenAPI` line to:
+    my $path = $self->static->file("api.yaml")->path;
+    my $api = $self->plugin(OpenAPI => {spec => $path});
+    $self->plugin(GraphQL => {convert => [ qw(OpenAPI), $api->validator->bundle, $self ], graphiql => 1});
 
 This gets the `plugin` object returned by the OpenAPI plugin, then uses that to pass the API spec along to the GraphQL plugin. The `graphiql` flag is to tell the plugin to deliver the "GraphiQL" interface if you request the `/graphql` interface with your browser. We'll talk more about that soon.
 
 We'll also add a tiny test this works to `t/basic.t`:
 
-```perl
-$t->post_ok('/graphql', json => {
-  query => 'mutation m {echo(body: [{key:"one", value:"two"}]) { key value }}'
-})->json_is(
-  { data => { echo => [{key=>"one", value=>"two"}] } },
-)->or(sub { diag explain $t->tx->res->body });
-```
+    $t->post_ok('/graphql', json => {
+      query => 'mutation m {echo(body: [{key:"one", value:"two"}]) { key value }}'
+    })->json_is(
+      { data => { echo => [{key=>"one", value=>"two"}] } },
+    )->or(sub { diag explain $t->tx->res->body });
 
 Check it still all works right:
 
-```shell
-$ prove -l t
-```
+    $ prove -l t
 
 This makes a GraphQL request as conventionally done over HTTP. There are two points to note:
 - it's a "mutation", which probably sounds like it would change something, but here it doesn't - it's still just an "echo" service
@@ -83,96 +76,90 @@ We're going to add a `GET` echo route, and a fake user-creation `POST` route, in
 
 Make your `api.yaml` read:
 
-```yaml
-swagger: '2.0'
-info:
-  version: '0.42'
-  title: Dummy example
-schemes: [ http ]
-basePath: "/api"
-paths:
-  /echo:
-    post:
-      x-mojo-to: "echo#index"
-      operationId: echo
-      parameters:
-      - in: body
-        name: body
-        schema:
-          type: object
-      responses:
-        200:
-          description: Echo response
-          schema:
-            type: object
-    get:
-      x-mojo-to: "echo#index"
-      operationId: echoGet
-      parameters:
-      - in: query
-        name: q
-        type: string
-      responses:
-        200:
-          description: Echo response
-          schema:
+    swagger: '2.0'
+    info:
+      version: '0.42'
+      title: Dummy example
+    schemes: [ http ]
+    basePath: "/api"
+    paths:
+      /echo:
+        post:
+          x-mojo-to: "echo#index"
+          operationId: echo
+          parameters:
+          - in: body
+            name: body
+            schema:
+              type: object
+          responses:
+            200:
+              description: Echo response
+              schema:
+                type: object
+        get:
+          x-mojo-to: "echo#index"
+          operationId: echoGet
+          parameters:
+          - in: query
+            name: q
             type: string
-  /user:
-    post:
-      x-mojo-to: "echo#index"
-      operationId: createUser
-      parameters:
-      - in: body
-        name: user
-        schema:
-          $ref: "#/definitions/User"
-      responses:
-        200:
-          description: Created User
-          schema:
-            $ref: "#/definitions/User"
-definitions:
-  User:
-    type: object
-    properties:
-      name:
-        type: string
-      email:
-        type: string
-```
+          responses:
+            200:
+              description: Echo response
+              schema:
+                type: string
+      /user:
+        post:
+          x-mojo-to: "echo#index"
+          operationId: createUser
+          parameters:
+          - in: body
+            name: user
+            schema:
+              $ref: "#/definitions/User"
+          responses:
+            200:
+              description: Created User
+              schema:
+                $ref: "#/definitions/User"
+    definitions:
+      User:
+        type: object
+        properties:
+          name:
+            type: string
+          email:
+            type: string
 
 Now change your `lib/MyApp/Controller/Echo.pm` so the index method is:
 
-```perl
-sub index {
-  # Validate input request or return an error document
-  my $self = shift->openapi->valid_input or return;
-  my $data = $self->req->method eq 'POST'
-    ? $self->req->json
-    : $self->req->param('q');
-  # Render back the same data as you received using the "openapi" handler
-  $self->render(openapi => $data);
-}
-```
+    sub index {
+      # Validate input request or return an error document
+      my $self = shift->openapi->valid_input or return;
+      my $data = $self->req->method eq 'POST'
+        ? $self->req->json
+        : $self->req->param('q');
+      # Render back the same data as you received using the "openapi" handler
+      $self->render(openapi => $data);
+    }
 
 Of course you'll want to update your tests, so add this to `t/basic.t`:
 
-```perl
-$t->get_ok('/api/echo?q=good')->status_is(200)->json_is("good");
-$t->post_ok('/api/user', json => {email=>'a@b',name=>'Bob'})->json_is(
-  {email=>'a@b', name=> 'Bob'}
-);
-$t->post_ok('/graphql', json => {
-  query => '{echoGet(q: "Hello")}'
-})->json_is(
-  { data => { echoGet => 'Hello' } },
-)->or(sub { diag explain $t->tx->res->body });
-$t->post_ok('/graphql', json => {
-  query => 'mutation m {createUser(user: {email:"one@a", name:"Bob"}) { email name }}'
-})->json_is(
-  { data => { createUser => {email=>'one@a', name=>'Bob'} } },
-)->or(sub { diag explain $t->tx->res->body });
-```
+    $t->get_ok('/api/echo?q=good')->status_is(200)->json_is("good");
+    $t->post_ok('/api/user', json => {email=>'a@b',name=>'Bob'})->json_is(
+      {email=>'a@b', name=> 'Bob'}
+    );
+    $t->post_ok('/graphql', json => {
+      query => '{echoGet(q: "Hello")}'
+    })->json_is(
+      { data => { echoGet => 'Hello' } },
+    )->or(sub { diag explain $t->tx->res->body });
+    $t->post_ok('/graphql', json => {
+      query => 'mutation m {createUser(user: {email:"one@a", name:"Bob"}) { email name }}'
+    })->json_is(
+      { data => { createUser => {email=>'one@a', name=>'Bob'} } },
+    )->or(sub { diag explain $t->tx->res->body });
 
 By now you know how to run the tests!
 
@@ -180,29 +167,23 @@ By now you know how to run the tests!
 
 Start up your service:
 
-```shell
-$ ./script/my_app daemon -l 'http://*:5000'
-```
+    $ ./script/my_app daemon -l 'http://*:5000'
 
 And connect your browser to http://localhost:5000/graphql and try this query:
 
-```
-{echoGet(q: "hi")}
-```
+    {echoGet(q: "hi")}
 
 Now do a fake "user creation":
 
-```
-mutation m {
-  createUser(user: {
-    email: "one@two"
-    name: "Jan"
-  }) {
-    email
-    name
-  }
-}
-```
+    mutation m {
+      createUser(user: {
+        email: "one@two"
+        name: "Jan"
+      }) {
+        email
+        name
+      }
+    }
 
 For further exploration, use the "Docs" button in the top-right of the window. It will show you the available types, starting from the root `Query` (whose fields are all the queries), and `Mutation`, which has our `createUser` with input that's a `UserInput` and output that's a `User`.
 
@@ -219,8 +200,3 @@ Did you find GraphQL interesting? Check out these resources to find out more:
 * [GraphQL's about page](http://graphql.org/) has
   information about GraphQL and what it's all about.
 
-## Author
-
-### Ed J
-
-Ed J (aka "mohawk" on IRC) has been using Perl for a long time. He is currently porting the reference GraphQL implementation from the JavaScript version to Perl. Find out more by joining the #graphql-perl channel on irc.perl.org!
