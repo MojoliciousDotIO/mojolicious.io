@@ -149,7 +149,7 @@ So far we have been focusing on bundled static files.
 As we saw in the Cookbook entry, one other consideration for installable applications is its `home`.
 
 Apart from setting the above paths, which we no longer need it to do, the other main job of the `home` is to locate data from the application user rather than the application's own files.
-Here it is stil amply useful!
+Here it is still amply useful!
 
 The first and most import example of this is loading configuration via say [Mojolicious::Plugin::Config](http://mojolicious.org/perldoc/Mojolicious/Plugin/Config#file).
 The user will be provide configuration and almost certainly not from the installed location of the application, unlike its bundled support files.
