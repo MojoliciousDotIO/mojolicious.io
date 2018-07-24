@@ -189,7 +189,7 @@ For those cases there are `element_exists`, `element_exists_not`, and `element_c
 These really need a post of their own, but as a few examples
 
     $t->text_is('div.main-content p:nth-of-type(2)', 'This is the third paragraph of the main-section of text');
-    $t->element_exists('img[src="kitten.jpg"]);
+    $t->element_exists('img[src="kitten.jpg"]');
 
 ## Testing Websockets
 
