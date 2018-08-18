@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/template/</link>
         <atom:link href="https://mojolicious.io/blog/tag/template.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.088</generator>
+        <generator>Statocles 0.093</generator>
         <item>
             <title>Day 7: Using Template Variants For a Beta Landing Page</title>
             <link>https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/</link>

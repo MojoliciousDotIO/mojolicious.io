@@ -5,7 +5,7 @@
     <updated>2017-12-16T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/session.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/session/" rel="alternate" />
-    <generator version="0.088">Statocles</generator>
+    <generator version="0.093">Statocles</generator>
 
     <entry>
         <id>https://mojolicious.io/blog/2017/12/16/day-16-the-secret-life-of-sessions/</id>

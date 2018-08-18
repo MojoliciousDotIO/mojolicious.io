@@ -5,7 +5,7 @@
     <updated>2018-03-18T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/swagger.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/swagger/" rel="alternate" />
-    <generator version="0.088">Statocles</generator>
+    <generator version="0.093">Statocles</generator>
 
     <entry>
         <id>https://mojolicious.io/blog/2018/03/18/graphql-openapi/</id>

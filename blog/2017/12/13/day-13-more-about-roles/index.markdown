@@ -67,7 +67,7 @@ While I won't discuss these in depth, if you need to change how a method from a 
 
 The third thing you might notice is the name of the package that I chose.
 The only thing that limits what classes the role can be consumed by is the `requires` keyword.
-Howver clearly this role is intended to work with functionality provided by Mojo::DOM and so this name is a good choice.
+However clearly this role is intended to work with functionality provided by Mojo::DOM and so this name is a good choice.
 
 ## Composing Roles
 

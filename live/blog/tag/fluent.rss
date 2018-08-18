@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/fluent/</link>
         <atom:link href="https://mojolicious.io/blog/tag/fluent.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.088</generator>
+        <generator>Statocles 0.093</generator>
         <item>
             <title>Day 12: More Than a Base Class</title>
             <link>https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/</link>
