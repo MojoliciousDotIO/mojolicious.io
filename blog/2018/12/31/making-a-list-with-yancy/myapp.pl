@@ -22,8 +22,6 @@ plugin Yancy => {
                 id => { readOnly => 1 },
             },
         },
-        # Ignore the migrations tracking database table
-        mojo_migrations => { 'x-ignore' => 1 },
     },
 };
 
