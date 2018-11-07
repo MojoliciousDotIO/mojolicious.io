@@ -62,8 +62,6 @@ also give it a few hints to make editing content easier.
                     id => { readOnly => 1 },
                 },
             },
-            # Ignore the migrations tracking database table
-            mojo_migrations => { 'x-ignore' => 1 },
         },
     };
 
