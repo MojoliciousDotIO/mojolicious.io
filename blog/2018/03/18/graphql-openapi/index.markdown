@@ -8,7 +8,7 @@ tags:
 author: Ed J
 images:
   banner:
-    src: '/static/1280px-Nanoscience_High-Performance_Computing_Facility.jpg'
+    src: '/blog/2018/03/18/graphql-openapi/1280px-Nanoscience_High-Performance_Computing_Facility.jpg'
     alt: 'cables in a patch panel'
     data:
       attribution: |-

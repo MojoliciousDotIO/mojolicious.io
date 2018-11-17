@@ -6,7 +6,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/tree_unfocused.jpg'
+    src: '/blog/2017/12/24/day-24-release-and-wrap-up/tree_unfocused.jpg'
     alt: 'Out of focus image of lit Christmas tree'
     data:
       attribution: |-

@@ -7,7 +7,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg'
+    src: '/blog/2017/12/06/day-6-adding-your-own-commands/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg'
     alt: 'Space shuttle Atlantis prepared for liftoff (night)'
     data:
       attribution: |-

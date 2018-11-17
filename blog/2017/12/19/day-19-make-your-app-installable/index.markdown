@@ -6,7 +6,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/container_ship.jpg'
+    src: '/blog/2017/12/19/day-19-make-your-app-installable/container_ship.jpg'
     alt: 'Container ship loading at the dock'
     data:
       attribution: |-

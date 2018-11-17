@@ -8,7 +8,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/lava.jpg'
+    src: '/blog/2017/12/20/day-20-practical-testing/lava.jpg'
     alt: 'Taking a sample of lava at Kilauea'
     data:
       attribution: |-

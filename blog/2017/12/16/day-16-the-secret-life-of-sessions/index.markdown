@@ -6,7 +6,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/scrabble.jpg'
+    src: '/blog/2017/12/16/day-16-the-secret-life-of-sessions/scrabble.jpg'
     alt: 'Pile of Scrabble tiles'
     data:
       attribution: |-

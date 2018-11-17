@@ -8,7 +8,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/chess.jpg'
+    src: '/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/chess.jpg'
     alt: 'Old man playing timed chess'
     data:
       attribution: |-

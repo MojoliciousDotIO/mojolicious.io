@@ -7,7 +7,7 @@ tags:
 author: Doug Bell
 images:
   banner:
-    src: '/static/1280px-crash-test-dummies.jpg'
+    src: '/blog/2017/12/08/day-8-mocking-a-rest-api/1280px-crash-test-dummies.jpg'
     alt: 'Two crash test dummies'
     data:
       attribution: |-

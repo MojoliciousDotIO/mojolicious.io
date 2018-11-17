@@ -6,7 +6,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/1280px-CSIRO_ScienceImage_2798_Testing_in_the_Laboratory.jpg'
+    src: '/blog/2017/12/09/day-9-the-best-way-to-test/1280px-CSIRO_ScienceImage_2798_Testing_in_the_Laboratory.jpg'
     alt: 'Woman using chemistry lab equipment'
     data:
       attribution: |-

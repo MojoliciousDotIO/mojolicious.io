@@ -8,7 +8,7 @@ title: 'Day 1: Getting Started'
 author: Joel Berger
 images:
   banner:
-    src: '/static/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg'
+    src: '/blog/2017/12/01/day-1-getting-started/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg'
     alt: 'hot air ballons'
     data:
       attribution: '<a href="https://commons.wikimedia.org/wiki/File:Colorado_Springs_Hot_Air_Balloon_Competition.jpg">Image by DarlArthurS</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported</a> license.'

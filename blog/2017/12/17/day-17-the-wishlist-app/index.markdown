@@ -9,7 +9,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/xmas_tree.jpg'
+    src: '/blog/2017/12/17/day-17-the-wishlist-app/xmas_tree.jpg'
     alt: 'Living room, Christmas tree, and presents'
     data:
       attribution: |-

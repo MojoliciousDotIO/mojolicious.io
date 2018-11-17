@@ -8,7 +8,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/arucaria.jpg'
+    src: '/blog/2017/12/04/day-4-dont-fear-the-full-app/arucaria.jpg'
     alt: 'Arucaria trees in Curitiba Brazil'
     data:
       attribution: |-

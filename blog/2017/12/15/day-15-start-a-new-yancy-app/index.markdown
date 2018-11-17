@@ -6,7 +6,7 @@ tags:
 author: Doug Bell
 images:
   banner:
-    src: '/static/scaffold.jpg'
+    src: '/blog/2017/12/15/day-15-start-a-new-yancy-app/scaffold.jpg'
     alt: 'Workers on a scaffold'
     data:
       attribution: |-

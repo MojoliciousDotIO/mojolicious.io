@@ -6,7 +6,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/amsterdam_hats.jpg'
+    src: '/blog/2017/12/13/day-13-more-about-roles/amsterdam_hats.jpg'
     alt: 'Pile of hats'
     data:
       attribution: |-

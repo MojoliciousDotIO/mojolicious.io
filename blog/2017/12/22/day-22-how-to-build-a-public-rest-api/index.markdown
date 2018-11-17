@@ -9,7 +9,7 @@ tags:
 author: Jan Henning Thorsen
 images:
   banner:
-    src: '/static/hammock_beach.jpg'
+    src: '/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/hammock_beach.jpg'
     alt: 'A hammock on a beach'
     data:
       attribution: |-

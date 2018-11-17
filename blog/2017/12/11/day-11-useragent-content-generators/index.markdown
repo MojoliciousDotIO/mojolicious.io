@@ -6,7 +6,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/artist-painting-1459778857j86.jpg'
+    src: '/blog/2017/12/11/day-11-useragent-content-generators/artist-painting-1459778857j86.jpg'
     alt: 'Artist painting'
     data:
       attribution: |-

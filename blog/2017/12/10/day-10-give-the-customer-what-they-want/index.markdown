@@ -6,7 +6,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/cafe-wood-vintage-retro-seat-restaurant-946984-pxhere.com.jpg'
+    src: '/blog/2017/12/10/day-10-give-the-customer-what-they-want/cafe-wood-vintage-retro-seat-restaurant-946984-pxhere.com.jpg'
     alt: 'Wood bar counter with chairs'
     data:
       attribution: |-

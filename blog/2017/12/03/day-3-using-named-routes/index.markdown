@@ -7,7 +7,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/my_name_is.jpg'
+    src: '/blog/2017/12/03/day-3-using-named-routes/my_name_is.jpg'
     alt: '"my name is" stickers'
     data:
       attribution: '<a href="https://flickr.com/photos/94599716@N06/15283079263">Image</a> by <a href="https://www.flickr.com/people/94599716@N06">Travis Wise</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by/2.0/deed.en">Attribution 2.0 Generic</a> license.'

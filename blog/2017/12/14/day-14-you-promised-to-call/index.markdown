@@ -7,7 +7,7 @@ tags:
 author: Ed J
 images:
   banner:
-    src: '/static/pinky_swear.jpg'
+    src: '/blog/2017/12/14/day-14-you-promised-to-call/pinky_swear.jpg'
     alt: 'Two hands with interlocked pinkies, a pinky swear'
     data:
       attribution: |-

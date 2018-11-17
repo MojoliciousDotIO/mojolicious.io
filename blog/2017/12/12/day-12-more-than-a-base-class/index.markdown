@@ -7,7 +7,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/1280px-GG-ftpoint-bridge-2.jpg'
+    src: '/blog/2017/12/12/day-12-more-than-a-base-class/1280px-GG-ftpoint-bridge-2.jpg'
     alt: 'Golden Gate Bridge viewed and Fort Point'
     data:
       attribution: |-

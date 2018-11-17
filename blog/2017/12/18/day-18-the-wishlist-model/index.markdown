@@ -8,7 +8,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/van_gogh_still_life.jpg'
+    src: '/blog/2017/12/18/day-18-the-wishlist-model/van_gogh_still_life.jpg'
     alt: 'Still Life: Vase with Pink Roses by Vincent van Gogh'
     data:
       attribution: |-

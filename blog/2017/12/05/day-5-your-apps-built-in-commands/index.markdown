@@ -8,7 +8,7 @@ tags:
 author: Joel Berger
 images:
   banner:
-    src: '/static/1200px-Rocket_prolant.jpg'
+    src: '/blog/2017/12/05/day-5-your-apps-built-in-commands/1200px-Rocket_prolant.jpg'
     alt: 'Space shuttle Atlantis liftoff'
     data:
       attribution: '<a href="https://commons.wikimedia.org/w/index.php?curid=44576486">Image</a> by <a href="//commons.wikimedia.org/w/index.php?title=User:Gsaisudha75&amp;action=edit&amp;redlink=1" title="User:Gsaisudha75 (page does not exist)">Gsaisudha75</a> (editor). For the original file: NASA/Scott Andrews - Derivative work of: <a href="//commons.wikimedia.org/wiki/File:STS-125_Atlantis_Liftoff_02.jpg" title="File:STS-125 Atlantis Liftoff 02.jpg">File:STS-125 Atlantis Liftoff 02.jpg</a> (while the modifications is Own work). Original file: <a rel="nofollow"  href="http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=41220">http://mediaarchive.ksc.nasa.gov/detail.cfm?mediaid=41220</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>'

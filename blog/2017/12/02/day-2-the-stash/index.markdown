@@ -8,7 +8,7 @@ title: Day 2: The Stash
 author: Joel Berger
 images:
   banner:
-    src: '/static/bag-1854148_1920.jpg'
+    src: '/blog/2017/12/02/day-2-the-stash/bag-1854148_1920.jpg'
     alt: 'leather bag'
     data:
       attribution: |-

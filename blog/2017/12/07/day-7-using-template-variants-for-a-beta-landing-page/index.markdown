@@ -7,7 +7,7 @@ tags:
 author: Doug Bell
 images:
   banner:
-    src: '/static/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg'
+    src: '/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg'
     alt: 'Single yellow tulip in a field of red tulips'
     data:
       attribution: |-

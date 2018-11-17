@@ -6,7 +6,7 @@ tags:
 author: CandyAngel
 images:
   banner:
-    src: '/static/vr.jpg'
+    src: '/blog/2017/12/21/day-21-virtually-a-lumberjack/vr.jpg'
     alt: 'Woman wearing VR goggles outside'
     data:
       attribution: |-
