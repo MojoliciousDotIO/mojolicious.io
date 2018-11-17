@@ -91,8 +91,15 @@ site:
             main:
                 - text: 'Blog'
                   href: '/blog'
-                - text: 'Official Site'
-                  href: 'http://mojolicious.org'
+                - text: 'Advent Calendar'
+                  href: '/'
+                  children:
+                      - text: 2018
+                        href: '/'
+                      - text: 2017
+                        href: '/page/advent/2017'
+                - text: 'mojolicious.org'
+                  href: 'https://mojolicious.org'
                   children:
                     - text: 'Documentation'
                       href: 'http://mojolicious.org/perldoc'
@@ -119,7 +126,7 @@ site:
             copyright: '2017 Joel Berger'
             social:
                 - icon: 'github'
-                  url: 'https://github.com/kraih/mojo'
+                  url: 'https://github.com/mojolicious/mojo'
                 - icon: 'twitter'
                   url: 'https://twitter.com/search?q=%23mojolicious'
                 - icon: 'rss'

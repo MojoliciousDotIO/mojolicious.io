@@ -63,7 +63,13 @@
                <ul class="nav" id="nav">
                  <!-- li.current is given a different styling -->
                    <li><a href="/blog">Blog</a></li>
-                   <li><span><a href="http://mojolicious.org">Official Site</a></span>
+                   <li><span><a href="/">Advent Calendar</a></span>
+                     <ul>
+                       <li><a href="/">2018</a></li>
+                       <li><a href="/page/advent/2017">2017</a></li>
+                      </ul>
+                   </li>
+                   <li><span><a href="https://mojolicious.org">mojolicious.org</a></span>
                      <ul>
                        <li><a href="http://mojolicious.org/perldoc">Documentation</a></li>
                        <li><a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial">Tutorial</a></li>
@@ -101,188 +107,48 @@
 
     <section>
 
-      <h1>The Blog</h1>
+      <h1>2018 Mojolicious Advent Calendar</h1>
 
-<p>Now that the 2017 Advent Calendar is over, continue following the progress of the site on the blog at <a href="https://mojolicious.io/blog/">https://mojolicious.io/blog/</a>.</p>
-
-<h1>2017 Mojolicious Advent Calendar</h1>
+<p>Ok well, it hasn&#39;t started yet. Come back on December 1!</p>
 
 <!-- code from https://codepen.io/dudleystorey/pen/MagNaY -->
 
 <div class="calendar">
-    <time class="blank" datetime="2017-11-26"><span class="caldate">26</span></time>
-    <time class="blank" datetime="2017-11-27"><span class="caldate">27</span></time>
-    <time class="blank" datetime="2017-11-28"><span class="caldate">28</span></time>
-    <time class="blank" datetime="2017-11-29"><span class="caldate">29</span></time>
-    <time class="blank" datetime="2017-11-30"><span class="caldate">30</span></time>
-    <time class="hidden" datetime="2017-12-01">
-      <a href="/blog/2017/12/01/day-1-getting-started">
-        <img alt="Day 1: Getting Started" src="/static/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg">
-        <span class="caldate">01</span>
-        <span class="title">Getting Started</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-02">
-      <a href="/blog/2017/12/02/day-2-the-stash">
-        <img alt="Day 2: The Stash" src="/static/bag-1854148_1920.jpg">
-        <span class="caldate">02</span>
-        <span class="title">The Stash</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-03">
-      <a href="/blog/2017/12/03/day-3-using-named-routes">
-        <img alt="Day 3: Using Named Routes" src="/static/my_name_is.jpg">
-        <span class="caldate">03</span>
-        <span class="title">Using Named Routes</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-04">
-      <a href="/blog/2017/12/04/day-4-dont-fear-the-full-app">
-        <img alt="Day 4: Don&#39;t Fear the Full App" src="/static/arucaria.jpg">
-        <span class="caldate">04</span>
-        <span class="title">Don&#39;t Fear the Full App</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-05">
-      <a href="/blog/2017/12/05/day-5-your-apps-built-in-commands">
-        <img alt="Day 5: Your App&#39;s Built-In Commands" src="/static/1200px-Rocket_prolant.jpg">
-        <span class="caldate">05</span>
-        <span class="title">Your App&#39;s Built-In Commands</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-06">
-      <a href="/blog/2017/12/06/day-6-adding-your-own-commands">
-        <img alt="Day 6: Adding Your Own Commands" src="/static/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg">
-        <span class="caldate">06</span>
-        <span class="title">Adding Your Own Commands</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-07">
-      <a href="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page">
-        <img alt="Day 7: Using Template Variants For a Beta Landing Page" src="/static/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg">
-        <span class="caldate">07</span>
-        <span class="title">Using Template Variants</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-08">
-      <a href="/blog/2017/12/08/day-8-mocking-a-rest-api">
-        <img alt="Day 8: Mocking a REST API" src="/static/1280px-crash-test-dummies.jpg">
-        <span class="caldate">08</span>
-        <span class="title">Mocking a REST API</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-09">
-      <a href="/blog/2017/12/09/day-9-the-best-way-to-test">
-        <img alt="Day 9: The Best Way to Test" src="/static/1280px-CSIRO_ScienceImage_2798_Testing_in_the_Laboratory.jpg">
-        <span class="caldate">09</span>
-        <span class="title">The Best Way to Test</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-10">
-      <a href="/blog/2017/12/10/day-10-give-the-customer-what-they-want">
-        <img alt="Day 10: Give the Customer What They Want" src="/static/cafe-wood-vintage-retro-seat-restaurant-946984-pxhere.com.jpg">
-        <span class="caldate">10</span>
-        <span class="title">Give &#39;em What They Want</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-11">
-      <a href="/blog/2017/12/11/day-11-useragent-content-generators">
-        <img alt="Day 11: UserAgent Content Generators" src="/static/artist-painting-1459778857j86.jpg">
-        <span class="caldate">11</span>
-        <span class="title">UserAgent Content Generators</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-12">
-      <a href="/blog/2017/12/12/day-12-more-than-a-base-class">
-        <img alt="Day 12: More Than a Base Class" src="/static/1280px-GG-ftpoint-bridge-2.jpg">
-        <span class="caldate">12</span>
-        <span class="title">More Than a Base Class</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-13">
-      <a href="/blog/2017/12/13/day-13-more-about-roles">
-        <img alt="Day 13: More About Roles" src="/static/amsterdam_hats.jpg">
-        <span class="caldate">13</span>
-        <span class="title">More About Roles</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-14">
-      <a href="/blog/2017/12/14/day-14-you-promised-to-call">
-        <img alt="Day 14: You Promised To Call!" src="/static/pinky_swear.jpg">
-        <span class="caldate">14</span>
-        <span class="title">You Promised To Call!</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-15">
-      <a href="/blog/2017/12/15/day-15-start-a-new-yancy-app">
-        <img alt="Day 15: Start a New Yancy App" src="/static/scaffold.jpg">
-        <span class="caldate">15</span>
-        <span class="title">Start a New Yancy App</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-16">
-      <a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions">
-        <img alt="Day 16: The Secret Life of Sessions" src="/static/scrabble.jpg">
-        <span class="caldate">16</span>
-        <span class="title">The Secret Life of Sessions</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-17">
-      <a href="/blog/2017/12/17/day-17-the-wishlist-app">
-        <img alt="Day 17: The Wishlist App" src="/static/xmas_tree.jpg">
-        <span class="caldate">17</span>
-        <span class="title">The Wishlist App</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-18">
-      <a href="/blog/2017/12/18/day-18-the-wishlist-model">
-        <img alt="Day 18: The Wishlist Model" src="/static/van_gogh_still_life.jpg">
-        <span class="caldate">18</span>
-        <span class="title">The Wishlist Model</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-19">
-      <a href="/blog/2017/12/19/day-19-make-your-app-installable">
-        <img alt="Day 19: Make Your App Installable" src="/static/container_ship.jpg">
-        <span class="caldate">19</span>
-        <span class="title">Make Your App Installable</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-20">
-      <a href="/blog/2017/12/20/day-20-practical-testing">
-        <img alt="Day 20: Practical Testing" src="/static/lava.jpg">
-        <span class="caldate">20</span>
-        <span class="title">Practical Testing</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-21">
-      <a href="/blog/2017/12/21/day-21-virtually-a-lumberjack">
-        <img alt="Day 21: Virtual(ly a) Lumberjack" src="/static/vr.jpg">
-        <span class="caldate">21</span>
-        <span class="title">Day 21: Virtual(ly a) Lumberjack</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-22">
-      <a href="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api">
-        <img alt="Day 22: A RESTful API with OpenAPI" src="/static/hammock_beach.jpg">
-        <span class="caldate">22</span>
-        <span class="title">A RESTful API with OpenAPI</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-23">
-      <a href="/blog/2017/12/23/day-23-one-liners-for-fun-and-profit">
-        <img alt="Day 23: One-Liners for Fun and Profit" src="/static/chess.jpg">
-        <span class="caldate">23</span>
-        <span class="title">One-Liners for Fun and Profit</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2017-12-24">
-      <a href="/blog/2017/12/24/day-24-release-and-wrap-up">
-        <img alt="Day 24: Release and Wrap-Up" src="/static/tree_unfocused.jpg">
-        <span class="caldate">24</span>
-        <span class="title">Release and Wrap-Up</span>
-      </a>
-    </time>
+    <time class="blank" datetime="2018-11-25"><span class="caldate">25</span></time>
+    <time class="blank" datetime="2018-11-26"><span class="caldate">26</span></time>
+    <time class="blank" datetime="2018-11-27"><span class="caldate">27</span></time>
+    <time class="blank" datetime="2018-11-28"><span class="caldate">28</span></time>
+    <time class="blank" datetime="2018-11-29"><span class="caldate">29</span></time>
+    <time class="blank" datetime="2018-11-30"><span class="caldate">30</span></time>
+    <time class="blank" datetime="2018-12-01"><span class="caldate">01</span></time>
+    <time class="blank" datetime="2018-12-02"><span class="caldate">02</span></time>
+    <time class="blank" datetime="2018-12-03"><span class="caldate">03</span></time>
+    <time class="blank" datetime="2018-12-04"><span class="caldate">04</span></time>
+    <time class="blank" datetime="2018-12-05"><span class="caldate">05</span></time>
+    <time class="blank" datetime="2018-12-06"><span class="caldate">06</span></time>
+    <time class="blank" datetime="2018-12-07"><span class="caldate">07</span></time>
+    <time class="blank" datetime="2018-12-08"><span class="caldate">08</span></time>
+    <time class="blank" datetime="2018-12-09"><span class="caldate">09</span></time>
+    <time class="blank" datetime="2018-12-10"><span class="caldate">10</span></time>
+    <time class="blank" datetime="2018-12-11"><span class="caldate">11</span></time>
+    <time class="blank" datetime="2018-12-12"><span class="caldate">12</span></time>
+    <time class="blank" datetime="2018-12-13"><span class="caldate">13</span></time>
+    <time class="blank" datetime="2018-12-14"><span class="caldate">14</span></time>
+    <time class="blank" datetime="2018-12-15"><span class="caldate">15</span></time>
+    <time class="blank" datetime="2018-12-16"><span class="caldate">16</span></time>
+    <time class="blank" datetime="2018-12-17"><span class="caldate">17</span></time>
+    <time class="blank" datetime="2018-12-18"><span class="caldate">18</span></time>
+    <time class="blank" datetime="2018-12-19"><span class="caldate">19</span></time>
+    <time class="blank" datetime="2018-12-20"><span class="caldate">20</span></time>
+    <time class="blank" datetime="2018-12-21"><span class="caldate">21</span></time>
+    <time class="blank" datetime="2018-12-22"><span class="caldate">22</span></time>
+    <time class="blank" datetime="2018-12-23"><span class="caldate">23</span></time>
+    <time class="blank" datetime="2018-12-24"><span class="caldate">24</span></time>
+    <time class="blank" datetime="2018-12-25"><span class="caldate">25</span></time>
+    <time class="blank" datetime="2018-12-26"><span class="caldate">26</span></time>
+    <time class="blank" datetime="2018-12-27"><span class="caldate">27</span></time>
+    <time class="blank" datetime="2018-12-28"><span class="caldate">28</span></time>
+    <time class="blank" datetime="2018-12-29"><span class="caldate">29</span></time>
 </div>
 
 <p><small>
@@ -301,7 +167,13 @@
   })();
 </script>
 
-<p>Eventually it will have more than just a blog, but for now, head on over to the <a href="/blog">blog</a>.</p>
+<h1>2017 Mojolicious Advent Calendar</h1>
+
+<p>Did you love the 2017 calendar? We did too! Don&#39;t worry, it isn&#39;t gone, it just has a <a href="/page/advent/2017">new home</a>.</p>
+
+<h1>The Blog</h1>
+
+<p>The Advent Calendar posts are actually blog posts. Head on over to the <a href="/blog">blog</a> to read it all.</p>
 
 
     </section>
@@ -319,11 +191,12 @@
 
             <ul class="footer-nav">
                 <li><a href="/blog">Blog.</a></li>
-                <li><a href="http://mojolicious.org">Official Site.</a></li>
+                <li><a href="/">Advent Calendar.</a></li>
+                <li><a href="https://mojolicious.org">mojolicious.org.</a></li>
             </ul>
 
             <ul class="footer-social">
-               <li><a href="https://github.com/kraih/mojo"><i class="fa fa-github"></i></a></li>
+               <li><a href="https://github.com/mojolicious/mojo"><i class="fa fa-github"></i></a></li>
                <li><a href="https://twitter.com/search?q=%23mojolicious"><i class="fa fa-twitter"></i></a></li>
                <li><a href="/blog/index.rss"><i class="fa fa-rss"></i></a></li>
             </ul>
