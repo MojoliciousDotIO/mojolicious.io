@@ -162,6 +162,11 @@
                <li>Powered by <a href="http://www.perl.org">Perl</a></li>
             </ul>
 
+            <p style="text-align: center">
+              <a href="https://github.com/jberger/mojolicious.io">
+              Contribute to this site on Github</a>
+            </p>
+
          </div>
 
          <div id="go-top" style="display: block;"><a title="Back to Top" href="#">Go To Top</a></div>
