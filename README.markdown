@@ -14,7 +14,7 @@ $ cpanm --installdeps .
 Note that you might need to update your cpanm installation.
 If the above fails, run `cpanm --self-upgrade` (or `perlbrew install-cpanm` depending on if you're using perlbrew, we do) and retry.
 
-To serve the site locally, simply run `state daemon [--date YYYY-MM-DD]`.
+To serve the site locally, simply run `statocles daemon [--date YYYY-MM-DD]`.
 To see it as of a different date, try the `--date` flag (useful if you want to postdate a blog post for example).
 Note that it may take quite a while to startup, Statocles is powerful but it isn't very optimized yet.
 
