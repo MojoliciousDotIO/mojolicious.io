@@ -116,7 +116,7 @@ data:
       image: '/blog/2017/12/20/day-20-practical-testing/lava.jpg'
       alt: 'Day 20: Practical Testing'
     - date: 2017-12-21
-      title: 'Day 21: Virtual(ly a) Lumberjack'
+      title: 'Virtual(ly a) Lumberjack'
       href: '/blog/2017/12/21/day-21-virtually-a-lumberjack'
       image: '/blog/2017/12/21/day-21-virtually-a-lumberjack/vr.jpg'
       alt: 'Day 21: Virtual(ly a) Lumberjack'
