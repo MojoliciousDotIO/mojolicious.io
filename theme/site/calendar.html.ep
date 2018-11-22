@@ -1,4 +1,10 @@
 <!-- code from https://codepen.io/dudleystorey/pen/MagNaY -->
+%# attempt to make the calendar only incrememnt wrt build date or local date if not available
+%# build_date is added in a Statocles patch see https://github.com/jberger/Statocles/tree/build_date
+% use Statocles::Types 'DateTimeObj';
+% use DateTime::Moonpig;
+% my $build_date = $site->can('build_date') ? $site->build_date : DateTime::Moonpig->now( time_zone => 'local' )->ymd;
+<!-- build date: <%= $build_date %> -->
 
 % content 'component-head' => begin
 <link rel="stylesheet" href="/theme/css/calendar.css" type="text/css">
@@ -13,8 +19,9 @@
 
 <div class="calendar">
   % for my $day (@{ $page->data->{calendar} }) {
-    % my $day_of_month = $day->{day} // (split /-/, $day->{date})[2];
-    % if (my $title = $day->{title}) {
+    % my $date = DateTimeObj->coerce($day->{date});
+    % my $day_of_month = $day->{day} // $date->day;
+    % if (($date lt $build_date) && (my $title = $day->{title})) {
     <time datetime="<%= $day->{date} %>" class="hidden">
       <a href="<%= $day->{href} // '#' %>">
         %# img could include srcset
