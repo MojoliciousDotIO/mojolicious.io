@@ -1,7 +1,24 @@
 ---
-status: published
 title: Automatic Reload for Rapid Development
 disable_content_template: 1
+tags:
+    - advent
+    - development
+author: Doug Bell
+images:
+  banner:
+    src: '/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg'
+    alt: 'Mojolicious art and reload icon, original artwork by Doug Bell'
+    data:
+      attribution: |-
+        Original artwork by Doug Bell, released under CC-BY-SA 4.0. It includes
+        a screenshot of the Mojolicious.org website (fair use), the Mojolicious
+        logo (CC-BY-SA 4.0), and a
+        ["reload"](https://commons.wikimedia.org/wiki/File:Refresh_icon.svg)
+        icon from Wikimedia Commons (CC0: Public domain)
+data:
+  bio: preaction
+  description: 'Learn how to reload both the server and client on changes during application development.'
 ---
 Developing webapps with [Mojolicious](http://mojolicious.org) is a lot of fun!
 Using [the `morbo` server](https://mojolicious.org/perldoc/morbo) for
@@ -15,6 +32,7 @@ reload my browser window again? Ugh! Of course!
 Does this happen to you? Probably not. But, it's still annoying to reload the
 browser window after every backend code change. It'd be nice if my browser
 window automatically reloaded every time the web server restarted!
+---
 
 # AutoReload Plugin
 

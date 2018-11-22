@@ -18,6 +18,10 @@ data:
     - date: 2018-11-30
     - date: 2018-12-01
     - date: 2018-12-02
+      title: Automatic Reload for Rapid Development
+      href: '/blog/2018/12/02/automatic-reload-for-rapid-development/'
+      image: '/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg'
+      alt: Day 2: Automatic Reload for Rapid Development
     - date: 2018-12-03
     - date: 2018-12-04
     - date: 2018-12-05
