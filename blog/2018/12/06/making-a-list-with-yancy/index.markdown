@@ -1,7 +1,21 @@
 ---
-status: draft
 title: Making A List with Yancy
 disable_content_template: 1
+tags:
+    - advent
+    - yancy
+    - example
+author: Doug Bell
+images:
+  banner:
+    src: '/blog/2018/12/06/making-a-list-with-yancy/banner.jpg'
+    alt: 'Santa making a list'
+    data:
+      attribution: |-
+        [Banner image](https://pxhere.com/en/photo/1263707) CC0 Public Domain
+data:
+  bio: preaction
+  description: "Santa's list building just got easier!"
 ---
 
 In these modern times, with billions of people in the world, Santa needs a

@@ -26,6 +26,10 @@ data:
     - date: 2018-12-04
     - date: 2018-12-05
     - date: 2018-12-06
+      title: Making A List with Yancy
+      href: '/blog/2018/12/06/making-a-list-with-yancy/'
+      image: '/blog/2018/12/06/making-a-list-with-yancy/banner.jpg'
+      alt: Day 6: Making A List with Yancy
     - date: 2018-12-07
     - date: 2018-12-08
     - date: 2018-12-09
