@@ -41,8 +41,20 @@ data:
     - date: 2018-12-15
     - date: 2018-12-16
     - date: 2018-12-17
+      title: A Website For Yancy
+      href: '/blog/2018/12/17/a-website-for-yancy/'
+      image: '/blog/2018/12/17/a-website-for-yancy/banner.jpg'
+      alt: Day 17: A Website For Yancy
     - date: 2018-12-18
+      title: A View To A POD
+      href: '/blog/2018/12/18/a-view-to-a-pod/'
+      image: '/blog/2018/12/18/a-view-to-a-pod/banner.jpg'
+      alt: Day 18: A View To A POD
     - date: 2018-12-19
+      title: You Only Export Twice
+      href: '/blog/2018/12/19/you-only-export-twice/'
+      image: '/blog/2018/12/19/you-only-export-twice/banner.jpg'
+      alt: Day 19: You Only Export Twice
     - date: 2018-12-20
     - date: 2018-12-21
     - date: 2018-12-22

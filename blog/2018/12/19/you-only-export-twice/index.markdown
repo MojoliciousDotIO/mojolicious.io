@@ -1,11 +1,25 @@
 ---
-status: published
 title: You Only Export Twice
 disable_content_template: 1
+tags:
+    - advent
+    - command
+    - yancy
+author: Doug Bell
+images:
+  banner:
+    src: '/blog/2018/12/19/you-only-export-twice/banner.jpg'
+    alt: 'Container ship leaving port'
+    data:
+      attribution: |-
+        Banner image CC0 Public Domain
+data:
+  bio: preaction
+  description: 'Export content for static rendering'
 ---
 With my Yancy documentation site built, with [a custom landing
-page](/blog/2018/12/28/a-website-for-yancy) and [a POD
-viewer](/blog/2018/12/29/a-view-to-a-pod), I just need to deploy the site. I
+page](/blog/2018/12/17/a-website-for-yancy) and [a POD
+viewer](/blog/2018/12/18/a-view-to-a-pod), I just need to deploy the site. I
 could deploy the site using [hypnotoad, Mojolicious's preforking server with
 hot
 deployment](https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Hypnotoad),
@@ -17,6 +31,7 @@ But to do that, I'd need to take my dynamic website and turn it into a static
 one, and that's impossible! Or is it? Why am I asking me, when I'm the one who
 wrote a way to do it: The [Mojolicious export
 command](https://metacpan.org/pod/Mojolicious::Command::export).
+---
 
 The export command takes a set of paths as input, fetches those pages, and
 writes the result to a directory. It then looks at all the links on those pages

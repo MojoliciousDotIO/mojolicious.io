@@ -1,7 +1,20 @@
 ---
-status: published
 title: A Website For Yancy
 disable_content_template: 1
+tags:
+    - advent
+    - yancy
+author: Doug Bell
+images:
+  banner:
+    src: '/blog/2018/12/17/a-website-for-yancy/banner.jpg'
+    alt: 'Code on a computer screen'
+    data:
+      attribution: |-
+        Banner image CC0 Public Domain
+data:
+  bio: preaction
+  description: 'Building a markdown-based site with Yancy'
 ---
 
 For this year, I decided that Yancy needed a website. Rather than build
@@ -10,6 +23,7 @@ Statocles](http://preaction.me/statocles), which is so popular these
 days, I decided to do something wild and unpredictable: A dynamic
 website! Lucky for me, I have the perfect project to easily build
 a dynamic website: Yancy!
+---
 
 The key part of any dynamic website is the database. Since I just want
 to write Markdown and render HTML, my schema is quite simple: A place to

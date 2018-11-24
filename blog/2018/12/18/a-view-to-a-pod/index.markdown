@@ -1,7 +1,21 @@
 ---
-status: published
 title: A View To A POD
 disable_content_template: 1
+tags:
+    - advent
+    - documentation
+    - yancy
+author: Doug Bell
+images:
+  banner:
+    src: '/blog/2018/12/18/a-view-to-a-pod/banner.jpg'
+    alt: 'Books on a library shelf'
+    data:
+      attribution: |-
+        Banner image CC0 Public Domain
+data:
+  bio: preaction
+  description: 'A new POD viewer plugin for Mojolicious'
 ---
 In order for Yancy to have a good documentation site, it needs to
 actually render the documentation. To render Perl documentation in
@@ -10,6 +24,7 @@ actually render the documentation. To render Perl documentation in
 plugin (a fork of the now-deprecated
 [PODRenderer](http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer)
 plugin).
+---
 
 Adding PODViewer to the existing site is easy!
 
