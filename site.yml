@@ -124,7 +124,7 @@ site:
                     - xml
             logo_text: 'mojolicious.io'
             copyright: '2017 Joel Berger'
-            github: 'https://github.com/jberger/mojolicious.io'
+            github: 'https://github.com/MojoliciousDotIO/mojolicious.io'
             social:
                 - icon: 'github'
                   url: 'https://github.com/mojolicious/mojo'

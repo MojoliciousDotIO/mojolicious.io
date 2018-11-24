@@ -6,7 +6,7 @@ To do anything fancy, please read more about it first.
 To contribute to the site, clone the project and install the dependencies
 
 ```
-$ git clone git@github.com:jberger/mojolicious.io.git
+$ git clone git@github.com:MojoliciousDotIO/mojolicious.io.git
 $ cd mojolicious.io
 $ cpanm --installdeps .
 ```

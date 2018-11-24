@@ -30,7 +30,7 @@ Today we will example concepts mostly relating to the templates, then in tomorro
 ---
 
 At that point I hope to put the application into a repository of its own.
-In the meantime however, you can see the application in the source for this [article](https://github.com/jberger/mojolicious.io/tree/master/blog/2017/12/17/day-17-the-wishlist-app/wishlist).
+In the meantime however, you can see the application in the source for this [article](https://github.com/MojoliciousDotIO/mojolicious.io/tree/master/blog/2017/12/17/day-17-the-wishlist-app/wishlist).
 To run it, you will need to install two additional modules, DBM::Deep and [LinkEmbedder](https://metacpan.org/pod/LinkEmbedder).
 
     $ cpanm Mojolicious DBM::Deep LinkEmbedder
