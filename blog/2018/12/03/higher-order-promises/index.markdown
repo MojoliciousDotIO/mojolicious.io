@@ -1,6 +1,6 @@
 ---
 status: published
-title: 2018-12-03 Higher Order Promises
+title: Higher Order Promises
 author: brian d foy
 tags:
     - promises
