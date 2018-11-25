@@ -17,6 +17,10 @@ data:
     - date: 2018-11-29
     - date: 2018-11-30
     - date: 2018-12-01
+      title: Welcome & MojoConf Recap
+      href: '/blog/2018/12/01/welcome-mojoconf-recap/'
+      image: '/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg'
+      alt: Day 1: Welcome & MojoConf Recap
     - date: 2018-12-02
       title: Automatic Reload for Rapid Development
       href: '/blog/2018/12/02/automatic-reload-for-rapid-development/'
