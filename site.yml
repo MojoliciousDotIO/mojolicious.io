@@ -136,20 +136,20 @@ site:
                 jberger:
                     name: 'Joel Berger'
                     twitter: '@joelaberger'
-                    image: '//gravatar.com/avatar/cc767569f5863a7c261991ee5b23f147'
+                    image: 'https://secure.gravatar.com/avatar/cc767569f5863a7c261991ee5b23f147'
                     text: |-
                       Joel has Ph.D. in Physics from the University of Illinois at Chicago.
                       He an avid Perl user and [author](https://metacpan.org/author/JBERGER) and is a member of the Mojolicious Core Team.
                 preaction:
                     name: 'Doug Bell'
                     twitter: '@preaction'
-                    image: '//secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png'
+                    image: 'https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png'
                     text: |-
                       Doug ([preaction](http://preaction.me)) is a long time Perl user.
                       He is the current maintainer of [CPAN Testers](http://www.cpantesters.org/) and the author of many [CPAN modules](https://metacpan.org/author/PREACTION) including the [Statocles](http://preaction.me/statocles/) blog engine that powers this site.
                 mohawk:
                     name: Ed J
-                    image: '//secure.gravatar.com/avatar/c6e74e4e0ab61c61db655f0e60c9f8a6.jpg'
+                    image: 'https://secure.gravatar.com/avatar/c6e74e4e0ab61c61db655f0e60c9f8a6.jpg'
                     text: |-
                       Ed J (aka "mohawk" on IRC) has been using Perl for a long time. He is currently porting the reference [GraphQL](http://graphql.org/) implementation from the [JavaScript version](http://graphql.org/graphql-js/) to [Perl](https://metacpan.org/pod/GraphQL). Find out more by [joining the `#graphql-perl` channel on irc.perl.org](https://chat.mibbit.com/?channel=%23graphql-perl&server=irc.perl.org)!
                 candyangel:
@@ -161,7 +161,7 @@ site:
                 batman:
                     name: Jan Henning Thorsen
                     twitter: '@jhthorsen'
-                    image: '//secure.gravatar.com/avatar/806800a3aeddbad6af673dade958933b'
+                    image: 'https://secure.gravatar.com/avatar/806800a3aeddbad6af673dade958933b'
                     text: |-
                       Jan (aka batman) is a self taught Perl hacker and a member of the Mojolicious Core Team. He likes to work with anything that has to do with web - both frontend and backend. Got more questions? Send him an [e-mail](mailto:jhthorsen@cpan.org) or contact him in the `#swagger` channel on [irc.perl.org](http://www.irc.perl.org/).
 

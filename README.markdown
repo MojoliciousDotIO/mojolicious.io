@@ -23,6 +23,30 @@ To add a new post run `statocles blog post [--date YYYY-MM-DD] 'Title of your po
 Then when you're done, run the server again to see how it looks.
 Repeat until you're satisfied, when you are, open a PR.
 
+## Author Bios
+
+If you are a new author, you should add biographical information into the the `site.yml` data under `site.args.data.bios.<<unique key>>`.
+This unique key is then referenced in your article's `data.bio` topmatter yaml field.
+
+Data in that object should contain at least `name` and `text` values containing your name (or pseudonym) and a blurb about you, respectively.
+You are encouraged to also link an `image`.
+If you have a publicly accessible image, like gravatar, you may use a full url to it.
+Otherwise, add an image to this site's `static` directory and link to it.
+Finally, if you have a twitter account, you may point to it with a `twitter` key.
+
+```yaml
+jberger:
+    name: 'Joel Berger'
+    twitter: '@joelaberger'
+    image: 'https://secure.gravatar.com/avatar/cc767569f5863a7c261991ee5b23f147'
+    text: |-
+      Joel has Ph.D. in Physics from the University of Illinois at Chicago.
+      He an avid Perl user and [author](https://metacpan.org/author/JBERGER) and is a member of the Mojolicious Core Team.
+```
+
+Other keys may be added but will need to be incorporated into the site renderer to take effect.
+Please open an issue to discuss.
+
 ## Tips
 
 - Please keep all of your files in the post's directory (the one with index.html), this will help keep things orderly.
