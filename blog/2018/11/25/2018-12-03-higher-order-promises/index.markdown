@@ -63,8 +63,7 @@ A "race" resolves when the first Promise is no longer pending and after that doe
 
 An "any" Promise resolves immediately when the first of its Promises resolves. This is slightly different from `race` because at least one Promise must resolve. A Promise being rejected doesn't resolve the `any` as it would with `race`. This should act like `any` in [bluebirdjs](http://bluebirdjs.com/docs/api/promise.any.html).
 
-Here's a program that extracts the configured CPAN mirrors and tests
-that it can get the _index.html_ file. To ensure that it finds that file and not some captive portal, it looks for "Jarkko" in the body:
+Here's a program that extracts the configured CPAN mirrors and tests that it can get the _index.html_ file. To ensure that it finds that file and not some captive portal, it looks for "Jarkko" in the body:
 
   use v5.28;
   use utf8;
