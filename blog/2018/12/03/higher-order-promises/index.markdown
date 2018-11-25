@@ -12,6 +12,9 @@ images:
     data:
       attribution: |-
         <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/joeshlabotnik/3059554662/">Image</a> by <a href="https://www.flickr.com/photos/joeshlabotnik/">Joe Shlabotnik</a> <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>
+data:
+  bio: briandfoy
+  description: Create new, complex Promises by composing Promises
 ---
 ## Create new, complex Promises by composing Promises
 
@@ -28,18 +31,18 @@ A higher-order Promise is one that comprises other Promises and bases its status
 
 An `all` promise resolves only when all of its Promises also resolve. If one of them is rejected, the `all` Promise is rejected. This means that the overall Promise knows what to do if one is rejected and it doesn't need to know the status of any of the others.
 
-  use Mojo::Promise;
-  use Mojo::UserAgent;
-  my $ua = Mojo::UserAgent->new;
+    use Mojo::Promise;
+    use Mojo::UserAgent;
+    my $ua = Mojo::UserAgent->new;
 
-  my @urls = ( ... );
-  my @all_sites = map { $ua->get_p( $_ ) } @urls;
-  my $all_promise = Mojo::Promise
-    ->all( @all_sites )
-    ->then(
-      sub { say "They all worked!" },
-      sub { say "One of them didn't work!" }
-      );
+    my @urls = ( ... );
+    my @all_sites = map { $ua->get_p( $_ ) } @urls;
+    my $all_promise = Mojo::Promise
+      ->all( @all_sites )
+      ->then(
+        sub { say "They all worked!" },
+        sub { say "One of them didn't work!" }
+        );
 
 The Promises aren't required to do their work in any order, though, so don't base your work on that.
 
@@ -47,17 +50,17 @@ The Promises aren't required to do their work in any order, though, so don't bas
 
 A "race" resolves when the first Promise is no longer pending and after that doesn't need the other Promises to keep working.
 
-  use Mojo::Promise;
-  use Mojo::UserAgent;
-  my $ua = Mojo::UserAgent->new;
+    use Mojo::Promise;
+    use Mojo::UserAgent;
+    my $ua = Mojo::UserAgent->new;
 
-  my @urls = ( ... );
-  my @all_sites = map { $ua->get_p( $_ ) } @urls;
-  my $all_promise = Mojo::Promise
-    ->race( @all_sites )
-    ->then(
-      sub { say "One of them finished!" },
-      );
+    my @urls = ( ... );
+    my @all_sites = map { $ua->get_p( $_ ) } @urls;
+    my $all_promise = Mojo::Promise
+      ->race( @all_sites )
+      ->then(
+        sub { say "One of them finished!" },
+        );
 
 ### Any
 
@@ -66,44 +69,44 @@ An "any" Promise resolves immediately when the first of its Promises resolves. T
 
 Here's a program that extracts the configured CPAN mirrors and tests that it can get the _index.html_ file. To ensure that it finds that file and not some captive portal, it looks for "Jarkko" in the body:
 
-  use v5.28;
-  use utf8;
-  use strict;
-  use warnings;
-  use feature qw(signatures);
-  no warnings qw(experimental::signatures);
+    use v5.28;
+    use utf8;
+    use strict;
+    use warnings;
+    use feature qw(signatures);
+    no warnings qw(experimental::signatures);
 
-  use File::Spec::Functions;
-  use Mojo::Promise;
-  use Mojo::Promise::Role::HigherOrder;
-  use Mojo::UserAgent;
-  use Mojo::URL;
+    use File::Spec::Functions;
+    use Mojo::Promise;
+    use Mojo::Promise::Role::HigherOrder;
+    use Mojo::UserAgent;
+    use Mojo::URL;
 
-  use lib catfile( $ENV{HOME}, '.cpan' );
-  my @mirrors = eval {
-    no warnings qw(once);
-    my $file = Mojo::URL->new( 'index.html' );
-    require CPAN::MyConfig;
-    map { say "1: $_"; $file->clone->base(Mojo::URL->new($_))->to_abs }
-      $CPAN::Config->{urllist}->@*
-    };
+    use lib catfile( $ENV{HOME}, '.cpan' );
+    my @mirrors = eval {
+      no warnings qw(once);
+      my $file = Mojo::URL->new( 'index.html' );
+      require CPAN::MyConfig;
+      map { say "1: $_"; $file->clone->base(Mojo::URL->new($_))->to_abs }
+        $CPAN::Config->{urllist}->@*
+      };
 
-  die "Did not find CPAN::MyConfig\n" unless @mirrors;
-  my $ua = Mojo::UserAgent->new;
+    die "Did not find CPAN::MyConfig\n" unless @mirrors;
+    my $ua = Mojo::UserAgent->new;
 
-  my @all_sites = map {
-    $ua->get_p( $_ )->then( sub ($tx) {
-        die unless $tx->result->body =~ /Jarkko/ });
-    } @mirrors;
-  my $any_promise = Mojo::Promise
-    ->with_roles( '+Any' )
-    ->any( @all_sites )
-    ->then(
-      sub { say "At least one of them worked!" },
-      sub { say "None of them worked!" },
-      );
+    my @all_sites = map {
+      $ua->get_p( $_ )->then( sub ($tx) {
+          die unless $tx->result->body =~ /Jarkko/ });
+      } @mirrors;
+    my $any_promise = Mojo::Promise
+      ->with_roles( '+Any' )
+      ->any( @all_sites )
+      ->then(
+        sub { say "At least one of them worked!" },
+        sub { say "None of them worked!" },
+        );
 
-  $any_promise->wait;
+    $any_promise->wait;
 
 ### Some
 
@@ -111,45 +114,45 @@ A `some` Promise resolves when a certain number of its Promises resolve. You spe
 
 This example modifies the previous program to find more than one mirror that works. You can specify the number that need to work for the `some` to resolve:
 
-  use v5.28;
-  use utf8;
-  use strict;
-  use warnings;
-  use feature qw(signatures);
-  no warnings qw(experimental::signatures);
+    use v5.28;
+    use utf8;
+    use strict;
+    use warnings;
+    use feature qw(signatures);
+    no warnings qw(experimental::signatures);
 
-  use File::Spec::Functions;
-  use Mojo::Promise;
-  use Mojo::Promise::Role::HigherOrder;
-  use Mojo::UserAgent;
-  use Mojo::URL;
+    use File::Spec::Functions;
+    use Mojo::Promise;
+    use Mojo::Promise::Role::HigherOrder;
+    use Mojo::UserAgent;
+    use Mojo::URL;
 
-  use lib catfile( $ENV{HOME}, '.cpan' );
-  my @mirrors = eval {
-    no warnings qw(once);
-    my $file = Mojo::URL->new( 'index.html' );
-    require CPAN::MyConfig;
-    map { say "1: $_"; $file->clone->base(Mojo::URL->new($_))->to_abs }
-      $CPAN::Config->{urllist}->@*
-    };
+    use lib catfile( $ENV{HOME}, '.cpan' );
+    my @mirrors = eval {
+      no warnings qw(once);
+      my $file = Mojo::URL->new( 'index.html' );
+      require CPAN::MyConfig;
+      map { say "1: $_"; $file->clone->base(Mojo::URL->new($_))->to_abs }
+        $CPAN::Config->{urllist}->@*
+      };
 
-  die "Did not find CPAN::MyConfig\n" unless @mirrors;
-  my $ua = Mojo::UserAgent->new;
+    die "Did not find CPAN::MyConfig\n" unless @mirrors;
+    my $ua = Mojo::UserAgent->new;
 
-  my $count = 2;
-  my @all_sites = map {
-    $ua->get_p( $_ )->then( sub ($tx) {
-        die unless $tx->result->body =~ /Jarkko/ });
-    } @mirrors;
-  my $some_promise = Mojo::Promise
-    ->with_roles( '+Some' )
-    ->some( \@all_sites, 2 )
-    ->then(
-      sub { say "At least $count of them worked!" },
-      sub { say "None of them worked!" },
-      );
+    my $count = 2;
+    my @all_sites = map {
+      $ua->get_p( $_ )->then( sub ($tx) {
+          die unless $tx->result->body =~ /Jarkko/ });
+      } @mirrors;
+    my $some_promise = Mojo::Promise
+      ->with_roles( '+Some' )
+      ->some( \@all_sites, 2 )
+      ->then(
+        sub { say "At least $count of them worked!" },
+        sub { say "None of them worked!" },
+        );
 
-  $some_promise->wait;
+    $some_promise->wait;
 
 ### None
 
@@ -157,41 +160,41 @@ A "none" Promise resolves when all of the its Promises are rejected. It's a triv
 
 For this very simple example, consider the task to check that no sites are that annoying "404 File Not Found":
 
-  use v5.28;
-  use utf8;
-  use strict;
-  use warnings;
-  use feature qw(signatures);
-  no warnings qw(experimental::signatures);
+    use v5.28;
+    use utf8;
+    use strict;
+    use warnings;
+    use feature qw(signatures);
+    no warnings qw(experimental::signatures);
 
-  use Mojo::UserAgent;
-  my $ua = Mojo::UserAgent->new;
+    use Mojo::UserAgent;
+    my $ua = Mojo::UserAgent->new;
 
-  use Mojo::Promise;
-  use Mojo::Promise::Role::HigherOrder;
+    use Mojo::Promise;
+    use Mojo::Promise::Role::HigherOrder;
 
-  my @urls = qw(
-    https://www.learning-perl.com/
-    https://www.perl.org/
-    https://perldoc.perl.org/not_there.pod
-    );
-
-  my @all_sites = map {
-    my $p = $ua->get_p( $_ );
-    $p->then( sub ( $tx ) {
-      $tx->res->code == 404 ? $tx->req->url : die $tx->req->url
-      } );
-    } @urls;
-
-  my $all_promise = Mojo::Promise
-    ->with_roles( '+None' )
-    ->none( @all_sites )
-    ->then(
-      sub { say "None of them were 404!" },
-      sub { say "At least one was 404: @_!" },
+    my @urls = qw(
+      https://www.learning-perl.com/
+      https://www.perl.org/
+      https://perldoc.perl.org/not_there.pod
       );
 
-  $all_promise->wait;
+    my @all_sites = map {
+      my $p = $ua->get_p( $_ );
+      $p->then( sub ( $tx ) {
+        $tx->res->code == 404 ? $tx->req->url : die $tx->req->url
+        } );
+      } @urls;
+
+    my $all_promise = Mojo::Promise
+      ->with_roles( '+None' )
+      ->none( @all_sites )
+      ->then(
+        sub { say "None of them were 404!" },
+        sub { say "At least one was 404: @_!" },
+        );
+
+    $all_promise->wait;
 
 ## Conclusion
 
