@@ -23,6 +23,10 @@ data:
       image: '/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg'
       alt: Day 2: Automatic Reload for Rapid Development
     - date: 2018-12-03
+      title: Higher Order Promises
+      href: '/blog/2018/12/03/higher-order-promises/'
+      image: '/blog/2018/12/03/higher-order-promises/banner.jpg'
+      alt: Day 3: Higher Order Promises
     - date: 2018-12-04
     - date: 2018-12-05
     - date: 2018-12-06
