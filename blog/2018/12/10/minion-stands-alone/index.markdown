@@ -23,6 +23,7 @@ The [Minion job queue](https://mojolicious.org/perldoc/Minion) is an
 incredibly useful tool, but sometimes I need to use it for non-web
 projects. So, how can I use Minion without needing
 a [Mojolicious](http://mojolicious.org) web application?
+---
 
 If I don't have a large enough set of jobs to need the task organization
 provided by [Beam::Minion](https://metacpan.org/pod/Beam::Minion), the

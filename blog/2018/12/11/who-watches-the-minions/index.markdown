@@ -23,6 +23,7 @@ queue](https://mojolicious.org/perldoc/Minion), I need to take care of
 it properly. Are the workers working (have they seized the means of
 production)? Are jobs completing successfully? Are there any errors?
 What are they?
+---
 
 ## Minion Jobs Command
 

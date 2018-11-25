@@ -49,6 +49,7 @@ Please open an issue to discuss.
 
 ## Tips
 
+- Please add a "fold" to your article at an appropriate place by adding `---` as a line where the fold should happen.
 - Please keep all of your files in the post's directory (the one with index.html), this will help keep things orderly.
 - Until we add some smarts to the calendar plugin, if you want to postdate a calendar entry, comment it out in the calendar page metadata, otherwise it will show up too early (or let us add it).
 - Please don't commit the results of running the deploy command (in `live/` or worse in `.statocles/`), let us do that for you on the production server when its time.
