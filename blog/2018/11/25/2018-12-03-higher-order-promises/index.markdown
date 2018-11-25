@@ -1,6 +1,13 @@
 ---
 status: published
 title: 2018-12-03 Higher Order Promises
+images:
+  banner:
+    src: '/static/1280px-Fractal-Cauliflower.jpg'
+    alt: 'fractal cauliflower'
+    data:
+      attribution: |-
+        <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/joeshlabotnik/3059554662/">Image</a> by <a href="https://www.flickr.com/photos/joeshlabotnik/">Joe Shlabotnik</a> <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>
 ---
 ## Create new, complex Promises by composing Promises
 
