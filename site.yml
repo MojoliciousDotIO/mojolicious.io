@@ -155,7 +155,7 @@ site:
                 briandfoy:
                     name: brian d foy
                     twitter: '@briandfoy_perl'
-                    image: '//secure.gravatar.com/avatar/168427dea0a034607ee7850f3de98ea2.jpg'
+                    image: 'https://secure.gravatar.com/avatar/168427dea0a034607ee7850f3de98ea2.jpg'
                     text: |-
                       [brian d foy](http://www252.pair.com/~comdog/) is the author of [Mastering Perl](https://www.masteringperl.org/) and [Learning Perl 6](https://www.learningperl6.com/), and the co-author of [Learning Perl](https://www.learning-perl.com/), [Intermediate Perl](https://www.intermediateperl.com), [Programming Perl](https://www.programmingperl.org/), and [Effective Perl Programming](https://www.effectiveperlprogramming.com/).
                 candyangel:
