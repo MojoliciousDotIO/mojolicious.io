@@ -12,6 +12,9 @@ images:
     data:
       attribution: |-
         <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/joeshlabotnik/3059554662/">Image</a> by <a href="https://www.flickr.com/photos/joeshlabotnik/">Joe Shlabotnik</a> <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>
+data:
+  bio: briandfoy
+  description: Create new, complex Promises by composing Promises
 ---
 ## Create new, complex Promises by composing Promises
 
