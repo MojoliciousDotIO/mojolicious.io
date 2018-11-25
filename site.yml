@@ -152,6 +152,12 @@ site:
                     image: 'https://secure.gravatar.com/avatar/c6e74e4e0ab61c61db655f0e60c9f8a6.jpg'
                     text: |-
                       Ed J (aka "mohawk" on IRC) has been using Perl for a long time. He is currently porting the reference [GraphQL](http://graphql.org/) implementation from the [JavaScript version](http://graphql.org/graphql-js/) to [Perl](https://metacpan.org/pod/GraphQL). Find out more by [joining the `#graphql-perl` channel on irc.perl.org](https://chat.mibbit.com/?channel=%23graphql-perl&server=irc.perl.org)!
+                briandfoy:
+                    name: brian d foy
+                    twitter: '@briandfoy_perl'
+                    image: '//secure.gravatar.com/avatar/168427dea0a034607ee7850f3de98ea2.jpg'
+                    text: |-
+                      [brian d foy](http://www252.pair.com/~comdog/) is the author of [Mastering Perl](https://www.masteringperl.org/) and [Learning Perl 6](https://www.learningperl6.com/), and the co-author of [Learning Perl](https://www.learning-perl.com/), [Intermediate Perl](https://www.intermediateperl.com), [Programming Perl](https://www.programmingperl.org/), and [Effective Perl Programming](https://www.effectiveperlprogramming.com/).
                 candyangel:
                     name: 'CandyAngel'
                     twitter: '@CandyAngel_Nay'
