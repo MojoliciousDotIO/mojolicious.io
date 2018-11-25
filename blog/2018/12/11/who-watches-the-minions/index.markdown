@@ -1,14 +1,13 @@
 ---
-status: published
 title: Who Watches The Minions
 disable_content_template: 1
 tags:
     - advent
-    - development
+    - minion
 author: Doug Bell
 images:
   banner:
-    src: '/blog/2018/12/29/who-watches-the-minions/banner.jpg'
+    src: '/blog/2018/12/11/who-watches-the-minions/banner.jpg'
     alt: 'Minion logo in the middle of binocular circles, original artwork by Doug Bell'
     data:
       attribution: |-

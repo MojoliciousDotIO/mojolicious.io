@@ -1,14 +1,13 @@
 ---
-status: published
 title: Minion Stands Alone
 disable_content_template: 1
 tags:
     - advent
-    - development
+    - minion
 author: Doug Bell
 images:
   banner:
-    src: '/blog/2018/12/28/minion-stands-alone/banner.jpg'
+    src: '/blog/2018/12/10/minion-stands-alone/banner.jpg'
     alt: 'Minion logo in front of a faded Mojolicious cloud, original artwork by Doug Bell'
     data:
       attribution: |-
