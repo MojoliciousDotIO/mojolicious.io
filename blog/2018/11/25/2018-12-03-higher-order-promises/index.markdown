@@ -191,3 +191,7 @@ For this very simple example, consider the task to check that no sites are that 
       );
 
   $all_promise->wait;
+
+## Conclusion
+
+It's easy to make new Promises out of smaller ones to represent complex situations. You can combine the Promises that Mojolicious creates for you with your own handmade Promises to do almost anything you like.
