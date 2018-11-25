@@ -34,7 +34,15 @@ data:
     - date: 2018-12-08
     - date: 2018-12-09
     - date: 2018-12-10
+      title: Minion Stands Alone
+      href: '/blog/2018/12/10/minion-stands-alone/'
+      image: '/blog/2018/12/10/minion-stands-alone/banner.jpg'
+      alt: Day 10: Minion Stands Alone
     - date: 2018-12-11
+      title: Who Watches The Minions
+      href: '/blog/2018/12/11/who-watches-the-minions/'
+      image: '/blog/2018/12/11/who-watches-the-minions/banner.jpg'
+      alt: Day 11: Who Watches The Minions
     - date: 2018-12-12
     - date: 2018-12-13
     - date: 2018-12-14
