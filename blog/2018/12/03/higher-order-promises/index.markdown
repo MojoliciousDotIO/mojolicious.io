@@ -7,7 +7,7 @@ tags:
     - advent
 images:
   banner:
-    src: '1280px-Fractal-Cauliflower.jpg'
+    src: 'banner.jpg'
     alt: 'fractal cauliflower'
     data:
       attribution: |-
