@@ -1,6 +1,8 @@
 ---
 status: published
 title: 2018-12-03 Higher Order Promises
+tags:
+    - promises
 images:
   banner:
     src: '/static/1280px-Fractal-Cauliflower.jpg'
