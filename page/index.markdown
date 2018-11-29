@@ -114,6 +114,10 @@ data:
       image: '/blog/2018/12/19/you-only-export-twice/banner.jpg'
       alt: Day 19: You Only Export Twice
     - date: 2018-12-20
+      title: Testing Dancer
+      href: '/blog/2018/12/20/testing-dancer/'
+      image: '/blog/2018/12/20/testing-dancer/banner.jpg'
+      alt: Day 20: Testing Dancer
     - date: 2018-12-21
     - date: 2018-12-22
     - date: 2018-12-23
