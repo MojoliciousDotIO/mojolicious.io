@@ -8,7 +8,7 @@ author: Joel Berger
 images:
   banner:
     src: '/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg'
-    alt: 'View from Fjord'
+    alt: 'View from fjord'
     data:
       attribution: |-
         Original image by Joel Berger.
