@@ -3,10 +3,11 @@ title: Welcome To mojolicious.io!
 template: page/full_width.html
 images:
   card:
-    src: '/blog/2017/12/01/day-1-getting-started/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg'
-    alt: 'hot air ballons'
+    src: '/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg'
+    alt: 'View from fjord'
     data:
-      attribution: '<a href="https://commons.wikimedia.org/wiki/File:Colorado_Springs_Hot_Air_Balloon_Competition.jpg">Image by DarlArthurS</a> licensed under the <a href="https://en.wikipedia.org/wiki/en:Creative_Commons" class="extiw" title="w:en:Creative Commons">Creative Commons</a> <a rel="nofollow" href="//creativecommons.org/licenses/by-sa/3.0/deed.en">Attribution-Share Alike 3.0 Unported</a> license.'
+      attribution: |-
+        Original image by Joel Berger.
 data:
   subtitle: A semi-official website dedicated to the Mojolicious web framework
   calendar:
@@ -17,6 +18,10 @@ data:
     - date: 2018-11-29
     - date: 2018-11-30
     - date: 2018-12-01
+      title: Welcome & MojoConf Recap
+      href: '/blog/2018/12/01/welcome-mojoconf-recap/'
+      image: '/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg'
+      alt: Day 1: Welcome & MojoConf Recap
     - date: 2018-12-02
       title: Automatic Reload for Rapid Development
       href: '/blog/2018/12/02/automatic-reload-for-rapid-development/'
