@@ -126,7 +126,7 @@ could change the `check_credentials` to something better than this
     sub check_credentials {
       my ($username, $password) = @_;
 
-      my $statement = <<'SQL';      NO! Don't do this!
+      my $statement = <<'SQL';      # NO! Don't do this!
     SELECT username FROM user_passwd
     WHERE username = ? AND password = ?
     SQL
