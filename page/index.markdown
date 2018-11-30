@@ -3,7 +3,8 @@ title: Welcome To mojolicious.io!
 template: page/full_width.html
 images:
   card:
-    src: '/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg'
+    # src: '/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg'
+    src: '/static/2018.jpg'
     alt: 'View from fjord'
     data:
       attribution: |-
