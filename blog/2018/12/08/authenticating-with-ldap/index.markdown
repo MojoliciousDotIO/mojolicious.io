@@ -8,7 +8,7 @@ tags:
 author: Boyd Duffee
 images:
   banner:
-    src: 'banner.jpg'
+    src: '/blog/2018/12/08/authenticating-with-ldap/banner.jpg'
     alt: 'Who goes there?'
     data:
       attribution: |-
@@ -374,7 +374,7 @@ which I named *do_login*.  Using
 [named routes](https://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/)
 gives you the flexibility of changing URLs without much hassle.
 
-## where next?
+## Where next?
 
 I go through the whole process of authenticating and maintaining sessions at my
 [Mojolicious session tutorial](https://github.com/duffee/Mojolicious_session_example)
