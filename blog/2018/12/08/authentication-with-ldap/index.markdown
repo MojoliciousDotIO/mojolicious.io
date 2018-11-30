@@ -61,51 +61,48 @@ svelte as the other posts talking about their Lite apps.
 Jumping straight in, let's assume that you already have a Login page
 in your templates and it has a form which posts data to `/login`.
 If you've got a route like this
-```perl
-$r->post('/login')->name('do_login')->to('Secure#on_user_login');
-```
+
+    $r->post('/login')->name('do_login')->to('Secure#on_user_login');
+
 to send the credentials to your controller.
 
 _or if you're cool with_
 [named routes](https://mojolicious.org/perldoc/Mojolicious/Guides/Routing#Named-routes),
 _your template might include this line_
-```perl
-<form action="<%= url_for 'do_login' %>" method="POST">
-```
+
+    <form action="<%= url_for 'do_login' %>" method="POST">
 
 ### Controller - lib/MyApp/Controller/Secure.pm
 
 Let's get started by cribbing from the
 [Mojolicious Cookbook](https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Basic-authentication1).
 
-```perl
-package MyApp::Controller::Secure;
-use Mojo::Base 'Mojolicious::Controller';
+    package MyApp::Controller::Secure;
+    use Mojo::Base 'Mojolicious::Controller';
 
-sub on_user_login {
-  my $self = shift;
+    sub on_user_login {
+      my $self = shift;
 
-  my $username = $self->param('username');
-  my $password = $self->param('password');
+      my $username = $self->param('username');
+      my $password = $self->param('password');
 
-  if (check_credentials($username, $password)) {
-    $self->render(text => 'Hello Bender!');
-  }
-  else {
-    $self->render(
-        text => '<h2>Login failed</h2><a href="/login">Try again</a>',
-        format => 'html',
-        status => 401
-    );
-  }
-}
+      if (check_credentials($username, $password)) {
+        $self->render(text => 'Hello Bender!');
+      }
+      else {
+        $self->render(
+            text => '<h2>Login failed</h2><a href="/login">Try again</a>',
+            format => 'html',
+            status => 401
+        );
+      }
+    }
 
-sub check_credentials {
-  my ($username, $password) = @_;
+    sub check_credentials {
+      my ($username, $password) = @_;
 
-  return  $username eq 'Bender' && $password eq 'rocks';
-}
-```
+      return  $username eq 'Bender' && $password eq 'rocks';
+    }
 
 
 ## Storing passwords - MojoX::Auth::Simple
@@ -121,23 +118,23 @@ which are useful for everything around the authentication, but not the
 authentication itself.  But, since you're using a database now, you
 could change the `check_credentials` to something better than this
 (wot was cooked up on a Friday afternoon and not tested)
-```perl
-sub check_credentials {
-  my ($username, $password) = @_;
 
-  my $statement = <<'SQL';	    NO! Don't do this!
-SELECT username FROM user_passwd
-WHERE username = ? AND password = ?
-SQL
+    sub check_credentials {
+      my ($username, $password) = @_;
 
-  my $sth = $dbh->prepare($statement);
-  $sth->execute($username, $password) or return;
-  my @row = $sth->fetchrow_array();
-  $sth->finish();
-  
-  return $username eq $row[0];
-}
-```
+      my $statement = <<'SQL';      NO! Don't do this!
+    SELECT username FROM user_passwd
+    WHERE username = ? AND password = ?
+    SQL
+
+      my $sth = $dbh->prepare($statement);
+      $sth->execute($username, $password) or return;
+      my @row = $sth->fetchrow_array();
+      $sth->finish();
+
+      return $username eq $row[0];
+    }
+
 with the database connection and handle `$dbh` left as an exercise to the reader.
 And yes, you should prepare the SQL outside of the sub.
 The `?` in the SQL statement are bind parameters, placeholders that make the database call faster and safer.
@@ -149,25 +146,25 @@ You should encrypt the password before storing it with an algorithm like AES or 
 So, how about this for a better untested example
 
 encrypt with SQL
-```perl
-  my $statement = <<'SQL';      # better
-SELECT username FROM user_passwd
-WHERE username = ? AND password = SHA2(?, 256)
-SQL
-```
+
+      my $statement = <<'SQL';      # better
+    SELECT username FROM user_passwd
+    WHERE username = ? AND password = SHA2(?, 256)
+    SQL
+
 
 or encrypt with Perl
-```perl
-use Crypt::Digest::SHA256 qw/ sha256 /;
 
-sub check_credentials {
-  my ($username, $password) = @_;
-  my $encrypted = sha256($password);
+    use Crypt::Digest::SHA256 qw/ sha256 /;
 
-...
+    sub check_credentials {
+      my ($username, $password) = @_;
+      my $encrypted = sha256($password);
 
-  $sth->execute($username, $encrypted) or return;
-```
+    ...
+
+      $sth->execute($username, $encrypted) or return;
+
 
 Technically, AES is an encryption algorithm and SHA-2 is a hashing algorithm,
 meaning that the transformation is effectively one-way and is more secure.
@@ -179,27 +176,26 @@ It's just a wrapper around some other modules that gives you a simple API
 and will use [Bcrypt](https://metacpan.org/pod/Crypt::Eksblowfish::Bcrypt) by default.
 So if you've hashed your password with the `password_hash` function
 and stored the `$hash` value in your database like this
-```perl
-my $hash = password_hash($initial_password);
 
-my $sth = $dbh->prepare('INSERT INTO user_passwd (username, password) VALUES (?, ?)');
-$sth->do($username, $hash);
-```
+    my $hash = password_hash($initial_password);
+
+    my $sth = $dbh->prepare('INSERT INTO user_passwd (username, password) VALUES (?, ?)');
+    $sth->do($username, $hash);
+
 you should be ok to change the sub to
-```perl
-sub check_credentials {
-  my ($username, $password) = @_;
 
-  my $statement = 'SELECT password FROM user_passwd WHERE username = ?';
+    sub check_credentials {
+      my ($username, $password) = @_;
 
-  my $sth = $dbh->prepare($statement);
-  $sth->execute($username) or return;
-  my ($encoded) = $sth->fetchrow_array();
-  $sth->finish();
-  
-  return password_verify($password, $encoded);
-}
-```
+      my $statement = 'SELECT password FROM user_passwd WHERE username = ?';
+
+      my $sth = $dbh->prepare($statement);
+      $sth->execute($username) or return;
+      my ($encoded) = $sth->fetchrow_array();
+      $sth->finish();
+
+      return password_verify($password, $encoded);
+    }
 
 
 [Mojolicious::Plugin::Scrypt](https://metacpan.org/pod/Mojolicious::Plugin::Scrypt)
@@ -208,39 +204,39 @@ but can also use Argon2 (which was recommended to me at LPW), Bcrypt and more.
 So, assuming that you've stored your password with
 `my $encoded = $app->scrypt($password);`
 the `on_user_login` sub becomes
-```perl
-sub check_credentials {
-  my ($username, $password) = @_;
 
-  my $statement = 'SELECT password FROM user_passwd WHERE username = ?';
+    sub check_credentials {
+      my ($username, $password) = @_;
 
-  my $sth = $dbh->prepare($statement);
-  $sth->execute($username) or return;
-  my ($encoded) = $sth->fetchrow_array();
-  $sth->finish();
-  
-  # WAIT! where did $self come from
-  return $self->scrypt_verify($password, $encoded);
-}
-```
+      my $statement = 'SELECT password FROM user_passwd WHERE username = ?';
+
+      my $sth = $dbh->prepare($statement);
+      $sth->execute($username) or return;
+      my ($encoded) = $sth->fetchrow_array();
+      $sth->finish();
+
+      # WAIT! where did $self come from
+      return $self->scrypt_verify($password, $encoded);
+    }
+
 Oh, dear.  The above crashes because of a design decision made early on in the writing process.
 I invoked `check_credentials` as a plain sub, not the method of an object.
 Using a Plugin depends on having the controller available, so the following changes are necessary.
-```perl
-sub on_user_login {
-  my $self = shift;
-...
 
-  if ($self->check_credentials($username, $password)) {
-...
-}
+    sub on_user_login {
+      my $self = shift;
+    ...
 
-sub check_credentials {
-  my ($self, $username, $password) = @_;
-...
-  return $self->scrypt_verify($password, $encoded);
-}
-```
+      if ($self->check_credentials($username, $password)) {
+    ...
+    }
+
+    sub check_credentials {
+      my ($self, $username, $password) = @_;
+    ...
+      return $self->scrypt_verify($password, $encoded);
+    }
+
 Y'know, I'm sitting here on the Group W bench thinkin' ...
 if I'm going to re-write this whole tutorial, maybe I should've started with
 [Mojolicious::Plugin::Authentication](https://metacpan.org/pod/Mojolicious::Plugin::Authentication)
@@ -249,6 +245,7 @@ But let's leave that for next year.
 
 
 Further reading on storing passwords:
+
 * [Secure Salted Password Hashing](https://crackstation.net/hashing-security.htm#properhashing) by Defuse Security.
 
 ## How to [LDAP](https://metacpan.org/pod/Net::LDAP)
@@ -256,6 +253,7 @@ Further reading on storing passwords:
 _remember LDAP?  ... this is a post about LDAP_
 
 These are the steps to authenticating:
+
 1. Connect to the LDAP server
 2. **Bind** to the server
 3. Search for the user's unique identifier in LDAP
@@ -279,64 +277,64 @@ object on either success or failure,
 so check the Message `code` to find out whether you should authenticate the user.
 
 Here's the code
-```perl
-package MyApp::Controller::Secure;
-use Mojo::Base 'Mojolicious::Controller';
-use Net::LDAP qw/LDAP_INVALID_CREDENTIALS/;
-use YAML qw/LoadFile/;
 
-my $config_file = 'ldap_config.yml';
-my $config = LoadFile($config_file);
+    package MyApp::Controller::Secure;
+    use Mojo::Base 'Mojolicious::Controller';
+    use Net::LDAP qw/LDAP_INVALID_CREDENTIALS/;
+    use YAML qw/LoadFile/;
 
-my ($LDAP_server, $base_DN, $user_attr, $user_id, )
-        = @{$config}{ qw/server baseDN username id/ }; 
+    my $config_file = 'ldap_config.yml';
+    my $config = LoadFile($config_file);
 
-...
+    my ($LDAP_server, $base_DN, $user_attr, $user_id, )
+            = @{$config}{ qw/server baseDN username id/ };
 
-sub check_credentials {
-  my ($username, $password) = @_;
-  return unless $username;
+    ...
 
-  my $ldap = Net::LDAP->new( $LDAP_server )
-        or warn("Couldn't connect to LDAP server $LDAP_server: $@"), return;
-  my $message = $ldap->bind( $base_DN );
+    sub check_credentials {
+      my ($username, $password) = @_;
+      return unless $username;
 
-  my $search = $ldap->search( base => $base_DN,
-                              filter => join('=', $user_attr, $username),
-                              attrs => [$user_id],
-                            );
-  my $user_id = $search->pop_entry();
-  return unless $user_id;                     # does this user exist in LDAP?
+      my $ldap = Net::LDAP->new( $LDAP_server )
+            or warn("Couldn't connect to LDAP server $LDAP_server: $@"), return;
+      my $message = $ldap->bind( $base_DN );
 
-  # this is where we check the password
-  my $login = $ldap->bind( $user_id, password => $password );
+      my $search = $ldap->search( base => $base_DN,
+                                  filter => join('=', $user_attr, $username),
+                                  attrs => [$user_id],
+                                );
+      my $user_id = $search->pop_entry();
+      return unless $user_id;                     # does this user exist in LDAP?
 
-  # return 1 on success, 0 on failure with the ternary operator
-  return $login->code == LDAP_INVALID_CREDENTIALS ? 0
-                                                  : 1;
-}
-```
+      # this is where we check the password
+      my $login = $ldap->bind( $user_id, password => $password );
+
+      # return 1 on success, 0 on failure with the ternary operator
+      return $login->code == LDAP_INVALID_CREDENTIALS ? 0
+                                                      : 1;
+    }
+
 where you have a file `ldap_config.yml` in the top-level directory that looks a little like
-```yaml
-# config values for connecting to LDAP
-server: 	ldap.example.com
-baseDN: 	dc=users,dc=example,dc=com
-username: 	userid
-id: 		dn
-```
+
+    # config values for connecting to LDAP
+    server:   ldap.example.com
+    baseDN:   dc=users,dc=example,dc=com
+    username:   userid
+    id:     dn
+
 where the values on the right match the attributes in your LDAP schema.
 
 Just making the logic clear in the last step, I've imported a constant
 from Net::LDAP called `LDAP_INVALID_CREDENTIALS` and I use that to check
 against the result from the server.
-```perl
-use Net::LDAP qw/LDAP_INVALID_CREDENTIALS/;
 
-...
+    use Net::LDAP qw/LDAP_INVALID_CREDENTIALS/;
 
-  return ($login->code == LDAP_INVALID_CREDENTIALS) ? 0 : 1;
-}
-```
+    ...
+
+      return ($login->code == LDAP_INVALID_CREDENTIALS) ? 0 : 1;
+    }
+
 The logic is a little back to front with the ternary operator, but
 if the code I get from the server is `LDAP_INVALID_CREDENTIALS`
 then I return `0`, a fail, otherwise I return `1`,
@@ -356,21 +354,21 @@ you a bunch of accessors to help you fine-tune how your session management.
 You can force the session to match on IP address to hinder session hijacking.
 or add more data to the session cookie.
 
-It works well with 
+It works well with
 [MojoX::Auth::Simple](https://metacpan.org/pod/MojoX::Auth::Simple).
 The module documentation page gives you a great example.
 You just have to ensure that the name given to
 [url_for](https://mojolicious.org/perldoc/Mojolicious/Controller#url_for) in
-```perl
-<% } else { %>
-      <div>Not logged in; <form action="<%= url_for 'login' %>" method="POST">
-        <input type="submit" value="Login"></form></div>
+
+    <% } else { %>
+          <div>Not logged in; <form action="<%= url_for 'login' %>" method="POST">
+          <input type="submit" value="Login"></form></div>
     <% } %>
-```
+
 (here it's *login*) matches the name you used in your route
-```perl
-$r->post('/login')->name('do_login')->to('Secure#on_user_login');
-```
+
+    $r->post('/login')->name('do_login')->to('Secure#on_user_login');
+
 which I named *do_login*.  Using
 [named routes](https://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/)
 gives you the flexibility of changing URLs without much hassle.
