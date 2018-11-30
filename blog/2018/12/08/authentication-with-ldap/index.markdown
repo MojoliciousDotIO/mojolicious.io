@@ -64,13 +64,17 @@ If you've got a route like this
 
     $r->post('/login')->name('do_login')->to('Secure#on_user_login');
 
-to send the credentials to your controller.
-
-_or if you're cool with_
+to send the credentials to your controller. Or if you're cool with
 [named routes](https://mojolicious.org/perldoc/Mojolicious/Guides/Routing#Named-routes),
-_your template might include this line_
+your template might include this line
 
     <form action="<%= url_for 'do_login' %>" method="POST">
+
+Pro tip: You can even simplify it to
+
+    %= form_for 'do_login'
+
+which does it all for you including the `method` if the route only handles `POST`.
 
 ### Controller - lib/MyApp/Controller/Secure.pm
 
@@ -143,15 +147,12 @@ The `?` in the SQL statement are bind parameters, placeholders that make the dat
 
 Never, never, NEVER store passwords in plain text!  (Blame it on Friday afternoon)
 You should encrypt the password before storing it with an algorithm like AES or SHA-2.
-So, how about this for a better untested example
-
-encrypt with SQL
+So, how about this for a better untested example? You can encrypt with SQL
 
       my $statement = <<'SQL';      # better
     SELECT username FROM user_passwd
     WHERE username = ? AND password = SHA2(?, 256)
     SQL
-
 
 or encrypt with Perl
 
@@ -168,7 +169,7 @@ or encrypt with Perl
 
 Technically, AES is an encryption algorithm and SHA-2 is a hashing algorithm,
 meaning that the transformation is effectively one-way and is more secure.
-Here are a couple of modules that make it easier:
+Here are a couple of modules that make it easier and safer:
 
 A nice module out there for handling passwords is, well,
 [Passwords](https://metacpan.org/pod/Passwords).
