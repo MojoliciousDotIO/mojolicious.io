@@ -170,6 +170,11 @@ site:
                     image: 'https://secure.gravatar.com/avatar/806800a3aeddbad6af673dade958933b'
                     text: |-
                       Jan (aka batman) is a self taught Perl hacker and a member of the Mojolicious Core Team. He likes to work with anything that has to do with web - both frontend and backend. Got more questions? Send him an [e-mail](mailto:jhthorsen@cpan.org) or contact him in the `#swagger` channel on [irc.perl.org](http://www.irc.perl.org/).
+                duffee :
+                    name: 'Boyd Duffee'
+                    image: 'http://blogs.perl.org/mt/mt-static/support/assets_c/2012/12/zomg_google-thumb-72x72-1073.jpg'
+                    text: |-
+                      Boyd Duffee has been hanging around the [edges](https://metacpan.org/author/DUFFEE) of the Perl ecosystem for many moons, picking up new bits of shiny to make SysAdmining more interesting.  He's pestered Joel (and a number of other Mojo devs) enough to feel guilted into writing an Advent calendar entry.  He's interested in Data Science, Complex Networks and walks in the woods.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
