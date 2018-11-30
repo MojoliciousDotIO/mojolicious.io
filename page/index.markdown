@@ -42,6 +42,10 @@ data:
       alt: Day 6: Making A List with Yancy
     - date: 2018-12-07
     - date: 2018-12-08
+      title: Authenticating with LDAP
+      href: '/blog/2018/12/08/authenticating-with-ldap/'
+      image: '/blog/2018/12/08/authenticating-with-ldap/banner.jpg'
+      alt: Day 8: Authenticating with LDAP
     - date: 2018-12-09
     - date: 2018-12-10
       title: Minion Stands Alone
