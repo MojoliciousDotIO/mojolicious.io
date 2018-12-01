@@ -17,17 +17,17 @@
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
       <meta content="@joelaberger" name="twitter:creator">
-  <meta content="https://mojolicious.io/blog/2017/12/01/day-1-getting-started/" property="og:url">
-  <meta content="Day 1: Getting Started" property="og:title">
-    <meta content="Hit the ground running with Mojolicious. A working application in minutes!" property="og:description">
-    <meta content="https://mojolicious.io/blog/2017/12/01/day-1-getting-started/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg" property="og:image">
+  <meta content="https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/" property="og:url">
+  <meta content="Welcome &amp; MojoConf Recap" property="og:title">
+    <meta content="The 2018 Mojolicious Advent Calendar begins with a recap of MojoConf 2018." property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg" property="og:image">
     <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>Day 1: Getting Started - mojolicious.io</title>
+  <title>Welcome & MojoConf Recap - mojolicious.io</title>
   <meta content="Joel Berger" name="author">
   <meta content="Statocles 0.093" name="generator">
   <link href="/static/favicon.ico" rel="shortcut icon">
@@ -106,11 +106,11 @@
 
             <div class="entry-header cf">
 
-              <h1>Day 1: Getting Started</h1>
+              <h1>Welcome &amp; MojoConf Recap</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-01">Dec  1, 2017</time>
+                  <time class="date" datetime="2018-12-01">Dec  1, 2018</time>
                   
 
               </p>
@@ -119,123 +119,106 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="hot air ballons" src="/blog/2017/12/01/day-1-getting-started/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg">
+                <img alt="View from fjord" src="/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg">
               </div>
 
             <div class="post-content">
 
               <section id="section-1">
-                  <h2>Start at the Beginning</h2>
-
-<p>In this Advent Calendar series, some posts will be introductory, some will be advanced, some will be on new features.
-Who knows what could be next?
-But for now let&#39;s ensure a level playing field by working out how to get started.</p>
+                  <p>Welcome to another year of the Mojolicious Advent Calendar!
+2018 has been very good to Mojolicious and I could think of no better way to kick off this calendar than with a recap of the 2018 Nordic Perl Workshop and MojoConf held in Oslo, Norway.</p>
 
               </section>
               <section id="section-2">
-                  <h2>What is Mojolicious?</h2>
+                  <h2>Sidetrip to Western Norway</h2>
 
-<p>Well, <a href="http://mojolicious.org">Mojolicious</a> is really two things.
-First it is a powerful web-focused toolkit called Mojo.
-Second it is a powerful web framework called Mojolicious.
-The Mojolicious framework is built using the Mojo toolkit.</p>
+<p>On a personal note, I especially enjoyed this trip because I was able to take a few extra days to visit the West of Norway, home to the iconic fjords.
+I visited Bergen and several of its Perlers before taking a fjord tour by boat and train.
+It would have been the perfect trip if my bag hadn&#39;t decided that it wanted to stay an extra few days in Iceland where I&#39;d had a delayed stop-over.</p>
 
-<p>That that doesn&#39;t mean you can&#39;t use Mojo tools elsewhere.
-If you see some tools you like but want to use with some other framework, go ahead, I won&#39;t tell!
-Use it in any Perl code you want!</p>
+<p>Still I had an amazing times and saw once in a lifetime sights!
+Thanks to Christopher and Jonis and all the people whoe were my companions for the trip!</p>
 
-<p>Shoot I wasn&#39;t going to mention Perl!
-Yes, Mojolicious is written in Perl.
-Don&#39;t let that scare you.
-It has tons of ways to keep you and your code safe!
-From a built-in object system to a consistent API with chainable methods, Mojolicious is designed to keep your code clean and readable.
-Hopefully you&#39;ll even have some fun using it!</p>
+<h2>Nordic Perl Workshop and MojoConf</h2>
 
-<h2>Installation</h2>
+<p>The Oslo Perl Mongers know how to throw Perl events!
+This year I actually was there twice, having been once before for the <a href="http://blogs.perl.org/users/joel_berger/2018/04/perl-toolchain-summit-2018.html">Perl Toolchain Summit</a>.</p>
 
-<p>Installation is easy and fast.
-In fact, if you set the test harness to run in parallel, it should install in seconds!
-You can do that by setting <code>HARNESS_OPTIONS=j9</code> in your environment (where <code>9</code> is one more than your number of cores).</p>
+<p>Nordic Perl Workshop is, as its name implies, a regional workshop for Perl enthusiats to gather and talk Perl together.
+This year however, it was co-branded as MojoConf 2018; the previous MojoConf was also held in Oslo in 2014.</p>
 
-<p>The easiest way to install is to run</p>
+<p>There were lots of great talks, both on Mojolicious and on Perl in general.
+You can <a href="https://www.youtube.com/playlist?list=PL3IiTqgYQ8s0DeRIHW6fXJ4w-BJIMHuDS">see them all</a> on the <a href="https://www.youtube.com/channel/UCgk2wCZr5Rk-cewLTtQA_Fg">NPW Youtube Channel</a>.
+For brevity, I&#39;ll just highlight a few here.</p>
 
-<pre><code>curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
-</code></pre>
+<h3>Keynote</h3>
 
-<p>or, you can install using any cpan client (we like <a href="https://metacpan.org/pod/App::cpanminus"><code>cpanm</code></a>) or using your system&#39;s package manager.</p>
+<p>This year&#39;s keynote was delivered by Author and Perl luminary <a href="http://www252.pair.com/~comdog/">brian d foy</a>.
+He talked about how Mojo&#39;s whipupitude got real work done quickly in his consulting gigs.</p>
 
-<h2>Your First Application</h2>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="480" src="https://www.youtube.com/embed/1tPAfgE3CbU" width="854"></iframe></p>
 
-<p>In the grand tradition of programming, the first thing we need to do is to run a hello world application.</p>
+<h3>Mojolicious 8.0 Announcement</h3>
 
-<p>Save the following as <code>hello.pl</code></p>
+<p>Mojolicious Project founder and lead developer Sebastian Riedel presented &quot;Eight Point Oh&quot;.
+Though it is ostensibly an announcement of the 8.0 release, it is more properly a recap of the features added to Mojo since his <a href="https://www.youtube.com/watch?v=OspRE1xnLjE">5.0 announcement</a> talk at MojoConf 2014.
+It isn&#39;t just Mojolicious either, several spin-off projects are also mentioned.</p>
 
-<pre><code>use Mojolicious::Lite;
-get &#39;/&#39; =&gt; {text =&gt; &#39;Hello 🌍 World!&#39;};
-app-&gt;start;
-</code></pre>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="480" src="https://www.youtube.com/embed/nYlFprRybzA" width="854"></iframe></p>
 
-<p>This script simply</p>
+<h3>My Own Worst Enemy</h3>
 
-<ul>
-<li>imports Mojolicious (the lite version)</li>
-<li>defines a GET handler to respond to requests with a unicode version of hello world</li>
-<li>starts the application</li>
-</ul>
+<p>On another personal note, I love including working code and doing live demos in talks.
+I know the former risks bordom but I fell it is important for people to be able to see how code really works in practice.
+Because of that fear, I like live demos because it <a href="https://youtu.be/dDH10srLgVc?t=343">engages the audience</a> and makes code-heavy talks more physical.</p>
 
-<p>But before that&#39;s any use to us, we have to start a web server.</p>
+<p>Of course everyone knows the problems of live demos!
+Fear that they might fail in all kinds of embarrasing ways must surely be why more people don&#39;t attempt them.
+Well this time I hit the most embarrassing of them all.</p>
 
-<h2>Running Your Application</h2>
+<p>I realize the problems inherent with live demos and so I do what I can to prevent them: I practice, over and over.
+This time, gentle reader, I learned a new lesson:</p>
 
-<p>Mojolicious applications (as we&#39;ll see in another post) are more than just web servers.
-In order to use them as one, we need to start it as a web server.</p>
+<blockquote>
+  <p>Practicing your live demo includes practicing logging in.
+  <cite>Joel Berger, today</cite></p>
+</blockquote>
 
-<p>Mojolicious comes with four built-in servers</p>
+<p>That&#39;s right, I forgot the login credentials to my own demo.</p>
 
-<ul>
-<li><code>daemon</code>, single-threaded, the basis of all the others</li>
-<li><code>morbo</code>, the development server, restarts on files changes</li>
-<li><code>prefork</code>, optimized production server</li>
-<li><code>hypnotoad</code>, like prefork but with hot-restart capability</li>
-</ul>
+<p>That said, most of the talk still worked.
+So beyond that first lesson, here&#39;s one more: even experienced speakers mess up, we shrug and move on.
+Don&#39;t let fear of failure stop you from speaking to groups of like minded colleagues about the work you do.</p>
 
-<p><code>daemon</code> and <code>prefork</code> are application commands and are run like</p>
+<p>The talk is about migrating from a Lite app to a full app.
+If you find yourself feeling afraid or confused in moving to a full app, or if you read the Mojolicious documentation and wonder how it applies to a full app, give this a watch.
+Bonus material about modern Javascript at the end too.</p>
 
-<pre><code>perl hello.pl daemon
-</code></pre>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="480" src="https://www.youtube.com/embed/ycAXeOKLCGc" width="854"></iframe></p>
 
-<p>These will work, but for development let&#39;s use <code>morbo</code>.
-<code>morbo</code> and <code>hypnotoad</code> are their own scripts which take the application as an argument.
-Start it by running</p>
+<h3>And Now, a Bit of Fun</h3>
 
-<pre><code>morbo hello.pl
-</code></pre>
+<p>Right before the lightning talks, call it an hour before, conference co-organizer Marcus Ramberg mentioned that he wished there was at least one more lightning talk to fill out the time.
+I had had one more talk idea and even had a vague outline of structure in my head, so on the spur of the moment I told him I&#39;d do it.
+The result was a bit rough (of course), and I&#39;ve since cleaned it up if I should get a chance to do it again, but it was still fun I think.
+If you&#39;re in the mood and have 5 minutes, what my rant about SAML.</p>
 
-<p>When it starts it should tell you to visit <code>http://127.0.0.1:3000</code>.
-Open that url in your browser.
-Your first advent treat should be waiting for you!</p>
+<p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="480" src="https://www.youtube.com/embed/xno08-KGJyY" width="854"></iframe></p>
 
-<h2>Getting Help</h2>
+<h3>Finally</h3>
 
-<p>The documentation is available at <a href="http://mojolicious.org/perldoc">http://mojolicious.org/perldoc</a>.
-You are especially encouraged to read the Tutorial and Guides in the order suggested there.</p>
-
-<p>Read it carefully, unlike some documentation, it is written for brevity and conciseness.
-Users accustomed to skimming documentation filled with fluff might need a second take.</p>
-
-<p>If you still have trouble, we have a mailing list and an IRC channel ready to help!
-Find us at <a href="http://mojolicious.org/perldoc#SUPPORT">http://mojolicious.org/perldoc#SUPPORT</a>!</p>
+<p>Have some fun, watch the talks from the conference, and if you enjoy what you see, consider coming to the next MojoConf!
+I want to thank all of the organizers, the venue <a href="http://www.teknologihuset.no/">Teknologihuset</a> and the conference partner/sponsor <a href="https://www.ksat.no/">KSAT</a>.
+I had a great time and I can&#39;t wait for the next one!</p>
 
               </section>
-              <small><p><a href="https://commons.wikimedia.org/wiki/File:Colorado_Springs_Hot_Air_Balloon_Competition.jpg">Image by DarlArthurS</a> licensed under the <a class="extiw" href="https://en.wikipedia.org/wiki/en:Creative_Commons" title="w:en:Creative Commons">Creative Commons</a> <a href="//creativecommons.org/licenses/by-sa/3.0/deed.en" rel="nofollow">Attribution-Share Alike 3.0 Unported</a> license.</p>
+              <small><p>Original image by Joel Berger.</p>
 </small>
 
               <p class="tags">
                 <span>Tagged in </span>:
                   <a href="/blog/tag/advent/">advent</a>,
-                  <a href="/blog/tag/installing/">installing</a>,
-                  <a href="/blog/tag/hello-world/">hello world</a>,
-                  <a href="/blog/tag/lite/">lite</a>
+                  <a href="/blog/tag/mojoconf/">mojoconf</a>
               </p>
 
 
@@ -254,8 +237,7 @@ He an avid Perl user and <a href="https://metacpan.org/author/JBERGER">author</a
                   </div>
 
               <ul class="post-nav cf">
-                  <li class="prev"><a href="/blog/2017/11/30/mojolicious-advent-2017/index.html" rel="prev"><strong>Previous Article</strong> Mojolicious Advent 2017</a></li>
-                  <li class="next"><a href="/blog/2017/12/02/day-2-the-stash/index.html" rel="next"><strong>Next Article</strong> Day 2: The Stash </a></li>
+                  <li class="prev"><a href="/blog/2018/03/18/graphql-openapi/index.html" rel="prev"><strong>Previous Article</strong> Mojolicious, OpenAPI - and GraphQL</a></li>
               </ul>
 
             </div>

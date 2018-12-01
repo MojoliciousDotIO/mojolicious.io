@@ -7,6 +7,26 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Welcome &amp; MojoConf Recap</title>
+            <link>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</link>
+            <guid>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</guid>
+            <description><![CDATA[
+                <p>Welcome to another year of the Mojolicious Advent Calendar!
+2018 has been very good to Mojolicious and I could think of no better way to kick off this calendar than with a recap of the 2018 Nordic Perl Workshop and MojoConf held in Oslo, Norway.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/mojoconf/">mojoconf</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 01 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 24: Release and Wrap-Up</title>
             <link>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</link>
             <guid>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</guid>
@@ -146,29 +166,6 @@ non-web spaces like these. Why use Mojo for this? Because it makes it <em>easy</
             ]]></description>
             <pubDate>
                 Thu, 21 Dec 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 20: Practical Testing</title>
-            <link>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</link>
-            <guid>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</guid>
-            <description><![CDATA[
-                <p>Back on <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test">Day 9</a> we discussed testing and especially <a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>.
-Today I want to just briefly talk about some practical things that can come up when testing real world applications.
-Once again the discussion will be motivated by the <a href="https://github.com/jberger/Wishlist">Wishlist</a> application that we&#39;ve been developing these past few days.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/mocking/">mocking</a>
-                        <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
-                        <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Wed, 20 Dec 2017 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
