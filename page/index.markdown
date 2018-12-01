@@ -91,8 +91,6 @@ data:
 
 # 2018 Mojolicious Advent Calendar
 
-Ok well, it hasn't started yet. Come back on December 1!
-
 %= include 'site/calendar.html.ep'
 
 # 2017 Mojolicious Advent Calendar
