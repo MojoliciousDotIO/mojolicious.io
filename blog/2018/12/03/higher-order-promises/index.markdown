@@ -7,7 +7,7 @@ tags:
     - advent
 images:
   banner:
-    src: 'banner.jpg'
+    src: '/blog/2018/12/03/higher-order-promises/banner.jpg'
     alt: 'fractal cauliflower'
     data:
       attribution: |-
