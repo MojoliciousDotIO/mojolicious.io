@@ -34,6 +34,10 @@ data:
       image: '/blog/2018/12/03/higher-order-promises/banner.jpg'
       alt: Day 3: Higher Order Promises
     - date: 2018-12-04
+      title: Testing Hooks and Helpers
+      href: '/blog/2018/12/04/testing-hooks-and-helpers/'
+      image: '/blog/2018/12/04/testing-hooks-and-helpers/banner.jpg'
+      alt: Day 4: Testing Hooks and Helpers
     - date: 2018-12-05
     - date: 2018-12-06
       title: Making A List with Yancy
