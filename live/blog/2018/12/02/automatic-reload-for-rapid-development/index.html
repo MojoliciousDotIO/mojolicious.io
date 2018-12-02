@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/tag/example/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/" property="og:url">
+  <meta content="Automatic Reload for Rapid Development" property="og:title">
+    <meta content="Learn how to reload both the server and client on changes during application development." property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Automatic Reload for Rapid Development - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/tag/example.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/tag/example.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/18/day-18-the-wishlist-model/">Day 18: The Wishlist Model</a></h1>
+              <h1>Automatic Reload for Rapid Development</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-18">Dec 18, 2017</time>
+                  <time class="date" datetime="2018-12-02">Dec  2, 2018</time>
                   
 
               </p>
@@ -117,115 +119,121 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Still Life: Vase with Pink Roses by Vincent van Gogh" src="/blog/2017/12/18/day-18-the-wishlist-model/van_gogh_still_life.jpg">
+                <img alt="Mojolicious art and reload icon, original artwork by Doug Bell" src="/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
-We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
-That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
-While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
-Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
 
-<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
-I have also added several tags.
-While development on the application may continue, those tags will remain for future readers.</p>
+              <section id="section-1">
+                  <p>Developing webapps with <a href="http://mojolicious.org">Mojolicious</a> is a lot of fun!
+Using <a href="https://mojolicious.org/perldoc/morbo">the <code>morbo</code> server</a> for
+development, every change to my webapp causes a restart to load my changes.
+This way the next request I make has all my new code!</p>
 
-<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
-You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
+<p>So, I change my code, the webapp restarts, and I go back to my browser window.
+Wait... Where&#39;s my new code? Why isn&#39;t the bug fixed? Did... Did I forget to
+reload my browser window again? Ugh! Of course!</p>
 
-<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
-At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
-Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
+<p>Does this happen to you? Probably not. But, it&#39;s still annoying to reload the
+browser window after every backend code change. It&#39;d be nice if my browser
+window automatically reloaded every time the web server restarted!</p>
 
-                  <p><a href="/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading Day 18: The Wishlist Model...</a></p>
-            </div>
+              </section>
+              <section id="section-2">
+                  <h1>AutoReload Plugin</h1>
 
-        </article>
-        <article class="post">
+<p>Like every problem in Perl, there&#39;s a CPAN module for this:
+<a href="http://metacpan.org/pod/Mojolicious::Plugin::AutoReload">Mojolicious::Plugin::AutoReload</a>.
+Adding this plugin to our application will automatically reload any browser
+windows connected to our app, making it even easier to develop Mojolicious
+applications!</p>
 
-            <div class="entry-header cf">
+<p>To use the plugin, we add it to our application using the <code>plugin</code> method.
+Then, we add the <code>auto_reload</code> helper to our <a href="https://metacpan.org/pod/distribution/Mojolicious/lib/Mojolicious/Guides/Tutorial.pod#Layouts">layout
+template</a></p>
 
-            <h1><a href="/blog/2017/12/17/day-17-the-wishlist-app/">Day 17: The Wishlist App</a></h1>
+<pre><code>use Mojolicious::Lite;
 
-              <p class="post-meta">
+plugin &#39;AutoReload&#39;;
+get &#39;/&#39; =&gt; &#39;index&#39;;
 
-                  <time class="date" datetime="2017-12-17">Dec 17, 2017</time>
-                  
+app-&gt;start;
+__DATA__
 
+@@ layouts/default.html.ep
+%= auto_reload
+%= content
+
+@@ index.html.ep
+% layout &#39;default&#39;;
+&lt;h1&gt;Hello, World!&lt;/h1&gt;
+</code></pre>
+
+<p><a href="myapp.pl">Download the code here</a>. Now while we have our application open in
+our browser, if the server is restarted, our browser will reload the page to
+see the new app!</p>
+
+<h2>How It Works</h2>
+
+<p>This plugin is sheer elegance in its simplicity: When the browser loads the
+page, it connects to a WebSocket located at <code>/auto_reload</code>. When the server
+restarts, the WebSocket connection is broken. The client sees the broken
+connection, waits a second for the server to start listening for connections
+again, and then reloads the page.</p>
+
+<h2>Disable In Production</h2>
+
+<p>Once we switch from <code>morbo</code> to <code>hypnotoad</code>, we don&#39;t want the automatic reload
+anymore. So, the plugin doesn&#39;t send the browser the JavaScript to build the
+websocket. This is controlled with <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial#Mode">the <code>mode</code>
+attribute</a>.
+When the <code>mode</code> is <code>development</code> (the default for <code>morbo</code>), the browser is told
+to make the WebSocket. When the <code>mode</code> is anything else, no WebSocket is made.</p>
+
+<p>Part of what makes Mojolicious so much fun is how easy it is. <a href="https://github.com/preaction/Mojolicious-Plugin-AutoReload/blob/v0.003/lib/Mojolicious/Plugin/AutoReload.pm#L56-L92">The entire
+plugin is only 40 lines of
+code</a>.</p>
+
+<p>And now, with Mojolicious::Plugin::AutoReload, developing in Mojolicious is
+just a little easier, and a little more fun!</p>
+
+              </section>
+              <small><p>Original artwork by Doug Bell, released under CC-BY-SA 4.0. It includes
+a screenshot of the Mojolicious.org website (fair use), the Mojolicious
+logo (CC-BY-SA 4.0), and a
+<a href="https://commons.wikimedia.org/wiki/File:Refresh_icon.svg">&quot;reload&quot;</a>
+icon from Wikimedia Commons (CC0: Public domain)</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/advent/">advent</a>,
+                  <a href="/blog/tag/development/">development</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Living room, Christmas tree, and presents" src="/blog/2017/12/17/day-17-the-wishlist-app/xmas_tree.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example appliation.
-It is possible I let the exaxmple get away from me!</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-<p>In today&#39;s article I indend to show how to use template composition techniques to produce a wishlist app.
-We will cover <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layouts</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">partial templates</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">content blocks</a>.</p>
+                      </div>
 
-<p>The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
-Today we will example concepts mostly relating to the templates, then in tomorrows post I will migrate the model from using the simplistic persistence of <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> that it uses now to <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>.</p>
+                  </div>
 
-                  <p><a href="/blog/2017/12/17/day-17-the-wishlist-app/#section-2">Continue reading Day 17: The Wishlist App...</a></p>
-            </div>
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2018/12/01/welcome-mojoconf-recap/index.html" rel="prev"><strong>Previous Article</strong> Welcome &amp; MojoConf Recap</a></li>
+              </ul>
 
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/06/day-6-adding-your-own-commands/">Day 6: Adding Your Own Commands</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-06">Dec  6, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Space shuttle Atlantis prepared for liftoff (night)" src="/blog/2017/12/06/day-6-adding-your-own-commands/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Everyone has written those one-off administration or check scripts.
-There are probably a few cluttering your project root or bin directory right now.
-Those have a problem beyond just the clutter: duplication.</p>
-
-<p>Programmers hate duplication because of skew.
-If code gets improved in one place, it is unlikely to be improved in all places, unless there is only the one.
-So that script you wrote a while back, the one with the database connection you hand-rolled, is that still correct?</p>
-
-<p>In the <a href="/blog/2017/12/05/day-5-your-apps-built-in-commands">previous article in this series</a> I talked about the built-in commands available to your application.
-The final command was <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval"><code>eval</code></a>.
-I mentioned that when combined with predefined behaviors, the command could be great for administrative tasks.
-That&#39;s true, but you need to know what to eval in order to do so.</p>
-
-<p>To formalize that process, we can go one step further: defining our own commands.
-By doing this your application&#39;s administative behaviors can take arguemnts and provide optional switches as well as give usage messages.
-In this way these administative commands decouple themselves from knowledge of the application&#39;s internals and become useful to a broader set of users.</p>
-
-                  <p><a href="/blog/2017/12/06/day-6-adding-your-own-commands/#section-2">Continue reading Day 6: Adding Your Own Commands...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><span class="page-numbers prev inactive">Prev</span></li>
-              
-              <li><span class="page-numbers next inactive">Next</span></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -283,7 +291,7 @@ In this way these administative commands decouple themselves from knowledge of t
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 

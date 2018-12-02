@@ -7,6 +7,36 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Automatic Reload for Rapid Development</title>
+            <link>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</link>
+            <guid>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</guid>
+            <description><![CDATA[
+                <p>Developing webapps with <a href="http://mojolicious.org">Mojolicious</a> is a lot of fun!
+Using <a href="https://mojolicious.org/perldoc/morbo">the <code>morbo</code> server</a> for
+development, every change to my webapp causes a restart to load my changes.
+This way the next request I make has all my new code!</p>
+
+<p>So, I change my code, the webapp restarts, and I go back to my browser window.
+Wait... Where&#39;s my new code? Why isn&#39;t the bug fixed? Did... Did I forget to
+reload my browser window again? Ugh! Of course!</p>
+
+<p>Does this happen to you? Probably not. But, it&#39;s still annoying to reload the
+browser window after every backend code change. It&#39;d be nice if my browser
+window automatically reloaded every time the web server restarted!</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 02 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Welcome &amp; MojoConf Recap</title>
             <link>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</link>
             <guid>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</guid>
@@ -121,51 +151,6 @@ and <a href="https://metacpan.org/pod/OpenAPI::Client">OpenAPI::Client</a>.</p>
             ]]></description>
             <pubDate>
                 Fri, 22 Dec 2017 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 21: Virtual(ly a) Lumberjack</title>
-            <link>https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/</link>
-            <guid>https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/</guid>
-            <description><![CDATA[
-                <p>What do you do when you want to split up a stream of data in real-time while
-giving the user instructions?</p>
-
-<p>This is just what I wanted to do to aid in reverse-engineering the USB
-protocol of Virtual Reality devices known as Head Mounted Displays (HMD), for
-the <a href="http://www.openhmd.net/">OpenHMD</a> project.</p>
-
-<p>HMDs are used to create virtual reality environments. When worn, two slightly
-different images are drawn to each side of the screen, with each side visible
-to only one eye. This imitates binocular vision and creates an image with a
-feeling of depth. By tracking the rotation of the unit, the user can then look
-around this environment.</p>
-
-<p>The recent resurgence of Virtual Reality devices can be attributed to the Rift
-DK1, released by Oculus in March 2013.</p>
-
-<p>By logging the packets generated during each movement, we can compare the
-content of each log to identify which bytes are related to which action. Such
-movements include roll (tilting head side-to-side), pitch (looking up and
-down) and yaw (turning left/right). Though position isn&#39;t tracked, we also
-look for sway (left-right translation), surge (back and forth) and heave (up
-and down) information as this is used in combination with the other values for
-accurate tracking of rotation.</p>
-
-<p>Mojo is an amazing toolkit for web development, as shown in previous
-calendar entries, but using components of it can also solve problems in other
-non-web spaces like these. Why use Mojo for this? Because it makes it <em>easy</em>.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Thu, 21 Dec 2017 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
