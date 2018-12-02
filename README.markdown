@@ -51,6 +51,7 @@ Please open an issue to discuss.
 
 - Please add a "fold" to your article at an appropriate place by adding `---` as a line where the fold should happen.
 - Please keep all of your files in the post's directory (the one with index.html), this will help keep things orderly.
+- Please use urls that are relative to the site root (not relative to the page) for content above the fold. This is because that content will be show on other pages like the blog scroll.
 - Until we add some smarts to the calendar plugin, if you want to postdate a calendar entry, comment it out in the calendar page metadata, otherwise it will show up too early (or let us add it).
 - Please don't commit the results of running the deploy command (in `live/` or worse in `.statocles/`), let us do that for you on the production server when its time.
 
