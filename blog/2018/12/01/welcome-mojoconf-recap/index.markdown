@@ -52,10 +52,13 @@ He talked about how Mojo's whipupitude got real work done quickly in his consult
 ### Mojolicious 8.0 Announcement
 
 Mojolicious Project founder and lead developer Sebastian Riedel presented "Eight Point Oh".
-Though it is ostensibly an announcement of the 8.0 release, it is more properly a recap of the features added to Mojo since his [5.0 announcement](https://www.youtube.com/watch?v=OspRE1xnLjE) talk at MojoConf 2014.
+Though it is ostensibly an announcement of the 8.0 release, it is more properly a recap of the features added to Mojo since 7.0.
 It isn't just Mojolicious either, several spin-off projects are also mentioned.
 
 <iframe width="854" height="480" src="https://www.youtube.com/embed/nYlFprRybzA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+(Edit: This post originally stated that the talk included changes since 5.0.
+While that had originally been the planned, there were so many features added since 7.0, covering from 5.0 up was dropped.)
 
 ### My Own Worst Enemy
 
