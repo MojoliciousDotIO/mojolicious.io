@@ -129,7 +129,7 @@ While writing about the [Unicode 9 updates in Perl v5.26](https://www.effectivep
 
 My first attempt simply trawled through every character and compared the various Unicode properties to see which code numbers changed from `Unassigned` to `Present_In`. That was fine, but then I found that someone was already listing all the new emoji and I could scrape their site.
 
-I won't explain everything in this program. Trust me that it uses [Mojo::UserAgent](https://mojolicious.org/perldoc/Mojo/UserAgent) to fetch the data, extracts the DOM, and finds the text I want by using the compound selector `ul:not( [class] ) li a`. The rest is merely transforms on that extracted list. This is much easier than trying to do this with regexes:
+I won't explain everything in this program. Trust me that it uses [Mojo::UserAgent](https://mojolicious.org/perldoc/Mojo/UserAgent) to fetch the data, extracts the DOM, and finds the text I want by using the compound selector `ul:not( [class] ) li a`. The rest is merely transforms on that extracted list. Those `map`s and the `join` come from [Mojo::Collection](https://mojolicious.org/perldoc/Mojo/Collection). This is much easier than trying to do this with regexes:
 
 	use v5.28;
 	use utf8;
