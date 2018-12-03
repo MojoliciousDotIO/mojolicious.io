@@ -18,13 +18,13 @@ data:
 ---
 When people tell me that I can't (they mean shouldn't) parse HTML with a regex, I say "hold my beer". It isn't a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I've been using [Mojo::DOM](https://mojolicious.org/perldoc/Mojo/DOM) to do it for me. It's easier than the old, expedient way.
 ---
-The trick was always to isolate the interesting HTML. I could do that excising all of the data around the interesting parts:
+The trick was always to isolate the intere    thinsting HTML. I could do that excising all of the data around the interesting parts:
 
 	my $html = ...;
 	$html =~ s/.*?<table class="foo".*?>//;
 	$html =~ s/<\/table>.*//;
 
-No I don't have to parse all of HTML; I can think about the table. Even though that's expedient it's not so nice. Before I replace that with something nicer, I'll take a quick detour.
+Now I don't have to parse all of HTML; I can think about the table. Even though that's expedient it's not so nice. Before I replace that with something nicer, I'll take a quick detour.
 
 ## Cascading Style Sheets
 
@@ -121,13 +121,13 @@ If nothing should be between those tags. I can connect the selector with `>` to 
 	$ perl html.pl "ul.employees > li > img.human"
 	<img class="human" id="fry" src="...">
 
-Now, consider how much work I've done there. Almost nothing. I made a DOM object, applied a selector, and I've isolated parts of the data. This is the same thing I was doing the hard way before. The think I like about Mojolicious though, is that this better way isn't more work (and I've built many things on top of [HTML::Parser](https://metacpan.org/pod/HTML::Parser)).
+Now, consider how much work I've done there. Almost nothing. I made a DOM object, applied a selector, and I've isolated parts of the data. This is the same thing I was doing the hard way before. This way is better and isn't more work. That's why I like Mojolicious!
 
 ## How about those new emojis?
 
 While writing about the [Unicode 9 updates in Perl v5.26](https://www.effectiveperlprogramming.com/2018/08/find-the-new-emojis-in-perls-unicode-support/), I wondered what I could show that might be interesting. How about figuring out which new emoji showed up?
 
-My first attempt simply trawled through every character and compared the various Unicode properties to see which code numbers changed from `Unassigned` to `Present_In`. That was find, but then I found that someone was already listing all the new emoji and I could scrape their site.
+My first attempt simply trawled through every character and compared the various Unicode properties to see which code numbers changed from `Unassigned` to `Present_In`. That was fine, but then I found that someone was already listing all the new emoji and I could scrape their site.
 
 I won't explain everything in this program. Trust me that it uses [Mojo::UserAgent](https://mojolicious.org/perldoc/Mojo/UserAgent) to fetch the data, extracts the DOM, and finds the text I want by using the compound selector `ul:not( [class] ) li a`. The rest is merely transforms on that extracted list. This is much easier than trying to do this with regexes:
 
@@ -144,7 +144,7 @@ I won't explain everything in this program. Trust me that it uses [Mojo::UserAge
 	my $url = 'https://blog.emojipedia.org/new-unicode-9-emojis/';
 	my $tx = $ua->get( $url );
 
-	die "That didn't work!\n" unless $tx->success;
+	die "That didn't work!\n" if $tx->error;
 
 	say $tx->result
 		->dom
