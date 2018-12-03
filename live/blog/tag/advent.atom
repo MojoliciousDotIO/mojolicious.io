@@ -2,11 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-02T00:00:00Z</updated>
+    <updated>2018-12-03T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</id>
+        <title>Higher Order Promises</title>
+        <author><name>brian d foy</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h2>Create new, complex Promises by composing Promises</h2>
+
+<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-03T00:00:00Z</updated>
+        <category term="promises" />
+        <category term="advent" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</id>
         <title>Automatic Reload for Rapid Development</title>
@@ -119,50 +141,6 @@ Would I be asking if the answer was no?</p>
         <category term="command" />
         <category term="debugging" />
         <category term="lite" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/</id>
-        <title>Day 22: A RESTful API with OpenAPI</title>
-        <author><name>Jan Henning Thorsen</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>The <a href="https://www.openapis.org/">OpenAPI</a> Specification (formerly named
-Swagger) is an API description format for REST APIs. An API specification
-written using the the rules set by the Open API Initiative can be used to
-describe:</p>
-
-<ul>
-<li>All the available endpoints. An endpoint is a unique resource that can
-access or modify a given object.</li>
-<li>Input parameters, such as headers, query parameters and/or body parameters.</li>
-<li>The structure of the response, including headers status codes and the body -
-if any.</li>
-<li>Authentication methods</li>
-<li>Contact information, license, terms of use and other information</li>
-</ul>
-
-<p>This post look into how to write an API specification and how to use it
-together with
-<a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">Mojolicious::Plugin::OpenAPI</a>
-and <a href="https://metacpan.org/pod/OpenAPI::Client">OpenAPI::Client</a>.</p>
-
-                <p><a href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/api/">api</a>
-                    <a href="https://mojolicious.io/blog/tag/openapi/">openapi</a>
-                    <a href="https://mojolicious.io/blog/tag/rest/">rest</a>
-                    <a href="https://mojolicious.io/blog/tag/swagger/">swagger</a>
-                </p>
-
-        ]]></content>
-        <updated>2017-12-22T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="api" />
-        <category term="openapi" />
-        <category term="rest" />
-        <category term="swagger" />
     </entry>
 </feed>
 
