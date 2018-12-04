@@ -2,11 +2,165 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/testing/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-20T00:00:00Z</updated>
+    <updated>2018-12-04T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/testing.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/testing/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</id>
+        <title>Testing Hooks and Helpers</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
+<a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
+applications</a>
+(even for <a href="https://metacpan.org/pod/Test::Mojo::Role::PSGI">testing in other web
+frameworks</a>).</p>
+
+<p>But what if what I need to test isn&#39;t a route? What if it&#39;s
+a <a href="https://mojolicious.org/perldoc/Mojolicious#HOOKS">hook</a>,
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-plugin-to-your-application">plugin</a>,
+or
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers">helper</a>?
+We can test all those things, too!</p>
+
+<h1>Hooks</h1>
+
+<p>To thoroughly test hooks, I need to find ways to configure my test
+cases. I could count on my application to do it, and find the right
+routes to test the right behavior. But, that creates larger tests that
+integrate different parts and makes test failures harder to debug. What
+I want is to isolate the thing I&#39;m testing. The best way to do that is
+to create routes that test only what I want to test.</p>
+
+<p>What if I have a hook to log exceptions to a special log file, like so:</p>
+
+<pre><code>#!/usr/bin/env perl
+use Mojolicious::Lite;
+# Log exceptions to a separate log file
+hook after_dispatch =&gt; sub {
+    my ( $c ) = @_;
+    return unless my $e = $c-&gt;stash( &#39;exception&#39; );
+    state $path = $c-&gt;app-&gt;home-&gt;child(&quot;exception.log&quot;);
+    state $log = Mojo::Log-&gt;new( path =&gt; $path );
+    $log-&gt;error( $e );
+};
+app-&gt;start;
+</code></pre>
+
+<p>To test this, once I&#39;ve loaded my app and created a Test::Mojo object,
+I&#39;m free to add more configuration to my app, including new routes!
+These routes can set up exactly the right conditions for my test.</p>
+
+<pre><code># test.pl
+use Test::More;
+use Test::Mojo;
+use Mojo::File qw( path );
+my $t = Test::Mojo-&gt;new( path( &#39;myapp.pl&#39; ) );
+# Add a route that generates an exception
+$t-&gt;app-&gt;routes-&gt;get(
+    &#39;/test/exception&#39; =&gt; sub { die &quot;Exception&quot; },
+);
+$t-&gt;get_ok( &#39;/test/exception&#39; )-&gt;status_is( 500 );
+my $log_content = path( &#39;exception.log&#39; )-&gt;slurp;
+like $log_content, qr{Exception}, &#39;exception is logged&#39;;
+done_testing;
+</code></pre>
+
+<p>Sure, this is technically testing a route. But, it&#39;s useful to know that
+I can edit my application after I load it (but before any routes are
+exercised). I often spawn additional Test::Mojo objects, sometimes using
+the default
+<a href="https://mojolicious.org/perldoc/Mojo/HelloWorld">Mojo::HelloWorld</a>
+application to test different plugins.</p>
+
+<h1>Helpers</h1>
+
+<p>Now, I could test my helpers in the exact same way: Set up a new route
+that uses my helper and examine the result. But, testing helpers can be
+even easier: I can just ask the app to give me a controller with <a href="https://mojolicious.org/perldoc/Mojolicious#build_controller">the
+<code>build_controller</code>
+method</a>.
+The controller will have
+a <a href="https://mojolicious.org/perldoc/Mojo/Message/Request">Mojo::Request</a>
+and
+a <a href="https://mojolicious.org/perldoc/Mojo/Message/Response">Mojo::Response</a>
+object, so I can set up the conditions for my test.</p>
+
+<p>So, for example, if I have an authentication token in my configuration,
+I could write a helper to check if my site visitor is trying to
+authenticate.</p>
+
+<pre><code>#!/usr/bin/env perl
+use Mojolicious::Lite;
+# Allow access via tokens
+plugin Config =&gt; {
+    default =&gt; {
+        tokens =&gt; { }, # token =&gt; username
+    },
+};
+helper current_user =&gt; sub( $c ) {
+    my $auth = $c-&gt;req-&gt;headers-&gt;authorization;
+    return undef unless $auth;
+    my ( $token ) = $auth =~ /^Token\ (\S+)$/;
+    return undef unless $token;
+    return $c-&gt;app-&gt;config-&gt;{tokens}{ $token };
+};
+</code></pre>
+
+<p>Then, rather than generating web requests to check all our
+authentication edge cases, I can build a controller and set the right
+headers to run my tests (using <a href="https://mojolicious.org/perldoc/Test/Mojo#new">Test::Mojo configuration
+overrides</a> to add a test
+token):</p>
+
+<pre><code># test.pl
+use Test::More;
+use Test::Mojo;
+use Mojo::File qw( path );
+my $token = &#39;mytoken&#39;;
+my $t = Test::Mojo-&gt;new( path(&#39;myapp.pl&#39;), {
+    # Add a token as a configuration override
+    tokens =&gt; { $token =&gt; &#39;preaction&#39; },
+} );
+
+my $c = $t-&gt;app-&gt;build_controller;
+is $c-&gt;current_user, undef, &#39;current_user not set&#39;;
+
+$c-&gt;req-&gt;headers-&gt;authorization( &#39;NOTATOKEN&#39; );
+is $c-&gt;current_user, undef, &#39;current_user without &quot;Token&quot;&#39;;
+
+$c-&gt;req-&gt;headers-&gt;authorization( &#39;Token NOTFOUND&#39; );
+is $c-&gt;current_user, undef, &#39;current_user token incorrect&#39;;
+
+$c-&gt;req-&gt;headers-&gt;authorization( &quot;Token $token&quot; );
+is $c-&gt;current_user, &#39;preaction&#39;, &#39;current_user correct&#39;;
+</code></pre>
+
+<p>Of course, we&#39;ll still need to test whether the routes we want to
+protect with tokens are protected, but this shows that our
+authentication helper works so if there are problems with our routes,
+it&#39;s probably not here.</p>
+
+<p>So, it&#39;s not only the web requests in our app I can test. When I need to
+test hooks, I can make my own routes for testing. When I need to test
+helpers, I can do so by directly calling them. The narrower the scope of
+the test, the easier debugging of test failures!</p>
+
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-04T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="testing" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</id>
         <title>Day 20: Practical Testing</title>

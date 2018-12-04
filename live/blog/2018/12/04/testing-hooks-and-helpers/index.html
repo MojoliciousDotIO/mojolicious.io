@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/" property="og:url">
+  <meta content="Testing Hooks and Helpers" property="og:title">
+    <meta content="How to easily test hooks and helpers using Test::Mojo" property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Testing Hooks and Helpers - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,7 +106,7 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/04/testing-hooks-and-helpers/">Testing Hooks and Helpers</a></h1>
+              <h1>Testing Hooks and Helpers</h1>
 
               <p class="post-meta">
 
@@ -121,7 +123,9 @@
               </div>
 
             <div class="post-content">
-              <p></p><p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
+
+              <section id="section-1">
+                  <p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
 <a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
 <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
 applications</a>
@@ -258,141 +262,39 @@ test hooks, I can make my own routes for testing. When I need to test
 helpers, I can do so by directly calling them. The narrower the scope of
 the test, the easier debugging of test failures!</p>
 
-            </div>
+              </section>
+              <small><p>Photo from pexels.com, licensed CC0.</p>
+</small>
 
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/03/higher-order-promises/">Higher Order Promises</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-03">Dec  3, 2018</time>
-                  
-
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/advent/">advent</a>,
+                  <a href="/blog/tag/testing/">testing</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="fractal cauliflower" src="/blog/2018/12/03/higher-order-promises/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><h2>Create new, complex Promises by composing Promises</h2>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
+                      </div>
 
-                  <p><a href="/blog/2018/12/03/higher-order-promises/#section-2">Continue reading Higher Order Promises...</a></p>
-            </div>
+                  </div>
 
-        </article>
-        <article class="post">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2018/12/03/higher-order-promises/index.html" rel="prev"><strong>Previous Article</strong> Higher Order Promises</a></li>
+              </ul>
 
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/02/automatic-reload-for-rapid-development/">Automatic Reload for Rapid Development</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-02">Dec  2, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Mojolicious art and reload icon, original artwork by Doug Bell" src="/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Developing webapps with <a href="http://mojolicious.org">Mojolicious</a> is a lot of fun!
-Using <a href="https://mojolicious.org/perldoc/morbo">the <code>morbo</code> server</a> for
-development, every change to my webapp causes a restart to load my changes.
-This way the next request I make has all my new code!</p>
-
-<p>So, I change my code, the webapp restarts, and I go back to my browser window.
-Wait... Where&#39;s my new code? Why isn&#39;t the bug fixed? Did... Did I forget to
-reload my browser window again? Ugh! Of course!</p>
-
-<p>Does this happen to you? Probably not. But, it&#39;s still annoying to reload the
-browser window after every backend code change. It&#39;d be nice if my browser
-window automatically reloaded every time the web server restarted!</p>
-
-                  <p><a href="/blog/2018/12/02/automatic-reload-for-rapid-development/#section-2">Continue reading Automatic Reload for Rapid Development...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/01/welcome-mojoconf-recap/">Welcome &amp; MojoConf Recap</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-01">Dec  1, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="View from fjord" src="/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Welcome to another year of the Mojolicious Advent Calendar!
-2018 has been very good to Mojolicious and I could think of no better way to kick off this calendar than with a recap of the 2018 Nordic Perl Workshop and MojoConf held in Oslo, Norway.</p>
-
-                  <p><a href="/blog/2018/12/01/welcome-mojoconf-recap/#section-2">Continue reading Welcome &amp; MojoConf Recap...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/03/18/graphql-openapi/">Mojolicious, OpenAPI - and GraphQL</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-03-18">Mar 18, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="cables in a patch panel" src="/blog/2018/03/18/graphql-openapi/1280px-Nanoscience_High-Performance_Computing_Facility.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><h2>How to easily add a GraphQL interface to the public REST API of your Mojolicious application</h2>
-
-<p>During the Mojolicious 2017 Advent calendar series, we looked at <a href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/">how to build a public REST API using Mojolicious</a>. A technology that is getting a lot of buzz is <a href="http://graphql.org/learn/">GraphQL</a>. Now that it has been <a href="https://metacpan.org/pod/GraphQL">ported to Perl 5</a>, what if there were an easy way to let people access your API using it?</p>
-
-                  <p><a href="/blog/2018/03/18/graphql-openapi/#section-2">Continue reading Mojolicious, OpenAPI - and GraphQL...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><a class="page-numbers prev" href="/blog/page/2/" rel="prev">Prev</a></li>
-              
-              <li><span class="page-numbers next inactive">Next</span></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -450,7 +352,7 @@ window automatically reloaded every time the web server restarted!</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 
