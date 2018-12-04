@@ -18,7 +18,7 @@ data:
 ---
 When people tell me that I can't (they mean shouldn't) parse HTML with a regex, I say "hold my beer". It isn't a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I've been using [Mojo::DOM](https://mojolicious.org/perldoc/Mojo/DOM) to do it for me. It's easier than the old, expedient way.
 ---
-The trick was always to isolate the intere    thinsting HTML. I could do that excising all of the data around the interesting parts:
+The trick was always to isolate the interesting HTML. I could do that excising all of the data around the interesting parts:
 
 	my $html = ...;
 	$html =~ s/.*?<table class="foo".*?>//;
