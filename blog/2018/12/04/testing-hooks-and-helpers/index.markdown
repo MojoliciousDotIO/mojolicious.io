@@ -30,6 +30,7 @@ a [plugin](https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-
 or
 a [helper](https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers)?
 We can test all those things, too!
+---
 
 # Hooks
 
