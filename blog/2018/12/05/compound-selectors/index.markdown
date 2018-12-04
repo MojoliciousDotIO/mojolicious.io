@@ -7,7 +7,7 @@ tags:
     - advent
 images:
   banner:
-    src: 'banner.jpg'
+    src: '/blog/2018/12/05/compound-selectors/banner.jpg'
     alt: 'Sled dogs waiting to run'
     data:
       attribution: |-
