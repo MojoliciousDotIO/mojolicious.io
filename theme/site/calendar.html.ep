@@ -21,7 +21,7 @@
   % for my $day (@{ $page->data->{calendar} }) {
     % my $date = DateTimeObj->coerce($day->{date});
     % my $day_of_month = $day->{day} // $date->day;
-    % if (($date lt $build_date) && (my $title = $day->{title})) {
+    % if (($date <= $build_date) && (my $title = $day->{title})) {
     <time datetime="<%= $day->{date} %>" class="hidden">
       <a href="<%= $day->{href} // '#' %>">
         %# img could include srcset
