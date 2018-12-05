@@ -2,11 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-04T00:00:00Z</updated>
+    <updated>2018-12-05T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/05/compound-selectors/</id>
+        <title>Day 5: Compound Selectors are Easier than Regexes</title>
+        <author><name>brian d foy</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/05/compound-selectors/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>When people tell me that I can&#39;t (they mean shouldn&#39;t) parse HTML with a regex, I say &quot;hold my beer&quot;. It isn&#39;t a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I&#39;ve been using <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> to do it for me. It&#39;s easier than the old, expedient way.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-05T00:00:00Z</updated>
+        <category term="promises" />
+        <category term="advent" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</id>
         <title>Day 4: Testing Hooks and Helpers</title>
@@ -112,32 +132,6 @@ window automatically reloaded every time the web server restarted!</p>
         <updated>2018-12-01T00:00:00Z</updated>
         <category term="advent" />
         <category term="mojoconf" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/03/18/graphql-openapi/</id>
-        <title>Mojolicious, OpenAPI - and GraphQL</title>
-        <author><name>Ed J</name></author>
-        <link href="https://mojolicious.io/blog/2018/03/18/graphql-openapi/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <h2>How to easily add a GraphQL interface to the public REST API of your Mojolicious application</h2>
-
-<p>During the Mojolicious 2017 Advent calendar series, we looked at <a href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/">how to build a public REST API using Mojolicious</a>. A technology that is getting a lot of buzz is <a href="http://graphql.org/learn/">GraphQL</a>. Now that it has been <a href="https://metacpan.org/pod/GraphQL">ported to Perl 5</a>, what if there were an easy way to let people access your API using it?</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/03/18/graphql-openapi/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/api/">api</a>
-                    <a href="https://mojolicious.io/blog/tag/openapi/">openapi</a>
-                    <a href="https://mojolicious.io/blog/tag/swagger/">swagger</a>
-                    <a href="https://mojolicious.io/blog/tag/graphql/">graphql</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-03-18T00:00:00Z</updated>
-        <category term="api" />
-        <category term="openapi" />
-        <category term="swagger" />
-        <category term="graphql" />
     </entry>
 </feed>
 

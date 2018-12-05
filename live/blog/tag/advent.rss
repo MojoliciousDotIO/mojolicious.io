@@ -7,6 +7,25 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 5: Compound Selectors are Easier than Regexes</title>
+            <link>https://mojolicious.io/blog/2018/12/05/compound-selectors/</link>
+            <guid>https://mojolicious.io/blog/2018/12/05/compound-selectors/</guid>
+            <description><![CDATA[
+                <p>When people tell me that I can&#39;t (they mean shouldn&#39;t) parse HTML with a regex, I say &quot;hold my beer&quot;. It isn&#39;t a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I&#39;ve been using <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> to do it for me. It&#39;s easier than the old, expedient way.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 05 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 4: Testing Hooks and Helpers</title>
             <link>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</link>
             <guid>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</guid>
@@ -106,28 +125,6 @@ window automatically reloaded every time the web server restarted!</p>
             ]]></description>
             <pubDate>
                 Sat, 01 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 24: Release and Wrap-Up</title>
-            <link>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</link>
-            <guid>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</guid>
-            <description><![CDATA[
-                <p>Over the course of this advent calendar, we have discussed the <a href="https://mojolicious.io/blog/tag/wishlist/">Wishlist example application</a> several times.
-We used it to motivate discussions about <a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">templates</a>, <a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/">models</a>, <a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/">installable apps</a>, and <a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/">testing</a>.
-In this post I want to use it somewhat differently.
-I would like to motivate you, the reader, into action in a few different ways.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 24 Dec 2017 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
