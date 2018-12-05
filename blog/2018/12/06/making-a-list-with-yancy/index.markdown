@@ -1,5 +1,5 @@
 ---
-title: Making A List with Yancy
+title: Day 6: Making A List with Yancy
 disable_content_template: 1
 tags:
     - advent

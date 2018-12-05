@@ -1,6 +1,6 @@
 ---
 status: published
-title: Compound Selectors are Easier than Regexes
+title: Day 5: Compound Selectors are Easier than Regexes
 author: brian d foy
 tags:
     - promises

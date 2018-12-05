@@ -7,7 +7,7 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
-            <title>Testing Hooks and Helpers</title>
+            <title>Day 4: Testing Hooks and Helpers</title>
             <link>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</link>
             <guid>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</guid>
             <description><![CDATA[
@@ -38,7 +38,7 @@ We can test all those things, too!</p>
             </pubDate>
         </item>
         <item>
-            <title>Higher Order Promises</title>
+            <title>Day 3: Higher Order Promises</title>
             <link>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</link>
             <guid>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</guid>
             <description><![CDATA[
@@ -59,7 +59,7 @@ We can test all those things, too!</p>
             </pubDate>
         </item>
         <item>
-            <title>Automatic Reload for Rapid Development</title>
+            <title>Day 2: Automatic Reload for Rapid Development</title>
             <link>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</link>
             <guid>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</guid>
             <description><![CDATA[
@@ -89,7 +89,7 @@ window automatically reloaded every time the web server restarted!</p>
             </pubDate>
         </item>
         <item>
-            <title>Welcome &amp; MojoConf Recap</title>
+            <title>Day 1: Welcome &amp; MojoConf Recap</title>
             <link>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</link>
             <guid>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</guid>
             <description><![CDATA[

@@ -1,6 +1,6 @@
 ---
 status: published
-title: Higher Order Promises
+title: Day 3: Higher Order Promises
 author: brian d foy
 tags:
     - promises

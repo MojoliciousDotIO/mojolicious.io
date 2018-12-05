@@ -9,7 +9,7 @@
 
     <entry>
         <id>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</id>
-        <title>Testing Hooks and Helpers</title>
+        <title>Day 4: Testing Hooks and Helpers</title>
         <author><name>Doug Bell</name></author>
         <link href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/" rel="alternate" />
         <content type="html"><![CDATA[

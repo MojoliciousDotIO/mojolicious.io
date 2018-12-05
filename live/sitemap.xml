@@ -4,7 +4,7 @@
         <loc>https://mojolicious.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2018-12-03</lastmod>
+        <lastmod>2018-12-04</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/</loc>
@@ -466,7 +466,7 @@
         <loc>https://mojolicious.io/page/advent/2017/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2018-12-03</lastmod>
+        <lastmod>2018-12-04</lastmod>
     </url>
 </urlset>
 

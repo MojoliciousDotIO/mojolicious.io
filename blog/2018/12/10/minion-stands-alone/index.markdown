@@ -1,5 +1,5 @@
 ---
-title: Minion Stands Alone
+title: Day 10: Minion Stands Alone
 disable_content_template: 1
 tags:
     - advent

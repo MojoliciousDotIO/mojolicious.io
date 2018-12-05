@@ -1,5 +1,5 @@
 ---
-title: You Only Export Twice
+title: Day 19: You Only Export Twice
 disable_content_template: 1
 tags:
     - advent

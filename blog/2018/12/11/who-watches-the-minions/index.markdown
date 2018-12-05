@@ -1,5 +1,5 @@
 ---
-title: Who Watches The Minions
+title: Day 11: Who Watches The Minions
 disable_content_template: 1
 tags:
     - advent

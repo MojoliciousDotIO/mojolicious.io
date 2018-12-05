@@ -1,5 +1,5 @@
 ---
-title: Authenticating with LDAP
+title: Day 8: Authenticating with LDAP
 disable_content_template: 1
 tags:
     - advent

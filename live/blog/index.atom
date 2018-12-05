@@ -9,7 +9,7 @@
 
     <entry>
         <id>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</id>
-        <title>Testing Hooks and Helpers</title>
+        <title>Day 4: Testing Hooks and Helpers</title>
         <author><name>Doug Bell</name></author>
         <link href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/" rel="alternate" />
         <content type="html"><![CDATA[
@@ -41,7 +41,7 @@ We can test all those things, too!</p>
     </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</id>
-        <title>Higher Order Promises</title>
+        <title>Day 3: Higher Order Promises</title>
         <author><name>brian d foy</name></author>
         <link href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/" rel="alternate" />
         <content type="html"><![CDATA[
@@ -63,7 +63,7 @@ We can test all those things, too!</p>
     </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</id>
-        <title>Automatic Reload for Rapid Development</title>
+        <title>Day 2: Automatic Reload for Rapid Development</title>
         <author><name>Doug Bell</name></author>
         <link href="https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/" rel="alternate" />
         <content type="html"><![CDATA[
@@ -94,7 +94,7 @@ window automatically reloaded every time the web server restarted!</p>
     </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</id>
-        <title>Welcome &amp; MojoConf Recap</title>
+        <title>Day 1: Welcome &amp; MojoConf Recap</title>
         <author><name>Joel Berger</name></author>
         <link href="https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/" rel="alternate" />
         <content type="html"><![CDATA[

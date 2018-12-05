@@ -1,5 +1,5 @@
 ---
-title: Welcome & MojoConf Recap
+title: Day 1: Welcome & MojoConf Recap
 tags:
   - advent
   - mojoconf

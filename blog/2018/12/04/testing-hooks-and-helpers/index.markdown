@@ -1,6 +1,6 @@
 ---
 status: published
-title: Testing Hooks and Helpers
+title: Day 4: Testing Hooks and Helpers
 disable_content_template: 1
 tags:
     - advent
