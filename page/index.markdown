@@ -39,7 +39,7 @@ data:
       image: '/blog/2018/12/04/testing-hooks-and-helpers/banner.jpg'
       alt: Day 4: Testing Hooks and Helpers
     - date: 2018-12-05
-      title: Compound Selectors are Easier than Regexes
+      title: Compound Selectors vs Regexes
       href: '/blog/2018/12/05/compound-selectors/'
       image: '/blog/2018/12/05/compound-selectors/banner.jpg'
       alt: Day 7: Compound Selectors are Easier than Regexes

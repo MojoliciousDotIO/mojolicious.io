@@ -205,6 +205,8 @@ I'm not afraid of doing with this with regexes (emphasize plural there!) but it'
     my $grand = sum( @scores );
     say "Grand total: $grand";
 
+*Editor's note: Unfortunately this example breaks our syntax highlighter. This is the site's fault not the author. We accept full blame. We're trying to find a better way to render it short of rewriting the rendering engine.*
+
 ## Conclusion
 
 Even for an old programmer like me, dealing with HTML through CSS Selectors applied by Mojolicious is much easier than what I was doing before (which was dirty and much easier than doing it correctly). With a little skill creating compound selectors, I can get to just about any part I want.
