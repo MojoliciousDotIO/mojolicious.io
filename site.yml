@@ -181,6 +181,11 @@ site:
                     image: 'https://secure.gravatar.com/avatar/b6d0ff68c2e0d081aba1a94e0f413e8c'
                     text: |-
                         Shawn is a long time Perl developer, with a tendency toward infrastructure, tooling, databases and devops.
+                ldidry:
+                    name: Luc Didry
+                    image: '/static/ldidry.png'
+                    text: |-
+                      Luc Didry is a sysAdmin and Perl developer, in love with Perl since he discovered it 10 years ago, and a Mojolicious enthousiast.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
