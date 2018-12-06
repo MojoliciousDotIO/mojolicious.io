@@ -7,6 +7,28 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 6: Making A List with Yancy</title>
+            <link>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</link>
+            <guid>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</guid>
+            <description><![CDATA[
+                <p>In these modern times, with billions of people in the world, Santa needs a
+modern system to keep track of his naughty/nice list. Lucky for Santa, modern
+Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                        <a href="https://mojolicious.io/blog/tag/example/">example</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 06 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 18: The Wishlist Model</title>
             <link>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</link>
             <guid>https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/</guid>
