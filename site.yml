@@ -175,6 +175,12 @@ site:
                     image: '/static/duffee.jpg'
                     text: |-
                       Boyd Duffee has been hanging around the [edges](https://metacpan.org/author/DUFFEE) of the Perl ecosystem for many moons, picking up new bits of shiny to make SysAdmining more interesting.  He's interested in Data Science, Complex Networks and walks in the woods.
+                ssoriche:
+                    name: Shawn Sorichetti
+                    twitter: '@ssoriche'
+                    image: 'https://secure.gravatar.com/avatar/b6d0ff68c2e0d081aba1a94e0f413e8c'
+                    text: |-
+                        Shawn is a long time Perl developer, with a tendency toward infrastructure, tooling, databases and devops.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
