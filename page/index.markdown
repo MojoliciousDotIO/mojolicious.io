@@ -49,6 +49,10 @@ data:
       image: '/blog/2018/12/06/making-a-list-with-yancy/banner.jpg'
       alt: Day 6: Making A List with Yancy
     - date: 2018-12-07
+      title: MetaCPAN, Mojolicious and OpenAPI
+      href: '/blog/2018/12/07/openapi/'
+      image: '/blog/2018/12/07/openapi/banner.jpg'
+      title: Day 7: MetaCPAN, Mojolicious and OpenAPI
     - date: 2018-12-08
       title: Authenticating with LDAP
       href: '/blog/2018/12/08/authenticating-with-ldap/'

@@ -1,5 +1,5 @@
 ---
-title: MetaCPAN, Mojolicious and OpenAPI
+title: Day 7: MetaCPAN, Mojolicious and OpenAPI
 disable_content_template: 1
 tags:
     - advent
