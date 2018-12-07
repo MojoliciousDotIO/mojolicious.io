@@ -16,7 +16,7 @@ images:
         Photo by [Cytonn Photography on Unsplash](https://unsplash.com/photos/GJao3ZTX9gU)
 data:
   bio: ssoriche
-  description: 'Learn how to reload both the server and client on changes during application development.'
+  description: 'Overview of how OpenAPI was integrated into MetaCPAN with Mojolicious.'
 ---
 
 During this years [meta::hack 3](http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/), I was extremely fortunate to work with [Joel Berger](https://twitter.com/joelaberger) on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.
