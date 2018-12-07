@@ -7,6 +7,35 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 7: MetaCPAN, Mojolicious and OpenAPI</title>
+            <link>https://mojolicious.io/blog/2018/12/07/openapi/</link>
+            <guid>https://mojolicious.io/blog/2018/12/07/openapi/</guid>
+            <description><![CDATA[
+                <p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
+
+<h2>What is it?</h2>
+
+<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
+
+<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
+
+<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/07/openapi/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/openapi/">openapi</a>
+                        <a href="https://mojolicious.io/blog/tag/api/">api</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 07 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 6: Making A List with Yancy</title>
             <link>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</link>
             <guid>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</guid>
@@ -97,36 +126,6 @@ We can test all those things, too!</p>
             ]]></description>
             <pubDate>
                 Mon, 03 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 2: Automatic Reload for Rapid Development</title>
-            <link>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</link>
-            <guid>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</guid>
-            <description><![CDATA[
-                <p>Developing webapps with <a href="http://mojolicious.org">Mojolicious</a> is a lot of fun!
-Using <a href="https://mojolicious.org/perldoc/morbo">the <code>morbo</code> server</a> for
-development, every change to my webapp causes a restart to load my changes.
-This way the next request I make has all my new code!</p>
-
-<p>So, I change my code, the webapp restarts, and I go back to my browser window.
-Wait... Where&#39;s my new code? Why isn&#39;t the bug fixed? Did... Did I forget to
-reload my browser window again? Ugh! Of course!</p>
-
-<p>Does this happen to you? Probably not. But, it&#39;s still annoying to reload the
-browser window after every backend code change. It&#39;d be nice if my browser
-window automatically reloaded every time the web server restarted!</p>
-
-                    <p><a href="https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 02 Dec 2018 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

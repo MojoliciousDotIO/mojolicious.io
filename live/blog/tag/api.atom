@@ -2,11 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/api/</id>
     <title>mojolicious.io</title>
-    <updated>2018-03-18T00:00:00Z</updated>
+    <updated>2018-12-07T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/api.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/api/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/07/openapi/</id>
+        <title>Day 7: MetaCPAN, Mojolicious and OpenAPI</title>
+        <author><name>Shawn Sorichetti</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/07/openapi/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
+
+<h2>What is it?</h2>
+
+<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
+
+<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
+
+<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/07/openapi/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                    <a href="https://mojolicious.io/blog/tag/openapi/">openapi</a>
+                    <a href="https://mojolicious.io/blog/tag/api/">api</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-07T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="development" />
+        <category term="openapi" />
+        <category term="api" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/03/18/graphql-openapi/</id>
         <title>Mojolicious, OpenAPI - and GraphQL</title>
