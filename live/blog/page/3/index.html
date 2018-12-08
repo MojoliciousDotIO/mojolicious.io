@@ -104,6 +104,47 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/">Day 23: One-Liners for Fun and Profit</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-23">Dec 23, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Old man playing timed chess" src="/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/chess.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Perl is well-known for its <a href="http://www.catonmat.net/download/perl1line.txt">one-liners</a>: short programs written as part of the <a href="http://perldoc.perl.org/perlrun.html">command line invocation of the interpreter</a>.
+Certainly every programmer or sysadmin has the need, from time to time, to do a quick one-off task programmatically.
+Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of actually doing so.</p>
+
+<p>These tasks may include removing unwanted lines from files, collecting data from logs, or even a quick proof-of-concept of something that would become a script later.
+They can read lines in files, even multiple files, can operate on files in-place, can read from STDIN as a pipe.
+But while one-liners have been tools of the trade for these activities, certainly no such thing would be practical for web tasks, right?</p>
+
+<p>But of course, on <a href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/">day 5</a> and <a href="https://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/">day 6</a> of this series that we saw that we can build command line tools with your app.
+We have even seen how to use the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval">eval</a> command to run a one-liner against your app.
+So could we take this further?</p>
+
+<p>Could we do remote data fetching and manipulation as a one-liner?
+Could we build an entire web application as a one-liner?
+Would I be asking if the answer was no?</p>
+
+                  <p><a href="/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/#section-2">Continue reading Day 23: One-Liners for Fun and Profit...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/">Day 22: A RESTful API with OpenAPI</a></h1>
 
               <p class="post-meta">
@@ -264,48 +305,6 @@ N.B. there is even a DarkPAN tool written using Mojolicious called <a href="http
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/18/day-18-the-wishlist-model/">Day 18: The Wishlist Model</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-18">Dec 18, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Still Life: Vase with Pink Roses by Vincent van Gogh" src="/blog/2017/12/18/day-18-the-wishlist-model/van_gogh_still_life.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
-We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
-That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
-While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
-Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
-
-<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
-I have also added several tags.
-While development on the application may continue, those tags will remain for future readers.</p>
-
-<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
-You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
-
-<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
-At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
-Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
-
-                  <p><a href="/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading Day 18: The Wishlist Model...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -334,6 +333,7 @@ Let&#39;s see how that improves the application and in the meantime, get a look 
     <a href="/blog/tag/advent/">advent</a>
     <a href="/blog/tag/api/">api</a>
     <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/command/">command</a>
     <a href="/blog/tag/debugging/">debugging</a>
     <a href="/blog/tag/development/">development</a>
@@ -344,6 +344,7 @@ Let&#39;s see how that improves the application and in the meantime, get a look 
     <a href="/blog/tag/growing/">growing</a>
     <a href="/blog/tag/hello-world/">hello world</a>
     <a href="/blog/tag/installing/">installing</a>
+    <a href="/blog/tag/ldap/">LDAP</a>
     <a href="/blog/tag/lite/">lite</a>
     <a href="/blog/tag/mocking/">mocking</a>
     <a href="/blog/tag/model/">model</a>

@@ -2,11 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-07T00:00:00Z</updated>
+    <updated>2018-12-08T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/</id>
+        <title>Day 8: Authenticating with LDAP</title>
+        <author><name>Boyd Duffee</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>There are still quite a few people using LDAP in production,
+but for those who are new to it,
+LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
+It used to be very common as a centralised authentication system
+and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
+I wander through the wilderness of authentication,
+ending with my solution on how to add LDAP authentication to your App.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/ldap/">LDAP</a>
+                    <a href="https://mojolicious.io/blog/tag/authentication/">authentication</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-08T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="LDAP" />
+        <category term="authentication" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/07/openapi/</id>
         <title>Day 7: MetaCPAN, Mojolicious and OpenAPI</title>
@@ -114,28 +142,6 @@ We can test all those things, too!</p>
         <updated>2018-12-04T00:00:00Z</updated>
         <category term="advent" />
         <category term="testing" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</id>
-        <title>Day 3: Higher Order Promises</title>
-        <author><name>brian d foy</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <h2>Create new, complex Promises by composing Promises</h2>
-
-<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-03T00:00:00Z</updated>
-        <category term="promises" />
-        <category term="advent" />
     </entry>
 </feed>
 
