@@ -185,7 +185,7 @@ site:
                     name: Luc Didry
                     image: '/static/ldidry.png'
                     text: |-
-                      Luc Didry is a sysAdmin and Perl developer, in love with Perl since he discovered it 10 years ago, and a Mojolicious enthousiast.
+                      Luc Didry is a sysAdmin and Perl developer, in love with Perl since he discovered it 10 years ago, and a Mojolicious enthusiast.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what

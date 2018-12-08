@@ -59,6 +59,10 @@ data:
       image: '/blog/2018/12/08/authenticating-with-ldap/banner.jpg'
       alt: Day 8: Authenticating with LDAP
     - date: 2018-12-09
+      title: Add a theme system
+      href: '/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/'
+      image: '/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/banner.jpg'
+      alt: Day 9: Add a theme system to your Mojolicious app
     - date: 2018-12-10
       title: Minion Stands Alone
       href: '/blog/2018/12/10/minion-stands-alone/'

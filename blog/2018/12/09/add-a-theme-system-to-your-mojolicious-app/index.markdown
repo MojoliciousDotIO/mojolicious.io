@@ -1,5 +1,5 @@
 ---
-title: Add a theme system to your Mojolicious app
+title: Day 9: Add a theme system to your Mojolicious app
 status: published
 tags:
   - theme
@@ -23,7 +23,9 @@ But all those direct modifications may not survive on update of the app: they wi
 
 Let's see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.
 
-------------------
+---
+
+## A fresh application
 
 When you create a new Mojolicious app with `mojo generate MyApplication`, these are the default directories that will serve files and their default contents to be served:
 
