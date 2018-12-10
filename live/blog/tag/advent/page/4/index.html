@@ -104,6 +104,48 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2017/12/18/day-18-the-wishlist-model/">Day 18: The Wishlist Model</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-18">Dec 18, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Still Life: Vase with Pink Roses by Vincent van Gogh" src="/blog/2017/12/18/day-18-the-wishlist-model/van_gogh_still_life.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
+We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
+That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
+While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
+Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
+
+<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
+I have also added several tags.
+While development on the application may continue, those tags will remain for future readers.</p>
+
+<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
+You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
+
+<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
+At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
+Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
+
+                  <p><a href="/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading Day 18: The Wishlist Model...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2017/12/17/day-17-the-wishlist-app/">Day 17: The Wishlist App</a></h1>
 
               <p class="post-meta">
@@ -238,45 +280,6 @@ your site&#39;s content can be in
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/13/day-13-more-about-roles/">Day 13: More About Roles</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-13">Dec 13, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Pile of hats" src="/blog/2017/12/13/day-13-more-about-roles/amsterdam_hats.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Before we get ahead of ourselves, what are roles?
-Briefly stated, roles enable composing functionality (usually methods) into a class without without implying a change of inheritence.
-Said another way, roles let you specify what a class does without changing what it is.
-For a better description, check out Toby Inkster&#39;s article <a href="http://radar.oreilly.com/2014/01/horizontal-reuse-an-alternative-to-inheritance.html">Horizontal Reuse: An Alternative to Inheritance</a>.</p>
-
-<p>An important utility of roles is that you can easily use more than one role at the same time in the same consuming class.
-With inheritance, especially of third-party functionality, you have to choose one set of extensions to utilize.
-This is because the author of the subclass establishes the inheritance.
-In roles, the user determines which roles to compose into the base class.</p>
-
-<p><a href="/blog/2017/12/12/day-12-more-than-a-base-class">Yesterday</a> I ended the discussion of <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> before discussing the roles support.
-Added in several installments between Mojolicious versions <a href="https://metacpan.org/release/SRI/Mojolicious-7.40">7.40</a> and <a href="https://metacpan.org/release/SRI/Mojolicious-7.55">7.55</a>, this role support is one of the most recently added features in the ecosystem (along with <a href="http://mojolicious.org/perldoc/Mojo/Promise">promises</a>, which will be covered in <a href="/blog/2017/12/14/day-14-you-promised-to-call">an upcoming article</a>).
-The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role::Tiny</a> which is an optional dependency in Mojolicious, but is required in order to use the functionality that I will describe.</p>
-
-                  <p><a href="/blog/2017/12/13/day-13-more-about-roles/#section-2">Continue reading Day 13: More About Roles...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -334,6 +337,7 @@ The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role:
     <a href="/blog/tag/template/">template</a>
     <a href="/blog/tag/templates/">templates</a>
     <a href="/blog/tag/testing/">testing</a>
+    <a href="/blog/tag/theme/">theme</a>
     <a href="/blog/tag/useragent/">useragent</a>
     <a href="/blog/tag/wishlist/">wishlist</a>
     <a href="/blog/tag/yancy/">yancy</a>

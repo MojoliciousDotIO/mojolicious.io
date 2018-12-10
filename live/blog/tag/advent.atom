@@ -2,11 +2,38 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-08T00:00:00Z</updated>
+    <updated>2018-12-09T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/</id>
+        <title>Day 9: Add a theme system to your Mojolicious app</title>
+        <author><name>Luc Didry</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>You wrote an awesome Mojolicious app, and people use it.
+Marvellous!
+But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
+
+<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
+But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
+
+<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/theme/">theme</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-09T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="theme" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/</id>
         <title>Day 8: Authenticating with LDAP</title>
@@ -110,38 +137,6 @@ Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a
         <updated>2018-12-05T00:00:00Z</updated>
         <category term="promises" />
         <category term="advent" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</id>
-        <title>Day 4: Testing Hooks and Helpers</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
-<a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
-<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
-applications</a>
-(even for <a href="https://metacpan.org/pod/Test::Mojo::Role::PSGI">testing in other web
-frameworks</a>).</p>
-
-<p>But what if what I need to test isn&#39;t a route? What if it&#39;s
-a <a href="https://mojolicious.org/perldoc/Mojolicious#HOOKS">hook</a>,
-a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-plugin-to-your-application">plugin</a>,
-or
-a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers">helper</a>?
-We can test all those things, too!</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-04T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="testing" />
     </entry>
 </feed>
 

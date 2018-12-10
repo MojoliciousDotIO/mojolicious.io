@@ -2,6 +2,7 @@
 title: Day 9: Add a theme system to your Mojolicious app
 status: published
 tags:
+  - advent
   - theme
 author: Luc Didry
 images:
