@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/tag/api/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/" property="og:url">
+  <meta content="Day 10: Minion Stands Alone" property="og:title">
+    <meta content="Learn how to use the Minion job queue without needing a Mojolicious web application" property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Day 10: Minion Stands Alone - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/tag/api.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/tag/api.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/07/openapi/">Day 7: MetaCPAN, Mojolicious and OpenAPI</a></h1>
+              <h1>Day 10: Minion Stands Alone</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2018-12-07">Dec  7, 2018</time>
+                  <time class="date" datetime="2018-12-10">Dec 10, 2018</time>
                   
 
               </p>
@@ -117,144 +119,184 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Contract signing" src="/blog/2018/12/07/openapi/banner.jpg">
+                <img alt="Minion logo in front of a faded Mojolicious cloud, original artwork by Doug Bell" src="/blog/2018/12/10/minion-stands-alone/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
 
-<h2>What is it?</h2>
+              <section id="section-1">
+                  <p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
+incredibly useful tool, but sometimes I need to use it for non-web
+projects. So, how can I use Minion without needing
+a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
 
-<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
+              </section>
+              <section id="section-2">
+                  <p>If I don&#39;t have a large enough set of jobs to need the task organization
+provided by <a href="https://metacpan.org/pod/Beam::Minion">Beam::Minion</a>, and although
+Minion can be used as a <a href="https://mojolicious.org/perldoc/Minion#SYNOPSIS">fully stand-alone
+library</a> the easiest solution
+is just to build a Mojolicious app. Lucky for me, a Mojolicious app can be just
+2 lines:</p>
 
-<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
+<pre><code>use Mojolicious::Lite;
+app-&gt;start;
+</code></pre>
 
-<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
+<p>Now, if I never run a web daemon, this will never be a website. So, can
+this be called a web application if nobody ever uses a web browser to
+access it? 🤔</p>
 
-                  <p><a href="/blog/2018/12/07/openapi/#section-2">Continue reading Day 7: MetaCPAN, Mojolicious and OpenAPI...</a></p>
-            </div>
+<h2>Add Minion</h2>
 
-        </article>
-        <article class="post">
+<p>To use Minion, add the Minion plugin to the app. For this example, I&#39;ll
+use <a href="https://metacpan.org/pod/Minion::Backend::SQLite">the SQLite Minion
+backend</a> so that
+I don&#39;t need a separate database process running, but Minion can work
+across multiple machines if you have a database that accepts remote
+connections.</p>
 
-            <div class="entry-header cf">
+<pre><code>plugin Minion =&gt; {
+    SQLite =&gt; &#39;sqlite:&#39; . app-&gt;home-&gt;child(&#39;minion.db&#39;),
+};
+</code></pre>
 
-            <h1><a href="/blog/2018/03/18/graphql-openapi/">Mojolicious, OpenAPI - and GraphQL</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-03-18">Mar 18, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="cables in a patch panel" src="/blog/2018/03/18/graphql-openapi/1280px-Nanoscience_High-Performance_Computing_Facility.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><h2>How to easily add a GraphQL interface to the public REST API of your Mojolicious application</h2>
-
-<p>During the Mojolicious 2017 Advent calendar series, we looked at <a href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/">how to build a public REST API using Mojolicious</a>. A technology that is getting a lot of buzz is <a href="http://graphql.org/learn/">GraphQL</a>. Now that it has been <a href="https://metacpan.org/pod/GraphQL">ported to Perl 5</a>, what if there were an easy way to let people access your API using it?</p>
-
-                  <p><a href="/blog/2018/03/18/graphql-openapi/#section-2">Continue reading Mojolicious, OpenAPI - and GraphQL...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/">Day 22: A RESTful API with OpenAPI</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-22">Dec 22, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="A hammock on a beach" src="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/hammock_beach.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>The <a href="https://www.openapis.org/">OpenAPI</a> Specification (formerly named
-Swagger) is an API description format for REST APIs. An API specification
-written using the the rules set by the Open API Initiative can be used to
-describe:</p>
+<p>With the Minion plugin loaded, my application gains some new features:</p>
 
 <ul>
-<li>All the available endpoints. An endpoint is a unique resource that can
-access or modify a given object.</li>
-<li>Input parameters, such as headers, query parameters and/or body parameters.</li>
-<li>The structure of the response, including headers status codes and the body -
-if any.</li>
-<li>Authentication methods</li>
-<li>Contact information, license, terms of use and other information</li>
+<li>I can add Minion tasks (runnable bits of code) with the
+<a href="https://mojolicious.org/perldoc/Minion#add_task"><code>minion.add_task</code></a>
+helper</li>
+<li>I can enqueue jobs in multiple ways:
+<ul>
+<li>From the command-line with <a href="https://mojolicious.org/perldoc/Minion/Command/minion/job">the <code>minion job</code>
+command</a></li>
+<li>From inside the application with <a href="https://mojolicious.org/perldoc/Minion#enqueue1">the <code>minion.enqueue</code>
+helper</a></li>
+<li>From any Perl script by loading Minion and using <a href="https://mojolicious.org/perldoc/Minion#enqueue1">the enqueue
+method</a></li>
+</ul></li>
+<li>I can run a Minion worker with <a href="https://mojolicious.org/perldoc/Minion/Command/minion/worker">the <code>minion worker</code>
+command</a>,
+which will execute any enqueued jobs</li>
 </ul>
 
-<p>This post look into how to write an API specification and how to use it
-together with
-<a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">Mojolicious::Plugin::OpenAPI</a>
-and <a href="https://metacpan.org/pod/OpenAPI::Client">OpenAPI::Client</a>.</p>
+<h2>Create a Task</h2>
 
-                  <p><a href="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/#section-2">Continue reading Day 22: A RESTful API with OpenAPI...</a></p>
-            </div>
+<p>I&#39;ll create a task called <code>check_url</code> to check how long it takes to
+download a URL. The
+<a href="https://perldoc.perl.org/Time/HiRes.html">Time::HiRes</a> core module will
+give me high resolution times.</p>
 
-        </article>
-        <article class="post">
+<pre><code>#!/usr/bin/env perl
 
-            <div class="entry-header cf">
+use v5.28;
+use Mojolicious::Lite;
+use experimental qw( signatures );
+use Time::HiRes qw( time );
 
-            <h1><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/">Day 8: Mocking a REST API</a></h1>
+plugin Minion =&gt; {
+    SQLite =&gt; &#39;sqlite:&#39; . app-&gt;home-&gt;child(&#39;minion.db&#39;),
+};
 
-              <p class="post-meta">
+app-&gt;minion-&gt;add_task(
+    check_url =&gt; sub( $job, $url ) {
+        my $start = time;
+        my $tx = $job-&gt;app-&gt;ua-&gt;head( $url );
+        my $elapsed = time - $start;
+        $job-&gt;app-&gt;log-&gt;info(
+            sprintf &#39;Fetching %s took %.3f seconds&#39;, $url, $elapsed
+        );
+        # If there&#39;s an error loading the web page, fail the job
+        if ( $tx-&gt;error ) {
+            $job-&gt;app-&gt;log-&gt;error(
+                sprintf &#39;Error loading URL (%s): %s (%s)&#39;,
+                    $url, @{ $tx-&gt;error }{qw( code message )},
+            );
+            return $job-&gt;fail(
+                sprintf &#39;%s: %s&#39;, @{ $tx-&gt;error }{qw( code message )}
+            );
+        }
+        $job-&gt;finish( $elapsed );
+    },
+);
 
-                  <time class="date" datetime="2017-12-08">Dec  8, 2017</time>
-                  
+app-&gt;start;
+</code></pre>
 
+<h2>Enqueuing Jobs</h2>
+
+<p>Now that I have a task, I can enqueue some jobs. I can add jobs using
+<a href="https://mojolicious.org/perldoc/Minion/Command/minion/job">the <code>minion job</code>
+command</a>:</p>
+
+<pre><code>$ perl myapp.pl minion job -e check_url -a &#39;[&quot;http://mojolicious.org&quot;]&#39;
+</code></pre>
+
+<p>Or from inside of another Perl script by loading Minion and using <a href="https://mojolicious.org/perldoc/Minion#enqueue1">the
+enqueue method</a>:</p>
+
+<pre><code>#!/usr/bin/env perl
+use Minion;
+my $minion = Minion-&gt;new(
+    SQLite =&gt; &#39;sqlite:minion.db&#39;, # The same database as the worker
+);
+$minion-&gt;enqueue(
+    check_url =&gt; [&#39;http://mojolicious.org&#39;],
+);
+</code></pre>
+
+<h2>Running a Worker</h2>
+
+<p>I&#39;ve enqueued jobs, but nothing&#39;s happening, and nothing will happen
+until I run a worker using <a href="https://mojolicious.org/perldoc/Minion/Command/minion/worker">the <code>minion worker</code>
+command</a>:</p>
+
+<pre><code>$ perl myapp.pl minion worker
+</code></pre>
+
+<p>Once the worker starts up, it will immediately begin processing the jobs
+I told it to run.</p>
+
+<p>And that&#39;s it! I&#39;m using Minion without a Mojolicious
+web application. View the source of the <a href="minion.pl">Minion app</a> and the
+<a href="enqueue.pl">enqueue.pl script</a>.</p>
+
+              </section>
+              <small><p>Original artwork by Doug Bell, released under CC-BY-SA 4.0. It includes
+a screenshot of the Mojolicious.org website (fair use), the Mojolicious
+logo (CC-BY-SA 4.0), and the Minion logo (CC-BY-SA 4.0)</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/advent/">advent</a>,
+                  <a href="/blog/tag/minion/">minion</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Two crash test dummies" src="/blog/2017/12/08/day-8-mocking-a-rest-api/1280px-crash-test-dummies.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>One of my applications is a pure-JavaScript UI for a JSON API. This UI
-is an entirely different project that communicates with a public API
-using an OpenAPI specification.</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-<p>Our public API is huge and complex: To set up the public API, I need
-a database, sample data, and three other private API servers that
-perform individual tasks as directed by the public API. Worse, I would
-need to set up a lot of different test scenarios with different kinds of
-data.</p>
+                      </div>
 
-<p>It would be a lot easier to set up a mock public API that I could use to
-test my UI, and it turns out that Mojolicious makes this very easy.</p>
+                  </div>
 
-                  <p><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/#section-2">Continue reading Day 8: Mocking a REST API...</a></p>
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/index.html" rel="prev"><strong>Previous Article</strong> Day 9: Add a theme system to your Mojolicious app</a></li>
+              </ul>
+
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><span class="page-numbers prev inactive">Prev</span></li>
-              
-              <li><span class="page-numbers next inactive">Next</span></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -317,7 +359,7 @@ test my UI, and it turns out that Mojolicious makes this very easy.</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/minion/</id>
+    <title>mojolicious.io</title>
+    <updated>2018-12-10T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/minion.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/minion/" rel="alternate" />
+    <generator version="0.093">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</id>
+        <title>Day 10: Minion Stands Alone</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
+incredibly useful tool, but sometimes I need to use it for non-web
+projects. So, how can I use Minion without needing
+a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-10T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="minion" />
+    </entry>
+</feed>
+
