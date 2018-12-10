@@ -3,7 +3,7 @@
 %# build_date is added in a Statocles patch see https://github.com/jberger/Statocles/tree/build_date
 % use Statocles::Types 'DateTimeObj';
 % use DateTime::Moonpig;
-% my $build_date = $site->can('build_date') ? $site->build_date : DateTime::Moonpig->now( time_zone => 'local' )->ymd;
+% my $build_date = $site->can('build_date') ? $site->build_date : DateTime::Moonpig->now( time_zone => 'local' );
 <!-- build date: <%= $build_date %> -->
 
 % content 'component-head' => begin
