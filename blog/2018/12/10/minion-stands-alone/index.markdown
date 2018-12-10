@@ -26,9 +26,11 @@ a [Mojolicious](http://mojolicious.org) web application?
 ---
 
 If I don't have a large enough set of jobs to need the task organization
-provided by [Beam::Minion](https://metacpan.org/pod/Beam::Minion), the
-easiest solution is just to build a Mojolicious app. Lucky for me,
-a Mojolicious app can be just 2 lines:
+provided by [Beam::Minion](https://metacpan.org/pod/Beam::Minion), and although
+Minion can be used as a [fully stand-alone
+library](https://mojolicious.org/perldoc/Minion#SYNOPSIS) the easiest solution
+is just to build a Mojolicious app. Lucky for me, a Mojolicious app can be just
+2 lines:
 
     use Mojolicious::Lite;
     app->start;
