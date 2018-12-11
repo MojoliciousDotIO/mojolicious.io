@@ -2,11 +2,35 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-10T00:00:00Z</updated>
+    <updated>2018-12-11T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</id>
+        <title>Day 11: Who Watches The Minions</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
+queue</a>, I need to take care of
+it properly. Are the workers working (have they seized the means of
+production)? Are jobs completing successfully? Are there any errors?
+What are they?</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-11T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="minion" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</id>
         <title>Day 10: Minion Stands Alone</title>
@@ -116,30 +140,6 @@ ending with my solution on how to add LDAP authentication to your App.</p>
         <category term="development" />
         <category term="openapi" />
         <category term="api" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</id>
-        <title>Day 6: Making A List with Yancy</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>In these modern times, with billions of people in the world, Santa needs a
-modern system to keep track of his naughty/nice list. Lucky for Santa, modern
-Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
-                    <a href="https://mojolicious.io/blog/tag/example/">example</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-06T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="yancy" />
-        <category term="example" />
     </entry>
 </feed>
 

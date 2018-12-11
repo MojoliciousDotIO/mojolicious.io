@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/page/2/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/" property="og:url">
+  <meta content="Day 11: Who Watches The Minions" property="og:title">
+    <meta content="Check the status of a Minion job queue using commands and the Minion::Admin UI" property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Day 11: Who Watches The Minions - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/06/making-a-list-with-yancy/">Day 6: Making A List with Yancy</a></h1>
+              <h1>Day 11: Who Watches The Minions</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2018-12-06">Dec  6, 2018</time>
+                  <time class="date" datetime="2018-12-11">Dec 11, 2018</time>
                   
 
               </p>
@@ -117,159 +119,150 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Santa making a list" src="/blog/2018/12/06/making-a-list-with-yancy/banner.jpg">
+                <img alt="Minion logo in the middle of binocular circles, original artwork by Doug Bell" src="/blog/2018/12/11/who-watches-the-minions/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>In these modern times, with billions of people in the world, Santa needs a
-modern system to keep track of his naughty/nice list. Lucky for Santa, modern
-Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
 
-                  <p><a href="/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading Day 6: Making A List with Yancy...</a></p>
-            </div>
+              <section id="section-1">
+                  <p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
+queue</a>, I need to take care of
+it properly. Are the workers working (have they seized the means of
+production)? Are jobs completing successfully? Are there any errors?
+What are they?</p>
 
-        </article>
-        <article class="post">
+              </section>
+              <section id="section-2">
+                  <h2>Minion Jobs Command</h2>
 
-            <div class="entry-header cf">
+<p>Minion comes with a <a href="https://mojolicious.org/perldoc/Minion/Command/minion/job"><code>job</code>
+command</a> that
+lists the jobs and their statuses.</p>
 
-            <h1><a href="/blog/2018/12/05/compound-selectors/">Day 5: Compound Selectors are Easier than Regexes</a></h1>
+<pre><code>$ perl myapp.pl minion job
+6  inactive  default  check_url
+5  active    default  check_url
+4  failed    default  check_url
+3  failed    default  check_url
+2  finished  default  check_url
+1  finished  default  check_url
+</code></pre>
 
-              <p class="post-meta">
+<p>I can look at an individual job&#39;s information by passing in the job&#39;s
+ID.</p>
 
-                  <time class="date" datetime="2018-12-05">Dec  5, 2018</time>
-                  
+<pre><code>$ perl minion.pl minion job 1
+{
+  &quot;args&quot; =&gt; [
+    &quot;http://mojolicious.org&quot;
+  ],
+  &quot;attempts&quot; =&gt; 1,
+  &quot;children&quot; =&gt; [],
+  &quot;created&quot; =&gt; &quot;2018-11-23T19:15:47Z&quot;,
+  &quot;delayed&quot; =&gt; &quot;2018-11-23T19:15:47Z&quot;,
+  &quot;finished&quot; =&gt; &quot;2018-11-23T19:15:48Z&quot;,
+  &quot;id&quot; =&gt; 1,
+  &quot;notes&quot; =&gt; {},
+  &quot;parents&quot; =&gt; [],
+  &quot;priority&quot; =&gt; 0,
+  &quot;queue&quot; =&gt; &quot;default&quot;,
+  &quot;result&quot; =&gt; &quot;0.0716841220855713&quot;,
+  &quot;retried&quot; =&gt; undef,
+  &quot;retries&quot; =&gt; 0,
+  &quot;started&quot; =&gt; &quot;2018-11-23T19:15:47Z&quot;,
+  &quot;state&quot; =&gt; &quot;finished&quot;,
+  &quot;task&quot; =&gt; &quot;check_url&quot;,
+  &quot;worker&quot; =&gt; 1
+}
+</code></pre>
 
+<p>But, it&#39;d be a lot nicer if I didn&#39;t have to open a terminal, open an
+SSH connection, and run a command to look at the status of my Minion.</p>
+
+<h2>Minion Admin UI</h2>
+
+<p>I said I didn&#39;t have a web application, and I don&#39;t. But if I want
+a simple web application to check on the status of the Minion workers
+and read the results of jobs, Minion comes with <a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/Minion/Admin">an Admin UI
+plugin</a>.</p>
+
+<p>I can add the Minion::Admin plugin the same way I added the Minion
+plugin:</p>
+
+<pre><code>use Mojolicious::Lite;
+plugin Minion =&gt; {
+    SQLite =&gt; &#39;sqlite:&#39; . app-&gt;home-&gt;child(&#39;minion.db&#39;),
+};
+plugin &#39;Minion::Admin&#39;, {
+    # Host Admin UI at /
+    route =&gt; app-&gt;routes-&gt;any(&#39;/&#39;),
+};
+app-&gt;start;
+</code></pre>
+
+<p>Once I add the plugin, I now have a web application that I can run with
+the <a href="https://mojolicious.org/perldoc/Mojolicious/Command/daemon">Mojolicious <code>daemon</code>
+command</a>.</p>
+
+<pre><code>$ perl myapp.pl daemon
+Server available at http://127.0.0.1:3000
+</code></pre>
+
+<p>Now I can access the Minion UI:</p>
+
+<p><img alt="A web browser showing the main Minion UI screen with charts showing
+the status of running jobs" src="01-main.png"></p>
+
+<p>The main page shows the current status. The links at the top show lists
+of jobs in the given state, any locks that exist, and the workers.</p>
+
+<p><img alt="A web browser showing a list of jobs in the &quot;finished&quot;
+state" src="02-job-list.png"></p>
+
+<p>When looking at a list of jobs, I can click the buttons on top left to
+manage the job queue, or click on the caret on the right of each job row
+to view the details of that job (the same as the <code>job</code> command shows).</p>
+
+<p><img alt="A web browser showing the details of a single Minion job as
+JSON" src="03-job-details.png"></p>
+
+<p>The Minion Admin UI is a great addition to a great tool! <a href="minion.pl">View the entire
+source of the Minion app</a></p>
+
+              </section>
+              <small><p>Original artwork by Doug Bell, released under CC-BY-SA 4.0. It includes
+the Minion logo (CC-BY-SA 4.0)</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/advent/">advent</a>,
+                  <a href="/blog/tag/minion/">minion</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Sled dogs waiting to run" src="/blog/2018/12/05/compound-selectors/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>When people tell me that I can&#39;t (they mean shouldn&#39;t) parse HTML with a regex, I say &quot;hold my beer&quot;. It isn&#39;t a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I&#39;ve been using <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> to do it for me. It&#39;s easier than the old, expedient way.</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-                  <p><a href="/blog/2018/12/05/compound-selectors/#section-2">Continue reading Day 5: Compound Selectors are Easier than Regexes...</a></p>
-            </div>
+                      </div>
 
-        </article>
-        <article class="post">
+                  </div>
 
-            <div class="entry-header cf">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2018/12/10/minion-stands-alone/index.html" rel="prev"><strong>Previous Article</strong> Day 10: Minion Stands Alone</a></li>
+              </ul>
 
-            <h1><a href="/blog/2018/12/04/testing-hooks-and-helpers/">Day 4: Testing Hooks and Helpers</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-04">Dec  4, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Scientific calculator on a mathematics textbook" src="/blog/2018/12/04/testing-hooks-and-helpers/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
-<a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
-<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
-applications</a>
-(even for <a href="https://metacpan.org/pod/Test::Mojo::Role::PSGI">testing in other web
-frameworks</a>).</p>
-
-<p>But what if what I need to test isn&#39;t a route? What if it&#39;s
-a <a href="https://mojolicious.org/perldoc/Mojolicious#HOOKS">hook</a>,
-a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-plugin-to-your-application">plugin</a>,
-or
-a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers">helper</a>?
-We can test all those things, too!</p>
-
-                  <p><a href="/blog/2018/12/04/testing-hooks-and-helpers/#section-2">Continue reading Day 4: Testing Hooks and Helpers...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/03/higher-order-promises/">Day 3: Higher Order Promises</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-03">Dec  3, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="fractal cauliflower" src="/blog/2018/12/03/higher-order-promises/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><h2>Create new, complex Promises by composing Promises</h2>
-
-<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
-
-                  <p><a href="/blog/2018/12/03/higher-order-promises/#section-2">Continue reading Day 3: Higher Order Promises...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/02/automatic-reload-for-rapid-development/">Day 2: Automatic Reload for Rapid Development</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-02">Dec  2, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Mojolicious art and reload icon, original artwork by Doug Bell" src="/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Developing webapps with <a href="http://mojolicious.org">Mojolicious</a> is a lot of fun!
-Using <a href="https://mojolicious.org/perldoc/morbo">the <code>morbo</code> server</a> for
-development, every change to my webapp causes a restart to load my changes.
-This way the next request I make has all my new code!</p>
-
-<p>So, I change my code, the webapp restarts, and I go back to my browser window.
-Wait... Where&#39;s my new code? Why isn&#39;t the bug fixed? Did... Did I forget to
-reload my browser window again? Ugh! Of course!</p>
-
-<p>Does this happen to you? Probably not. But, it&#39;s still annoying to reload the
-browser window after every backend code change. It&#39;d be nice if my browser
-window automatically reloaded every time the web server restarted!</p>
-
-                  <p><a href="/blog/2018/12/02/automatic-reload-for-rapid-development/#section-2">Continue reading Day 2: Automatic Reload for Rapid Development...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><a class="page-numbers prev" href="/blog/page/3/" rel="prev">Prev</a></li>
-              
-              <li><a class="page-numbers next" href="/blog/" rel="next">Next</a></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -332,7 +325,7 @@ window automatically reloaded every time the web server restarted!</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 

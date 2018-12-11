@@ -104,6 +104,48 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2017/12/06/day-6-adding-your-own-commands/">Day 6: Adding Your Own Commands</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-06">Dec  6, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Space shuttle Atlantis prepared for liftoff (night)" src="/blog/2017/12/06/day-6-adding-your-own-commands/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Everyone has written those one-off administration or check scripts.
+There are probably a few cluttering your project root or bin directory right now.
+Those have a problem beyond just the clutter: duplication.</p>
+
+<p>Programmers hate duplication because of skew.
+If code gets improved in one place, it is unlikely to be improved in all places, unless there is only the one.
+So that script you wrote a while back, the one with the database connection you hand-rolled, is that still correct?</p>
+
+<p>In the <a href="/blog/2017/12/05/day-5-your-apps-built-in-commands">previous article in this series</a> I talked about the built-in commands available to your application.
+The final command was <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval"><code>eval</code></a>.
+I mentioned that when combined with predefined behaviors, the command could be great for administrative tasks.
+That&#39;s true, but you need to know what to eval in order to do so.</p>
+
+<p>To formalize that process, we can go one step further: defining our own commands.
+By doing this your application&#39;s administative behaviors can take arguemnts and provide optional switches as well as give usage messages.
+In this way these administative commands decouple themselves from knowledge of the application&#39;s internals and become useful to a broader set of users.</p>
+
+                  <p><a href="/blog/2017/12/06/day-6-adding-your-own-commands/#section-2">Continue reading Day 6: Adding Your Own Commands...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2017/12/05/day-5-your-apps-built-in-commands/">Day 5: Your App&#39;s Built-In Commands</a></h1>
 
               <p class="post-meta">
@@ -242,37 +284,6 @@ The stash controls almost every aspect of the response that you generate.
 Let&#39;s look a little closer to see how it works</p>
 
                   <p><a href="/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading Day 2: The Stash...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/01/day-1-getting-started/">Day 1: Getting Started</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-01">Dec  1, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="hot air ballons" src="/blog/2017/12/01/day-1-getting-started/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><h2>Start at the Beginning</h2>
-
-<p>In this Advent Calendar series, some posts will be introductory, some will be advanced, some will be on new features.
-Who knows what could be next?
-But for now let&#39;s ensure a level playing field by working out how to get started.</p>
-
-                  <p><a href="/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading Day 1: Getting Started...</a></p>
             </div>
 
         </article>

@@ -7,6 +7,29 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 11: Who Watches The Minions</title>
+            <link>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</link>
+            <guid>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</guid>
+            <description><![CDATA[
+                <p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
+queue</a>, I need to take care of
+it properly. Are the workers working (have they seized the means of
+production)? Are jobs completing successfully? Are there any errors?
+What are they?</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 11 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 10: Minion Stands Alone</title>
             <link>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</link>
             <guid>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</guid>
