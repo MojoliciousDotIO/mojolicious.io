@@ -7,7 +7,7 @@ helper db => sub {
     state $db = Mojo::SQLite->new( 'sqlite:' . app->home->child( 'docs.db' ) );
     return $db;
 };
-app->db->auto_migrate(1)->migrations->from_data( 'main' );
+app->db->auto_migrate(1)->migrations->from_data();
 
 plugin 'PODViewer', {
     default_module => 'Yancy',

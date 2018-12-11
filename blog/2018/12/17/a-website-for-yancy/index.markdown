@@ -39,7 +39,7 @@ build the pages table using
         state $db = Mojo::SQLite->new( 'sqlite:' . app->home->child( 'docs.db' ) );
         return $db;
     };
-    app->db->auto_migrate(1)->migrations->from_data( 'main' );
+    app->db->auto_migrate(1)->migrations->from_data();
 
     # Start the app. Must be the code of the script
     app->start;

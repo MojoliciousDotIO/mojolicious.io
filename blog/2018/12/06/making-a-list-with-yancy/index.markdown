@@ -41,7 +41,7 @@ script](https://perldoc.perl.org/perldata.html#Special-Literals) using
     # Connect to the SQLite database and load our schema from the
     # '@@ migrations' section, below
     my $db = Mojo::SQLite->new( 'sqlite:thelist.db' );
-    $db->auto_migrate(1)->migrations->from_data( 'main' );
+    $db->auto_migrate(1)->migrations->from_data();
 
     # Start the app. Must be the last code of the script.
     app->start;
