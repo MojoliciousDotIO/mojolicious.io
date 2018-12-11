@@ -149,7 +149,7 @@ use Mojo::SQLite;
 # Connect to the SQLite database and load our schema from the
 # &#39;@@ migrations&#39; section, below
 my $db = Mojo::SQLite-&gt;new( &#39;sqlite:thelist.db&#39; );
-$db-&gt;auto_migrate(1)-&gt;migrations-&gt;from_data( &#39;main&#39; );
+$db-&gt;auto_migrate(1)-&gt;migrations-&gt;from_data();
 
 # Start the app. Must be the last code of the script.
 app-&gt;start;

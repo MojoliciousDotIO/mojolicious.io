@@ -6,7 +6,7 @@ use Mojo::SQLite;
 # Connect to the SQLite database and load our schema from the
 # '@@ migrations' section, below
 my $db = Mojo::SQLite->new( 'sqlite:thelist.db' );
-$db->auto_migrate(1)->migrations->from_data( 'main' );
+$db->auto_migrate(1)->migrations->from_data();
 
 # Configure Yancy
 plugin Yancy => {
