@@ -35,7 +35,7 @@ We looked at several alternatives to Minion, including [beanstalkd](https://bean
 infrastructure team, however; using Minion allowed us to use expertise that my team already has without having to burden someone else with assisting us. From a development standpoint, using a product that
 was developed in Perl gave us the quickest time to implementation. 
 
-Scaling our existing setup was near impossible. It's not only not easy to get a handle on what resources are consumed by processes we've forked, but it was impossible to run the jobs on more than one server. 
+Scaling our existing setup was near impossible. It's not only difficult to get a handle on what resources are consumed by processes we've forked, but it was impossible to run the jobs on more than one server. 
 Starting over with Minion also gave us a much needed opportunity to clean up some code in sore need of refactoring. With a minimal amount of work, we were able to clean up our XML rendering code and make it work
 from Minion. This cleanup allowed us to more easily get information as to how much memory and CPU was consumed by an XML rendering job. This information is vital for us in planning future capacity.
 
