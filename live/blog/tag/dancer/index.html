@@ -16,7 +16,7 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/tag/growing/" property="og:url">
+  <meta content="https://mojolicious.io/blog/tag/dancer/" property="og:url">
   <meta content="mojolicious.io" property="og:title">
     <meta content="summary" name="twitter:card">
 
@@ -26,8 +26,8 @@
 
   <title>mojolicious.io</title>
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/tag/growing.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/tag/growing.rss" rel="alternate" type="application/rss+xml">
+  <link href="/blog/tag/dancer.atom" rel="alternate" type="application/atom+xml">
+  <link href="/blog/tag/dancer.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +104,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4: Don&#39;t Fear the Full App</a></h1>
+            <h1><a href="/blog/2018/12/12/dancer-and-minion/">Day 12: Using Minion in Dancer Apps</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-04">Dec  4, 2017</time>
+                  <time class="date" datetime="2018-12-12">Dec 12, 2018</time>
                   
 
               </p>
@@ -117,26 +117,25 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Arucaria trees in Curitiba Brazil" src="/blog/2017/12/04/day-4-dont-fear-the-full-app/arucaria.jpg">
+                <img alt="Stylistic photograph of Disney-style minion toys" src="/blog/2018/12/12/dancer-and-minion/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>One of the most common misconceptions about Mojolicious is that there is a large difference between the declarative &quot;Lite&quot; apps that we have seen so far and large-scale structured &quot;Full&quot; apps.
-Nothing could be further from the truth.
-<a href="http://mojolicious.org/perldoc/Mojolicious/Lite">Mojolicious::Lite</a> is a very tiny wrapper around the so-called &quot;Full&quot; app architecture, giving it the approachable keyword syntax.</p>
+              <p></p><p>At <code>$work</code>, we have built an API with <a href="https://metacpan.org/pod/Dancer">Dancer</a> that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
+immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
+application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by <code>fork()</code>ing a process, tracking its pid, and hoping we can later successfully
+reap the completed process.</p>
 
-<p>Because it is much nicer to have concise single-file examples for documentation most of Mojolicious&#39; documentation uses Lite syntax most of the time.
-It is understandable that people worry about migrating (or as we call it &quot;growing&quot;) even once their apps would benefit from Object-Oriented structure; after all the docs seem geared towards Lite apps.
-However, let those fears go, the transition is easy.
-And once you understand it, the documentatation examples are trivial to translate.</p>
+<p>There have been several problems with this approach:
+- it&#39;s fragile
+- it doesn&#39;t scale
+- it&#39;s too easy to screw something up as a developer</p>
 
-<p>Plus, Mojolicious comes with two forms of help when transitioning.
-The first is the <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing">Growing Guide</a> which covers everything this post will but from the perspective of porting an existing application (which I won&#39;t duplicate here).
-The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate">inflate command</a> which can even start you on the process by moving your templates from the data section and into their own files.</p>
+<p>In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter <a href="https://metacpan.org/pod/Minion">Minion</a>.</p>
 
-<p>That said, in order to futher demystify things, I&#39;m going to cover some of the differences and pull back the curtain on the Lite syntax itself.</p>
+<p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
 
-                  <p><a href="/blog/2017/12/04/day-4-dont-fear-the-full-app/#section-2">Continue reading Day 4: Don&#39;t Fear the Full App...</a></p>
+                  <p><a href="/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading Day 12: Using Minion in Dancer Apps...</a></p>
             </div>
 
         </article>
