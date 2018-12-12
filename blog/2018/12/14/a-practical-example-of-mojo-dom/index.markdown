@@ -4,11 +4,12 @@ title: A Practical Example of Mojo::DOM
 tags:
     - advent
     - xml
+    - non-web
 author: maschine
 images:
   banner:
-    src: '/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.jpg'
-    alt: 'Live pointcloud data in a Tekla Structures 3D model'
+    src: '/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.png'
+    alt: 'A typical industrial platform model overlaid with a laser scan'
     data:
       attribution: |-
         Original screenshots by maschine, released under CC-BY-SA 4.0.
@@ -26,7 +27,8 @@ With recent versions of Mojolicious, [Mojo::DOM](https://mojolicious.org/perldoc
 
 The problem is when our 3D modeling software ([Tekla Structures](https://www.tekla.com/products/tekla-structures)) processes the point clouds, it changes the file names of each one from something human readable, such as `Pipe Rack Area1`, to a hash, like `2e9d52829f973c5b98f60935d8a9fa2b`.  This is not very user friendly when one project could have dozens of areas, and you only really want to load one or two at a time (an *average* area is 15gb!).
 
-![A typical industrial platform model overlaid with a laser scan](pointcloud.jpg)
+![Point clouds add information that is not available in the 3D model](pointcloud1.jpg)
+_Point clouds provide critical information that is either too difficult or too costly to model directly_
 
 Fortunately, Tekla uses a lot of standard file formats that anyone can edit – including using XML to describe each point cloud it has processed.  Of course, I could just hand edit them to change the names, but that would have to be done for every scan and every project - not a good solution.
 
@@ -82,7 +84,7 @@ To the run my [utility](tekla_utility.pl) on the [example files](a-practical-exa
 
 ## Mojo::File - never manually write file code again!
 
-[Mojo::File](https://mojolicious.org/perldoc/Mojo/File) makes reading `pointclouds.xml` so I can parse it with Mojo::DOM really simple:
+[Mojo::File](https://mojolicious.org/perldoc/Mojo/File) makes reading `pointclouds.xml` so I can parse it with Mojo::DOM simple:
 
     my $file = Mojo::File->new($path, 'pointclouds.xml');
     my $dom  = Mojo::DOM->new($file->slurp);
@@ -108,6 +110,9 @@ When I'm finished renaming the point clouds, I use [Mojo::File](https://mojolici
     $file->spurt($dom)
 
 The neat thing is, when I altered the contents of `$e->{Folder}` and `$e->{Hash}` in my loop, saving it back just works - I don't need to think too much about the XML structure at all.  Interestingly, saving `$dom` alpabetizes the keys, but Tekla doesn't seem to notice.
+
+![Point clouds are not perfect, but are still a valuable tool](pointcloud2.jpg)
+_Note the grainy nature of the point cloud - since they are just points with no area, the closer you get, the grainier it looks_
 
 ##  Useful for all skill levels
 
