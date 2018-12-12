@@ -187,6 +187,13 @@ site:
                     text: |-
                       Luc Didry is a sysAdmin and Perl developer, in love with Perl since he discovered it 10 years ago, and a Mojolicious enthusiast.
 
+                cromedome:
+                    name: 'Jason Crome'
+                    twitter: '@cromedome'
+                    image: 'http://0.gravatar.com/avatar/fcf781200bb62080ccf106bac3d24937'
+                    text: |-
+                        Jason is a Dancer Core Team member, pilot, and hockey-player-wannabe. He likes hacking Perl for fun and profit, but neither piña coladas nor getting caught in the rain.
+
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
 # they do
