@@ -13,7 +13,7 @@ data:
 
 ---
 
-At `$work`, we have built an API with Dancer that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser 
+At `$work`, we have built an API with [Dancer](https://metacpan.org/pod/Dancer) that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser 
 immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the 
 application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by `fork()`ing a process, tracking its pid, and hoping we can later successfully
 reap the completed process. 
@@ -23,9 +23,9 @@ There have been several problems with this approach:
 - it doesn't scale
 - it's too easy to screw something up as a developer
 
-In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter Minion.
+In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter [Minion](https://metacpan.org/pod/Minion).
 
-*Note:* The techniques used in this article work equally well with Dancer or Dancer2.
+*Note:* The techniques used in this article work equally well with Dancer or [Dancer2](https://metacpan.org/pod/Dancer2).
 
 ---
 
