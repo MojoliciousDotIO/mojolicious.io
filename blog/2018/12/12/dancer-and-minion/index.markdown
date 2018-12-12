@@ -108,18 +108,19 @@ In our base model class (Moose-based), we would create an attribute for our job 
 
 And in the models themselves, creating a new queueable task was as easy as:
 
-    $self->runner->add_task( InstantXML => sub( $job, $request_path, $guid, $company_db, $force, $die_on_error = 0 ) {
-        $job->note( 
-            request_path => $request_path,
-            feed_id      => 2098,
-            group        => $company_db,
-        );
-        MyJob::Models::FooBar->new( request_path => $request_path )->generate_xml({
-            pdf_guid     => $guid,
-            group        => $company_db,
-            force        => $force,
-            die_on_error => $die_on_error,
-        });
+    $self->runner->add_task( InstantXML => 
+        sub( $job, $request_path, $guid, $company_db, $force, $die_on_error = 0 ) {
+            $job->note( 
+                request_path => $request_path,
+                feed_id      => 2098,
+                group        => $company_db,
+            );
+            MyJob::Models::FooBar->new( request_path => $request_path )->generate_xml({
+                pdf_guid     => $guid,
+                group        => $company_db,
+                force        => $force,
+                die_on_error => $die_on_error,
+            });
     });
 
 
