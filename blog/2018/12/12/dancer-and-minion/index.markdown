@@ -79,14 +79,14 @@ code with our business models, we had to build some of our own plumbing around M
         return @invalid_queues;
     }
 
-    sub run_job( $self, $args ) {
-        my $job_name = $args->{ name     } or die "run_job(): must define job name!";
-        my $guid     = $args->{ guid     } or die "run_job(): must have GUID to process!";
+    sub queue_job( $self, $args ) {
+        my $job_name = $args->{ name     } or die "queue_job(): must define job name!";
+        my $guid     = $args->{ guid     } or die "queue_job(): must have GUID to process!";
         my $title    = $args->{ title    } // $job_name;
         my $queue    = $args->{ queue    } // 'default';
         my $job_args = $args->{ job_args };
 
-        die "run_job(): Invalid job queue '$queue' specified" if $self->has_invalid_queues( $queue );
+        die "queue_job(): Invalid job queue '$queue' specified" if $self->has_invalid_queues( $queue );
 
         my %notes = ( title => $title, guid  => $guid );
 
@@ -141,7 +141,7 @@ Starting a job from Dancer was super easy:
         my $force = route_parameters->get( 'force' );
 
         debug "GENERATING XML ONLY FOR $guid";
-        job_queue->run_job({
+        job_queue->queue_job({
             name     => "InstantXML",
             guid     => $guid,
             title    => "Instant XML Generator",
