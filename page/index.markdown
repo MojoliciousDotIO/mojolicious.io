@@ -74,6 +74,10 @@ data:
       image: '/blog/2018/12/11/who-watches-the-minions/banner.jpg'
       alt: Day 11: Who Watches The Minions
     - date: 2018-12-12
+      title: Minion in Dancer Apps
+      href: '/blog/2018/12/12/dancer-and-minion/'
+      image: '/blog/2018/12/12/dancer-and-minion/banner.jpg'
+      alt: Day 12: Using Minion in Dancer Apps
     - date: 2018-12-13
     - date: 2018-12-14
     - date: 2018-12-15

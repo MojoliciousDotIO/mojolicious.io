@@ -7,16 +7,23 @@ tags:
     - dancer
     - minion
 author: Jason Crome
+images:
+  banner:
+    src: '/blog/2018/12/12/dancer-and-minion/banner.jpg'
+    alt: 'Stylistic photograph of Disney-style minion toys'
+    data:
+      attribution: |-
+        Banner image: [One Eyed Minion](https://www.flickr.com/photos/enerva/9068467267) by [Sonny Abesamis](https://www.flickr.com/photos/enerva/) licensed [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
 data:
   bio: cromedome
   description: 'Overview of how to use Minion from within a Dancer application.'
 
 ---
 
-At `$work`, we have built an API with [Dancer](https://metacpan.org/pod/Dancer) that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser 
-immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the 
+At `$work`, we have built an API with [Dancer](https://metacpan.org/pod/Dancer) that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
+immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
 application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by `fork()`ing a process, tracking its pid, and hoping we can later successfully
-reap the completed process. 
+reap the completed process.
 
 There have been several problems with this approach:
 - it's fragile
@@ -33,9 +40,9 @@ In 2019, we have to ramp up to take on a significantly larger workload. The curr
 
 We looked at several alternatives to Minion, including [beanstalkd](https://beanstalkd.github.io/) and [celeryd](http://www.celeryproject.org/). Using either one of these meant involving our already over-taxed
 infrastructure team, however; using Minion allowed us to use expertise that my team already has without having to burden someone else with assisting us. From a development standpoint, using a product that
-was developed in Perl gave us the quickest time to implementation. 
+was developed in Perl gave us the quickest time to implementation.
 
-Scaling our existing setup was near impossible. It's not only difficult to get a handle on what resources are consumed by processes we've forked, but it was impossible to run the jobs on more than one server. 
+Scaling our existing setup was near impossible. It's not only difficult to get a handle on what resources are consumed by processes we've forked, but it was impossible to run the jobs on more than one server.
 Starting over with Minion also gave us a much needed opportunity to clean up some code in sore need of refactoring. With a minimal amount of work, we were able to clean up our XML rendering code and make it work
 from Minion. This cleanup allowed us to more easily get information as to how much memory and CPU was consumed by an XML rendering job. This information is vital for us in planning future capacity.
 
@@ -58,8 +65,8 @@ code with our business models, we had to build some of our own plumbing around M
         lazy    => 1,
         default => sub( $self ) {
             $ENV{ MOJO_PUBSUB_EXPERIMENTAL } = 1;
-            Minion->new( mysql => MyJob::DBConnectionManager->new->get_connection_uri({ 
-                db_type => 'feeds', 
+            Minion->new( mysql => MyJob::DBConnectionManager->new->get_connection_uri({
+                db_type => 'feeds',
                 io_type => 'rw',
             }));
         },
@@ -79,13 +86,13 @@ we added code to prevent us from adding code to a queue that didn't exist:
 
     sub get_invalid_queues( $self, @queues ) {
         my %queue_map;
-        @queue_map{ @QUEUE_TYPES } = (); 
+        @queue_map{ @QUEUE_TYPES } = ();
         my @invalid_queues = grep !exists $queue_map{ $_ }, @queues;
         return @invalid_queues;
     }
 
 With that in place, it was easy for our `queue_job()` method to throw an error if the developer tried to add a job to an invalid queue:
-    
+
     sub queue_job( $self, $args ) {
         my $job_name = $args->{ name     } or die "queue_job(): must define job name!";
         my $guid     = $args->{ guid     } or die "queue_job(): must have GUID to process!";
@@ -113,9 +120,9 @@ In our base model class (Moose-based), we would create an attribute for our job 
 
 And in the models themselves, creating a new queueable task was as easy as:
 
-    $self->runner->add_task( InstantXML => 
+    $self->runner->add_task( InstantXML =>
         sub( $job, $request_path, $guid, $company_db, $force, $die_on_error = 0 ) {
-            $job->note( 
+            $job->note(
                 request_path => $request_path,
                 feed_id      => 2098,
                 group        => $company_db,
@@ -152,7 +159,7 @@ Starting a job from Dancer was super easy:
             title    => "Instant XML Generator",
             queue    => 'InstantXML',
             job_args => [ $self->request_path, $guid, $group, $force ],
-        }); 
+        });
     }
 
 ## Creating and Configuring the Job Queue Worker
@@ -212,11 +219,11 @@ was attempting to run. If an unchecked exception occurs in a job, the worker wil
         my $title = $notes->{ title };
         my $guid  = $notes->{ guid };
 
-        $job->on( spawn => sub( $job, $pid ) {  
+        $job->on( spawn => sub( $job, $pid ) {
             $0 = "$title $guid";
             $logger->info( "$title: Created child process $pid for job $id by parent $$ - $guid");
         });
-        
+
         $job->on( failed => sub( $job, $error ) {
             chomp $error;
             $logger->error( $error );
@@ -248,7 +255,7 @@ Now, we apply the configuration (read below) to the worker. When the worker star
     $worker->status->{ queues } = \@queues;
     $worker->run;
 
-Remember the YAML file we used to configure things up above? This last bit pulls the information for the host this worker is running on (`get_hostname()` is a home-grown 
+Remember the YAML file we used to configure things up above? This last bit pulls the information for the host this worker is running on (`get_hostname()` is a home-grown
 hostname function):
 
     sub get_hostconfig {
@@ -270,9 +277,9 @@ If you'd like to know more, I highly recommend reading his article.
 ## Outcome
 
 Within about a two-week timespan, we went from having zero practical knowledge of Minion to having things up and running. We've made some refinements and improvements along the way, but the quick turnaround
-is a true testament to the simplicity of working with Minion. 
+is a true testament to the simplicity of working with Minion.
 
-We now have all the necessary pieces in place to scale our XML rendering both horizontally and vertically: thanks to Minion, we can easily run XML jobs across multiple boxes, and can more efficiently run 
+We now have all the necessary pieces in place to scale our XML rendering both horizontally and vertically: thanks to Minion, we can easily run XML jobs across multiple boxes, and can more efficiently run
 more jobs concurrently on the same hardware as before. This setup allows us to grow as quickly as our customer base does.
 
 ## Further Reading
