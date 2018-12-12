@@ -52,8 +52,6 @@ code with our business models, we had to build some of our own plumbing around M
     use MyJob::Models::FooBar;
     with 'MyJob::Roles::ConfigReader';
 
-    my @QUEUE_TYPES = qw( default InstantXML PayrollXML ChangeRequest );
-
     has 'runner' => (
         is      => 'ro',
         isa     => 'Minion',
@@ -67,6 +65,13 @@ code with our business models, we had to build some of our own plumbing around M
         },
     );
 
+We wrapped a simple Moose class around Minion to make it easy to add to any class or Dancer application with the extra functionality we wanted.
+
+We ran into an issue at one point where jobs weren't running since we added them to a queue that no worker was configured to handle. To prevent this from happening to us again,
+we added code to prevent us from adding code to a queue that didn't exist:
+
+    my @QUEUE_TYPES = qw( default InstantXML PayrollXML ChangeRequest );
+
     sub has_invalid_queues( $self, @queues ) {
         return 1 if $self->get_invalid_queues( @queues );
         return 0;
@@ -79,6 +84,8 @@ code with our business models, we had to build some of our own plumbing around M
         return @invalid_queues;
     }
 
+With that in place, it was easy for our `queue_job()` method to throw an error if the developer tried to add a job to an invalid queue:
+    
     sub queue_job( $self, $args ) {
         my $job_name = $args->{ name     } or die "queue_job(): must define job name!";
         my $guid     = $args->{ guid     } or die "queue_job(): must have GUID to process!";
@@ -92,8 +99,6 @@ code with our business models, we had to build some of our own plumbing around M
 
         return $self->runner->enqueue( $job_name => $job_args => { notes => \%notes, queue => $queue });
     }
-
-    1;
 
 ## Creating Jobs
 
