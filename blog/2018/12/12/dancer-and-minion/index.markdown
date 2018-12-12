@@ -193,8 +193,6 @@ Our job queue workers look like:
     use MyJob::Util::Logger;
     use MyJob::Util::SysTools qw(get_hostname);
 
-    use Mojo::mysql;
-
     my $config     = MyJob::Config->new->config;
     my $hostconfig = get_hostconfig();
     my $minion     = MyJob::JobQueue->new;
@@ -202,6 +200,11 @@ Our job queue workers look like:
 
     my $log_eng = MyJob::Log4p->new({ logger_name => "Minion" });
     my $logger  = MyJob::Util::Logger->new->logger($log_eng);
+
+The above is mostly typical boilerplate for us. Read our configuration, and create a logger the worker can use.
+
+Next, when a job is dequeued, we want to log that the worker picked up a job (needed for auditing purposes) and we alter the process name so if a process hangs, we know what that process
+was attempting to run. If an unchecked exception occurs in a job, the worker will catch it and log it for us:
 
     $worker->on( dequeue => sub( $worker, $job ) {
         my $id    = $job->id;
@@ -220,10 +223,14 @@ Our job queue workers look like:
         });
     });
 
+To help us for future capacity planning, we want our workers to tell us if they are running at peak capacity, so log when this event occurs:
+
     $worker->on( busy => sub( $worker ) {
         my $max = $worker->status->{ jobs };
         $logger->log( "$0: Running at capacity (performing $max jobs)." );
     });
+
+Now, we apply the configuration (read below) to the worker. When the worker starts, it tells us information about how it was configured (this was really useful during development):
 
     my $max_jobs = $hostconfig->{ max_children };
     my @queues   = @{ $hostconfig->{ queues }};
@@ -240,6 +247,9 @@ Our job queue workers look like:
     $worker->status->{ jobs }   = $max_jobs;
     $worker->status->{ queues } = \@queues;
     $worker->run;
+
+Remember the YAML file we used to configure things up above? This last bit pulls the information for the host this worker is running on (`get_hostname()` is a home-grown 
+hostname function):
 
     sub get_hostconfig {
         my $minion_config = MyJob::Config->new({ filename => "environments/minions.yml" })->config;
