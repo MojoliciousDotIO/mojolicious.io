@@ -70,7 +70,7 @@ The `$file_class` is a string with the new class name. Behind that class there i
 		->new( '/Users/brian/bin/interesting.txt' )
 		->rebase( '/usr/local/bin/' );
 
-That's much cleaner than what I was doing before and I like how this flows. But what if I get an already-created [Mojo::File]() object from something else? I can apply the role _ad hoc_ too:
+That's much cleaner than what I was doing before and I like how this flows. But what if I get an already-created [Mojo::File](https://mojolicious.org/perldoc/Mojo/File) object from something else? I can apply the role _ad hoc_ too:
 
 	my $file = path( '/Users/brian/bin/interesting.txt' );
 
@@ -78,7 +78,7 @@ That's much cleaner than what I was doing before and I like how this flows. But 
 		->with_roles( '+rebase' )
 		->rebase( '/usr/local/bin/' );
 
-I can go further. Any methods I add to my role become part of the class. I often want to get the digests of files and although [Mojo::Util](https://mojolicious.org/perldoc/Mojo/File) makes that easier with some convenience functions, I want even more convenience. I add a couple of methods to my role to do the slurping for me:
+I can go further. Any methods I add to my role become part of the class. I often want to get the digests of files and although [Mojo::Util](https://mojolicious.org/perldoc/Mojo/Util) makes that easier with some convenience functions, I want even more convenience. I add a couple of methods to my role to do the slurping for me:
 
 	use Mojo::File;
 
