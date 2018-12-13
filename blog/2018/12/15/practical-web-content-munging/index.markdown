@@ -29,7 +29,9 @@ That's it! We just fetched a web page. You might be tempted to print out $tx to 
 print $tx->res->body();
 ```
 
-This will display the HTML `<body>` contents. But, that's not really very interesting. Using a regex to find everything between `<body>` and </body> isn't so difficult. But, we can do much more interesting and powerful things very easily with a Mojo response.
+This will display the HTML `<body>` contents. But, that's not really very interesting. Using a regex to find everything between `<body>` and `</body>` isn't so difficult. But, we can do much more interesting and powerful things very easily with a Mojo response.
+
+##CSS Selectors
 
 The `res` response object also provides a `dom` object, that gives the ability to select parts of an HTML document using CSS selectors. So, if I have a document with a `#main` div, I can retrieve just the contents of that div using something like:
 
@@ -67,9 +69,9 @@ Becomes bees.
 </p>
 ```
 
-Notice that the structure of this is regular but not selectable with any one div or piece of markup. I can't say, `find('h3')`, here, because that would just bring back the title of the news item (which is useful, because we want the title of the blurb for the title of our new news page). We need something that will grab everything *between* each `h3`.
+Notice that the structure of this is regular but not selectable with any one div or piece of markup. I can use `find('h3')` to get the headings, but the text of each news item is just a paragraph, and we also want to grab the date separately.
 
-So, I want to grab all of the titles, and grab all of the HTML between the titles, and put them all into some sort of data structure so I can spit them out into pages of there own.
+So, I want to grab all of the titles, and grab the paragraph following the title, and the date, and put them all into some sort of data structures so I can spit them out into pages of there own.
 
 Let's start with the titles, as it'll show a neat trick Mojo has up its sleeves.
 
@@ -83,20 +85,57 @@ my $main = $tx->res->dom->at('#main');
 my @headers = $main->find('h3')->map('text')->each;
 ```
 
-Do you see it? The `find` method here is returning a [Mojo::Collection](https://metacpan.org/pod/Mojo::Collection). "Collection" is a fancy way to say "list", but these lists have a bunch of useful utility methods, similar to some core Perl functions that operate on lists, as well as methods found in `List::Util`. It has the usual suspects, like `join`, `grep`, `map`, and `each`. So, they're fancy, and they deserve a fancy name.
+Do you see it? The `find` method here is returning a [Mojo::Collection](https://metacpan.org/pod/Mojo::Collection). "Collection" is kind of a fancy way to say "list", but these lists have a bunch of useful utility methods, similar to some core Perl functions that operate on lists, as well as methods found in `List::Util`. It has the usual suspects, like `join`, `grep`, `map`, and `each`. So, collections are fancy, and they deserve a fancy name.
 
-After this `@headers` will now contain all of the titles for all of the news items on the page. Try doing *that* in two lines of clear code with regexes (and, we could have chained all of this, including finding `#main`, into one line, but because I'm re-using `#main` multiple times I put it into its own variable).
+After this `@headers` will now contain all of the titles for all of the news items on the page. Try doing that in two lines of clear, readable, code with regexes (and, we could have chained all of this, including finding `#main`, into one line, but because I'm re-using `#main` multiple times I put it into its own variable).
 
 To break this down a little bit, `map` calls the given method (`text`) on every item returned by find, and then `each` returns them all as a list which can be slurped into an array, as I've done.
 
-Now, an even trickier thing to do with regexes would be to find the text between each title. But, with Mojo::DOM, we can grab it with just a few more lines of code (there's probably even a way to do it with one line of code, but this is what I came up with in a few minutes of experimentation, I welcome suggestions for how to improve it).
+Now, an even trickier thing to do with regexes would be to find the immediately following sibling of these headers. But, with Mojo::DOM, we can grab it with just a few more lines of code (there's probably even a way to do it with one line of code, but this is what I came up with in a few minutes of experimentation, I welcome suggestions for how to improve it).
 
 ```perl
-my @hcols   = $main->find('h3')->each;
 my @paras;
-for my $h (@hcols) {
-  push(@paras, $h->next->content);
+for my $header ($main->find('h3')->each) {
+  push (@paras, $header->next->content);
 }
 ```
+
+This once again uses the `find` method to find all of the `h3` elements, and iterates over the resulting collection of DOM objects, putting each one into `$header` as it loops. Then we pick out the `content` of the `next` element (which, in my case is always a single paragraph, sometimes containing one or more `br` tags), and pushes them all into `@paras`.
+
+So, now we've got an array of headers, an array of the following paragraphs, and we just need to sort out those dates. This one is actually very easy, because the HTML template clearly marks the date using a `date` class.
+
+```perl
+my @dates = $main->find('.date')->map('text')->each;
+```
+
+Pow! We're done. OK, not quite. We've got to deliver on the "munging" part of this post's title. We've picked out some data from a crusty old static HTML web page, but we haven't done anything useful with it.
+
+##Munging the Dates
+
+Since I'm migrating this site to Hugo, I need to generate metadata that includes a date. Luckily, we already have dates attached to each news item. Unluckily, the dates are a bit inconsistent, and they aren't in the format that Hugo expects. I did a little digging on the CPAN and found `Time::Piece`, which is a clever module that will allow you to parse times and dates in most command formats, as well as output dates in most common formats.
+
+I need my dates to look like `2017-09-30`, so I used the following code (assume this is inside a loop that's putting each subsequent date in the `@dates` array we made above into `$date`):
+
+```perl
+use Time::Piece;
+my $tp = Time::Piece->strptime($date, "%B %d, %Y");
+my $fixed = $tp->strftime("%Y-%m-%d");
+```
+
+##Munging Into Markdown
+
+I'll also need to convert to Markdown. I've used `HTML::WikiConverter` for the task.
+
+In it's simplest form, we could do something like this (again assuming we're in a loop where `$para` gets a value from `@paras` on each iteration:
+
+```perl
+use HTML::WikiConverter;
+my $wc = new HTML::WikiConverter(dialect => 'Markdown');
+my $md = $wc->html2wiki( $para );
+```
+
+Done.
+
+##Generating the Metadata
 
 
