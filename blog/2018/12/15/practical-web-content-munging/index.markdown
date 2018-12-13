@@ -163,7 +163,7 @@ EOF
   my $filename = lc $e->{'title'};
   $filename =~ s/\s/-/g;
   $filename =~ s/[!,()'"\/]//g;
-  open(my $FILE, ">", "content/news/$filename.md");
+  open(my $FILE, '>', "content/news/$filename.md");
   print $FILE $md;
   close $FILE;
 }
