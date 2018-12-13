@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/mojoconf/</id>
+    <title>mojolicious.io</title>
+    <updated>2018-12-01T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/mojoconf.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/mojoconf/" rel="alternate" />
+    <generator version="0.093">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/</id>
+        <title>Day 1: Welcome &amp; MojoConf Recap</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Welcome to another year of the Mojolicious Advent Calendar!
+2018 has been very good to Mojolicious and I could think of no better way to kick off this calendar than with a recap of the 2018 Nordic Perl Workshop and MojoConf held in Oslo, Norway.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/01/welcome-mojoconf-recap/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/mojoconf/">mojoconf</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-01T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="mojoconf" />
+    </entry>
+</feed>
+

@@ -2,11 +2,43 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/testing/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-20T00:00:00Z</updated>
+    <updated>2018-12-04T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/testing.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/testing/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</id>
+        <title>Day 4: Testing Hooks and Helpers</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
+<a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
+applications</a>
+(even for <a href="https://metacpan.org/pod/Test::Mojo::Role::PSGI">testing in other web
+frameworks</a>).</p>
+
+<p>But what if what I need to test isn&#39;t a route? What if it&#39;s
+a <a href="https://mojolicious.org/perldoc/Mojolicious#HOOKS">hook</a>,
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-plugin-to-your-application">plugin</a>,
+or
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers">helper</a>?
+We can test all those things, too!</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-04T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="testing" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</id>
         <title>Day 20: Practical Testing</title>

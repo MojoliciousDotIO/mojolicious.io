@@ -7,6 +7,37 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 4: Testing Hooks and Helpers</title>
+            <link>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</link>
+            <guid>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</guid>
+            <description><![CDATA[
+                <p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
+<a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
+applications</a>
+(even for <a href="https://metacpan.org/pod/Test::Mojo::Role::PSGI">testing in other web
+frameworks</a>).</p>
+
+<p>But what if what I need to test isn&#39;t a route? What if it&#39;s
+a <a href="https://mojolicious.org/perldoc/Mojolicious#HOOKS">hook</a>,
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-plugin-to-your-application">plugin</a>,
+or
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers">helper</a>?
+We can test all those things, too!</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 04 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 20: Practical Testing</title>
             <link>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</link>
             <guid>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</guid>

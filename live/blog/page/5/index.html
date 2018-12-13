@@ -104,11 +104,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/05/day-5-your-apps-built-in-commands/">Day 5: Your App&#39;s Built-In Commands</a></h1>
+            <h1><a href="/blog/2017/12/18/day-18-the-wishlist-model/">Day 18: The Wishlist Model</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-05">Dec  5, 2017</time>
+                  <time class="date" datetime="2017-12-18">Dec 18, 2017</time>
                   
 
               </p>
@@ -117,17 +117,28 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Space shuttle Atlantis liftoff" src="/blog/2017/12/05/day-5-your-apps-built-in-commands/1200px-Rocket_prolant.jpg">
+                <img alt="Still Life: Vase with Pink Roses by Vincent van Gogh" src="/blog/2017/12/18/day-18-the-wishlist-model/van_gogh_still_life.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>I mentioned at the outset of this series that Mojolicious applications are more than just web servers.
-I then showed how you can start a web server using the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>daemon</code></a> or <a href="http://mojolicious.org/perldoc/Mojolicious/Command/prefork"><code>prefork</code></a> commands.
-In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate"><code>inflate</code></a> command that can help you with growing your app from Lite to Full.</p>
+              <p></p><p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
+We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
+That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
+While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
+Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
 
-<p>But there are other commands, built right in to your app, that can help you be more productive right away!</p>
+<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
+I have also added several tags.
+While development on the application may continue, those tags will remain for future readers.</p>
 
-                  <p><a href="/blog/2017/12/05/day-5-your-apps-built-in-commands/#section-2">Continue reading Day 5: Your App&#39;s Built-In Commands...</a></p>
+<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
+You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
+
+<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
+At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
+Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
+
+                  <p><a href="/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading Day 18: The Wishlist Model...</a></p>
             </div>
 
         </article>
@@ -135,11 +146,11 @@ In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Moj
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4: Don&#39;t Fear the Full App</a></h1>
+            <h1><a href="/blog/2017/12/17/day-17-the-wishlist-app/">Day 17: The Wishlist App</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-04">Dec  4, 2017</time>
+                  <time class="date" datetime="2017-12-17">Dec 17, 2017</time>
                   
 
               </p>
@@ -148,26 +159,20 @@ In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Moj
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Arucaria trees in Curitiba Brazil" src="/blog/2017/12/04/day-4-dont-fear-the-full-app/arucaria.jpg">
+                <img alt="Living room, Christmas tree, and presents" src="/blog/2017/12/17/day-17-the-wishlist-app/xmas_tree.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>One of the most common misconceptions about Mojolicious is that there is a large difference between the declarative &quot;Lite&quot; apps that we have seen so far and large-scale structured &quot;Full&quot; apps.
-Nothing could be further from the truth.
-<a href="http://mojolicious.org/perldoc/Mojolicious/Lite">Mojolicious::Lite</a> is a very tiny wrapper around the so-called &quot;Full&quot; app architecture, giving it the approachable keyword syntax.</p>
+              <p></p><p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example appliation.
+It is possible I let the exaxmple get away from me!</p>
 
-<p>Because it is much nicer to have concise single-file examples for documentation most of Mojolicious&#39; documentation uses Lite syntax most of the time.
-It is understandable that people worry about migrating (or as we call it &quot;growing&quot;) even once their apps would benefit from Object-Oriented structure; after all the docs seem geared towards Lite apps.
-However, let those fears go, the transition is easy.
-And once you understand it, the documentatation examples are trivial to translate.</p>
+<p>In today&#39;s article I indend to show how to use template composition techniques to produce a wishlist app.
+We will cover <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layouts</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">partial templates</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">content blocks</a>.</p>
 
-<p>Plus, Mojolicious comes with two forms of help when transitioning.
-The first is the <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing">Growing Guide</a> which covers everything this post will but from the perspective of porting an existing application (which I won&#39;t duplicate here).
-The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate">inflate command</a> which can even start you on the process by moving your templates from the data section and into their own files.</p>
+<p>The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
+Today we will example concepts mostly relating to the templates, then in tomorrows post I will migrate the model from using the simplistic persistence of <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> that it uses now to <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>.</p>
 
-<p>That said, in order to futher demystify things, I&#39;m going to cover some of the differences and pull back the curtain on the Lite syntax itself.</p>
-
-                  <p><a href="/blog/2017/12/04/day-4-dont-fear-the-full-app/#section-2">Continue reading Day 4: Don&#39;t Fear the Full App...</a></p>
+                  <p><a href="/blog/2017/12/17/day-17-the-wishlist-app/#section-2">Continue reading Day 17: The Wishlist App...</a></p>
             </div>
 
         </article>
@@ -175,11 +180,11 @@ The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/in
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/03/day-3-using-named-routes/">Day 3: Using Named Routes</a></h1>
+            <h1><a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions/">Day 16: The Secret Life of Sessions</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-03">Dec  3, 2017</time>
+                  <time class="date" datetime="2017-12-16">Dec 16, 2017</time>
                   
 
               </p>
@@ -188,23 +193,28 @@ The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/in
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="&quot;my name is&quot; stickers" src="/blog/2017/12/03/day-3-using-named-routes/my_name_is.jpg">
+                <img alt="Pile of Scrabble tiles" src="/blog/2017/12/16/day-16-the-secret-life-of-sessions/scrabble.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>One of the things we know from years of programming is that you should never hard-code anything if you don&#39;t have to.
-And yet far too many web application hard-code their urls, especially internal ones.
-But what if you didn&#39;t have to?</p>
+              <p></p><p>As you all know, HTTP is a stateless protocol.
+In Mojolicious applications the session is used to maintain state between requests.
+These sessions are managed by the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious/#sessions">session manager</a>.</p>
 
-<p>Each Mojolicious route has its own <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Routing#Named-routes">name</a> which can be used to generate urls.
-If you don&#39;t specify one, one is generated, but you shouldn&#39;t rely on that name, give it one that is meaningful and relevant to your purposes.
-In lite apps, the name is the last parameter, after any defaults or callbacks.
-(In a full app it is an attribute, but we&#39;ll talk about those in another post).</p>
+<p>During each request, the <a href="http://mojolicious.org/perldoc/Mojolicious/Controller#session">session</a> is just another hash reference attached to the controller, in some ways like the <a href="/blog/2017/12/02/day-2-the-stash">stash</a>, except this one persists between requests.
+Mojolicious does this by encoding the structure, first as JSON then Base64.
+It then signs the resulting string using HMAC-SHA1 and the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious#secrets">secret</a> to prevent tampering and stores it as a cookie on the response to the client.</p>
 
-<p>Then when you need a url, rather than hard-coding it, use <a href="http://mojolicious.org/perldoc/Mojolicious/Controller#url_for"><code>url_for</code></a> or related functionality to generate a url by name, you can even pass placeholder values if needed.
-Let&#39;s see how it works!</p>
+<p>On subsequent requests, the client sends the cookie along with the request (as cookies do).
+Mojolicious then checks if the document and signature validate against the secret, if so the cookie is decoded and made available again via the session method.</p>
 
-                  <p><a href="/blog/2017/12/03/day-3-using-named-routes/#section-2">Continue reading Day 3: Using Named Routes...</a></p>
+<p>Two important things to note.
+First, though the data is safe from tampering, it isn&#39;t encrypted; a savvy user can decode the cookie and see the stored data, so don&#39;t put anything in it that shouldn&#39;t be seen.
+Second, this is only useful if the secret is strong and safe.
+If not, the client could forge a cookie that appeared to come from your application, possibly with catastrophic results!
+So while Mojolicious makes it easy, a little care can go a long way toward keeping your session data safe and trusted.</p>
+
+                  <p><a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions/#section-2">Continue reading Day 16: The Secret Life of Sessions...</a></p>
             </div>
 
         </article>
@@ -212,11 +222,11 @@ Let&#39;s see how it works!</p>
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/02/day-2-the-stash/">Day 2: The Stash</a></h1>
+            <h1><a href="/blog/2017/12/15/day-15-start-a-new-yancy-app/">Day 15: Start a New Yancy App</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-02">Dec  2, 2017</time>
+                  <time class="date" datetime="2017-12-15">Dec 15, 2017</time>
                   
 
               </p>
@@ -225,23 +235,21 @@ Let&#39;s see how it works!</p>
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="leather bag" src="/blog/2017/12/02/day-2-the-stash/bag-1854148_1920.jpg">
+                <img alt="Workers on a scaffold" src="/blog/2017/12/15/day-15-start-a-new-yancy-app/scaffold.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>In Mojolicious, when processing a request and preparing a response one of the most important concepts is &quot;the stash&quot;.
-Since it is a non-blocking framework, your code can&#39;t use global variables to store any state during processing.
-If you did and some other code were to run, it could very easily get cross-talk between requests.</p>
+              <p></p><p><a href="http://metacpan.org/pod/Yancy">Yancy</a> is a new content management
+plugin for the <a href="http://mojolicious.org">Mojolicious web framework</a>.
+Yancy allows you to easily administrate your site’s content just by
+describing it using <a href="http://json-schema.org">JSON Schema</a>. Yancy
+supports <a href="http://metacpan.org/pod/Yancy::Backend">multiple backends</a>, so
+your site&#39;s content can be in
+<a href="http://metacpan.org/pod/Yancy::Backend::Pg">Postgres</a>,
+<a href="http://metacpan.org/pod/Yancy::Backend::Mysql">MySQL</a>, and
+<a href="http://metacpan.org/pod/Yancy::Backend::Dbic">DBIx::Class</a>.</p>
 
-<p>The stash is the place you can store information while you process it.
-It is just a simple hash reference that is attached to the controller object that is processing the request.
-It lives and dies with that one transaction.</p>
-
-<p>While you can and should use it as a scratchpad, it really is much more.
-The stash controls almost every aspect of the response that you generate.
-Let&#39;s look a little closer to see how it works</p>
-
-                  <p><a href="/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading Day 2: The Stash...</a></p>
+                  <p><a href="/blog/2017/12/15/day-15-start-a-new-yancy-app/#section-2">Continue reading Day 15: Start a New Yancy App...</a></p>
             </div>
 
         </article>
@@ -249,11 +257,11 @@ Let&#39;s look a little closer to see how it works</p>
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/01/day-1-getting-started/">Day 1: Getting Started</a></h1>
+            <h1><a href="/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-01">Dec  1, 2017</time>
+                  <time class="date" datetime="2017-12-14">Dec 14, 2017</time>
                   
 
               </p>
@@ -262,17 +270,13 @@ Let&#39;s look a little closer to see how it works</p>
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="hot air ballons" src="/blog/2017/12/01/day-1-getting-started/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg">
+                <img alt="Two hands with interlocked pinkies, a pinky swear" src="/blog/2017/12/14/day-14-you-promised-to-call/pinky_swear.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><h2>Start at the Beginning</h2>
+              <p></p><p>A new feature of <a href="http://mojolicious.org/">Mojolicious</a>, as of <a href="https://metacpan.org/release/SRI/Mojolicious-7.49">7.49</a>, is the implementation of the <a href="https://promisesaplus.com/implementations#in-other-languages">Promises/A+ specification</a>. In this posting, we&#39;re going to use promises to implement non-blocking, parallel fetching of a number of web pages.</p>
 
-<p>In this Advent Calendar series, some posts will be introductory, some will be advanced, some will be on new features.
-Who knows what could be next?
-But for now let&#39;s ensure a level playing field by working out how to get started.</p>
-
-                  <p><a href="/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading Day 1: Getting Started...</a></p>
+                  <p><a href="/blog/2017/12/14/day-14-you-promised-to-call/#section-2">Continue reading Day 14: You Promised To Call!...</a></p>
             </div>
 
         </article>
@@ -304,8 +308,11 @@ But for now let&#39;s ensure a level playing field by working out how to get sta
     <a href="/blog/tag/advent/">advent</a>
     <a href="/blog/tag/api/">api</a>
     <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/dancer/">dancer</a>
     <a href="/blog/tag/debugging/">debugging</a>
+    <a href="/blog/tag/development/">development</a>
     <a href="/blog/tag/example/">example</a>
     <a href="/blog/tag/fluent/">fluent</a>
     <a href="/blog/tag/full/">full</a>
@@ -313,9 +320,12 @@ But for now let&#39;s ensure a level playing field by working out how to get sta
     <a href="/blog/tag/growing/">growing</a>
     <a href="/blog/tag/hello-world/">hello world</a>
     <a href="/blog/tag/installing/">installing</a>
+    <a href="/blog/tag/ldap/">LDAP</a>
     <a href="/blog/tag/lite/">lite</a>
+    <a href="/blog/tag/minion/">minion</a>
     <a href="/blog/tag/mocking/">mocking</a>
     <a href="/blog/tag/model/">model</a>
+    <a href="/blog/tag/mojoconf/">mojoconf</a>
     <a href="/blog/tag/non-blocking/">non-blocking</a>
     <a href="/blog/tag/non-web/">non-web</a>
     <a href="/blog/tag/openapi/">openapi</a>
@@ -329,8 +339,10 @@ But for now let&#39;s ensure a level playing field by working out how to get sta
     <a href="/blog/tag/template/">template</a>
     <a href="/blog/tag/templates/">templates</a>
     <a href="/blog/tag/testing/">testing</a>
+    <a href="/blog/tag/theme/">theme</a>
     <a href="/blog/tag/useragent/">useragent</a>
     <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/yancy/">yancy</a>
   </div>
 </div>
 

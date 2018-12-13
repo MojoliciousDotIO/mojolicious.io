@@ -104,11 +104,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/09/day-9-the-best-way-to-test/">Day 9: The Best Way to Test</a></h1>
+            <h1><a href="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/">Day 22: A RESTful API with OpenAPI</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-09">Dec  9, 2017</time>
+                  <time class="date" datetime="2017-12-22">Dec 22, 2017</time>
                   
 
               </p>
@@ -117,22 +117,31 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Woman using chemistry lab equipment" src="/blog/2017/12/09/day-9-the-best-way-to-test/1280px-CSIRO_ScienceImage_2798_Testing_in_the_Laboratory.jpg">
+                <img alt="A hammock on a beach" src="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/hammock_beach.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>Ok so it is a bit of a click-bait headline.
-But that doesn&#39;t mean I don&#39;t believe it.</p>
+              <p></p><p>The <a href="https://www.openapis.org/">OpenAPI</a> Specification (formerly named
+Swagger) is an API description format for REST APIs. An API specification
+written using the the rules set by the Open API Initiative can be used to
+describe:</p>
 
-<p><a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a> is a test framework for websites and related technologies.
-While its true that there are many such tools, this one gets its power comes from combining so many of the tools that Mojolicious provides.
-A full non-blocking web server, including websockets, an <a href="http://mojolicious.org/perldoc/Mojo/IOLoop">event loop</a>, an <a href="http://mojolicious.org/perldoc/Mojo/DOM">XML/HTML DOM parser</a>, <a href="http://mojolicious.org/perldoc/Mojo/JSON">JSON parser and emitter</a>, and more all come together to make incredibly detailed testing simple.
-Further, with the recent additions in support of <a href="http://mojolicious.org/perldoc/Mojo/Base#with_roles">roles</a> (which will be discussed in a future post), Test::Mojo is becoming an extensible testing platform.</p>
+<ul>
+<li>All the available endpoints. An endpoint is a unique resource that can
+access or modify a given object.</li>
+<li>Input parameters, such as headers, query parameters and/or body parameters.</li>
+<li>The structure of the response, including headers status codes and the body -
+if any.</li>
+<li>Authentication methods</li>
+<li>Contact information, license, terms of use and other information</li>
+</ul>
 
-<p>In this article, I&#39;ll give a quick overview of how to use Test::Mojo and some of its methods.
-Rest assured you&#39;ll see more of it as the series continues.</p>
+<p>This post look into how to write an API specification and how to use it
+together with
+<a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">Mojolicious::Plugin::OpenAPI</a>
+and <a href="https://metacpan.org/pod/OpenAPI::Client">OpenAPI::Client</a>.</p>
 
-                  <p><a href="/blog/2017/12/09/day-9-the-best-way-to-test/#section-2">Continue reading Day 9: The Best Way to Test...</a></p>
+                  <p><a href="/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/#section-2">Continue reading Day 22: A RESTful API with OpenAPI...</a></p>
             </div>
 
         </article>
@@ -140,11 +149,11 @@ Rest assured you&#39;ll see more of it as the series continues.</p>
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/">Day 8: Mocking a REST API</a></h1>
+            <h1><a href="/blog/2017/12/21/day-21-virtually-a-lumberjack/">Day 21: Virtual(ly a) Lumberjack</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-08">Dec  8, 2017</time>
+                  <time class="date" datetime="2017-12-21">Dec 21, 2017</time>
                   
 
               </p>
@@ -153,24 +162,39 @@ Rest assured you&#39;ll see more of it as the series continues.</p>
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Two crash test dummies" src="/blog/2017/12/08/day-8-mocking-a-rest-api/1280px-crash-test-dummies.jpg">
+                <img alt="Woman wearing VR goggles outside" src="/blog/2017/12/21/day-21-virtually-a-lumberjack/vr.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>One of my applications is a pure-JavaScript UI for a JSON API. This UI
-is an entirely different project that communicates with a public API
-using an OpenAPI specification.</p>
+              <p></p><p>What do you do when you want to split up a stream of data in real-time while
+giving the user instructions?</p>
 
-<p>Our public API is huge and complex: To set up the public API, I need
-a database, sample data, and three other private API servers that
-perform individual tasks as directed by the public API. Worse, I would
-need to set up a lot of different test scenarios with different kinds of
-data.</p>
+<p>This is just what I wanted to do to aid in reverse-engineering the USB
+protocol of Virtual Reality devices known as Head Mounted Displays (HMD), for
+the <a href="http://www.openhmd.net/">OpenHMD</a> project.</p>
 
-<p>It would be a lot easier to set up a mock public API that I could use to
-test my UI, and it turns out that Mojolicious makes this very easy.</p>
+<p>HMDs are used to create virtual reality environments. When worn, two slightly
+different images are drawn to each side of the screen, with each side visible
+to only one eye. This imitates binocular vision and creates an image with a
+feeling of depth. By tracking the rotation of the unit, the user can then look
+around this environment.</p>
 
-                  <p><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/#section-2">Continue reading Day 8: Mocking a REST API...</a></p>
+<p>The recent resurgence of Virtual Reality devices can be attributed to the Rift
+DK1, released by Oculus in March 2013.</p>
+
+<p>By logging the packets generated during each movement, we can compare the
+content of each log to identify which bytes are related to which action. Such
+movements include roll (tilting head side-to-side), pitch (looking up and
+down) and yaw (turning left/right). Though position isn&#39;t tracked, we also
+look for sway (left-right translation), surge (back and forth) and heave (up
+and down) information as this is used in combination with the other values for
+accurate tracking of rotation.</p>
+
+<p>Mojo is an amazing toolkit for web development, as shown in previous
+calendar entries, but using components of it can also solve problems in other
+non-web spaces like these. Why use Mojo for this? Because it makes it <em>easy</em>.</p>
+
+                  <p><a href="/blog/2017/12/21/day-21-virtually-a-lumberjack/#section-2">Continue reading Day 21: Virtual(ly a) Lumberjack...</a></p>
             </div>
 
         </article>
@@ -178,11 +202,11 @@ test my UI, and it turns out that Mojolicious makes this very easy.</p>
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/">Day 7: Using Template Variants For a Beta Landing Page</a></h1>
+            <h1><a href="/blog/2017/12/20/day-20-practical-testing/">Day 20: Practical Testing</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-07">Dec  7, 2017</time>
+                  <time class="date" datetime="2017-12-20">Dec 20, 2017</time>
                   
 
               </p>
@@ -191,29 +215,15 @@ test my UI, and it turns out that Mojolicious makes this very easy.</p>
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Single yellow tulip in a field of red tulips" src="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg">
+                <img alt="Taking a sample of lava at Kilauea" src="/blog/2017/12/20/day-20-practical-testing/lava.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p><a href="http://cpantesters.org">CPAN Testers</a> is a pretty big project with a long,
-storied history. At its heart is a data warehouse holding all the test reports
-made by people installing CPAN modules. Around that exists an ecosystem of
-tools and visualizations that use this data to provide useful insight into the
-status of CPAN distributions.</p>
+              <p></p><p>Back on <a href="/blog/2017/12/09/day-9-the-best-way-to-test">Day 9</a> we discussed testing and especially <a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>.
+Today I want to just briefly talk about some practical things that can come up when testing real world applications.
+Once again the discussion will be motivated by the <a href="https://github.com/jberger/Wishlist">Wishlist</a> application that we&#39;ve been developing these past few days.</p>
 
-<p>For the <a href="http://github.com/cpan-testers/cpantesters-web">CPAN Testers webapp
-project</a>, I needed a way to
-show off some pre-release tools with some context about what they are and how
-they might be made ready for release. I needed a &quot;beta&quot; website with a front
-page that introduced the beta projects. But, I also needed the same
-<a href="http://mojolicious.org">Mojolicious</a> application to serve (in the future) as a
-production website. The front page of the production website would be
-completely different from the front page of the beta testing website.</p>
-
-<p>To achieve this, I used <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Template-variants">Mojolicious&#39;s template variants
-feature</a>.</p>
-
-                  <p><a href="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/#section-2">Continue reading Day 7: Using Template Variants For a Beta Landing Page...</a></p>
+                  <p><a href="/blog/2017/12/20/day-20-practical-testing/#section-2">Continue reading Day 20: Practical Testing...</a></p>
             </div>
 
         </article>
@@ -221,11 +231,11 @@ feature</a>.</p>
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/06/day-6-adding-your-own-commands/">Day 6: Adding Your Own Commands</a></h1>
+            <h1><a href="/blog/2017/12/19/day-19-make-your-app-installable/">Day 19: Make Your App Installable</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-06">Dec  6, 2017</time>
+                  <time class="date" datetime="2017-12-19">Dec 19, 2017</time>
                   
 
               </p>
@@ -234,28 +244,23 @@ feature</a>.</p>
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Space shuttle Atlantis prepared for liftoff (night)" src="/blog/2017/12/06/day-6-adding-your-own-commands/1280px-Brightly_lit_STS-135_on_launch_pad_39a.jpg">
+                <img alt="Container ship loading at the dock" src="/blog/2017/12/19/day-19-make-your-app-installable/container_ship.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>Everyone has written those one-off administration or check scripts.
-There are probably a few cluttering your project root or bin directory right now.
-Those have a problem beyond just the clutter: duplication.</p>
+              <p></p><p>Thus far we have always run our applications from the local directory.
+That is usually the project root directory and/or the repository checkout.
+But did you know that with only a few changes you can make your application installable like other Perl modules?</p>
 
-<p>Programmers hate duplication because of skew.
-If code gets improved in one place, it is unlikely to be improved in all places, unless there is only the one.
-So that script you wrote a while back, the one with the database connection you hand-rolled, is that still correct?</p>
+<p>While, you must do this if you want to upload your application to CPAN, even if you don&#39;t intend to do that, it still has benefits.
+You can install the application on your personal computer, especially if you want to be able to run the script while in other directories.
+Having an installable module also means that you can use a so-called &quot;DarkPAN&quot; and related tools to build yourself a local &quot;CPAN&quot;.
+If you have multiple Perl modules at your company (or as part of any project) using a DarkPAN can ease integration and deployment immensely!
+N.B. there is even a DarkPAN tool written using Mojolicious called <a href="https://metacpan.org/pod/App::opan">opan</a>.</p>
 
-<p>In the <a href="/blog/2017/12/05/day-5-your-apps-built-in-commands">previous article in this series</a> I talked about the built-in commands available to your application.
-The final command was <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval"><code>eval</code></a>.
-I mentioned that when combined with predefined behaviors, the command could be great for administrative tasks.
-That&#39;s true, but you need to know what to eval in order to do so.</p>
+<p>And hey if you needed even more more reason, it cleans up your project root directory somewhat too!</p>
 
-<p>To formalize that process, we can go one step further: defining our own commands.
-By doing this your application&#39;s administative behaviors can take arguemnts and provide optional switches as well as give usage messages.
-In this way these administative commands decouple themselves from knowledge of the application&#39;s internals and become useful to a broader set of users.</p>
-
-                  <p><a href="/blog/2017/12/06/day-6-adding-your-own-commands/#section-2">Continue reading Day 6: Adding Your Own Commands...</a></p>
+                  <p><a href="/blog/2017/12/19/day-19-make-your-app-installable/#section-2">Continue reading Day 19: Make Your App Installable...</a></p>
             </div>
 
         </article>
@@ -263,11 +268,11 @@ In this way these administative commands decouple themselves from knowledge of t
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/05/day-5-your-apps-built-in-commands/">Day 5: Your App&#39;s Built-In Commands</a></h1>
+            <h1><a href="/blog/2017/12/18/day-18-the-wishlist-model/">Day 18: The Wishlist Model</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-05">Dec  5, 2017</time>
+                  <time class="date" datetime="2017-12-18">Dec 18, 2017</time>
                   
 
               </p>
@@ -276,17 +281,28 @@ In this way these administative commands decouple themselves from knowledge of t
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Space shuttle Atlantis liftoff" src="/blog/2017/12/05/day-5-your-apps-built-in-commands/1200px-Rocket_prolant.jpg">
+                <img alt="Still Life: Vase with Pink Roses by Vincent van Gogh" src="/blog/2017/12/18/day-18-the-wishlist-model/van_gogh_still_life.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>I mentioned at the outset of this series that Mojolicious applications are more than just web servers.
-I then showed how you can start a web server using the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>daemon</code></a> or <a href="http://mojolicious.org/perldoc/Mojolicious/Command/prefork"><code>prefork</code></a> commands.
-In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate"><code>inflate</code></a> command that can help you with growing your app from Lite to Full.</p>
+              <p></p><p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
+We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
+That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
+While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
+Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
 
-<p>But there are other commands, built right in to your app, that can help you be more productive right away!</p>
+<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
+I have also added several tags.
+While development on the application may continue, those tags will remain for future readers.</p>
 
-                  <p><a href="/blog/2017/12/05/day-5-your-apps-built-in-commands/#section-2">Continue reading Day 5: Your App&#39;s Built-In Commands...</a></p>
+<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
+You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
+
+<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
+At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
+Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
+
+                  <p><a href="/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading Day 18: The Wishlist Model...</a></p>
             </div>
 
         </article>
@@ -318,8 +334,11 @@ In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Moj
     <a href="/blog/tag/advent/">advent</a>
     <a href="/blog/tag/api/">api</a>
     <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/dancer/">dancer</a>
     <a href="/blog/tag/debugging/">debugging</a>
+    <a href="/blog/tag/development/">development</a>
     <a href="/blog/tag/example/">example</a>
     <a href="/blog/tag/fluent/">fluent</a>
     <a href="/blog/tag/full/">full</a>
@@ -327,9 +346,12 @@ In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Moj
     <a href="/blog/tag/growing/">growing</a>
     <a href="/blog/tag/hello-world/">hello world</a>
     <a href="/blog/tag/installing/">installing</a>
+    <a href="/blog/tag/ldap/">LDAP</a>
     <a href="/blog/tag/lite/">lite</a>
+    <a href="/blog/tag/minion/">minion</a>
     <a href="/blog/tag/mocking/">mocking</a>
     <a href="/blog/tag/model/">model</a>
+    <a href="/blog/tag/mojoconf/">mojoconf</a>
     <a href="/blog/tag/non-blocking/">non-blocking</a>
     <a href="/blog/tag/non-web/">non-web</a>
     <a href="/blog/tag/openapi/">openapi</a>
@@ -343,8 +365,10 @@ In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Moj
     <a href="/blog/tag/template/">template</a>
     <a href="/blog/tag/templates/">templates</a>
     <a href="/blog/tag/testing/">testing</a>
+    <a href="/blog/tag/theme/">theme</a>
     <a href="/blog/tag/useragent/">useragent</a>
     <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/yancy/">yancy</a>
   </div>
 </div>
 

@@ -1,5 +1,5 @@
 ---
-title: Automatic Reload for Rapid Development
+title: Day 2: Automatic Reload for Rapid Development
 disable_content_template: 1
 tags:
     - advent

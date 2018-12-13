@@ -2,187 +2,140 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-24T00:00:00Z</updated>
+    <updated>2018-12-13T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
     <entry>
-        <id>https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/</id>
-        <title>Day 24: Release and Wrap-Up</title>
-        <author><name>Joel Berger</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/" rel="alternate" />
+        <id>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</id>
+        <title>Day 13: Taking on Roles</title>
+        <author><name>brian d foy</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Over the course of this advent calendar, we have discussed the <a href="https://mojolicious.io/blog/tag/wishlist/">Wishlist example application</a> several times.
-We used it to motivate discussions about <a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">templates</a>, <a href="https://mojolicious.io/blog/2017/12/18/day-18-the-wishlist-model/">models</a>, <a href="https://mojolicious.io/blog/2017/12/19/day-19-make-your-app-installable/">installable apps</a>, and <a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/">testing</a>.
-In this post I want to use it somewhat differently.
-I would like to motivate you, the reader, into action in a few different ways.</p>
+            <p>In my previous Advent article, I created <a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
 
-                <p><a href="https://mojolicious.io/blog/2017/12/24/day-24-release-and-wrap-up/#section-2">Continue reading...</a></p>
+                <p><a href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
                     <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
                 </p>
 
         ]]></content>
-        <updated>2017-12-24T00:00:00Z</updated>
+        <updated>2018-12-13T00:00:00Z</updated>
+        <category term="roles" />
         <category term="advent" />
-        <category term="wishlist" />
     </entry>
     <entry>
-        <id>https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/</id>
-        <title>Day 23: One-Liners for Fun and Profit</title>
-        <author><name>Joel Berger</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/" rel="alternate" />
+        <id>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</id>
+        <title>Day 12: Using Minion in Dancer Apps</title>
+        <author><name>Jason Crome</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/12/dancer-and-minion/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Perl is well-known for its <a href="http://www.catonmat.net/download/perl1line.txt">one-liners</a>: short programs written as part of the <a href="http://perldoc.perl.org/perlrun.html">command line invocation of the interpreter</a>.
-Certainly every programmer or sysadmin has the need, from time to time, to do a quick one-off task programmatically.
-Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of actually doing so.</p>
+            <p>At <code>$work</code>, we have built an API with <a href="https://metacpan.org/pod/Dancer">Dancer</a> that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
+immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
+application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by <code>fork()</code>ing a process, tracking its pid, and hoping we can later successfully
+reap the completed process.</p>
 
-<p>These tasks may include removing unwanted lines from files, collecting data from logs, or even a quick proof-of-concept of something that would become a script later.
-They can read lines in files, even multiple files, can operate on files in-place, can read from STDIN as a pipe.
-But while one-liners have been tools of the trade for these activities, certainly no such thing would be practical for web tasks, right?</p>
+<p>There have been several problems with this approach:
+- it&#39;s fragile
+- it doesn&#39;t scale
+- it&#39;s too easy to screw something up as a developer</p>
 
-<p>But of course, on <a href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/">day 5</a> and <a href="https://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/">day 6</a> of this series that we saw that we can build command line tools with your app.
-We have even seen how to use the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval">eval</a> command to run a one-liner against your app.
-So could we take this further?</p>
+<p>In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter <a href="https://metacpan.org/pod/Minion">Minion</a>.</p>
 
-<p>Could we do remote data fetching and manipulation as a one-liner?
-Could we build an entire web application as a one-liner?
-Would I be asking if the answer was no?</p>
+<p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
 
-                <p><a href="https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/#section-2">Continue reading...</a></p>
+                <p><a href="https://mojolicious.io/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
                     <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/command/">command</a>
-                    <a href="https://mojolicious.io/blog/tag/debugging/">debugging</a>
-                    <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                    <a href="https://mojolicious.io/blog/tag/dancer/">dancer</a>
+                    <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
                 </p>
 
         ]]></content>
-        <updated>2017-12-23T00:00:00Z</updated>
+        <updated>2018-12-12T00:00:00Z</updated>
         <category term="advent" />
-        <category term="command" />
-        <category term="debugging" />
-        <category term="lite" />
+        <category term="development" />
+        <category term="dancer" />
+        <category term="minion" />
     </entry>
     <entry>
-        <id>https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/</id>
-        <title>Day 22: A RESTful API with OpenAPI</title>
-        <author><name>Jan Henning Thorsen</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/" rel="alternate" />
+        <id>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</id>
+        <title>Day 11: Who Watches The Minions</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>The <a href="https://www.openapis.org/">OpenAPI</a> Specification (formerly named
-Swagger) is an API description format for REST APIs. An API specification
-written using the the rules set by the Open API Initiative can be used to
-describe:</p>
+            <p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
+queue</a>, I need to take care of
+it properly. Are the workers working (have they seized the means of
+production)? Are jobs completing successfully? Are there any errors?
+What are they?</p>
 
-<ul>
-<li>All the available endpoints. An endpoint is a unique resource that can
-access or modify a given object.</li>
-<li>Input parameters, such as headers, query parameters and/or body parameters.</li>
-<li>The structure of the response, including headers status codes and the body -
-if any.</li>
-<li>Authentication methods</li>
-<li>Contact information, license, terms of use and other information</li>
-</ul>
-
-<p>This post look into how to write an API specification and how to use it
-together with
-<a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">Mojolicious::Plugin::OpenAPI</a>
-and <a href="https://metacpan.org/pod/OpenAPI::Client">OpenAPI::Client</a>.</p>
-
-                <p><a href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/#section-2">Continue reading...</a></p>
+                <p><a href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
                     <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/api/">api</a>
-                    <a href="https://mojolicious.io/blog/tag/openapi/">openapi</a>
-                    <a href="https://mojolicious.io/blog/tag/rest/">rest</a>
-                    <a href="https://mojolicious.io/blog/tag/swagger/">swagger</a>
+                    <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
                 </p>
 
         ]]></content>
-        <updated>2017-12-22T00:00:00Z</updated>
+        <updated>2018-12-11T00:00:00Z</updated>
         <category term="advent" />
-        <category term="api" />
-        <category term="openapi" />
-        <category term="rest" />
-        <category term="swagger" />
+        <category term="minion" />
     </entry>
     <entry>
-        <id>https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/</id>
-        <title>Day 21: Virtual(ly a) Lumberjack</title>
-        <author><name>CandyAngel</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/" rel="alternate" />
+        <id>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</id>
+        <title>Day 10: Minion Stands Alone</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>What do you do when you want to split up a stream of data in real-time while
-giving the user instructions?</p>
+            <p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
+incredibly useful tool, but sometimes I need to use it for non-web
+projects. So, how can I use Minion without needing
+a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
 
-<p>This is just what I wanted to do to aid in reverse-engineering the USB
-protocol of Virtual Reality devices known as Head Mounted Displays (HMD), for
-the <a href="http://www.openhmd.net/">OpenHMD</a> project.</p>
-
-<p>HMDs are used to create virtual reality environments. When worn, two slightly
-different images are drawn to each side of the screen, with each side visible
-to only one eye. This imitates binocular vision and creates an image with a
-feeling of depth. By tracking the rotation of the unit, the user can then look
-around this environment.</p>
-
-<p>The recent resurgence of Virtual Reality devices can be attributed to the Rift
-DK1, released by Oculus in March 2013.</p>
-
-<p>By logging the packets generated during each movement, we can compare the
-content of each log to identify which bytes are related to which action. Such
-movements include roll (tilting head side-to-side), pitch (looking up and
-down) and yaw (turning left/right). Though position isn&#39;t tracked, we also
-look for sway (left-right translation), surge (back and forth) and heave (up
-and down) information as this is used in combination with the other values for
-accurate tracking of rotation.</p>
-
-<p>Mojo is an amazing toolkit for web development, as shown in previous
-calendar entries, but using components of it can also solve problems in other
-non-web spaces like these. Why use Mojo for this? Because it makes it <em>easy</em>.</p>
-
-                <p><a href="https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/#section-2">Continue reading...</a></p>
+                <p><a href="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
                     <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
+                    <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
                 </p>
 
         ]]></content>
-        <updated>2017-12-21T00:00:00Z</updated>
+        <updated>2018-12-10T00:00:00Z</updated>
         <category term="advent" />
-        <category term="non-web" />
+        <category term="minion" />
     </entry>
     <entry>
-        <id>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</id>
-        <title>Day 20: Practical Testing</title>
-        <author><name>Joel Berger</name></author>
-        <link href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/" rel="alternate" />
+        <id>https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/</id>
+        <title>Day 9: Add a theme system to your Mojolicious app</title>
+        <author><name>Luc Didry</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>Back on <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test">Day 9</a> we discussed testing and especially <a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>.
-Today I want to just briefly talk about some practical things that can come up when testing real world applications.
-Once again the discussion will be motivated by the <a href="https://github.com/jberger/Wishlist">Wishlist</a> application that we&#39;ve been developing these past few days.</p>
+            <p>You wrote an awesome Mojolicious app, and people use it.
+Marvellous!
+But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
 
-                <p><a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/#section-2">Continue reading...</a></p>
+<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
+But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
+
+<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading...</a></p>
 
                 <p>Tags:
                     <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/mocking/">mocking</a>
-                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
-                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                    <a href="https://mojolicious.io/blog/tag/theme/">theme</a>
                 </p>
 
         ]]></content>
-        <updated>2017-12-20T00:00:00Z</updated>
+        <updated>2018-12-09T00:00:00Z</updated>
         <category term="advent" />
-        <category term="mocking" />
-        <category term="testing" />
-        <category term="wishlist" />
+        <category term="theme" />
     </entry>
 </feed>
 

@@ -1,13 +1,13 @@
 ---
 status: published
-title: Higher Order Promises
+title: Day 3: Higher Order Promises
 author: brian d foy
 tags:
     - promises
     - advent
 images:
   banner:
-    src: 'banner.jpg'
+    src: '/blog/2018/12/03/higher-order-promises/banner.jpg'
     alt: 'fractal cauliflower'
     data:
       attribution: |-

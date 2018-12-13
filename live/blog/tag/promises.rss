@@ -7,6 +7,46 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 5: Compound Selectors are Easier than Regexes</title>
+            <link>https://mojolicious.io/blog/2018/12/05/compound-selectors/</link>
+            <guid>https://mojolicious.io/blog/2018/12/05/compound-selectors/</guid>
+            <description><![CDATA[
+                <p>When people tell me that I can&#39;t (they mean shouldn&#39;t) parse HTML with a regex, I say &quot;hold my beer&quot;. It isn&#39;t a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I&#39;ve been using <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> to do it for me. It&#39;s easier than the old, expedient way.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 05 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 3: Higher Order Promises</title>
+            <link>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</link>
+            <guid>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</guid>
+            <description><![CDATA[
+                <h2>Create new, complex Promises by composing Promises</h2>
+
+<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 03 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 14: You Promised To Call!</title>
             <link>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</link>
             <guid>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</guid>
