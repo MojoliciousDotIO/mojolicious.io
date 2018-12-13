@@ -79,6 +79,10 @@ data:
       image: '/blog/2018/12/12/dancer-and-minion/banner.jpg'
       alt: Day 12: Using Minion in Dancer Apps
     - date: 2018-12-13
+      title: Taking on Roles
+      href: '/blog/2018/12/13/taking-on-roles/'
+      image: '/blog/2018/12/13/taking-on-roles/banner.jpg'
+      alt: Day 13: Taking on Roles
     - date: 2018-12-14
     - date: 2018-12-15
     - date: 2018-12-16
