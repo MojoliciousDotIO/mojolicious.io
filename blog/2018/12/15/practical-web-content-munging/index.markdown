@@ -20,7 +20,7 @@ use Mojo::UserAgent;
 
 my $url = 'intro';
 my $ua  = Mojo::UserAgent->new;
-my $tx = $ua->get("webmin.com/$url.html");
+my $tx = $ua->get("example.tld/$url.html");
 ```
 
 That's it! We just fetched a web page. You might be tempted to print out $tx to see what's in it (that's what I did, rather than reading the docs, at first). But, it's a `Mojo::Transaction::HTTP object`. We have to reach down through the hierarchy, first looking at the `res` attribute, which is a `Mojo::Message::Response` object, which has a `body` method:
