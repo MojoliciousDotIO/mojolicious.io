@@ -7,6 +7,25 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 13: Taking on Roles</title>
+            <link>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</link>
+            <guid>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</guid>
+            <description><![CDATA[
+                <p>In my previous Advent article, I created <a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 13 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 12: Using Minion in Dancer Apps</title>
             <link>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</link>
             <guid>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</guid>
@@ -108,32 +127,6 @@ But all those direct modifications may not survive on update of the app: they wi
             ]]></description>
             <pubDate>
                 Sun, 09 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 8: Authenticating with LDAP</title>
-            <link>https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/</link>
-            <guid>https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/</guid>
-            <description><![CDATA[
-                <p>There are still quite a few people using LDAP in production,
-but for those who are new to it,
-LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
-It used to be very common as a centralised authentication system
-and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
-I wander through the wilderness of authentication,
-ending with my solution on how to add LDAP authentication to your App.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/ldap/">LDAP</a>
-                        <a href="https://mojolicious.io/blog/tag/authentication/">authentication</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 08 Dec 2018 00:00:00 +0000
             </pubDate>
         </item>
     </channel>
