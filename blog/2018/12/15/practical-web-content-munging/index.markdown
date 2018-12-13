@@ -114,7 +114,7 @@ Pow! We're done. OK, not quite. We've got to deliver on the "munging" part of th
 
 Since I'm migrating this site to Hugo, I need to generate metadata that includes a date. Luckily, we already have dates attached to each news item. Unluckily, the dates are a bit inconsistent, and they aren't in the format that Hugo expects. I did a little digging on the CPAN and found `Time::Piece`, which is a clever module that will allow you to parse times and dates in most command formats, as well as output dates in most common formats.
 
-I need my dates to look like `2017-09-30`, so I used the following code (assume this is inside a loop that's putting each subsequent date in the `@dates` array we made above into `$date`):
+I need my dates to look like `2017-09-30`, so Hugo is happy with them, so I used the following code (assume this is inside a loop that's putting each subsequent date in the `@dates` array we made above into `$date`):
 
 ```perl
 use Time::Piece;
@@ -134,8 +134,44 @@ my $wc = new HTML::WikiConverter(dialect => 'Markdown');
 my $md = $wc->html2wiki( $para );
 ```
 
-Done.
+Done!
 
 ##Generating the Metadata
 
+Hugo posts have metadata that precedes the Markdown content, and contains things like author information, date of publication, description, etc. Some are optional, but some are mandatory (and date is needed so I can make a section on the front page of the site showing the most recent news items). So, I need to automatically generate based on the information I gathered from the original HTML.
 
+I'm going to gloss over how the `@entries` data structure was built (it's an array of hashes containing the three pieces of data we found above...in a larger application, I would have probably built objects for the entries, but this script will only be used once, so it doesn't need to be extensible or testable or much of anything else). But, I'll link to my github repo of the real world code at the end if you want to see the gritty details of that.
+
+```perl
+for my $e (@entries) {
+  my $desc = elide($e->{'text'}, 100, {at_space => 1});
+  my $md = <<"EOF";
+---
+title: "$e->{'title'}"
+date: $e->{'date'}
+description: "$desc"
+categories: []
+aliases: []
+toc: false
+draft: false
+---
+$e->{'text'}
+EOF
+
+  my $filename = lc $e->{'title'};
+  $filename =~ s/\s/-/g;
+  $filename =~ s/[!,()'"\/]//g;
+  open(my $FILE, ">", "content/news/$filename.md");
+  print $FILE $md;
+  close $FILE;
+}
+
+```
+
+There's a lot going on here, and I'll only briefly explain some of it, since it's not Mojo related.
+
+The first line of this loop creates a description, which is usually a summary or whatever...in my case, the main site will show the description as a clickable link, so the user will get a short summary of the news item on the main page, and then the ability to click it to see the whole item. I'm using the `String::Truncate` module, which has an `elide` method that will truncate a string on word boundaries and add an ellipsis to incidate text was left out.
+
+Then, in the here document, I fill in all the metadata, using values from $e, each of which is just a reference to a hash.
+
+And, if you want to see it all in one place, with some ugly bits to workaround broken dates and things that just don't work well in Markdown (like tables), you can see the code (still in progress, but nearly ready to migrate our cranky old site!) in the [repository on GitHub](https://github.com/swelljoe/webmin-com-extractor).
