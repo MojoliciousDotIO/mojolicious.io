@@ -114,7 +114,7 @@ Pow! We're done. OK, not quite. We've got to deliver on the "munging" part of th
 
 ##Munging the Dates
 
-Since I'm migrating this site to Hugo, I need to generate metadata that includes a date. Luckily, we already have dates attached to each news item. Unluckily, the dates are a bit inconsistent, and they aren't in the format that Hugo expects. I did a little digging on the CPAN and found `Time::Piece`, which is a clever module that will allow you to parse times and dates in most command formats, as well as output dates in most common formats.
+Since I'm migrating this site to Hugo, I need to generate metadata that includes a date. Luckily, we already have dates attached to each news item. Unluckily, the dates are a bit inconsistent, and they aren't in the format that Hugo expects. I did a little digging on the CPAN and found `Time::Piece`, which is a clever module that will allow you to parse times and dates in most common formats, as well as output dates in most common formats.
 
 I need my dates to look like `2017-09-30`, so Hugo is happy with them, so I used the following code (assume this is inside a loop that's putting each subsequent date in the `@dates` array we made above into `$date`):
 
