@@ -191,7 +191,6 @@ site:
                     image: '/static/seigman.png'
                     text: |-
                       Chris has been using Perl to develop websites and other tools for more than 20 years, but mostly as a hobby.  Since discovering Mojolicious, his Perl skills have improved dramatically, and he has expanded beyond simple CGI scripts to using Mojolicious for everything from large websites to short utilities.  His most ambitious project ever, which is a Mojolicious web app - can be found at [Bimmerlabs](https://www.bimmerlabs.com)
-
                 cromedome:
                     name: 'Jason Crome'
                     twitter: '@cromedome'

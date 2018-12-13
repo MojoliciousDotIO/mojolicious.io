@@ -1,6 +1,6 @@
 ---
 status: published
-title: A Practical Example of Mojo::DOM
+title: Day 14: A Practical Example of Mojo::DOM
 tags:
     - advent
     - xml
