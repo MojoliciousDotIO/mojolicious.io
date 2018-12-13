@@ -138,7 +138,7 @@ Done!
 
 ##Generating the Metadata
 
-Hugo posts have metadata that precedes the Markdown content, and contains things like author information, date of publication, description, etc. Some are optional, but some are mandatory (and date is needed so I can make a section on the front page of the site showing the most recent news items). So, I need to automatically generate based on the information I gathered from the original HTML.
+Hugo posts have metadata that precedes the Markdown content, and contains things like author information, date of publication, description, etc. Some are optional, but some are mandatory (and date is needed so I can make a section on the front page of the site showing the most recent news items). So, I need to automatically generate it based on the information I gathered from the original HTML.
 
 I'm going to gloss over how the `@entries` data structure was built (it's an array of hashes containing the three pieces of data we found above...in a larger application, I would have probably built objects for the entries, but this script will only be used once, so it doesn't need to be extensible or testable or much of anything else). But, I'll link to my github repo of the real world code at the end if you want to see the gritty details of that.
 
