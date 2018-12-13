@@ -7,7 +7,7 @@ tags:
     - advent
 images:
   banner:
-    src: '/blog/2018/12/13/mojo-roles/banner.jpg'
+    src: '/blog/2018/12/13/taking-on-roles/banner.jpg'
     alt: 'Elgin Theater'
     data:
       attribution: |-
