@@ -90,6 +90,10 @@ data:
       alt: Day 14: A Practical Example of Mojo::DOM
     - date: 2018-12-15
     - date: 2018-12-16
+      title: A pre-Christmas Diet
+      href: '/blog/2018/12/16/browser-diet/'
+      image: '/blog/2018/12/16/browser-diet/squirrel.jpg'
+      alt: Day 16: A pre-Christmas Diet for Mojolicious - A Children's Story
     - date: 2018-12-17
       title: A Website For Yancy
       href: '/blog/2018/12/17/a-website-for-yancy/'
