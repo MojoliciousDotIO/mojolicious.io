@@ -6,7 +6,7 @@ data:
   bio: swelljoe
   description: Working with ugly old websites using Mojo::UserAgent and Mojo::DOM
 ---
-Following brian d foy's great write-up of using Mojo::DOM selectors from Day 5, I thought it'd be fun to talk about some website migration scripts I recently built using Mojo::UserAgent and Mojo::DOM, two powerful aspects of Mojolicious. There was a time when Perl ruled the internet; it was the glue that held it all together. The world has changed and there is more than one kind of glue for the internet today. But, when I started looking at updating an old website that hasn't been updated in roughly 15 years (it's gotten new content, but the design and HTML template is the same), I found myself looking to Perl as the simplest option, because of the strength of Mojo::UserAgent and Mojo::DOM. In the past I would have used regexes, and then I would likely have had to add a bunch of special cases where the regex didn't quite match, and then after a few hours of fighting I would have resigned myself to cleaning up the remaining handful of broken pages by hand. No more! Mojo::DOM always gets it right, and with alarmingly little code.
+Following brian d foy's great write-up of using Mojo::DOM selectors from Day 5, I thought it'd be fun to talk about some website migration scripts I recently built using Mojo::UserAgent and Mojo::DOM, two powerful aspects of Mojolicious. I've never used Mojo for a project before, but when I started looking at updating an old website that hasn't been updated in roughly 15 years (it's gotten new content, but the design is unchanged) Mojo::UserAgent and Mojo::DOM looked great. In the past I would have used regexes, and then I would likely have had to add a bunch of special cases where the regex didn't quite match, and then after a few hours of fighting I would have resigned myself to cleaning up the remaining handful of broken pages by hand. No more! Mojo::DOM always gets it right, and with alarmingly little code.
 ---
 
 ##From Static Site to Static Site Generator
@@ -170,7 +170,7 @@ EOF
 
 There's a lot going on here, and I'll only briefly explain some of it, since it's not Mojo related.
 
-The first line of this loop creates a description, which is usually a summary or whatever...in my case, the main site will show the description as a clickable link, so the user will get a short summary of the news item on the main page, and then the ability to click it to see the whole item. I'm using the `String::Truncate` module, which has an `elide` method that will truncate a string on word boundaries and add an ellipsis to incidate text was left out.
+The first line of this loop creates a description, which is usually a summary or whatever. In my case, the main site will show the description as a clickable link, so the user will get a short summary of the news item on the main page, and then the ability to click it to see the whole item. I'm using the `String::Truncate` module, which has an `elide` method that will truncate a string on word boundaries and add an ellipsis to incidate text was left out.
 
 Then, in the here document, I fill in all the metadata, using values from $e, each of which is just a reference to a hash.
 
