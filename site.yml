@@ -172,9 +172,31 @@ site:
                       Jan (aka batman) is a self taught Perl hacker and a member of the Mojolicious Core Team. He likes to work with anything that has to do with web - both frontend and backend. Got more questions? Send him an [e-mail](mailto:jhthorsen@cpan.org) or contact him in the `#swagger` channel on [irc.perl.org](http://www.irc.perl.org/).
                 duffee :
                     name: 'Boyd Duffee'
-                    image: 'http://blogs.perl.org/mt/mt-static/support/assets_c/2012/12/zomg_google-thumb-72x72-1073.jpg'
+                    image: '/static/duffee.jpg'
                     text: |-
-                      Boyd Duffee has been hanging around the [edges](https://metacpan.org/author/DUFFEE) of the Perl ecosystem for many moons, picking up new bits of shiny to make SysAdmining more interesting.  He's pestered Joel (and a number of other Mojo devs) enough to feel guilted into writing an Advent calendar entry.  He's interested in Data Science, Complex Networks and walks in the woods.
+                      Boyd Duffee has been hanging around the [edges](https://metacpan.org/author/DUFFEE) of the Perl ecosystem for many moons, picking up new bits of shiny to make SysAdmining more interesting.  He's interested in Data Science, Complex Networks and walks in the woods.
+                ssoriche:
+                    name: Shawn Sorichetti
+                    twitter: '@ssoriche'
+                    image: 'https://secure.gravatar.com/avatar/b6d0ff68c2e0d081aba1a94e0f413e8c'
+                    text: |-
+                        Shawn is a long time Perl developer, with a tendency toward infrastructure, tooling, databases and devops.
+                ldidry:
+                    name: Luc Didry
+                    image: '/static/ldidry.png'
+                    text: |-
+                      Luc Didry is a sysAdmin and Perl developer, in love with Perl since he discovered it 10 years ago, and a Mojolicious enthusiast.
+                maschine:
+                    name: Chris Seigman (maschine)
+                    image: '/static/seigman.png'
+                    text: |-
+                      Chris has been using Perl to develop websites and other tools for more than 20 years, but mostly as a hobby.  Since discovering Mojolicious, his Perl skills have improved dramatically, and he has expanded beyond simple CGI scripts to using Mojolicious for everything from large websites to short utilities.  His most ambitious project ever, which is a Mojolicious web app - can be found at [Bimmerlabs](https://www.bimmerlabs.com)
+                cromedome:
+                    name: 'Jason Crome'
+                    twitter: '@cromedome'
+                    image: 'http://0.gravatar.com/avatar/fcf781200bb62080ccf106bac3d24937'
+                    text: |-
+                        Jason is a Dancer Core Team member, pilot, and hockey-player-wannabe. He likes hacking Perl for fun and profit, but neither piña coladas nor getting caught in the rain.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
