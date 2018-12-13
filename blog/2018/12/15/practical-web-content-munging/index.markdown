@@ -52,7 +52,9 @@ Those news items look something like this:
 <p>
 This release improves castigation of the widely formed sonterols.
 <br>
-Current users may upgrade by applying coil oil to application points A, C, W, DF, Y0, IN34, RS232, and Frank, then gently inserting the conjubilant apparatus into the ferulic treeble socket.
+Current users may upgrade by applying coil oil to application points A, C, W, 
+DF, Y0, IN34, RS232, and Frank, then gently inserting the conjubilant apparatus
+into the ferulic treeble socket.
 </p>
 <p class="post-footer align-right">
 <span class="date">December 2, 2018</span>
