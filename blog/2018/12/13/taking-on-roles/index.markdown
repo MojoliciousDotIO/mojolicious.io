@@ -16,7 +16,7 @@ data:
   bio: briandfoy
   description: Need a little extra in your class?
 ---
-In my previous Advent article, I created [higher-order promises](/blog/2018/12/03/higher-order-promises/) and showed you how to use them. I didn't show you the magic of how they work, so now I'll develop another example but from the other direction.
+In my previous Advent article, I created [higher-order promises](/blog/2018/12/03/higher-order-promises/) and showed you how to use them. I didn't show you the magic of how they work. Now I'll develop another example but from the other direction.
 ---
 
 There are times that I want [Mojo::File](https://mojolicious.org/perldoc/Mojo/File) to act a bit differently than it does. Often I have a path where I want to combine only the basename with a different directory. I end up making `Mojo::File` objects for both and then working with the directory object to get what I want:
@@ -28,7 +28,7 @@ There are times that I want [Mojo::File](https://mojolicious.org/perldoc/Mojo/Fi
 
 	say $new_path;  # /usr/local/bin/interesting.txt
 
-That's annoying. There are a few methods that I'd like instead. I'd rather be able to write it like this, where I start with the interesting file and keep working on it instead of switching to some other object:
+That's annoying. I don't like that it takes so many steps. There are a few methods that I'd like instead. I'd rather be able to write it like this, where I start with the interesting file and keep working on it instead of switching to some other object:
 
 	use Mojo::File qw(path);
 
@@ -50,22 +50,27 @@ You can read about roles on your own while I jump into it. First, I create a cla
 			}
 		}
 
-I apply my new functionality by using `with_roles`. Since I used the naming convention, I can leave off most of the package name and use the last part of it preceded by a plus sign:
+I apply my new functionality by using `with_roles` on the class I want to affect. Since I used the naming convention by prefixing it with the target class (`Mojo::File`), then `::Role::`, then the short name I want. When I apply this, I can leave off most of the package name and use the short name preceded by a plus sign:
 
 	my $file_class = Mojo::File->with_roles( '+rebase' );
 
-Alternately I could have typed out the full package name, which I would have to do if I didn't follow the naming convention:
+Alternately I could have typed out the full package name:
 
 	my $file_class = Mojo::File->with_roles(
 		'Mojo::File::Role::rebase' );
 
-The `$file_class` is a string with the new class name. Behind that class there is some multiple inheritance magic that you'll be much happier ignoring. You don't need to use a bareword class name to call class methods. A string works just as well. Now I can use my `rebase`:
+I'd need to use this if I didn't follow the naming convention:
+
+	my $file_class = Mojo::File->with_roles(
+		'I::Totally::Rejected::The::Convention::rebase' );
+
+The `$file_class` is a string with the new class name. Behind that class there is some multiple inheritance magic that you'll be much happier ignoring. I don't need to use a bareword class name to call class methods; a string in a scalar variable works just as well. Now I can use my `rebase`:
 
 	say $file_class
 		->new( '/Users/brian/bin/interesting.txt' )
 		->rebase( '/usr/local/bin/' );
 
-This doesn't solve the problem of `Mojo::File` objects that I get from other Mojolicious operations, but this is good enough the simple programs that I'm writing.
+That's much cleaner than what I was doing before and I like how this flows. This doesn't solve the problem of `Mojo::File` objects that I get from other Mojolicious operations, but this is good enough the simple programs that I'm writing.
 
 I can go further. Any methods I add to my role become part of the class. I often want to get the digests of files and although [Mojo::Util](https://mojolicious.org/perldoc/Mojo/File) makes that easier with some convenience functions, I want even more convenience. I add a couple of methods to my role to do the slurping for me:
 
@@ -95,4 +100,5 @@ I can go further. Any methods I add to my role become part of the class. I often
 	say $file->sha1;
 	say $file->md5;
 
+You can read more about roles in Joel Berger's 2017 Mojolicious Advent Calendar entry [Day 13: More About Roles](https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/). Curiously that was on Day 13 too, although I don't think Joel or I were clever enough to plan that.
 
