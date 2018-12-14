@@ -2,6 +2,17 @@
 status: published
 title: Practical Web Content Munging
 author: Joe Cooper
+images:
+  banner:
+    src: '/blog/2018/12/14/practical-web-content-munging/banner.jpg'
+    alt: 'An eyeball of alarming size'
+    data:
+      attribution: |-
+        Banner image: [An eyeball looking at Dallas](https://flic.kr/p/Rqj9Jj) by [Joe Cooper](https://www.flickr.com/photos/nerdnomad/) licensed [CC BY-NC-SA 2.0](https://creativecommons.org/licenses/by-nc-sa/2.0/)
+tags:
+  - advent
+  - css
+  - html
 data:
   bio: swelljoe
   description: Working with ugly old websites using Mojo::UserAgent and Mojo::DOM
