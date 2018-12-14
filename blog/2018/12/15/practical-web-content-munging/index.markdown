@@ -78,11 +78,6 @@ So, I want to grab all of the titles, and grab the paragraph following the title
 Let's start with the titles, as it'll show a neat trick Mojo has up its sleeves.
 
 ```perl
-use Mojo::UserAgent;
-
-my $ua = Mojo::UserAgent->new;
-my $tx = $ua->get('http://example.tld');
-
 my $main = $tx->res->dom->at('#main');
 my @headers = $main->find('h3')->map('text')->each;
 ```
