@@ -91,7 +91,7 @@ Do you see it? The `find` method here is returning a [Mojo::Collection](https://
 
 After this `@headers` will now contain all of the titles for all of the news items on the page. Try doing that in two lines of clear, readable, code with regexes (and, we could have chained all of this, including finding `#main`, into one line, but because I'm re-using `#main` multiple times I put it into its own variable).
 
-To break this down a little bit, `map` calls the given method (`text`) on every item returned by find, and then `each` returns them all as a list which can be slurped into an array, as I've done.
+To break this down a little bit, `map` calls the given method (`text`) on every item returned by `find`, and then `each` returns them all as a list which can be slurped into an array, as I've done.
 
 Now, an even trickier thing to do with regexes would be to find the immediately following sibling of these headers. But, with Mojo::DOM, we can grab it with just a few more lines of code (there's probably even a way to do it with one line of code, but this is what I came up with in a few minutes of experimentation, I welcome suggestions for how to improve it).
 
