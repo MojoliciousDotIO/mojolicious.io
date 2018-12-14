@@ -123,7 +123,7 @@ my $fixed = $tp->strftime("%Y-%m-%d");
 
 I'll also need to convert to Markdown. I've used `HTML::WikiConverter` for the task.
 
-In it's simplest form, we could do something like this (again assuming we're in a loop where `$para` gets a value from `@paras` on each iteration:
+In its simplest form, we could do something like this (again assuming we're in a loop where `$para` gets a value from `@paras` on each iteration:
 
 ```perl
 use HTML::WikiConverter;
