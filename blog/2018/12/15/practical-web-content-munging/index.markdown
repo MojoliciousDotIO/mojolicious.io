@@ -50,11 +50,11 @@ The `res` response object also provides a `dom` object, that gives the ability t
 my $main = $tx->res->dom->find("#main");
 ```
 
-Of course, if you're familiar with CSS selectors, you know it can be more precise than that. So, let's talk about something concrete. In my case, I have a couple of different primary "styles" of page. One is a page of news items, which is lots of sections that are visible to the human eye, but they aren't in their own divs. They're just a set of vaguely similar shapes of HTML.
+Of course, if you're familiar with CSS selectors, you know it can be more precise than that. So, let's talk about something concrete. In my case, I have a couple of different primary "styles" of page. One is a page of news items, which is lots of sections that are clearly delineated to a human reader, but they aren't in their own divs or otherwise grouped as far as the HTML parser can tell. They're just a bunch of vaguely similar shapes of HTML.
 
 I want to divide those news items out into their own individual pages, which can then be aggregated in whatever way I like, such as having them available in a paginated list or having the most recent items included in a div on the front page of the website.
 
-Those news items look something like this:
+Those news items look something like this on the old site:
 
 ```html
 <h1>Latest News</h1>
@@ -116,7 +116,7 @@ So, now we've got an array of headers, an array of the following paragraphs, and
 my @dates = $main->find('.date')->map('text')->each;
 ```
 
-Pow! We're done. OK, not quite. We've got to deliver on the "munging" part of this post's title. We've picked out some data from a crusty old static HTML web page, but we haven't done anything useful with it.
+Pow! We're done. OK, not quite. We've got to deliver on the "munging" part of the title of this post. We've picked out some data from a crusty old static HTML web page, but we haven't done anything useful with it.
 
 ##Munging the Dates
 
@@ -180,6 +180,6 @@ There's a lot going on here, and I'll only briefly explain some of it, since it'
 
 The first line of this loop creates a description, which is usually a summary or whatever. In my case, the main site will show the description as a clickable link, so the user will get a short summary of the news item on the main page, and then the ability to click it to see the whole item. I'm using the `String::Truncate` module, which has an `elide` method that will truncate a string on word boundaries and add an ellipsis to incidate text was left out.
 
-Then, in the here document, I fill in all the metadata, using values from $e, each of which is just a reference to a hash.
+Then, in the here document, I fill in all the metadata, using values from $e, each of which is just a reference to a hash. That's it! When this is done in a loop over any number of pages, we get a bunch of nice new Hugo posts.
 
-And, if you want to see it all in one place, with some ugly bits to workaround broken dates and things that just don't work well in Markdown (like tables), you can see the code (still in progress, but nearly ready to migrate our cranky old site!) in the [repository on GitHub](https://github.com/swelljoe/webmin-com-extractor).
+In the interest of clarity and brevity (and because they're just basic Perl, not Mojo-related) I've left out the loops and building of the data structure that is used when generating metadata. But, if you want to see it all in one place, with some ugly bits to workaround broken dates and things that just don't work well in Markdown (like tables), you can see the code (still in progress, but nearly ready to migrate our cranky old site!) in the [repository on GitHub](https://github.com/swelljoe/webmin-com-extractor). It isn't pretty, but it does the job, and didn't take much time to build, thanks to Mojolicious and a few other modules from the CPAN.
