@@ -84,7 +84,7 @@ data:
       image: '/blog/2018/12/13/taking-on-roles/banner.jpg'
       alt: Day 13: Taking on Roles
     - date: 2018-12-14
-      title: A Practical Example of Mojo::DOM
+      title: Practical Example of Mojo::DOM
       href: '/blog/2018/12/14/a-practical-example-of-mojo-dom/'
       image: '/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.png'
       alt: Day 14: A Practical Example of Mojo::DOM
