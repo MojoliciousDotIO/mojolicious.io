@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/xml/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/xml.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>Day 14: A Practical Example of Mojo::DOM</title>
+            <link>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</link>
+            <guid>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</guid>
+            <description><![CDATA[
+                <p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/xml/">xml</a>
+                        <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 14 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

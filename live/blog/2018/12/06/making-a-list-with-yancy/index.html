@@ -149,7 +149,7 @@ use Mojo::SQLite;
 # Connect to the SQLite database and load our schema from the
 # &#39;@@ migrations&#39; section, below
 my $db = Mojo::SQLite-&gt;new( &#39;sqlite:thelist.db&#39; );
-$db-&gt;auto_migrate(1)-&gt;migrations-&gt;from_data( &#39;main&#39; );
+$db-&gt;auto_migrate(1)-&gt;migrations-&gt;from_data();
 
 # Start the app. Must be the last code of the script.
 app-&gt;start;
@@ -406,6 +406,7 @@ He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Teste
     <a href="/blog/tag/app/">app</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/dancer/">dancer</a>
     <a href="/blog/tag/debugging/">debugging</a>
     <a href="/blog/tag/development/">development</a>
     <a href="/blog/tag/example/">example</a>
@@ -437,6 +438,7 @@ He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Teste
     <a href="/blog/tag/theme/">theme</a>
     <a href="/blog/tag/useragent/">useragent</a>
     <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/xml/">xml</a>
     <a href="/blog/tag/yancy/">yancy</a>
   </div>
 </div>

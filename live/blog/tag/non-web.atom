@@ -2,11 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/non-web/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-21T00:00:00Z</updated>
+    <updated>2018-12-14T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/non-web.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/non-web/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</id>
+        <title>Day 14: A Practical Example of Mojo::DOM</title>
+        <author><name>maschine</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/xml/">xml</a>
+                    <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-14T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="xml" />
+        <category term="non-web" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/</id>
         <title>Day 21: Virtual(ly a) Lumberjack</title>

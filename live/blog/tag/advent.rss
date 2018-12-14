@@ -7,6 +7,101 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 14: A Practical Example of Mojo::DOM</title>
+            <link>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</link>
+            <guid>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</guid>
+            <description><![CDATA[
+                <p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/xml/">xml</a>
+                        <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 14 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 13: Taking on Roles</title>
+            <link>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</link>
+            <guid>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</guid>
+            <description><![CDATA[
+                <p>In my previous Advent article, I created <a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 13 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 12: Using Minion in Dancer Apps</title>
+            <link>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</link>
+            <guid>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</guid>
+            <description><![CDATA[
+                <p>At <code>$work</code>, we have built an API with <a href="https://metacpan.org/pod/Dancer">Dancer</a> that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
+immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
+application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by <code>fork()</code>ing a process, tracking its pid, and hoping we can later successfully
+reap the completed process.</p>
+
+<p>There have been several problems with this approach:
+- it&#39;s fragile
+- it doesn&#39;t scale
+- it&#39;s too easy to screw something up as a developer</p>
+
+<p>In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter <a href="https://metacpan.org/pod/Minion">Minion</a>.</p>
+
+<p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/dancer/">dancer</a>
+                        <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 12 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 11: Who Watches The Minions</title>
+            <link>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</link>
+            <guid>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</guid>
+            <description><![CDATA[
+                <p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
+queue</a>, I need to take care of
+it properly. Are the workers working (have they seized the means of
+production)? Are jobs completing successfully? Are there any errors?
+What are they?</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 11 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 10: Minion Stands Alone</title>
             <link>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</link>
             <guid>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</guid>
@@ -26,109 +121,6 @@ a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
             ]]></description>
             <pubDate>
                 Mon, 10 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 9: Add a theme system to your Mojolicious app</title>
-            <link>https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/</link>
-            <guid>https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/</guid>
-            <description><![CDATA[
-                <p>You wrote an awesome Mojolicious app, and people use it.
-Marvellous!
-But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
-
-<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
-But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
-
-<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/theme/">theme</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sun, 09 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 8: Authenticating with LDAP</title>
-            <link>https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/</link>
-            <guid>https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/</guid>
-            <description><![CDATA[
-                <p>There are still quite a few people using LDAP in production,
-but for those who are new to it,
-LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
-It used to be very common as a centralised authentication system
-and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
-I wander through the wilderness of authentication,
-ending with my solution on how to add LDAP authentication to your App.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/ldap/">LDAP</a>
-                        <a href="https://mojolicious.io/blog/tag/authentication/">authentication</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Sat, 08 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 7: MetaCPAN, Mojolicious and OpenAPI</title>
-            <link>https://mojolicious.io/blog/2018/12/07/openapi/</link>
-            <guid>https://mojolicious.io/blog/2018/12/07/openapi/</guid>
-            <description><![CDATA[
-                <p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
-
-<h2>What is it?</h2>
-
-<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
-
-<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
-
-<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2018/12/07/openapi/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
-                        <a href="https://mojolicious.io/blog/tag/openapi/">openapi</a>
-                        <a href="https://mojolicious.io/blog/tag/api/">api</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Fri, 07 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 6: Making A List with Yancy</title>
-            <link>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</link>
-            <guid>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</guid>
-            <description><![CDATA[
-                <p>In these modern times, with billions of people in the world, Santa needs a
-modern system to keep track of his naughty/nice list. Lucky for Santa, modern
-Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
-
-                    <p><a href="https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
-                        <a href="https://mojolicious.io/blog/tag/example/">example</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Thu, 06 Dec 2018 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

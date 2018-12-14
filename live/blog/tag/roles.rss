@@ -7,6 +7,25 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 13: Taking on Roles</title>
+            <link>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</link>
+            <guid>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</guid>
+            <description><![CDATA[
+                <p>In my previous Advent article, I created <a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 13 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 13: More About Roles</title>
             <link>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</link>
             <guid>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</guid>

@@ -104,6 +104,130 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/14/a-practical-example-of-mojo-dom/">Day 14: A Practical Example of Mojo::DOM</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-14">Dec 14, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="A typical industrial platform model overlaid with a laser scan" src="/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.png">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
+
+                  <p><a href="/blog/2018/12/14/a-practical-example-of-mojo-dom/#section-2">Continue reading Day 14: A Practical Example of Mojo::DOM...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/13/taking-on-roles/">Day 13: Taking on Roles</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-13">Dec 13, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Elgin Theater" src="/blog/2018/12/13/taking-on-roles/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>In my previous Advent article, I created <a href="/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
+
+                  <p><a href="/blog/2018/12/13/taking-on-roles/#section-2">Continue reading Day 13: Taking on Roles...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/12/dancer-and-minion/">Day 12: Using Minion in Dancer Apps</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-12">Dec 12, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Stylistic photograph of Disney-style minion toys" src="/blog/2018/12/12/dancer-and-minion/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>At <code>$work</code>, we have built an API with <a href="https://metacpan.org/pod/Dancer">Dancer</a> that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
+immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
+application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by <code>fork()</code>ing a process, tracking its pid, and hoping we can later successfully
+reap the completed process.</p>
+
+<p>There have been several problems with this approach:
+- it&#39;s fragile
+- it doesn&#39;t scale
+- it&#39;s too easy to screw something up as a developer</p>
+
+<p>In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter <a href="https://metacpan.org/pod/Minion">Minion</a>.</p>
+
+<p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
+
+                  <p><a href="/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading Day 12: Using Minion in Dancer Apps...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/11/who-watches-the-minions/">Day 11: Who Watches The Minions</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-11">Dec 11, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Minion logo in the middle of binocular circles, original artwork by Doug Bell" src="/blog/2018/12/11/who-watches-the-minions/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
+queue</a>, I need to take care of
+it properly. Are the workers working (have they seized the means of
+production)? Are jobs completing successfully? Are there any errors?
+What are they?</p>
+
+                  <p><a href="/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading Day 11: Who Watches The Minions...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/10/minion-stands-alone/">Day 10: Minion Stands Alone</a></h1>
 
               <p class="post-meta">
@@ -127,137 +251,6 @@ projects. So, how can I use Minion without needing
 a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
 
                   <p><a href="/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading Day 10: Minion Stands Alone...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/">Day 9: Add a theme system to your Mojolicious app</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-09">Dec  9, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Four lines of paint drawn on a roller, in green, red, orange and blue" src="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>You wrote an awesome Mojolicious app, and people use it.
-Marvellous!
-But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
-
-<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
-But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
-
-<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
-
-                  <p><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading Day 9: Add a theme system to your Mojolicious app...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/08/authenticating-with-ldap/">Day 8: Authenticating with LDAP</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-08">Dec  8, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Who goes there?" src="/blog/2018/12/08/authenticating-with-ldap/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>There are still quite a few people using LDAP in production,
-but for those who are new to it,
-LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
-It used to be very common as a centralised authentication system
-and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
-I wander through the wilderness of authentication,
-ending with my solution on how to add LDAP authentication to your App.</p>
-
-                  <p><a href="/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading Day 8: Authenticating with LDAP...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/07/openapi/">Day 7: MetaCPAN, Mojolicious and OpenAPI</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-07">Dec  7, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Contract signing" src="/blog/2018/12/07/openapi/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
-
-<h2>What is it?</h2>
-
-<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
-
-<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
-
-<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
-
-                  <p><a href="/blog/2018/12/07/openapi/#section-2">Continue reading Day 7: MetaCPAN, Mojolicious and OpenAPI...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/06/making-a-list-with-yancy/">Day 6: Making A List with Yancy</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-06">Dec  6, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Santa making a list" src="/blog/2018/12/06/making-a-list-with-yancy/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In these modern times, with billions of people in the world, Santa needs a
-modern system to keep track of his naughty/nice list. Lucky for Santa, modern
-Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
-
-                  <p><a href="/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading Day 6: Making A List with Yancy...</a></p>
             </div>
 
         </article>
@@ -291,6 +284,7 @@ Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a
     <a href="/blog/tag/app/">app</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/dancer/">dancer</a>
     <a href="/blog/tag/debugging/">debugging</a>
     <a href="/blog/tag/development/">development</a>
     <a href="/blog/tag/example/">example</a>
@@ -322,6 +316,7 @@ Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a
     <a href="/blog/tag/theme/">theme</a>
     <a href="/blog/tag/useragent/">useragent</a>
     <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/xml/">xml</a>
     <a href="/blog/tag/yancy/">yancy</a>
   </div>
 </div>
