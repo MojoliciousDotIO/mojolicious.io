@@ -81,7 +81,7 @@ Let's start with the titles, as it'll show a neat trick Mojo has up its sleeves.
 use Mojo::UserAgent;
 
 my $ua = Mojo::UserAgent->new;
-my $tx = $ua->get('http://webmin.com');
+my $tx = $ua->get('http://example.tld');
 
 my $main = $tx->res->dom->at('#main');
 my @headers = $main->find('h3')->map('text')->each;
