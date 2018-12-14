@@ -2,11 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-13T00:00:00Z</updated>
+    <updated>2018-12-14T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</id>
+        <title>Day 14: A Practical Example of Mojo::DOM</title>
+        <author><name>maschine</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/xml/">xml</a>
+                    <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-14T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="xml" />
+        <category term="non-web" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</id>
         <title>Day 13: Taking on Roles</title>
@@ -109,33 +131,6 @@ a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
         <updated>2018-12-10T00:00:00Z</updated>
         <category term="advent" />
         <category term="minion" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/</id>
-        <title>Day 9: Add a theme system to your Mojolicious app</title>
-        <author><name>Luc Didry</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>You wrote an awesome Mojolicious app, and people use it.
-Marvellous!
-But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
-
-<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
-But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
-
-<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/theme/">theme</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-09T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="theme" />
     </entry>
 </feed>
 

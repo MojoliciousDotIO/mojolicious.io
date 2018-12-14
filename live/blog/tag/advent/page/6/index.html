@@ -104,6 +104,45 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2017/12/13/day-13-more-about-roles/">Day 13: More About Roles</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-13">Dec 13, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Pile of hats" src="/blog/2017/12/13/day-13-more-about-roles/amsterdam_hats.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Before we get ahead of ourselves, what are roles?
+Briefly stated, roles enable composing functionality (usually methods) into a class without without implying a change of inheritence.
+Said another way, roles let you specify what a class does without changing what it is.
+For a better description, check out Toby Inkster&#39;s article <a href="http://radar.oreilly.com/2014/01/horizontal-reuse-an-alternative-to-inheritance.html">Horizontal Reuse: An Alternative to Inheritance</a>.</p>
+
+<p>An important utility of roles is that you can easily use more than one role at the same time in the same consuming class.
+With inheritance, especially of third-party functionality, you have to choose one set of extensions to utilize.
+This is because the author of the subclass establishes the inheritance.
+In roles, the user determines which roles to compose into the base class.</p>
+
+<p><a href="/blog/2017/12/12/day-12-more-than-a-base-class">Yesterday</a> I ended the discussion of <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> before discussing the roles support.
+Added in several installments between Mojolicious versions <a href="https://metacpan.org/release/SRI/Mojolicious-7.40">7.40</a> and <a href="https://metacpan.org/release/SRI/Mojolicious-7.55">7.55</a>, this role support is one of the most recently added features in the ecosystem (along with <a href="http://mojolicious.org/perldoc/Mojo/Promise">promises</a>, which will be covered in <a href="/blog/2017/12/14/day-14-you-promised-to-call">an upcoming article</a>).
+The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role::Tiny</a> which is an optional dependency in Mojolicious, but is required in order to use the functionality that I will describe.</p>
+
+                  <p><a href="/blog/2017/12/13/day-13-more-about-roles/#section-2">Continue reading Day 13: More About Roles...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2017/12/12/day-12-more-than-a-base-class/">Day 12: More Than a Base Class</a></h1>
 
               <p class="post-meta">
@@ -237,44 +276,6 @@ Rest assured you&#39;ll see more of it as the series continues.</p>
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/">Day 8: Mocking a REST API</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-08">Dec  8, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Two crash test dummies" src="/blog/2017/12/08/day-8-mocking-a-rest-api/1280px-crash-test-dummies.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>One of my applications is a pure-JavaScript UI for a JSON API. This UI
-is an entirely different project that communicates with a public API
-using an OpenAPI specification.</p>
-
-<p>Our public API is huge and complex: To set up the public API, I need
-a database, sample data, and three other private API servers that
-perform individual tasks as directed by the public API. Worse, I would
-need to set up a lot of different test scenarios with different kinds of
-data.</p>
-
-<p>It would be a lot easier to set up a mock public API that I could use to
-test my UI, and it turns out that Mojolicious makes this very easy.</p>
-
-                  <p><a href="/blog/2017/12/08/day-8-mocking-a-rest-api/#section-2">Continue reading Day 8: Mocking a REST API...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -337,6 +338,7 @@ test my UI, and it turns out that Mojolicious makes this very easy.</p>
     <a href="/blog/tag/theme/">theme</a>
     <a href="/blog/tag/useragent/">useragent</a>
     <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/xml/">xml</a>
     <a href="/blog/tag/yancy/">yancy</a>
   </div>
 </div>
