@@ -197,6 +197,12 @@ site:
                     image: 'http://0.gravatar.com/avatar/fcf781200bb62080ccf106bac3d24937'
                     text: |-
                         Jason is a Dancer Core Team member, pilot, and hockey-player-wannabe. He likes hacking Perl for fun and profit, but neither piña coladas nor getting caught in the rain.
+                swelljoe:
+                    name: 'Joe Cooper'
+                    twitter: '@swelljoe'
+                    image: 'https://s.gravatar.com/avatar/a8081467b81cb4bf3d22248cbb5b44c5'
+                    text: |-
+                        Joe works on a lot of cranky old Perl, as well as a little bit of friendly modern Perl. Sometimes, he wrangles robots (but not with Perl...yet).
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
