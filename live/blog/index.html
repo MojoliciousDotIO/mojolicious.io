@@ -104,6 +104,37 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/15/practical-web-content-munging/">Day 15: Practical Web Content Munging</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-15">Dec 15, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="An eyeball of alarming size" src="/blog/2018/12/15/practical-web-content-munging/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Following brian d foy&#39;s great <a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/">write-up of using Mojo::DOM selectors from Day 5</a>, I thought it&#39;d be fun to talk about some website migration scripts I recently built using <a href="https://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a> and <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a>, in order to show some basic practical usage of these modules. I&#39;ve never really used Mojo before, but I recently needed to migrate a website that hasn&#39;t had a redesign in about 15 years, and it seemed like a great fit for my content mangling needs. In the past I would have used regexes, and probably would have spent at least as much time manually massaging the input or output into the right shape as I spent writing code. Mojo::DOM made it easy for me, a Mojolicious beginner, to get the results I wanted really quickly.</p>
+
+<h2>From Static Site to Static Site Generator</h2>
+
+<p>The problem I set out to solve was taking an old static website that was once hosted on SourceForge.net and migrating it to an exciting new...um...static website. But, this time, it&#39;ll be a modern take on a static website. Instead of editing HTML by hand and using home-built page munging scripts that would do things like insert news items or changelog entries at the top of the content div using regexes, I&#39;ll be using a modern static website generator. There are several to choose from, including the well-known Jekyll, which is written in Ruby, Hugo, built with Go, and Statocles, which is in Perl and runs this site. For my project, I chose <a href="https://gohugo.io">Hugo</a>, for its speed and maturity.</p>
+
+                  <p><a href="/blog/2018/12/15/practical-web-content-munging/#section-2">Continue reading Day 15: Practical Web Content Munging...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/14/a-practical-example-of-mojo-dom/">Day 14: A Practical Example of Mojo::DOM</a></h1>
 
               <p class="post-meta">
@@ -224,36 +255,6 @@ What are they?</p>
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/10/minion-stands-alone/">Day 10: Minion Stands Alone</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-10">Dec 10, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Minion logo in front of a faded Mojolicious cloud, original artwork by Doug Bell" src="/blog/2018/12/10/minion-stands-alone/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
-incredibly useful tool, but sometimes I need to use it for non-web
-projects. So, how can I use Minion without needing
-a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
-
-                  <p><a href="/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading Day 10: Minion Stands Alone...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -284,6 +285,7 @@ a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
     <a href="/blog/tag/app/">app</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/css/">css</a>
     <a href="/blog/tag/dancer/">dancer</a>
     <a href="/blog/tag/debugging/">debugging</a>
     <a href="/blog/tag/development/">development</a>
@@ -293,6 +295,7 @@ a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
     <a href="/blog/tag/graphql/">graphql</a>
     <a href="/blog/tag/growing/">growing</a>
     <a href="/blog/tag/hello-world/">hello world</a>
+    <a href="/blog/tag/html/">html</a>
     <a href="/blog/tag/installing/">installing</a>
     <a href="/blog/tag/ldap/">LDAP</a>
     <a href="/blog/tag/lite/">lite</a>

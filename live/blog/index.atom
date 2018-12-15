@@ -2,11 +2,37 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-14T00:00:00Z</updated>
+    <updated>2018-12-15T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/15/practical-web-content-munging/</id>
+        <title>Day 15: Practical Web Content Munging</title>
+        <author><name>Joe Cooper</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/15/practical-web-content-munging/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Following brian d foy&#39;s great <a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/">write-up of using Mojo::DOM selectors from Day 5</a>, I thought it&#39;d be fun to talk about some website migration scripts I recently built using <a href="https://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a> and <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a>, in order to show some basic practical usage of these modules. I&#39;ve never really used Mojo before, but I recently needed to migrate a website that hasn&#39;t had a redesign in about 15 years, and it seemed like a great fit for my content mangling needs. In the past I would have used regexes, and probably would have spent at least as much time manually massaging the input or output into the right shape as I spent writing code. Mojo::DOM made it easy for me, a Mojolicious beginner, to get the results I wanted really quickly.</p>
+
+<h2>From Static Site to Static Site Generator</h2>
+
+<p>The problem I set out to solve was taking an old static website that was once hosted on SourceForge.net and migrating it to an exciting new...um...static website. But, this time, it&#39;ll be a modern take on a static website. Instead of editing HTML by hand and using home-built page munging scripts that would do things like insert news items or changelog entries at the top of the content div using regexes, I&#39;ll be using a modern static website generator. There are several to choose from, including the well-known Jekyll, which is written in Ruby, Hugo, built with Go, and Statocles, which is in Perl and runs this site. For my project, I chose <a href="https://gohugo.io">Hugo</a>, for its speed and maturity.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/15/practical-web-content-munging/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/css/">css</a>
+                    <a href="https://mojolicious.io/blog/tag/html/">html</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-15T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="css" />
+        <category term="html" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</id>
         <title>Day 14: A Practical Example of Mojo::DOM</title>
@@ -106,29 +132,6 @@ What are they?</p>
 
         ]]></content>
         <updated>2018-12-11T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="minion" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</id>
-        <title>Day 10: Minion Stands Alone</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
-incredibly useful tool, but sometimes I need to use it for non-web
-projects. So, how can I use Minion without needing
-a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-10T00:00:00Z</updated>
         <category term="advent" />
         <category term="minion" />
     </entry>
