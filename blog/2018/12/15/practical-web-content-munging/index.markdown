@@ -1,6 +1,6 @@
 ---
 status: published
-title: Practical Web Content Munging
+title: Day 15: Practical Web Content Munging
 author: Joe Cooper
 images:
   banner:
@@ -52,7 +52,7 @@ That's it! We just fetched a web page. You might be tempted to print out $tx to 
 
     print $tx->res->body();
 
-This will display the HTML `<body>` contents. But, that's not really very interesting. Using a regex to find everything between `<body>` and `</body>` isn't so difficult. But, we can do much more interesting and powerful things very easily with a Mojo response.
+This will display the response body with its HTML contents. But, that's not really very interesting. But, we can do much more interesting and powerful things very easily with a Mojo response.
 
 ##CSS Selectors
 
