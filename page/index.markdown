@@ -89,6 +89,10 @@ data:
       image: '/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.png'
       alt: Day 14: A Practical Example of Mojo::DOM
     - date: 2018-12-15
+      title: Practical Web Content Munging
+      href: '/blog/2018/12/15/practical-web-content-munging/'
+      image: '/blog/2018/12/15/practical-web-content-munging/banner.jpg'
+      alt: Day 15: Practical Web Content Munging
     - date: 2018-12-16
       title: A pre-Christmas Diet
       href: '/blog/2018/12/16/browser-diet/'
