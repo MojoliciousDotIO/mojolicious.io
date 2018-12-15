@@ -35,9 +35,8 @@ Hugo, like most modern static site generators, expects content to be in Markdown
     toc: false
     draft: false
     ---
-    This release includes a fog-flavored bauble of three sides, providing the 
-    restless digital spirits a brief respite from their painful awareness of 
-    impermanence.
+    This release includes a fog-flavored bauble of three equal sides, providing 
+    the restless digital spirits a brief respite from their painful awareness of    impermanence.
 
     You can find the new version under the usual shadowy bridge.
 
@@ -93,7 +92,7 @@ Those news items look something like this on the old site:
 
 Notice that the structure of this is regular but not selectable with any one div or piece of markup. I can use the selector `h3` to get the headings, but the text of each news item is just a paragraph, and we also want to grab the date separately.
 
-So, I want to grab all of the titles, and the paragraph following the title, and the date, and put them all into some sort of data structures so I can spit them out into pages of there own.
+So, I want to grab all of the titles, and the paragraph following the title, and the date, and put them all into some sort of data structure so I can spit them out into pages of there own.
 
 Let's start with the titles, as it'll show a neat trick Mojo has up its sleeves.
 
@@ -102,28 +101,28 @@ Let's start with the titles, as it'll show a neat trick Mojo has up its sleeves.
 
 Do you see it? The `find` method here is returning a [Mojo::Collection](https://mojolicious.org/perldoc/Mojo/Collection). "Collection" is kind of a fancy way to say "list", but these lists have a bunch of useful utility methods, similar to some core Perl functions that operate on lists, as well as methods found in `List::Util`. It has the usual suspects, like `join`, `grep`, `map`, and `each`. So, collections are fancy, and they deserve a fancy name. In the above, `map` calls the method `text` on every item returned by `find` and `each` returns the results as a list.
 
-After this `@headers` will now contain all of the titles for all of the news items on the page. There's no way I could do that as simply with regexes (and, we could have chained all of this, including finding `#main`, into one line, but because I'm re-using `#main` multiple times I put it into its own variable).
+After this, `@headers` will contain all of the titles. There's no way I could do that as simply with regexes (and, we could have chained all of this, including finding `#main`, into one line, but I'm re-using `#main` again so I put it into a variable).
 
-Now, an even trickier thing to do with regexes would be to find the immediately subsequent sibling of these headers. But, with Mojo::DOM, we can grab it with just a few more lines of code (there's probably even a way to do it with one line of code, but this is what I came up with in a few minutes of experimentation, I welcome suggestions for how to improve it).
+Now, an even trickier thing to do with regexes would be to find the immediately subsequent sibling of these headers. But, with Mojo::DOM, we can grab it with just a few more lines of code (there's probably a way to do it with even less code, but this is what I came up with in a few minutes of experimentation).
 
     my @paras;
     for my $header ($main->find('h3')->each) {
       push (@paras, $header->next->content);
     }
 
-This once again uses the `find` method to find all of the `h3` elements, and iterates over the resulting collection of DOM objects, putting each one into `$header` as it loops. Then we pick out the `content` of the `next` element (which, in my case is always a single paragraph, sometimes containing one or more `br` tags), and pushes them all into `@paras`.
+This, once again selects the `h3` elements, and iterates over the resulting collection of DOM objects, putting each one into `$header` as it loops. Then we pick out the `content` of the `next` element (which, in my case is always a single paragraph, sometimes containing one or more `br` tags), and pushes them all into `@paras`.
 
-So, now we've got an array of headers, an array of the following paragraphs, and we just need to sort out those dates. This one is actually very easy, because the HTML template marks the date using a `date` class.
+So, now we've got an array of headers, an array of the following paragraphs, and we just need to get the dates. This one is actually very easy, because the HTML template marks the date using a `date` class.
 
     my @dates = $main->find('.date')->map('text')->each;
 
-Pow! We're done. OK, not quite. We've got to deliver on the "munging" part of the title of this post. We've picked out some data from a crusty old static HTML web page, but we haven't done anything useful with it.
+Pow! We're done. OK, not quite. We've yet to deliver on the "munging" part of the title of this post. We have the data from our crusty old HTML site, now let's do something with it.
 
 ##Munging the Dates
 
-As shown in the example Hugo content item above, I want to include a date in my output file. Luckily, we already have dates associated with each news item. Unluckily, the dates are a bit inconsistent, and they aren't in the format that Hugo expects. I did a little digging on the CPAN and found [Time::Piece](https://metacpan.org/pod/Time::Piece), which is a clever module that parses and converts times and dates in most common formats.
+As shown in the example Hugo content item above, I want to include a date in the metadata. Luckily, we have dates associated with each news item. Unluckily, they aren't in the format that Hugo expects. I did a little digging on the CPAN and found [Time::Piece](https://metacpan.org/pod/Time::Piece), which is a clever module that parses and converts times and dates in most common formats.
 
-I need my dates to look like `2017-09-30` so Hugo is happy with them, so I used the following code (assume this is inside a loop that's putting each subsequent date in the `@dates` array we made above into `$date`):
+I need my dates to look like `2017-09-30`, so I used the following code (assume this is inside a loop that's putting each subsequent date in the `@dates` array we made above into `$date`):
 
     use Time::Piece;
     my $tp = Time::Piece->strptime($date, "%B %d, %Y");
@@ -143,9 +142,9 @@ Done!
 
 ##Generating the Metadata
 
-As we saw earlier, Hugo posts have metadata that precede the Markdown content, and contains information like author information, date of publication, description, etc. Some are optional, but some are mandatory (and date is needed so I can make a section on the front page of the site showing the most recent news items). So, I need to automatically generate it based on the information I gathered from the original HTML.
+As we saw earlier, Hugo posts have metadata that precede the Markdown content, and contains information like author information, date of publication, description, etc. Some are optional, but some are mandatory (and I need dates so I can show most recent news items on the front page of the new site). I need to automatically generate all of this based on the information I gathered from the original HTML.
 
-I'm going to gloss over how the `@entries` data structure was built (it's an array of hashes containing the three pieces of data we found above...in a larger application, I would have probably built objects for the entries, but this script will only be used once, so it doesn't need to be extensible or testable or much of anything else). But, I'll link to my github repo of the real world code at the end if you want to see the gritty details.
+I'm going to gloss over how the `@entries` data structure was built, but I will mention that it's an array of hashes containing the three pieces of data we found above. I'll also link to a GitHub repo with the real world code at the end, if you want to see the gritty details.
 
     use Mojo::File;
     use String::Truncate qw(elide);
@@ -174,8 +173,8 @@ I'm going to gloss over how the `@entries` data structure was built (it's an arr
 
 There's a lot going on here, and I'll only briefly explain some of it, since it's not Mojo related.
 
-The first line of this loop creates a description, which is usually a summary or whatever. In my case, the main site will show the description as a clickable link, so the user will get a short summary of the news item on the main page, and then the ability to click it to see the whole item. I'm using the [String::Truncate](https://metacpan.org/pod/String::Truncate) module, which has an `elide` method that will truncate a string on word boundaries and add an ellipsis to indicate text was left out.
+The first line of the loop creates a description, which is usually a summary or whatever. In my case, the main site will show the description as a clickable link, so the user will get a short summary of the news item on the main page, and then the ability to click it to see the whole item. I'm using the [String::Truncate](https://metacpan.org/pod/String::Truncate) module, which has an `elide` method that will truncate a string on word boundaries and add an ellipsis to indicate text was left out.
 
-Then, in the here document, I fill in all the metadata, using values from $e, each of which is just a reference to a hash. Then we write it to a file using the `spurt` method of [Mojo::File](https://mojolicious.org/perldoc/Mojo/File). That's it! When this is done in a loop over a page with any number of news items in the expected format, we get a bunch of nice new Hugo posts.
+Then, in the here document, I fill in all the metadata, using values from `$e`, each of which is just a reference to a hash. Then we write it to a file using the `spurt` method of [Mojo::File](https://mojolicious.org/perldoc/Mojo/File). That's it! When this is done in a loop over a page with any number of news items in the expected format, we get a bunch of nice new Hugo posts.
 
-In the interest of clarity and brevity (and because they're just basic Perl, not Mojo-related) I've left out the loops and building of the data structure that is used when generating metadata. But, if you want to see it all in one place, with some ugly bits to workaround broken dates and things that just don't work well in Markdown (like tables), you can see the code (still in progress, but nearly ready to migrate our cranky old site!) in the [repository on GitHub](https://github.com/swelljoe/webmin-com-extractor). It isn't pretty, but it does the job, and didn't take much time to build, thanks to Mojolicious and a few other modules from the CPAN.
+In the interest of clarity and brevity (and because it's basic Perl and not Mojo-related) I've left out the loops and building of the data structure that I used when generating metadata. If you want to see it all in one place, with some ugly bits to workaround broken dates and things that just don't work well in Markdown (like tables), you can see the code (still in progress, but nearly ready to migrate our cranky old site!) in the [repository on GitHub](https://github.com/swelljoe/webmin-com-extractor). I didn't make it pretty, because it only needs to run once, but it will do the job, and it didn't take much time to build, thanks to Mojolicious and a few other modules from the CPAN.
