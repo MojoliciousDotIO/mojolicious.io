@@ -36,7 +36,8 @@ Hugo, like most modern static site generators, expects content to be in Markdown
     draft: false
     ---
     This release includes a fog-flavored bauble of three equal sides, providing 
-    the restless digital spirits a brief respite from their painful awareness of    impermanence.
+    the restless digital spirits a brief respite from their painful awareness of
+    impermanence.
 
     You can find the new version under the usual shadowy bridge.
 
@@ -92,7 +93,7 @@ Those news items look something like this on the old site:
 
 Notice that the structure of this is regular but not selectable with any one div or piece of markup. I can use the selector `h3` to get the headings, but the text of each news item is just a paragraph, and we also want to grab the date separately.
 
-So, I want to grab all of the titles, and the paragraph following the title, and the date, and put them all into some sort of data structure so I can spit them out into pages of there own.
+So, I want to grab all of the titles, and the paragraph following the title, and the date, and put them all into some sort of data structure so I can spit them out into pages of their own.
 
 Let's start with the titles, as it'll show a neat trick Mojo has up its sleeves.
 
@@ -110,7 +111,7 @@ Now, an even trickier thing to do with regexes would be to find the immediately 
       push (@paras, $header->next->content);
     }
 
-This, once again selects the `h3` elements, and iterates over the resulting collection of DOM objects, putting each one into `$header` as it loops. Then we pick out the `content` of the `next` element (which, in my case is always a single paragraph, sometimes containing one or more `br` tags), and pushes them all into `@paras`.
+This, once again selects the `h3` elements, and iterates over the resulting collection of DOM objects, putting each one into `$header` as it loops. Then we pick out the `content` of the `next` element (which, in my case, is always a single paragraph, sometimes containing one or more `br` tags), and pushes them all into `@paras`.
 
 So, now we've got an array of headers, an array of the following paragraphs, and we just need to get the dates. This one is actually very easy, because the HTML template marks the date using a `date` class.
 
@@ -142,7 +143,7 @@ Done!
 
 ##Generating the Metadata
 
-As we saw earlier, Hugo posts have metadata that precede the Markdown content, and contains information like author information, date of publication, description, etc. Some are optional, but some are mandatory (and I need dates so I can show most recent news items on the front page of the new site). I need to automatically generate all of this based on the information I gathered from the original HTML.
+As we saw earlier, Hugo posts have metadata that precede the Markdown content, and contains information like author information, date of publication, description, etc. Some are optional, but some are mandatory (and I need dates so I can show the most recent news items on the front page of the new site). I need to automatically generate all of this based on the information I gathered from the original HTML.
 
 I'm going to gloss over how the `@entries` data structure was built, but I will mention that it's an array of hashes containing the three pieces of data we found above. I'll also link to a GitHub repo with the real world code at the end, if you want to see the gritty details.
 
@@ -171,7 +172,7 @@ I'm going to gloss over how the `@entries` data structure was built, but I will 
       $file->spurt($md);
     }
 
-There's a lot going on here, and I'll only briefly explain some of it, since it's not Mojo related.
+There's a lot going on here, and I'll only briefly explain some of it, since it's not Mojo-related.
 
 The first line of the loop creates a description, which is usually a summary or whatever. In my case, the main site will show the description as a clickable link, so the user will get a short summary of the news item on the main page, and then the ability to click it to see the whole item. I'm using the [String::Truncate](https://metacpan.org/pod/String::Truncate) module, which has an `elide` method that will truncate a string on word boundaries and add an ellipsis to indicate text was left out.
 
