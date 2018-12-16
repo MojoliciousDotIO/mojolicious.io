@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/caching/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/caching.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story</title>
+            <link>https://mojolicious.io/blog/2018/12/16/browser-diet/</link>
+            <guid>https://mojolicious.io/blog/2018/12/16/browser-diet/</guid>
+            <description><![CDATA[
+                <p>You&#39;ve just read
+<a href="https://browserdiet.com">How to lose Weight in the Browser</a>
+and you want to know to slim down your Mojo app.
+Part of that process is preventing the browser from requesting files
+that hardly change.
+I spent a well-caffeinated afternoon trying to do that with
+Mojolicious.
+I&#39;ve been &#39;round the houses, and <em>spoiler alert</em> I didn&#39;t find
+the answer until the very end, kind of like your favourite Christmas
+animated special with a small woodland creature narrating
+&quot;The Gruffalo&#39;s HTTP header&quot;.</p>
+
+<h1>A Children&#39;s Story</h1>
+
+<p>Our beloved small woodland creature needed to display a web calendar
+with forest events pulled from a database.
+Perl could get the event data and package it as a JSON feed.
+Mojolicious could prepare the webpages with the correct JSON feed for each user.
+With some JavaScript libraries to display the web calendar,
+all would be well in the forest.</p>
+
+<p>Everything except the JavaScript libraries are lightweight.
+And everyone knows a page reload goes <em>so</em> much faster if it doesn&#39;t have to download the
+JavaScript every time.  Those libraries won&#39;t change for months!
+If only the client browser knew that it could use the file that it had downloaded
+last time.</p>
+
+<p>The secret, of course, is to set the <code>Cache-Control</code> field of the HTTP header, but <em>how</em>?</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/16/browser-diet/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/caching/">caching</a>
+                        <a href="https://mojolicious.io/blog/tag/headers/">headers</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 16 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

@@ -2,11 +2,60 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/advent/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-15T00:00:00Z</updated>
+    <updated>2018-12-16T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/16/browser-diet/</id>
+        <title>Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story</title>
+        <author><name>Boyd Duffee</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/16/browser-diet/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>You&#39;ve just read
+<a href="https://browserdiet.com">How to lose Weight in the Browser</a>
+and you want to know to slim down your Mojo app.
+Part of that process is preventing the browser from requesting files
+that hardly change.
+I spent a well-caffeinated afternoon trying to do that with
+Mojolicious.
+I&#39;ve been &#39;round the houses, and <em>spoiler alert</em> I didn&#39;t find
+the answer until the very end, kind of like your favourite Christmas
+animated special with a small woodland creature narrating
+&quot;The Gruffalo&#39;s HTTP header&quot;.</p>
+
+<h1>A Children&#39;s Story</h1>
+
+<p>Our beloved small woodland creature needed to display a web calendar
+with forest events pulled from a database.
+Perl could get the event data and package it as a JSON feed.
+Mojolicious could prepare the webpages with the correct JSON feed for each user.
+With some JavaScript libraries to display the web calendar,
+all would be well in the forest.</p>
+
+<p>Everything except the JavaScript libraries are lightweight.
+And everyone knows a page reload goes <em>so</em> much faster if it doesn&#39;t have to download the
+JavaScript every time.  Those libraries won&#39;t change for months!
+If only the client browser knew that it could use the file that it had downloaded
+last time.</p>
+
+<p>The secret, of course, is to set the <code>Cache-Control</code> field of the HTTP header, but <em>how</em>?</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/16/browser-diet/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/caching/">caching</a>
+                    <a href="https://mojolicious.io/blog/tag/headers/">headers</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-16T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="caching" />
+        <category term="headers" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/15/practical-web-content-munging/</id>
         <title>Day 15: Practical Web Content Munging</title>
@@ -109,30 +158,6 @@ reap the completed process.</p>
         <category term="advent" />
         <category term="development" />
         <category term="dancer" />
-        <category term="minion" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</id>
-        <title>Day 11: Who Watches The Minions</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
-queue</a>, I need to take care of
-it properly. Are the workers working (have they seized the means of
-production)? Are jobs completing successfully? Are there any errors?
-What are they?</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-11T00:00:00Z</updated>
-        <category term="advent" />
         <category term="minion" />
     </entry>
 </feed>
