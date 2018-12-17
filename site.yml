@@ -203,6 +203,12 @@ site:
                     image: 'https://s.gravatar.com/avatar/a8081467b81cb4bf3d22248cbb5b44c5'
                     text: |-
                         Joe works on a lot of cranky old Perl, as well as a little bit of friendly modern Perl. Sometimes, he wrangles robots (but not with Perl...yet).
+                s1037989:
+                    name: 'Stefan Adams'
+                    twitter: '@s1037989'
+                    image: '/static/s1037989.png'
+                    text: |-
+                        Stefan loves Mojolicious and has a lot of unfinished (or unstarted) ideas.
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
 # more information, and Statocles::Theme for a full list of attributes and what
