@@ -49,11 +49,25 @@ Please open an issue to discuss.
 
 ## Tips
 
+- Submit your articles as a Pull Request on this respository.
 - Please add a "fold" to your article at an appropriate place by adding `---` as a line where the fold should happen.
 - Please keep all of your files in the post's directory (the one with index.html), this will help keep things orderly.
 - Please use urls that are relative to the site root (not relative to the page) for content above the fold. This is because that content will be show on other pages like the blog scroll.
-- Until we add some smarts to the calendar plugin, if you want to postdate a calendar entry, comment it out in the calendar page metadata, otherwise it will show up too early (or let us add it).
 - Please don't commit the results of running the deploy command (in `live/` or worse in `.statocles/`), let us do that for you on the production server when its time.
+
+## Advent Calendar Only
+
+The following applies only to the annual advent calendar:
+
+- Each calendar day is tracked via an issue in the repository, one issue per day.
+- Choose a date by commenting on one of the unassigned dates, include a proposed topic and any relevant materials you might already have.
+- If the date is assigned to you:
+  - The label will be changed to assigned
+  - If you aren't already a member, you should get (and accept) an invitation to the "Authors" team
+  - Once you are a member the issue will be properly assigned to you.
+- Please try to have your article in at least first draft form (as a PR) several days prior to your assigned date, the earlier the better.
+- If possible squash and rebase your commits against master before final merge, if not the editors reserve the right to do so for you if needed.
+- The calendar plugin currently only works as expected using a patched version of Statocles that is available on the production server, you may include the calendar yaml entry in your PR but it may not render for you locally.
 
 ## Acknowledgements and Legal
 
