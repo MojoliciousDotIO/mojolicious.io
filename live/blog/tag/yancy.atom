@@ -2,11 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/yancy/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-06T00:00:00Z</updated>
+    <updated>2018-12-17T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/yancy.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/yancy/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/</id>
+        <title>Day 17: A Website For Yancy</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>For this year, I decided that Yancy needed a website. Rather than build
+a website with a <a href="http://preaction.me/statocles">static site generator like
+Statocles</a>, which is so popular these
+days, I decided to do something wild and unpredictable: A dynamic
+website! Lucky for me, I have the perfect project to easily build
+a dynamic website: Yancy!</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-17T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="yancy" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</id>
         <title>Day 6: Making A List with Yancy</title>

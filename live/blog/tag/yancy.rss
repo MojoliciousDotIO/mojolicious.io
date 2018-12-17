@@ -7,6 +7,30 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 17: A Website For Yancy</title>
+            <link>https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/</link>
+            <guid>https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/</guid>
+            <description><![CDATA[
+                <p>For this year, I decided that Yancy needed a website. Rather than build
+a website with a <a href="http://preaction.me/statocles">static site generator like
+Statocles</a>, which is so popular these
+days, I decided to do something wild and unpredictable: A dynamic
+website! Lucky for me, I have the perfect project to easily build
+a dynamic website: Yancy!</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 17 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 6: Making A List with Yancy</title>
             <link>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</link>
             <guid>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</guid>

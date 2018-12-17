@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/page/9/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/" property="og:url">
+  <meta content="Day 17: A Website For Yancy" property="og:title">
+    <meta content="Building a markdown-based site with Yancy" property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Day 17: A Website For Yancy - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2017/12/02/day-2-the-stash/">Day 2: The Stash</a></h1>
+              <h1>Day 17: A Website For Yancy</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2017-12-02">Dec  2, 2017</time>
+                  <time class="date" datetime="2018-12-17">Dec 17, 2018</time>
                   
 
               </p>
@@ -117,138 +119,175 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="leather bag" src="/blog/2017/12/02/day-2-the-stash/bag-1854148_1920.jpg">
+                <img alt="Code on a computer screen" src="/blog/2018/12/17/a-website-for-yancy/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>In Mojolicious, when processing a request and preparing a response one of the most important concepts is &quot;the stash&quot;.
-Since it is a non-blocking framework, your code can&#39;t use global variables to store any state during processing.
-If you did and some other code were to run, it could very easily get cross-talk between requests.</p>
 
-<p>The stash is the place you can store information while you process it.
-It is just a simple hash reference that is attached to the controller object that is processing the request.
-It lives and dies with that one transaction.</p>
+              <section id="section-1">
+                  <p>For this year, I decided that Yancy needed a website. Rather than build
+a website with a <a href="http://preaction.me/statocles">static site generator like
+Statocles</a>, which is so popular these
+days, I decided to do something wild and unpredictable: A dynamic
+website! Lucky for me, I have the perfect project to easily build
+a dynamic website: Yancy!</p>
 
-<p>While you can and should use it as a scratchpad, it really is much more.
-The stash controls almost every aspect of the response that you generate.
-Let&#39;s look a little closer to see how it works</p>
+              </section>
+              <section id="section-2">
+                  <p>The key part of any dynamic website is the database. Since I just want
+to write Markdown and render HTML, my schema is quite simple: A place to
+store the page&#39;s path, a place to store the page&#39;s Markdown for editing,
+and a place to put the rendered HTML. I set up a SQLite database and
+build the pages table using
+<a href="https://metacpan.org/pod/Mojo::SQLite::Migrations">Mojo::SQLite::Migrations</a>.</p>
 
-                  <p><a href="/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading Day 2: The Stash...</a></p>
-            </div>
+<pre><code>#!/usr/bin/env perl
+use Mojolicious::Lite;
+use Mojo::SQLite;
+helper db =&gt; sub {
+    state $db = Mojo::SQLite-&gt;new( &#39;sqlite:&#39; . app-&gt;home-&gt;child( &#39;docs.db&#39; ) );
+    return $db;
+};
+app-&gt;db-&gt;auto_migrate(1)-&gt;migrations-&gt;from_data();
 
-        </article>
-        <article class="post">
+# Start the app. Must be the code of the script
+app-&gt;start;
 
-            <div class="entry-header cf">
+__DATA__
+@@ migrations
+-- 1 up
+CREATE TABLE pages (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    path VARCHAR UNIQUE NOT NULL,
+    markdown TEXT,
+    html TEXT
+);
+</code></pre>
 
-            <h1><a href="/blog/2017/12/01/day-1-getting-started/">Day 1: Getting Started</a></h1>
+<p>With our database table prepared, I need a way to edit my pages. Yancy&#39;s
+built-in editor comes with <a href="https://marked.js.org/">marked.js</a> to render
+Markdown into HTML. I just need to tell it which column is Markdown and
+where to store the HTML. We&#39;ll use the path as the ID to make it easy to
+retrieve our pages.</p>
 
-              <p class="post-meta">
+<pre><code>plugin &#39;Yancy&#39;, {
+    backend =&gt; { Sqlite =&gt; app-&gt;db },
+    read_schema =&gt; 1,
+    collections =&gt; {
+        pages =&gt; {
+            &#39;x-id-field&#39; =&gt; &#39;path&#39;,
+            &#39;x-list-columns&#39; =&gt; [qw( path )],
+            &#39;x-view-item-url&#39; =&gt; &#39;/{path}&#39;,
+            properties =&gt; {
+                id =&gt; {
+                    readOnly =&gt; 1,
+                },
+                markdown =&gt; {
+                    format =&gt; &#39;markdown&#39;,
+                    &#39;x-html-field&#39; =&gt; &#39;html&#39;,
+                },
+            },
+        },
+    },
+};
+</code></pre>
 
-                  <time class="date" datetime="2017-12-01">Dec  1, 2017</time>
-                  
+<p>Now we can create some pages. I can start up the app with <code>perl myapp.pl
+daemon</code>, and then edit my content by visiting
+<code>http://127.0.0.1:3000/yancy</code>. The site will especially need an index
+page, so I&#39;ll create one.</p>
 
+<p><img alt="Screenshot showing the Yancy editor adding an &quot;index&quot;
+page" src="edit-index.png">
+<img alt="Screenshot showing the Yancy editor listing the index page in the
+database" src="list-index.png"></p>
+
+<p>With our content created, I need to add a route to display it. Using the
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Routing#Wildcard-placeholders"><code>*</code> wildcard
+placeholder</a>,
+the route will match any path. I can then look up the page requested
+from the database using the <a href="https://metacpan.org/pod/Yancy::Controller::Yancy/get">Yancy controller <code>get</code>
+action</a>. I set
+a default of &quot;index&quot; to pull our index page when users visit &quot;/&quot;. Last,
+the route will need a little bit of a template just to display the
+page&#39;s HTML and a layout with some useful links and maybe some
+<a href="http://getbootstrap.com">Bootstrap</a> to make things look a bit nicer.</p>
+
+<pre><code>get &#39;/*id&#39; =&gt; {
+    id =&gt; &#39;index&#39;, # Default to index page
+    controller =&gt; &#39;yancy&#39;,
+    action =&gt; &#39;get&#39;,
+    collection =&gt; &#39;pages&#39;,
+    template =&gt; &#39;pages&#39;,
+};
+# Start the app. Must be the last code of the script
+app-&gt;start;
+__DATA__
+@@ pages.html.ep
+% layout &#39;default&#39;;
+%== $item-&gt;{html}
+
+@@ layouts/default.html.ep
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/yancy/bootstrap.css&quot;&gt;
+        &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+            &lt;!-- Omitted for brevity --&gt;
+        &lt;/header&gt;
+        &lt;main class=&quot;container&quot;&gt;
+            &lt;%= content %&gt;
+        &lt;/main&gt;
+        %= javascript &#39;/yancy/jquery.js&#39;
+        %= javascript &#39;/yancy/popper.js&#39;
+        %= javascript &#39;/yancy/bootstrap.js&#39;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Now I can open my website and see the index page I created!</p>
+
+<p><img alt="Screenshot showing the index page for the site" src="view-index.png"></p>
+
+<p>Now I have a basic website! <a href="myapp.pl">Here&#39;s the code so far</a>. This is
+a good start, but I&#39;ll need more if it&#39;s going to be useful...</p>
+
+              </section>
+              <small><p>Banner image CC0 Public Domain</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/advent/">advent</a>,
+                  <a href="/blog/tag/yancy/">yancy</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="hot air ballons" src="/blog/2017/12/01/day-1-getting-started/1280px-Colorado_Springs_Hot_Air_Balloon_Competition.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><h2>Start at the Beginning</h2>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-<p>In this Advent Calendar series, some posts will be introductory, some will be advanced, some will be on new features.
-Who knows what could be next?
-But for now let&#39;s ensure a level playing field by working out how to get started.</p>
+                      </div>
 
-                  <p><a href="/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading Day 1: Getting Started...</a></p>
-            </div>
+                  </div>
 
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/11/30/mojolicious-advent-2017/">Mojolicious Advent 2017</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-11-30">Nov 30, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-
-            <div class="post-content">
-              <p></p><p>I&#39;m happy to announce that I&#39;ll be running a Mojolicious Advent Calendar this year!</p>
-
-<p>For those of you who are unaware, an advent calendar is a way to count down to Christmas through December.
-In many cases, the act of marking each day also provides a treat, usually chocolate.
-All told, 24 days are marked, one for each day from Dec 1 to Dec 24, Christmas Eve.</p>
-
-<p>I&#39;m not sure exactly how this moved into coding circles, but there is now a tradition of doing a similar countdown for programmers.
-The treats are little bits of wisdom on some programming topic.</p>
-
-<p>Perl has <a href="http://www.perladvent.org/">http://www.perladvent.org/</a> which has run for quite a long time.
-Other calendars have popped up for other languages and I&#39;m told it is even migrating to non-coding maker-type spaces!</p>
-
-<p>This year I&#39;ve decided that I&#39;d like there to be one for the <a href="http://mojolicious.org">Mojolicious Web Framework</a>.
-My desire is partly to put out some common starting tips and tricks and partly due to some recent additions that could really do with some extra publicity (they&#39;re cool, just wait!).</p>
-
-<p>At least at the moment it is just me so, in the hopes of actually completing it, some posts might be brief.
-Some calendars try to use holiday themes in the posts, which I may do it the muse is upon me, but I make no promises.</p>
-
-<p>I hope you&#39;ll enjoy no matter what religious or non-religious winter holidays you celebrate!</p>
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2018/12/16/browser-diet/index.html" rel="prev"><strong>Previous Article</strong> Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story</a></li>
+              </ul>
 
             </div>
 
         </article>
-        <article class="post">
 
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/11/30/introduction/">Introduction</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-11-30">Nov 30, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-
-            <div class="post-content">
-              <p></p><p>Hello and welcome to the new site!</p>
-
-<p>My name is Joel Berger.
-I&#39;m on the Core Development team of the Mojolicious web framework.</p>
-
-<p>I guess the immediate question is, why start a new site and blog?
-This site grew out of ideas I have had to promote the framework, especially outside of the Perl bubble.</p>
-
-<p>The immediate goal is to publish an Advent Calendar focused on Mojolicious.
-It is a fun tradition and an interesting challenge, blogging once a day for almost a month.
-The question was where to put it.</p>
-
-                  <p><a href="/blog/2017/11/30/introduction/#section-2">Continue reading Introduction...</a></p>
-            </div>
-
-        </article>
-
-        <nav class="col full pagination">
-          <ul>
-              <li><span class="page-numbers prev inactive">Prev</span></li>
-              
-              <li><a class="page-numbers next" href="/blog/page/8/" rel="next">Next</a></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -317,7 +356,7 @@ The question was where to put it.</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 
