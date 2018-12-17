@@ -130,7 +130,7 @@
               <section id="section-2">
                   <h2>The task - simple, but tedious.</h2>
 
-<p>3D models and drawings are fantastic tools, but in reality things are not so perfect.  Construction tolerances being what they are, our company relies a lot on <a href="https://www.youtube.com/watch?v=H-uNzEmt5sw">laser scanning</a>, where we go out to a project site and create a point cloud of the as-built conditions.  This generates hundreds of files that take many hours to process - a recent project had over 3 <em>billion</em> individual points.  These are critical for engineering, modeling, and construction throughout every project we do. </p>
+<p>3D models and drawings are fantastic tools, but in reality things are not so perfect.  Construction tolerances being what they are, our company relies a lot on <a href="https://www.youtube.com/watch?v=H-uNzEmt5sw">laser scanning</a>, where we go out to a project site and create a point cloud of the as-built conditions.  This generates hundreds of files that take many hours to process - a recent project had over 3 <em>billion</em> individual points.  These are critical for engineering, modeling, and construction throughout every project we do.</p>
 
 <p>The problem is when our 3D modeling software (<a href="https://www.tekla.com/products/tekla-structures">Tekla Structures</a>) processes the point clouds, it changes the file names of each one from something human readable, such as <code>Pipe Rack Area1</code>, to a hash, like <code>2e9d52829f973c5b98f60935d8a9fa2b</code>.  This is not very user friendly when one project could have dozens of areas, and you only really want to load one or two at a time (an <em>average</em> area is 15gb!).</p>
 
@@ -142,7 +142,7 @@
 <p>Conveniently, the XML file contains both the hash name and the original file name – so I knew I could use Mojo::DOM to parse the XML and rename the point clouds to be human readable. This simple task is the perfect example of how Mojolicious can accomplish a lot of work with relatively short code. The result is the script below:</p>
 
 <pre><code>#!/usr/bin/perl
-use Mojo::Base -base;
+use Mojo::Base -strict;
 use Mojo::Util qw(getopt);
 use Mojo::File;
 use Mojo::DOM;
@@ -154,7 +154,7 @@ sub main {
   my $file = Mojo::File-&gt;new($path, &#39;pointclouds.xml&#39;);
   my $dom  = Mojo::DOM-&gt;new($file-&gt;slurp);
   # if &#39;Hash&#39; is populated, rename_files(); otherwise ignore
-  for my $e ($dom-&gt;find(&#39;PointCloudData&#39;)-&gt;each) { 
+  for my $e ($dom-&gt;find(&#39;PointCloudData&#39;)-&gt;each) {
     $e-&gt;{Folder} = rename_files($e) and $e-&gt;{Hash} = &#39;&#39; if $e-&gt;{Hash};
   }
   # save xml file so we don&#39;t try to rename the pointclouds again
@@ -178,12 +178,12 @@ main() if $path || die &#39;Please enter a path to the example files.&#39;;
 
 <p>Not every use of Mojolicious has to be a full app - parts of it can be used like any other Perl module. For a simple script, it can make getting to your actual purpose much quicker.  I use following line now all the time, even if I&#39;m not building a full Mojolicious app. <a href="https://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> saves me from typing additional boiler plate and enables strict, warnings, and other goodies I often want to use.</p>
 
-<pre><code>use Mojo::Base -base;
+<pre><code>use Mojo::Base -strict;
 </code></pre>
 
 <h2>Mojo::Util - just for fun</h2>
 
-<p>The production version of my utility actually loads a dummy Mojolicious <code>$app</code> so that I can use <a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/Config">Mojolicious::Plugin::Config</a> to locate the point cloud files in <code>myapp.conf</code>, but in this version I&#39;m using <a href="https://mojolicious.org/perldoc/Mojo/Util">Mojo::Util</a> to get the point cloud file path with a command line option <code>--p</code>.  </p>
+<p>The production version of my utility actually loads a dummy Mojolicious <code>$app</code> so that I can use <a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/Config">Mojolicious::Plugin::Config</a> to locate the point cloud files in <code>myapp.conf</code>, but in this version I&#39;m using <a href="https://mojolicious.org/perldoc/Mojo/Util">Mojo::Util</a> to get the point cloud file path with a command line option <code>--p</code>.</p>
 
 <pre><code>getopt &#39;p|path=s&#39; =&gt; \my $path;
 </code></pre>
@@ -207,14 +207,14 @@ my $dom  = Mojo::DOM-&gt;new($file-&gt;slurp);
 
 <p>And of course, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> makes finding the right values in the XML easy - it also handles HTML and CSS selectors.  Basically, I just iterate through the contents of <code>PointCloudData</code>, which contains the <code>Folder</code>, <code>Hash</code>, and <code>Name</code> keys for each point cloud Tekla has processed:</p>
 
-<pre><code>for my $e ($dom-&gt;find(&#39;PointCloudData&#39;)-&gt;each) { 
+<pre><code>for my $e ($dom-&gt;find(&#39;PointCloudData&#39;)-&gt;each) {
   $e-&gt;{Folder} = rename_files($e) and $e-&gt;{Hash} = &#39;&#39; if $e-&gt;{Hash};
 }
 </code></pre>
 
-<p>I only run <code>rename_files</code> if <code>Hash</code> is populated, and if it is, I empty it so I don&#39;t try to rename them again.  <code>rename_files</code> is about the only Perl code I had to write myself - almost everything else was copied and pasted straight from the excellent <a href="https://mojolicious.org/perldoc">Mojolicious docs</a>!  </p>
+<p>I only run <code>rename_files</code> if <code>Hash</code> is populated, and if it is, I empty it so I don&#39;t try to rename them again.  <code>rename_files</code> is about the only Perl code I had to write myself - almost everything else was copied and pasted straight from the excellent <a href="https://mojolicious.org/perldoc">Mojolicious docs</a>!</p>
 
-<p>A substitution stores the desired file &amp; folder name in <code>$newname</code> (non-destructive modifier <code>/r</code> allows me to work on a copy of <code>$e</code> without changing the original).  Then I simply rename the point cloud folder and the *.db file (which contains the actual point cloud data).  </p>
+<p>A substitution stores the desired file &amp; folder name in <code>$newname</code> (non-destructive modifier <code>/r</code> allows me to work on a copy of <code>$e</code> without changing the original).  Then I simply rename the point cloud folder and the *.db file (which contains the actual point cloud data).</p>
 
 <pre><code>my $newname = $e-&gt;{Folder} =~ s/$e-&gt;{Hash}/$e-&gt;{Name}/r;
 </code></pre>
