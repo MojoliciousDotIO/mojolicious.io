@@ -2,11 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-17T00:00:00Z</updated>
+    <updated>2018-12-18T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/</id>
+        <title>Day 18: A View To A POD</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>In order for Yancy to have a good documentation site, it needs to
+actually render the documentation. To render Perl documentation in
+<a href="http://mojolicious.org">Mojolicious</a>, I can use the
+<a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">PODViewer</a>
+plugin (a fork of the now-deprecated
+<a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer">PODRenderer</a>
+plugin).</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/documentation/">documentation</a>
+                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-18T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="documentation" />
+        <category term="yancy" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/</id>
         <title>Day 17: A Website For Yancy</title>
@@ -128,26 +156,6 @@ last time.</p>
         <category term="advent" />
         <category term="xml" />
         <category term="non-web" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</id>
-        <title>Day 13: Taking on Roles</title>
-        <author><name>brian d foy</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>In my previous Advent article, I created <a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-13T00:00:00Z</updated>
-        <category term="roles" />
-        <category term="advent" />
     </entry>
 </feed>
 

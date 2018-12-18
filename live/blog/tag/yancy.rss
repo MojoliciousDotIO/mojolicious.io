@@ -7,6 +7,32 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 18: A View To A POD</title>
+            <link>https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/</link>
+            <guid>https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/</guid>
+            <description><![CDATA[
+                <p>In order for Yancy to have a good documentation site, it needs to
+actually render the documentation. To render Perl documentation in
+<a href="http://mojolicious.org">Mojolicious</a>, I can use the
+<a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">PODViewer</a>
+plugin (a fork of the now-deprecated
+<a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer">PODRenderer</a>
+plugin).</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/documentation/">documentation</a>
+                        <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 18 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 17: A Website For Yancy</title>
             <link>https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/</link>
             <guid>https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/</guid>
