@@ -19,18 +19,19 @@ data:
   description: 'Learn how to marry Mojolicious and Angular for building awesome web application'
 ---
 
-### Mojolicious and Angular
-[Angular](https://angular.io/) is arguably the best front-end web application framework which helps you build modern applications for the web, mobile, or desktop
+# Mojolicious and Angular
+[Angular](https://angular.io/) is arguably the best front-end web application framework which helps you build modern applications for the web, mobile, or desktop.
 
 [Mojolicious](https://mojolicious.org/), a next generation web framework for the Perl programming language.
-Mojolicious and Angular together can certainly build a next gneration web framework.
+Mojolicious and Angular together can certainly build a next generation web framework.
 
 At work, we have been using these two to build a very responsive, scalable and fantastic web apps. 
-Mojolicious as a backend gives a lot of fun to work stuffs like Minion, Mojo::Dom, testing modules, easy implementaion of OpenAPI, OAuth, utility modules and many more.
+Mojolicious as a backend gives a lot of fun to work stuffs like Minion, Mojo::Dom, Test::Mojo, Mojoliious::Plugin::*, easy implementation of OpenAPI, OAuth, utility modules and of course CPAN.
 
 One of the reasons you want to have this kind of web development set up is that front-end Angular developers and backend Mojolicious developers can work independently.
 
 Angular is backend agnostic. Node.js Express is often used as backend for Angular. We love Perl and Mojolicious.
+
 ---
 
 We will see how these two can be married to make a web application today.
@@ -60,7 +61,7 @@ First I generate mojo full app using `mojo` CLI.
       [write] /Users/Sachin/workspace/project/mojo_angular/mojo_angular_app/templates/example/welcome.html.ep
     Sachin@01:07 PM[~/workspace/project/mojo_angular]$
 
-Mojolicious full-app is created. Now is time to start [hypnotoad](https://mojolicious.org/perldoc/Mojo/Server/Hypnotoad), a production web server.
+Mojolicious full-app is created. Start [hypnotoad](https://mojolicious.org/perldoc/Mojo/Server/Hypnotoad), a production web server.
 
     Sachin@01:07 PM[~/workspace/project/mojo_angular]$ cd mojo_angular_app/
     Sachin@01:08 PM[~/workspace/project/mojo_angular/mojo_angular_app]$ hypnotoad -f script/mojo_angular_app 
@@ -75,10 +76,12 @@ Mojolicious full-app is created. Now is time to start [hypnotoad](https://mojoli
 
 Let's open browser and have a look at our mojo app.
 
-<img class="align-center" src="mojo_app.png" title="basic mojolicous full app">
+![basic Mojolicious full app](mojo_app.png)
+
 
 ### Generate Angular App:
-Angular Version 7 is used for this demo, should work for version 4+.
+Angular Version 7 is used for this demo, should work for version 4+. Demo on how to install Angular and CLI will be way too boring for this blog and there are plenty of resources for this in internet.
+
 Let's use Angular CLI to generate a new app, `ng new app-name`.
 Angular CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain Angular applications.
 
@@ -111,9 +114,11 @@ Next start server with `ng serve` command.
 
 Open browser to check Angular app:
 
-<img class="align-center" src="angular_app.png" title="basic angular app"> 
+![basic angular app](angular_app.png)
 
-### How to make Mojolicious app serve angular single page app(SPA)?
+Note that this page's content is coming from `NgDemo/src/index.html` where `app-root` selector html is content coming from `NgDemo/src/app/app.component.html`. Later we will be modifying `app.component.html` file to show our own content instead of default angular logo and some links. 
+
+## How to make Mojolicious app serve an Angular app?
 ##### a. Compile Angular app
 `ng build` compiles an Angular app into an output directory named **dist/** at the given output path.
 Run `ng build` with `--base-href=./` so that base url inside the Angular app is set to the current directory for the application being built. This is very important so that later you do not waste time figuring out why Angular routes are broken when served by Mojolicious. This option makes sure that Anguar app's routing mechanism is set up referencing `./`(present directory of app) directory.
@@ -190,12 +195,12 @@ Magic line above is:
     [Sat Dec 15 14:49:03 2018] [info] Worker 40637 started
     [Sat Dec 15 14:49:03 2018] [info] Worker 40636 started
 
-<img class="align-center" src="mojo_serving_angular.png" title="mojolicious serving angular SPA">    
+![mojolicious serving angular SPA](mojo_serving_angular.png)
 
-###### Congratulations! we have served angular app with Mojolicious.
----
+###### Congratulations! we have served angular app with Mojolicious. Please note that the URL is the public route of mojo app `http://localhost:8080/NgDemo/`
 
-### Growing App
+
+## Growing App
 A simple demo to show an api call to Mojolicious routes from Angular and display in Angular. 
 Since, this is not an Angular blog I will not go too deep explaining Angular; there are plenty of resources in internet for that.
 
@@ -231,8 +236,26 @@ with first 3 Mojolicious advent 2018 detail list.
         );
     });
 
-#### 2. In Angular side make following changes:
-##### a. Include the HttpClient Module in app.module.ts file
+You may have to allow Cross Origin Resource Sharing(CORS) if Angular app throws an error while accessing the mojo API endpoint.
+In that case you may want to make use of awesome `before_dispatch` app hook like bellow:
+
+    $self->hook(before_dispatch => sub {
+        my $c = shift;
+        $c->res->headers->header('Access-Control-Allow-Origin' => '*');
+    });
+
+Certainly, `*` is too insecure you might just give `localhost`. This is demo and I am lazy to experiment.
+
+#### 2. Changes in Angular side:
+An Angular apps core code files reside in `src/app` directory.
+I will be making changes to following 4 files under `src/app` directory and explain changes:
+
+- app.module.ts
+- app.component.ts
+- app.component.html
+- app.component.css
+
+##### a. Include HttpClient Module in app.module.ts file
 `app.module.ts` is a [TypeScript](https://www.typescriptlang.org/docs/home.html) module. As everywhere, modules are a way of organizing and separating code. Also, in Angular it helps control Dependency Injection, in this case we are injecting HttpClient module.
 HttpClient module is later required for making http request.
 
@@ -262,7 +285,16 @@ HttpClient module is later required for making http request.
 I have added two lines above: `import { HttpClientModule } from '@angular/common/http';`
 and added `HttpClientModule` to the list of imports.
 
-##### b. Making http request and binding data to adventDetail2018:
+##### b. app.component.ts sets the MVC stage
+Components are the most basic UI building block of an Angular app. An Angular app contains a tree of Angular components.
+Component basically creates a separate MVC world which makes code management so granular and easy.
+`@Component` decorator can pass in many metadata to a class particularly following 3 metadata specifiers are significant:
+
+- `selector`: specifies which UI component it targets.
+- `templateUrl`: html for that selector element and
+- `styleUrl`: specifies one or more style files to be used for that html
+
+`Component Class` sets up stage for two way data binding. In our case, it just makes http get request to mojo route we defined earlier in mojo app class, binds the output to variable `adventDetail2008` which is then available in view (app.component.html) as well. This is two way data binding as the changes made in component class or in view is visible in both sides.
 
     Sachin@12:33 AM[~/workspace/project/mojo_angular/NgDemo/src/app]$ cat app.component.ts 
     import { Component } from '@angular/core';
@@ -288,6 +320,8 @@ and added `HttpClientModule` to the list of imports.
     Sachin@12:33 AM[~/workspace/project/mojo_angular/NgDemo/src/app]$ 
 
 ##### c. Modify app.component.html file to show data fetched from backend Mojolicious
+Replace the default template(html) which was displaced earlier with our own html.
+I have just looped through `adventDetail2018` variable, which consists of data from http get request, using `*ngFor` built in directive to form a `table` body.
 
     Sachin@12:34 AM[~/workspace/project/mojo_angular/NgDemo/src/app]$ cat app.component.html 
     <div style="text-align:left">
@@ -313,7 +347,8 @@ and added `HttpClientModule` to the list of imports.
     </div>
     <router-outlet></router-outlet>
 
-##### d. Add little bit of styling for the table in app.component.css
+##### d. app.component.css - Add little bit of style for the table. 
+Added a bare minimum style in `app.component.css` file to show its significance and how beautifully angular separates css away from html file.
 
     Sachin@12:34 AM[~/workspace/project/mojo_angular/NgDemo/src/app]$ cat app.component.css 
     table, th, td {
@@ -330,10 +365,12 @@ and added `HttpClientModule` to the list of imports.
 
 ##### f. Run `ng build --base-href=./` and copy `dist` folder content to mojolicious app's `public` directory as shown earlier
 
+##### 3. Run `hypnotoad` as shown earlier
+Visit `localhost:8080/NgDemo` in browser to witness wedding of Mojolicious and Angular:
 
-#### 3. Run `hypnotoad` as shown earlier
+![final mojolicious serving angular SPA](final_mojo_angular_app.png)
 
-<img class="align-center" src="final_mojo_angular_app.png" title="final mojolicious serving angular SPA">
+###### That's it. Lets revolutionize web app development. :)
 
 ### Further Reading:
 - [Angular guide](https://angular.io/docs)

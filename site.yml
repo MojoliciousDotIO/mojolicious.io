@@ -207,7 +207,7 @@ site:
                     name: 'Sachin Dangol'
                     twitter: '@sachindangol'
                     text: |-
-                        Sachin has been using Perl for 10 years plus and loves Perl and mojolicious. Reading books on programming and technology, traveling, cooking are few of his hobbies.
+                        Sachin has been using Perl for 10 years plus and loves Perl and Mojolicious. Reading books on programming and technology, traveling, cooking are few of his hobbies.
 
 
 # theme: These are the settings for the theme.  See Statocles::Help::Theme for
