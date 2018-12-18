@@ -134,6 +134,10 @@ data:
       image: '/blog/2018/12/23/mojolicious-and-angular/banner.jpg'
       alt: Day 23: Mojolicious and Angular
     - date: 2018-12-24
+      title: Async/Await the Mojo Way
+      href: '/blog/2018/12/24/async-await-the-mojo-way/'
+      image: '/blog/2018/12/24/async-await-the-mojo-way/banner.jpg'
+      alt: Day 24: Async/Await the Mojo Way
     - date: 2018-12-25
     - date: 2018-12-26
     - date: 2018-12-27
