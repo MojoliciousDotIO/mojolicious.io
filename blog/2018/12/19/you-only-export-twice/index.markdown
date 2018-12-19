@@ -82,5 +82,5 @@ plugin](http://metacpan.org/pod/Mojolicious::Plugin::PODViewer), and [the
 Mojolicious export
 command](http://metacpan.org/pod/Mojolicious::Command::export), I've got a
 good-looking documentation website for Yancy! [View the full, completed
-application](myapp.pl).
+application](https://github.com/MojoliciousDotIO/mojolicious.io/blob/master/blog/2018/12/19/you-only-export-twice/myapp.pl).
 
