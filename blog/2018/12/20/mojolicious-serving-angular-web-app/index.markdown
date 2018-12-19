@@ -12,7 +12,7 @@ images:
     alt: 'backend and frontend'
     data:
       attribution: |-
-        photo by [http://josephmedia.com/product/web-development/](http://josephmedia.com/product/web-development/)
+        photo by [https://commons.wikimedia.org/w/index.php?curid=646036](https://commons.wikimedia.org/w/index.php?curid=646036)
         
 data:
   bio: sachindangol
@@ -162,16 +162,17 @@ to push compiled angular app directory to mojo's static paths list so that it is
     sub startup {
         my $self = shift;
 
-        # Load configuration from hash returned by "my_app.conf"                                                                         
+        # Load configuration from hash returned by config file
         my $config = $self->plugin('Config');
-        # Documentation browser under "/perldoc"                                       
-        $self->plugin('PODRenderer') if $config->{perldoc};
+
+        # Configure the application
+        $self->secrets($config->{secrets});
 
         # Router                                          
         my $r = $self->routes;
     
         # serve angular SPA located at static page location                                                                              
-        push @{$self->static->paths} => '/home/sachin/workspace/project/mojo_angular/mojo_angular_app/public/NgDemo';
+        push @{$self->static->paths} => $self->home->child('public/NgDemo');
 
         # Normal route to controller                      
         $r->get('/')->to('example#welcome');
@@ -180,8 +181,8 @@ to push compiled angular app directory to mojo's static paths list so that it is
     1;
 
 Magic line above is:
-
-    push @{$self->static->paths} => '/home/sachin/workspace/project/mojo_angular/mojo_angular_app/public/NgDemo';
+    
+    push @{$self->static->paths} => $self->home->child('public/NgDemo');
 
 ##### d. Run hypnotoad server to see if angular page is served
 
@@ -197,10 +198,9 @@ Magic line above is:
 
 ![mojolicious serving angular SPA](mojo_serving_angular.png)
 
-###### Congratulations! we have served angular app with Mojolicious. Please note that the URL is the public route of mojo app `http://localhost:8080/NgDemo/`
+**Congratulations! we have served angular app with Mojolicious. Please note that the URL is the public route of mojo app `http://localhost:8080/NgDemo/`**
 
-
-## Growing App
+## Integrating the Apps Further
 A simple demo to show an api call to Mojolicious routes from Angular and display in Angular. 
 Since, this is not an Angular blog I will not go too deep explaining Angular; there are plenty of resources in internet for that.
 
@@ -244,7 +244,7 @@ In that case you may want to make use of awesome `before_dispatch` app hook like
         $c->res->headers->header('Access-Control-Allow-Origin' => '*');
     });
 
-Certainly, `*` is too insecure you might just give `localhost`. This is demo and I am lazy to experiment.
+In a real-world application `*` is defeating the security feature.
 
 #### 2. Changes in Angular side:
 An Angular apps core code files reside in `src/app` directory.
@@ -255,7 +255,7 @@ I will be making changes to following 4 files under `src/app` directory and expl
 - app.component.html
 - app.component.css
 
-##### a. Include HttpClient Module in app.module.ts file
+##### First include HttpClient Module in app.module.ts file
 `app.module.ts` is a [TypeScript](https://www.typescriptlang.org/docs/home.html) module. As everywhere, modules are a way of organizing and separating code. Also, in Angular it helps control Dependency Injection, in this case we are injecting HttpClient module.
 HttpClient module is later required for making http request.
 
@@ -285,7 +285,7 @@ HttpClient module is later required for making http request.
 I have added two lines above: `import { HttpClientModule } from '@angular/common/http';`
 and added `HttpClientModule` to the list of imports.
 
-##### b. app.component.ts sets the MVC stage
+##### Code app.component.ts to set MVC stage
 Components are the most basic UI building block of an Angular app. An Angular app contains a tree of Angular components.
 Component basically creates a separate MVC world which makes code management so granular and easy.
 `@Component` decorator can pass in many metadata to a class particularly following 3 metadata specifiers are significant:
@@ -319,7 +319,7 @@ Component basically creates a separate MVC world which makes code management so 
     }
     Sachin@12:33 AM[~/workspace/project/mojo_angular/NgDemo/src/app]$ 
 
-##### c. Modify app.component.html file to show data fetched from backend Mojolicious
+##### Modify app.component.html file to show data fetched from backend Mojolicious
 Replace the default template(html) which was displaced earlier with our own html.
 I have just looped through `adventDetail2018` variable, which consists of data from http get request, using `*ngFor` built in directive to form a `table` body.
 
@@ -347,7 +347,7 @@ I have just looped through `adventDetail2018` variable, which consists of data f
     </div>
     <router-outlet></router-outlet>
 
-##### d. app.component.css - Add little bit of style for the table. 
+##### app.component.css - Add little bit of style for the table. 
 Added a bare minimum style in `app.component.css` file to show its significance and how beautifully angular separates css away from html file.
 
     Sachin@12:34 AM[~/workspace/project/mojo_angular/NgDemo/src/app]$ cat app.component.css 
@@ -361,16 +361,16 @@ Added a bare minimum style in `app.component.css` file to show its significance 
     }
     Sachin@12:34 AM[~/workspace/project/mojo_angular/NgDemo/src/app]$
 
-##### e. Run `ng serve` command(as earlier) to see if angular app is looking good.
+##### Run `ng serve` command(as earlier) to see if angular app is looking good.
 
-##### f. Run `ng build --base-href=./` and copy `dist` folder content to mojolicious app's `public` directory as shown earlier
+##### Run `ng build --base-href=./` and copy `dist` folder content to mojolicious app's `public` directory as shown earlier
 
-##### 3. Run `hypnotoad` as shown earlier
+##### Finally run `hypnotoad` as shown earlier
 Visit `localhost:8080/NgDemo` in browser to witness wedding of Mojolicious and Angular:
 
 ![final mojolicious serving angular SPA](final_mojo_angular_app.png)
 
-###### That's it. Lets revolutionize web app development. :)
+**That's all you need for simple single page app with angular and mojo. Take it further and see what is possible!**
 
 ### Further Reading:
 - [Angular guide](https://angular.io/docs)
