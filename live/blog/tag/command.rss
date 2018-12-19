@@ -7,6 +7,39 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 19: You Only Export Twice</title>
+            <link>https://mojolicious.io/blog/2018/12/19/you-only-export-twice/</link>
+            <guid>https://mojolicious.io/blog/2018/12/19/you-only-export-twice/</guid>
+            <description><![CDATA[
+                <p>With my Yancy documentation site built, with <a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy">a custom landing
+page</a> and <a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod">a POD
+viewer</a>, I just need to deploy the site. I
+could deploy the site using <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Hypnotoad">hypnotoad, Mojolicious&#39;s preforking server with
+hot
+deployment</a>,
+but that would require me to have a server and keep it online. It&#39;d be a lot
+better if I could just deploy a <a href="https://pages.github.com">static website to
+Github</a> like all the cool people are doing.</p>
+
+<p>But to do that, I&#39;d need to take my dynamic website and turn it into a static
+one, and that&#39;s impossible! Or is it? Why am I asking me, when I&#39;m the one who
+wrote a way to do it: The <a href="https://metacpan.org/pod/Mojolicious::Command::export">Mojolicious export
+command</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/command/">command</a>
+                        <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 19 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 23: One-Liners for Fun and Profit</title>
             <link>https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/</link>
             <guid>https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/</guid>

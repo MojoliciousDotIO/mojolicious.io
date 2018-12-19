@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/" property="og:url">
+  <meta content="Day 19: You Only Export Twice" property="og:title">
+    <meta content="Export content for static rendering" property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Day 19: You Only Export Twice - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,7 +106,7 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/19/you-only-export-twice/">Day 19: You Only Export Twice</a></h1>
+              <h1>Day 19: You Only Export Twice</h1>
 
               <p class="post-meta">
 
@@ -121,7 +123,9 @@
               </div>
 
             <div class="post-content">
-              <p></p><p>With my Yancy documentation site built, with <a href="/blog/2018/12/17/a-website-for-yancy">a custom landing
+
+              <section id="section-1">
+                  <p>With my Yancy documentation site built, with <a href="/blog/2018/12/17/a-website-for-yancy">a custom landing
 page</a> and <a href="/blog/2018/12/18/a-view-to-a-pod">a POD
 viewer</a>, I just need to deploy the site. I
 could deploy the site using <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Hypnotoad">hypnotoad, Mojolicious&#39;s preforking server with
@@ -136,168 +140,97 @@ one, and that&#39;s impossible! Or is it? Why am I asking me, when I&#39;m the o
 wrote a way to do it: The <a href="https://metacpan.org/pod/Mojolicious::Command::export">Mojolicious export
 command</a>.</p>
 
-                  <p><a href="/blog/2018/12/19/you-only-export-twice/#section-2">Continue reading Day 19: You Only Export Twice...</a></p>
-            </div>
+              </section>
+              <section id="section-2">
+                  <p>The export command takes a set of paths as input, fetches those pages, and
+writes the result to a directory. It then looks at all the links on those pages
+and writes those pages, too. In this way, it exports an entire Mojolicious
+website as static files.</p>
 
-        </article>
-        <article class="post">
+<p>All I need to do to be able to use the export command is to install it:</p>
 
-            <div class="entry-header cf">
+<pre><code>$ cpanm Mojolicious::Command::export
+</code></pre>
 
-            <h1><a href="/blog/2018/12/18/a-view-to-a-pod/">Day 18: A View To A POD</a></h1>
+<p>Once it&#39;s installed, we now have the export command in our application which I
+can use like any other Mojolicious command.</p>
 
-              <p class="post-meta">
+<pre><code>$ ./myapp.pl export
+</code></pre>
 
-                  <time class="date" datetime="2018-12-18">Dec 18, 2018</time>
-                  
+<p>By default, the export command tries to export the home page (<code>/</code>) and works
+recursively from there. If I have pages that aren&#39;t linked from other places, I
+should (a) probably add some links to that page, but (b) can just add it to the
+list of pages to export:</p>
 
+<pre><code>$ ./myapp.pl export / /private
+</code></pre>
+
+<p>Since I&#39;m hosting this site under a directory in my personal website, I need to
+use the <code>--base</code> option to rewrite all the internal links to the correct path,
+and I can use the <code>--to</code> option to write directly to the web server&#39;s
+directory:</p>
+
+<pre><code>$ ./myapp.pl export --base /yancy --to /var/www/preaction.me/yancy
+</code></pre>
+
+<p>And, if I want, I can use <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-configuration-file">the Mojolicious Config
+plugin</a>
+to change the default settings, including what pages to export, the export
+directory, and a base URL.</p>
+
+<p>The best part is that the export command handles redirects. So, when we&#39;re
+using <a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">the PODViewer
+plugin</a> and get
+redirected to <a href="http://metacpan.org">MetaCPAN</a>, the page gets updated with the
+redirected location!</p>
+
+<p>In the future it&#39;d be nice if this command were made into a plugin so that it
+could have hooks for customizing the exported content or additional checks for
+broken links. If anyone is interested in helping out with this work, let me
+know and I can help get them started!</p>
+
+<p>Now, with <a href="http://preaction.me/yancy">the Yancy CMS</a>, <a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">the PODViewer
+plugin</a>, and <a href="http://metacpan.org/pod/Mojolicious::Command::export">the
+Mojolicious export
+command</a>, I&#39;ve got a
+good-looking documentation website for Yancy! <a href="myapp.pl">View the full, completed
+application</a>.</p>
+
+              </section>
+              <small><p>Banner image CC0 Public Domain</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/advent/">advent</a>,
+                  <a href="/blog/tag/command/">command</a>,
+                  <a href="/blog/tag/yancy/">yancy</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Books on a library shelf" src="/blog/2018/12/18/a-view-to-a-pod/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>In order for Yancy to have a good documentation site, it needs to
-actually render the documentation. To render Perl documentation in
-<a href="http://mojolicious.org">Mojolicious</a>, I can use the
-<a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">PODViewer</a>
-plugin (a fork of the now-deprecated
-<a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer">PODRenderer</a>
-plugin).</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-                  <p><a href="/blog/2018/12/18/a-view-to-a-pod/#section-2">Continue reading Day 18: A View To A POD...</a></p>
-            </div>
+                      </div>
 
-        </article>
-        <article class="post">
+                  </div>
 
-            <div class="entry-header cf">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2018/12/18/a-view-to-a-pod/index.html" rel="prev"><strong>Previous Article</strong> Day 18: A View To A POD</a></li>
+              </ul>
 
-            <h1><a href="/blog/2018/12/17/a-website-for-yancy/">Day 17: A Website For Yancy</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-17">Dec 17, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Code on a computer screen" src="/blog/2018/12/17/a-website-for-yancy/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>For this year, I decided that Yancy needed a website. Rather than build
-a website with a <a href="http://preaction.me/statocles">static site generator like
-Statocles</a>, which is so popular these
-days, I decided to do something wild and unpredictable: A dynamic
-website! Lucky for me, I have the perfect project to easily build
-a dynamic website: Yancy!</p>
-
-                  <p><a href="/blog/2018/12/17/a-website-for-yancy/#section-2">Continue reading Day 17: A Website For Yancy...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/16/browser-diet/">Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-16">Dec 16, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Too many nuts. I&#39;m gonna need to slim down" src="/blog/2018/12/16/browser-diet/squirrel.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>You&#39;ve just read
-<a href="https://browserdiet.com">How to lose Weight in the Browser</a>
-and you want to know to slim down your Mojo app.
-Part of that process is preventing the browser from requesting files
-that hardly change.
-I spent a well-caffeinated afternoon trying to do that with
-Mojolicious.
-I&#39;ve been &#39;round the houses, and <em>spoiler alert</em> I didn&#39;t find
-the answer until the very end, kind of like your favourite Christmas
-animated special with a small woodland creature narrating
-&quot;The Gruffalo&#39;s HTTP header&quot;.</p>
-
-<h1>A Children&#39;s Story</h1>
-
-<p>Our beloved small woodland creature needed to display a web calendar
-with forest events pulled from a database.
-Perl could get the event data and package it as a JSON feed.
-Mojolicious could prepare the webpages with the correct JSON feed for each user.
-With some JavaScript libraries to display the web calendar,
-all would be well in the forest.</p>
-
-<p>Everything except the JavaScript libraries are lightweight.
-And everyone knows a page reload goes <em>so</em> much faster if it doesn&#39;t have to download the
-JavaScript every time.  Those libraries won&#39;t change for months!
-If only the client browser knew that it could use the file that it had downloaded
-last time.</p>
-
-<p>The secret, of course, is to set the <code>Cache-Control</code> field of the HTTP header, but <em>how</em>?</p>
-
-                  <p><a href="/blog/2018/12/16/browser-diet/#section-2">Continue reading Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/15/practical-web-content-munging/">Day 15: Practical Web Content Munging</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-15">Dec 15, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="An eyeball of alarming size" src="/blog/2018/12/15/practical-web-content-munging/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Following brian d foy&#39;s great <a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/">write-up of using Mojo::DOM selectors from Day 5</a>, I thought it&#39;d be fun to talk about some website migration scripts I recently built using <a href="https://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a> and <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a>, in order to show some basic practical usage of these modules. I&#39;ve never really used Mojo before, but I recently needed to migrate a website that hasn&#39;t had a redesign in about 15 years, and it seemed like a great fit for my content mangling needs. In the past I would have used regexes, and probably would have spent at least as much time manually massaging the input or output into the right shape as I spent writing code. Mojo::DOM made it easy for me, a Mojolicious beginner, to get the results I wanted really quickly.</p>
-
-<h2>From Static Site to Static Site Generator</h2>
-
-<p>The problem I set out to solve was taking an old static website that was once hosted on SourceForge.net and migrating it to an exciting new...um...static website. But, this time, it&#39;ll be a modern take on a static website. Instead of editing HTML by hand and using home-built page munging scripts that would do things like insert news items or changelog entries at the top of the content div using regexes, I&#39;ll be using a modern static website generator. There are several to choose from, including the well-known Jekyll, which is written in Ruby, Hugo, built with Go, and Statocles, which is in Perl and runs this site. For my project, I chose <a href="https://gohugo.io">Hugo</a>, for its speed and maturity.</p>
-
-                  <p><a href="/blog/2018/12/15/practical-web-content-munging/#section-2">Continue reading Day 15: Practical Web Content Munging...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><a class="page-numbers prev" href="/blog/page/2/" rel="prev">Prev</a></li>
-              
-              <li><span class="page-numbers next inactive">Next</span></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -367,7 +300,7 @@ last time.</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 
