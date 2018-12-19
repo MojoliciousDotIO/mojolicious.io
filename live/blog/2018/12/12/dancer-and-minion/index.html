@@ -221,9 +221,9 @@ sub get_invalid_queues( $self, @queues ) {
 
 <pre><code>has &#39;job_runner&#39; =&gt; (
     is      =&gt; &#39;ro&#39;,
-    isa     =&gt; &#39;Empowered::JobQueue&#39;,
+    isa     =&gt; &#39;MyJob::JobQueue&#39;,
     lazy    =&gt; 1,
-    default =&gt; sub( $self ) { return Empowered::JobQueue-&gt;new-&gt;runner; },
+    default =&gt; sub( $self ) { return MyJob::JobQueue-&gt;new-&gt;runner; },
 );
 </code></pre>
 
