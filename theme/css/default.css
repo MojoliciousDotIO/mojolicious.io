@@ -801,7 +801,10 @@ properly.
 	margin-right: auto !important;
 	text-align: center !important;
 }
-
+.superscript {
+    vertical-align: super;
+    font-size: 75%;
+}
 
 
 
