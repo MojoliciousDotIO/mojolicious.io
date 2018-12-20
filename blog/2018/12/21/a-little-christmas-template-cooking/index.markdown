@@ -37,6 +37,7 @@ The lines with leading percent sings are Perl code. One of those lines loads a m
 
 You can invert that so that the source of the values comes from outside of the template. The `vars()` method turns on your ability to pass a hash to the template; the hash keys turn into values. Sometimes this is preferable to having too much logic in the presentation layer:
 
+	use v5.26;
 	use Mojo::Template;
 
 	my $mt = Mojo::Template->new->vars(1);
@@ -50,6 +51,54 @@ You can invert that so that the source of the values comes from outside of the t
 		</div>
 		EOF
 
+It's just as easy to take that template from a file (or many files). This is the sort of thing I used to do this with [Template Toolkit](http://template-toolkit.org), a very fine and capable module that's as good as it ever was. But, I'm already using Mojo for quite a few things and it already has a templating engine. I can reduce my dependency count and focus on one templating language.
+
+Typically, Mojo templates use the extension _.ep_. Loop through all of the files that you specify on the command line and cook the ones that have that extension
+
+	use v5.14;
+	use Mojo::Template;
+
+	my $mt = Mojo::Template->new->vars(1);
+
+	use Time::Piece;
+	my $now = localtime;
+
+	foreach my $file ( @ARGV ) {
+		my $new_file = $file =~ s/\.ep\z//r;
+		open my $fh, '>:utf8', $new_file or do {
+			warn "Could not open $new_file: $!\n";
+			next;
+			};
+
+		print {$fh} $mt->render_file($file, { time => $now->hms } );
+		}
+
 Now that you know everything about Mojo templates, you can process a directory full of them to start a new project.
 
-I used to do this with [Template Toolkit](http://template-toolkit.org), a very fine and capable module that's as good as it ever was. The `ttree` program could process a directory of templates to give you a new set of files.
+	use File::Find qw(find);
+
+	use v5.14;
+	use Mojo::Template;
+
+	my $mt = Mojo::Template->new->vars(1);
+
+	use Time::Piece;
+	my $now = localtime;
+
+	my $wanted = sub {
+		return unless /\.ep\z/;
+		my $new_file = $File::Find::name =~ s/\.ep\z//r;
+		open my $fh, '>:utf8', $new_file or do {
+			warn "Could not open $new_file: $!\n";
+			next;
+			};
+
+		print {$fh} $mt->render_file(
+			$File::Find::name,
+			{ time => $now->hms }
+			);
+		};
+
+	find( $wanted, @ARGV );
+
+That's about it. Your `$wanted` subroutine can be more sophisticated to put the cooked files in a different directories, skip directories, and many other things. You don't even need to use [File::Find](https://perldoc.perl.org/File/Find.html); I like it because it comes with Perl. The rest of the complexity comes from the particular situation where you want to apply this.
