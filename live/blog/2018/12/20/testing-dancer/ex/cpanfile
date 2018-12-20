@@ -1,0 +1,3 @@
+requires 'Dancer2';
+test_requires 'Mojolicious'; # Test::Mojo
+test_requires 'Test::Mojo::Role::PSGI';

@@ -2,11 +2,39 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/testing/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-04T00:00:00Z</updated>
+    <updated>2018-12-20T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/testing.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/testing/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/20/testing-dancer/</id>
+        <title>Day 20: Testing Dancer</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/20/testing-dancer/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Authors of Dancer (and other) PSGI applications are probably accustomed to <a href="https://metacpan.org/pod/distribution/Dancer2/lib/Dancer2/Manual.pod#TESTING">testing</a> with <a href="https://metacpan.org/pod/Plack::Test">Plack::Test</a>, and while that is a venerated option, it is pretty bare-bones.</p>
+
+<p>During advent last year, I wrote about <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, showing the many easy and (dare I say) fun ways that you can use it to test your Mojolicious applications.
+If you missed it, go <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/">check it out</a>.</p>
+
+<p>I expect there are at least a few of you out there who read that and think, &quot;I&#39;d love to use that, but I don&#39;t use Mojolicious!&quot;; well, you&#39;re in luck!
+With just a little role to bridge the gap, you can use Test::Mojo to test your PSGI applications too!</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/20/testing-dancer/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                    <a href="https://mojolicious.io/blog/tag/psgi/">psgi</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-20T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="testing" />
+        <category term="psgi" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/04/testing-hooks-and-helpers/</id>
         <title>Day 4: Testing Hooks and Helpers</title>
