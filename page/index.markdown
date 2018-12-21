@@ -120,6 +120,10 @@ data:
       alt: Day 20: Testing Dancer
     - date: 2018-12-21
     - date: 2018-12-22
+      title: Use Carton for Mojo Deployment
+      href: '/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/'
+      image: '/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/banner.jpg'
+      alt: Day 22: Use Carton for your Mojolicious app deployment
     - date: 2018-12-23
     - date: 2018-12-24
     - date: 2018-12-25
