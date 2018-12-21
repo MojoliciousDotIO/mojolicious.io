@@ -7,6 +7,25 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 21: A Little Christmas Template Cooking</title>
+            <link>https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/</link>
+            <guid>https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/</guid>
+            <description><![CDATA[
+                <p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 21 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 17: The Wishlist App</title>
             <link>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</link>
             <guid>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</guid>

@@ -2,11 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/templates/</id>
     <title>mojolicious.io</title>
-    <updated>2017-12-17T00:00:00Z</updated>
+    <updated>2018-12-21T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/templates.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/templates/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/</id>
+        <title>Day 21: A Little Christmas Template Cooking</title>
+        <author><name>brian d foy</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-21T00:00:00Z</updated>
+        <category term="templates" />
+        <category term="advent" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</id>
         <title>Day 17: The Wishlist App</title>

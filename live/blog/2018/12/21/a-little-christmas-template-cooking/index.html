@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/page/3/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@briandfoy_perl" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/" property="og:url">
+  <meta content="Day 21: A Little Christmas Template Cooking" property="og:title">
+    <meta content="Using Mojo::Template for non-web applications." property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Day 21: A Little Christmas Template Cooking - mojolicious.io</title>
+  <meta content="brian d foy" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/11/who-watches-the-minions/">Day 11: Who Watches The Minions</a></h1>
+              <h1>Day 21: A Little Christmas Template Cooking</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2018-12-11">Dec 11, 2018</time>
+                  <time class="date" datetime="2018-12-21">Dec 21, 2018</time>
                   
 
               </p>
@@ -117,160 +119,159 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Minion logo in the middle of binocular circles, original artwork by Doug Bell" src="/blog/2018/12/11/who-watches-the-minions/banner.jpg">
+                <img alt="Peanut Butter Kisses cookies" src="/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
-queue</a>, I need to take care of
-it properly. Are the workers working (have they seized the means of
-production)? Are jobs completing successfully? Are there any errors?
-What are they?</p>
 
-                  <p><a href="/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading Day 11: Who Watches The Minions...</a></p>
-            </div>
+              <section id="section-1">
+                  <p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
 
-        </article>
-        <article class="post">
+              </section>
+              <section id="section-2">
+                  <p>First, process some string templates. Here&#39;s an example lifted from the <a href="https://mojolicious.org/perldoc/Mojo/Template">Mojo::Template</a>, using the <a href="https://www.effectiveperlprogramming.com/2016/12/strip-leading-spaces-from-here-docs-with-v5-26/">squiggly heredoc syntax released in v5.26</a></p>
 
-            <div class="entry-header cf">
+<pre><code>use Mojo::Template;
 
-            <h1><a href="/blog/2018/12/10/minion-stands-alone/">Day 10: Minion Stands Alone</a></h1>
+my $mt = Mojo::Template-&gt;new;
 
-              <p class="post-meta">
+say $mt-&gt;render(&lt;&lt;~&#39;EOF&#39;);
+  % use Time::Piece;
+  &lt;div&gt;
+    % my $now = localtime;
+    Time: &lt;%= $now-&gt;hms %&gt;
+  &lt;/div&gt;
+  EOF
+</code></pre>
 
-                  <time class="date" datetime="2018-12-10">Dec 10, 2018</time>
-                  
+<p>The lines with leading percent sings are Perl code. One of those lines loads a module, <a href="https://metacpan.org/pod/Time::Piece">Time::Piece</a>, and the other creates the variable <code>$now</code>. The <code>&lt;%= %&gt;</code> insert values inline. You can figure out the other template syntax on your own; it&#39;s all in the <a href="https://mojolicious.org/perldoc/Mojo/Template">module documentation</a>.</p>
 
+<p>You can invert that so that the source of the values comes from outside of the template.
+Sometimes this is preferable to having too much logic in the presentation layer:</p>
+
+<pre><code>use v5.26;
+use Mojo::Template;
+
+my $mt = Mojo::Template-&gt;new;
+
+use Time::Piece;
+my $now = localtime;
+
+say $mt-&gt;render(&lt;&lt;~&#39;EOF&#39;, $now-&gt;hms );
+  % my $time = shift;
+  &lt;div&gt;
+    Time: &lt;%= $time %&gt;
+  &lt;/div&gt;
+  EOF
+</code></pre>
+
+<p>As seen above, by default, arguments are passed in to the template positionally.
+However it is much more natural to describe variables by name rather than position.
+The <code>vars</code> attribute turns on your ability to pass a hash to the template; the hash keys become variable names in the template itself.</p>
+
+<pre><code>use v5.26;
+use Mojo::Template;
+
+my $mt = Mojo::Template-&gt;new-&gt;vars(1);
+
+use Time::Piece;
+my $now = localtime;
+
+say $mt-&gt;render(&lt;&lt;~&#39;EOF&#39;, { time =&gt; $now-&gt;hms } );
+  &lt;div&gt;
+    Time: &lt;%= $time %&gt;
+  &lt;/div&gt;
+  EOF
+</code></pre>
+
+<p>It&#39;s just as easy to take that template from a file (or many files). This is the sort of thing I used to do this with <a href="http://template-toolkit.org">Template Toolkit</a>, a very fine and capable module that&#39;s as good as it ever was. But, I&#39;m already using Mojo for quite a few things and it already has a templating engine. I can reduce my dependency count and focus on one templating language.</p>
+
+<p>Typically, Mojo templates use the extension <em>.ep</em>. Loop through all of the files that you specify on the command line and cook the ones that have that extension</p>
+
+<pre><code>use v5.14;
+use Mojo::Template;
+
+my $mt = Mojo::Template-&gt;new-&gt;vars(1);
+
+use Time::Piece;
+my $now = localtime;
+
+foreach my $file ( @ARGV ) {
+  my $new_file = $file =~ s/\.ep\z//r;
+  open my $fh, &#39;&gt;:utf8&#39;, $new_file or do {
+    warn &quot;Could not open $new_file: $!\n&quot;;
+    next;
+    };
+
+  print {$fh} $mt-&gt;render_file($file, { time =&gt; $now-&gt;hms } );
+  }
+</code></pre>
+
+<p>Now that you know everything about Mojo templates, you can process a directory full of them to start a new project.</p>
+
+<pre><code>use File::Find qw(find);
+
+use v5.14;
+use Mojo::Template;
+
+my $mt = Mojo::Template-&gt;new-&gt;vars(1);
+
+use Time::Piece;
+my $now = localtime;
+
+my $wanted = sub {
+  return unless /\.ep\z/;
+  my $new_file = $File::Find::name =~ s/\.ep\z//r;
+  open my $fh, &#39;&gt;:utf8&#39;, $new_file or do {
+    warn &quot;Could not open $new_file: $!\n&quot;;
+    next;
+    };
+
+  print {$fh} $mt-&gt;render_file(
+    $File::Find::name,
+    { time =&gt; $now-&gt;hms }
+    );
+  };
+
+find( $wanted, @ARGV );
+</code></pre>
+
+<p>That&#39;s about it. Your <code>$wanted</code> subroutine can be more sophisticated to put the cooked files in a different directories, skip directories, and many other things. You don&#39;t even need to use <a href="https://perldoc.perl.org/File/Find.html">File::Find</a>; I like it because it comes with Perl.
+Some clever use of <a href="https://mojolicious.org/perldoc/Mojo/File">Mojo::File</a> and <a href="https://mojolicious.org/perldoc/Mojo/File">Mojo::Collection</a> could surely do the trick too.
+The rest of the complexity comes from the particular situation where you want to apply this.</p>
+
+              </section>
+              <small><p><a data-flickr-embed="true" href="https://www.flickr.com/photos/39908901@N06/11412118604/in/photolist-ios6gA-5LGoKq-PnBoBQ-ibEPHM-7qUncc-SSGFhT-SCYSD9-7pwexw-2doKrZi-b18y32-acMecE-91MNrB-ogyG6P-LX7iMB-ShNXEj-8ZydMc-qdCE4G-4gn2We-qeqCfM-vcGZh-uVByK-h7ffe3-5y5KW9-2cvWMiq-G28Wj6-9ghgVP-4kkcHa-95mLjQ-45ntcs-ShQc5J-nKVW5Q-SP6zgo-imwWqF-SFiTgF-b1xMUr-98xU34-iy3ziA-3ajXVu-7qujMF-SFiitR-dD7wZD-nZfia-kyWT4M-iAZSYf-8ys5cz-94snpg-ShNKW9-5EV5Ns-21qzGXJ-b3oaiT" title="Peanut Butter Kisses cookies"><img alt="Peanut Butter Kisses cookies" height="1356" src="https://farm8.staticflickr.com/7346/11412118604_cd0ee37d7c_k.jpg" width="2048"></a></p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/templates/">templates</a>,
+                  <a href="/blog/tag/advent/">advent</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Minion logo in front of a faded Mojolicious cloud, original artwork by Doug Bell" src="/blog/2018/12/10/minion-stands-alone/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
-incredibly useful tool, but sometimes I need to use it for non-web
-projects. So, how can I use Minion without needing
-a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/168427dea0a034607ee7850f3de98ea2.jpg">
+                      </div>
+                      <div class="about">
+                        <h5>brian d foy</h5>
+                        <p><a href="http://www252.pair.com/~comdog/">brian d foy</a> is the author of <a href="https://www.masteringperl.org/">Mastering Perl</a> and <a href="https://www.learningperl6.com/">Learning Perl 6</a>, and the co-author of <a href="https://www.learning-perl.com/">Learning Perl</a>, <a href="https://www.intermediateperl.com">Intermediate Perl</a>, <a href="https://www.programmingperl.org/">Programming Perl</a>, and <a href="https://www.effectiveperlprogramming.com/">Effective Perl Programming</a>.</p>
 
-                  <p><a href="/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading Day 10: Minion Stands Alone...</a></p>
-            </div>
+                      </div>
 
-        </article>
-        <article class="post">
+                  </div>
 
-            <div class="entry-header cf">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2018/12/20/testing-dancer/index.html" rel="prev"><strong>Previous Article</strong> Day 20: Testing Dancer</a></li>
+              </ul>
 
-            <h1><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/">Day 9: Add a theme system to your Mojolicious app</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-09">Dec  9, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Four lines of paint drawn on a roller, in green, red, orange and blue" src="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>You wrote an awesome Mojolicious app, and people use it.
-Marvellous!
-But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
-
-<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
-But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
-
-<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
-
-                  <p><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading Day 9: Add a theme system to your Mojolicious app...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/08/authenticating-with-ldap/">Day 8: Authenticating with LDAP</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-08">Dec  8, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Who goes there?" src="/blog/2018/12/08/authenticating-with-ldap/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>There are still quite a few people using LDAP in production,
-but for those who are new to it,
-LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
-It used to be very common as a centralised authentication system
-and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
-I wander through the wilderness of authentication,
-ending with my solution on how to add LDAP authentication to your App.</p>
-
-                  <p><a href="/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading Day 8: Authenticating with LDAP...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/07/openapi/">Day 7: MetaCPAN, Mojolicious and OpenAPI</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-07">Dec  7, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Contract signing" src="/blog/2018/12/07/openapi/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
-
-<h2>What is it?</h2>
-
-<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
-
-<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
-
-<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
-
-                  <p><a href="/blog/2018/12/07/openapi/#section-2">Continue reading Day 7: MetaCPAN, Mojolicious and OpenAPI...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><a class="page-numbers prev" href="/blog/page/4/" rel="prev">Prev</a></li>
-              
-              <li><a class="page-numbers next" href="/blog/page/2/" rel="next">Next</a></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -341,7 +342,7 @@ ending with my solution on how to add LDAP authentication to your App.</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 
