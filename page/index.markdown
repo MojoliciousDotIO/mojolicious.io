@@ -119,6 +119,10 @@ data:
       image: '/blog/2018/12/20/testing-dancer/banner.jpg'
       alt: Day 20: Testing Dancer
     - date: 2018-12-21
+      title: A Little Christmas Template Cooking
+      href: '/blog/2018/12/21/a-little-christmas-template-cooking/'
+      image: '/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg'
+      title: Day 21: A Little Christmas Template Cooking
     - date: 2018-12-22
       title: Use Carton for Mojo Deployment
       href: '/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/'
