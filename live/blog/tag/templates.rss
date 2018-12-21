@@ -54,6 +54,42 @@ Today we will example concepts mostly relating to the templates, then in tomorro
                 Sun, 17 Dec 2017 00:00:00 +0000
             </pubDate>
         </item>
+        <item>
+            <title>Day 7: Using Template Variants For a Beta Landing Page</title>
+            <link>https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/</link>
+            <guid>https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/</guid>
+            <description><![CDATA[
+                <p><a href="http://cpantesters.org">CPAN Testers</a> is a pretty big project with a long,
+storied history. At its heart is a data warehouse holding all the test reports
+made by people installing CPAN modules. Around that exists an ecosystem of
+tools and visualizations that use this data to provide useful insight into the
+status of CPAN distributions.</p>
+
+<p>For the <a href="http://github.com/cpan-testers/cpantesters-web">CPAN Testers webapp
+project</a>, I needed a way to
+show off some pre-release tools with some context about what they are and how
+they might be made ready for release. I needed a &quot;beta&quot; website with a front
+page that introduced the beta projects. But, I also needed the same
+<a href="http://mojolicious.org">Mojolicious</a> application to serve (in the future) as a
+production website. The front page of the production website would be
+completely different from the front page of the beta testing website.</p>
+
+<p>To achieve this, I used <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Template-variants">Mojolicious&#39;s template variants
+feature</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                        <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 07 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
     </channel>
 </rss>
 

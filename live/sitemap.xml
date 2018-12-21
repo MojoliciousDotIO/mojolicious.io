@@ -637,12 +637,6 @@
         <lastmod>2018-03-18</lastmod>
     </url>
     <url>
-        <loc>https://mojolicious.io/blog/tag/template/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.3</priority>
-        <lastmod>2017-12-07</lastmod>
-    </url>
-    <url>
         <loc>https://mojolicious.io/blog/tag/templates/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>

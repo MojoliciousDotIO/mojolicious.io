@@ -3,7 +3,7 @@ title: 'Day 7: Using Template Variants For a Beta Landing Page'
 tags:
     - advent
     - rendering
-    - template
+    - templates
 author: Doug Bell
 images:
   banner:
