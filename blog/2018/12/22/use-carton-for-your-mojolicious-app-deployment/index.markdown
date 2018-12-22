@@ -159,9 +159,12 @@ You can now install your dependencies with:
 
 Combined with `--deployment` option, you can avoid querying for a database like CPAN Meta DB or downloading files from CPAN mirrors.
 
-You may even avoid the need to install Carton on the production server (but then you will need to add the `local` directory to `@INC` to start your application, since you can’t use `carton exec`):
+You may even avoid the need to install Carton on the production server,
 
     cpanm -L local --from "$PWD/vendor/cache" --installdeps --notest --quiet .
+
+but then you will need to add the `local/lib/perl5` directory to `@INC` to start your application, since you can’t use `carton exec`.
+You can do so using the [lib](https://metacpan.org/pod/lib) module, [PERL5LIB](https://perldoc.pl/perlrun#PERL5LIB), or [-I](https://perldoc.pl/perlrun#-Idirectory).
 
 ## Conclusion
 
