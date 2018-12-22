@@ -129,7 +129,7 @@
 
               </section>
               <section id="section-2">
-                  <p>First, process some string templates. Here&#39;s an example lifted from the <a href="https://mojolicious.org/perldoc/Mojo/Template">Mojo::Template</a>, using the <a href="https://www.effectiveperlprogramming.com/2016/12/strip-leading-spaces-from-here-docs-with-v5-26/">squiggly heredoc syntax released in v5.26</a></p>
+                  <p>First, process some string templates. Here&#39;s an example lifted from the <a href="https://mojolicious.org/perldoc/Mojo/Template">Mojo::Template</a>, using the <a href="https://www.effectiveperlprogramming.com/2016/12/strip-leading-spaces-from-here-docs-with-v5-26/">squiggly heredoc syntax released in v5.26</a>:</p>
 
 <pre><code>use Mojo::Template;
 
@@ -146,8 +146,7 @@ say $mt-&gt;render(&lt;&lt;~&#39;EOF&#39;);
 
 <p>The lines with leading percent sings are Perl code. One of those lines loads a module, <a href="https://metacpan.org/pod/Time::Piece">Time::Piece</a>, and the other creates the variable <code>$now</code>. The <code>&lt;%= %&gt;</code> insert values inline. You can figure out the other template syntax on your own; it&#39;s all in the <a href="https://mojolicious.org/perldoc/Mojo/Template">module documentation</a>.</p>
 
-<p>You can invert that so that the source of the values comes from outside of the template.
-Sometimes this is preferable to having too much logic in the presentation layer:</p>
+<p>You can invert that so that the source of the values comes from outside of the template. Sometimes this is preferable to having too much logic in the presentation layer:</p>
 
 <pre><code>use v5.26;
 use Mojo::Template;
@@ -165,9 +164,7 @@ say $mt-&gt;render(&lt;&lt;~&#39;EOF&#39;, $now-&gt;hms );
   EOF
 </code></pre>
 
-<p>As seen above, by default, arguments are passed in to the template positionally.
-However it is much more natural to describe variables by name rather than position.
-The <code>vars</code> attribute turns on your ability to pass a hash to the template; the hash keys become variable names in the template itself.</p>
+<p>As seen above, by default, arguments are passed in to the template positionally, which is why the <code>shift</code> is there. I like to describe variables by name rather than their position. The <code>vars</code> attribute allows you to pass a hash to the template; the hash keys become variable names in the template itself:</p>
 
 <pre><code>use v5.26;
 use Mojo::Template;
@@ -186,10 +183,11 @@ say $mt-&gt;render(&lt;&lt;~&#39;EOF&#39;, { time =&gt; $now-&gt;hms } );
 
 <p>It&#39;s just as easy to take that template from a file (or many files). This is the sort of thing I used to do this with <a href="http://template-toolkit.org">Template Toolkit</a>, a very fine and capable module that&#39;s as good as it ever was. But, I&#39;m already using Mojo for quite a few things and it already has a templating engine. I can reduce my dependency count and focus on one templating language.</p>
 
-<p>Typically, Mojo templates use the extension <em>.ep</em>. Loop through all of the files that you specify on the command line and cook the ones that have that extension</p>
+<p>Typically, Mojo templates use the extension <em>.ep</em>. Loop through all of the files that you specify on the command line and cook the ones that have that extension:</p>
 
 <pre><code>use v5.14;
 use Mojo::Template;
+use Mojo::File;
 
 my $mt = Mojo::Template-&gt;new-&gt;vars(1);
 
@@ -197,48 +195,42 @@ use Time::Piece;
 my $now = localtime;
 
 foreach my $file ( @ARGV ) {
-  my $new_file = $file =~ s/\.ep\z//r;
-  open my $fh, &#39;&gt;:utf8&#39;, $new_file or do {
-    warn &quot;Could not open $new_file: $!\n&quot;;
-    next;
-    };
-
-  print {$fh} $mt-&gt;render_file($file, { time =&gt; $now-&gt;hms } );
-  }
+    Mojo::File
+        -&gt;new( $file =~ s/\.ep\z//r )
+        -&gt;spurt(
+            $mt-&gt;render_file( $file, { time =&gt; $now-&gt;hms } )
+            );
+    }
 </code></pre>
 
-<p>Now that you know everything about Mojo templates, you can process a directory full of them to start a new project.</p>
+<p>Now that you know everything about Mojo templates, you can process a directory full of them to start a new project:</p>
 
-<pre><code>use File::Find qw(find);
+<pre><code>use v5.14;
+use File::Find qw(find);
+use Time::Piece;
 
-use v5.14;
+use Mojo::File;
 use Mojo::Template;
 
 my $mt = Mojo::Template-&gt;new-&gt;vars(1);
 
-use Time::Piece;
-my $now = localtime;
-
 my $wanted = sub {
-  return unless /\.ep\z/;
-  my $new_file = $File::Find::name =~ s/\.ep\z//r;
-  open my $fh, &#39;&gt;:utf8&#39;, $new_file or do {
-    warn &quot;Could not open $new_file: $!\n&quot;;
-    next;
+    my $file = Mojo::File-&gt;new( $File::Find::name )-&gt;to_abs;
+    return unless /\.ep\z/;
+    Mojo::File
+        -&gt;new( $file =~ s/\.ep\z//r )
+        -&gt;spurt(
+            $mt-&gt;render_file(
+                $file,
+                { time =&gt; localtime-&gt;hms }
+                )
+            );
     };
 
-  print {$fh} $mt-&gt;render_file(
-    $File::Find::name,
-    { time =&gt; $now-&gt;hms }
-    );
-  };
-
-find( $wanted, @ARGV );
+find( { no_chdir =&gt; 1, wanted =&gt; $wanted }, @ARGV );
 </code></pre>
 
-<p>That&#39;s about it. Your <code>$wanted</code> subroutine can be more sophisticated to put the cooked files in a different directories, skip directories, and many other things. You don&#39;t even need to use <a href="https://perldoc.perl.org/File/Find.html">File::Find</a>; I like it because it comes with Perl.
-Some clever use of <a href="https://mojolicious.org/perldoc/Mojo/File">Mojo::File</a> and <a href="https://mojolicious.org/perldoc/Mojo/File">Mojo::Collection</a> could surely do the trick too.
-The rest of the complexity comes from the particular situation where you want to apply this.</p>
+<p>That&#39;s about it. Your <code>$wanted</code> subroutine can be more sophisticated to put the cooked files in a different directories, skip directories, and many other things. You don&#39;t even need to use <a href="https://perldoc.perl.org/File/Find.html">File::Find</a>; I like it because it comes with Perl, I&#39;m used to it, and I don&#39;t need to construct the entire list of files at once. Some clever use of <a href="https://mojolicious.org/perldoc/Mojo/File">Mojo::File</a> and <a href="https://mojolicious.org/perldoc/Mojo/File">Mojo::Collection</a> could surely do the trick too. The rest of the complexity comes from the particular situation where you want to apply this.</p>
 
               </section>
               <small><p>Banner image: <a href="https://www.flickr.com/photos/39908901@N06/11412118604/in/photolist-ios6gA-5LGoKq-PnBoBQ-ibEPHM-7qUncc-SSGFhT-SCYSD9-7pwexw-2doKrZi-b18y32-acMecE-91MNrB-ogyG6P-LX7iMB-ShNXEj-8ZydMc-qdCE4G-4gn2We-qeqCfM-vcGZh-uVByK-h7ffe3-5y5KW9-2cvWMiq-G28Wj6-9ghgVP-4kkcHa-95mLjQ-45ntcs-ShQc5J-nKVW5Q-SP6zgo-imwWqF-SFiTgF-b1xMUr-98xU34-iy3ziA-3ajXVu-7qujMF-SFiitR-dD7wZD-nZfia-kyWT4M-iAZSYf-8ys5cz-94snpg-ShNKW9-5EV5Ns-21qzGXJ-b3oaiT" title="Peanut Butter Kisses cookies">Peanut Butter Kisses cookies</a> by <a href="https://www.flickr.com/photos/39908901@N06/">m01229</a>, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>.</p>
