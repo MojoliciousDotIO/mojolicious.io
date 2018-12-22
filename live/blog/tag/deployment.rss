@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/deployment/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/deployment.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>Day 22: Use Carton for your Mojolicious app deployment</title>
+            <link>https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/</link>
+            <guid>https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/</guid>
+            <description><![CDATA[
+                <p>You have a lovely Mojolicious app, it’s time to deploy it!</p>
+
+<p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
+
+<p>Indeed, some modules evolve fast (Hello Mojolicious!) which is not bad but can lead to incompatible changes.</p>
+
+<p>There’s also the bugs which can be resolved or introduced in a version and that you encounter if you have the wrong version.</p>
+
+<h2>Cpanfile to the rescue</h2>
+
+<p><a href="https://metacpan.org/pod/cpanfile">Cpanfile</a> is a format for describing CPAN dependencies for Perl applications.</p>
+
+<p>With <code>cpanfile</code>, we can list the modules we need, but we can also force the minimal versions of the modules, their maximum versions… or say &quot;I want this exact version of that module&quot;.</p>
+
+<p>But we can also list optional modules: you can support different databases, but users shouldn’t have to install MySQL-related modules if they want to use PostgreSQL.</p>
+
+<p>Here’s an example of <code>cpanfile</code>:</p>
+
+<pre><code># Do not ask for a specific version
+requires &#39;DateTime&#39;;
+# Ask a specific version
+requires &#39;Plack&#39;, &#39;== 1.0&#39;;
+# Ask a minimal version
+requires &#39;Net::DNS&#39;, &#39;&gt;= 1.12&#39;;
+# Or
+requires &#39;Net::DNS&#39;, &#39;1.12&#39;;
+# Ask a maximal version
+requires &#39;Locale::Maketext&#39;, &#39;&lt; 1.28&#39;;
+# Give a range
+requires &#39;Mojolicious&#39;, &#39;&gt;= 7.0, &lt; 8.0&#39;;
+
+# Optional modules
+feature &#39;postgresql&#39;, &#39;PostgreSQL support&#39; =&gt; sub {
+    requires &#39;Mojo::Pg&#39;;
+};
+feature &#39;mysql&#39;, &#39;MySQL support&#39; =&gt; sub {
+    requires &#39;Mojo::mysql&#39;;
+};
+feature &#39;ldap&#39;, &#39;LDAP authentication support&#39; =&gt; sub {
+    requires &#39;Net::LDAP&#39;;
+};
+</code></pre>
+
+<p>Cpanfile format can do more (recommended modules, requirements for a specific phase (<code>configure</code>, <code>test</code>…), using modules not published on CPAN…), but this is a post about Carton: I let you read cpanfile documentation 🙂</p>
+
+<p>Nota bene: be careful to list non-Perl dependencies in README file<span class="superscript" id="back-to-1"><a href="https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#footnote-1">1</a></span>, like <code>libpq-dev</code> for <a href="https://mojolicious.org/perldoc/Mojo/Pg"><code>Mojo::Pg</code></a> 😉</p>
+
+<p>Cpanfile can be used by <a href="https://metacpan.org/pod/cpanm">cpanminus</a> or <a href="https://metacpan.org/pod/Carton">Carton</a>.</p>
+
+<p>Go to the directory containing your <code>cpanfile</code> and do:</p>
+
+<pre><code>cpanm --installdeps .
+</code></pre>
+
+<p><em>Et voilà !</em></p>
+
+<p>Note that the modules in <code>features</code> has not been installed. You can install them with:</p>
+
+<pre><code>cpanm --installdeps . --with-feature postgresql
+</code></pre>
+
+<p>Or, to install all <code>features</code> modules, but not the <code>mysql</code> one:</p>
+
+<pre><code>cpanm --installdeps . --with-all-features --without-feature mysql
+</code></pre>
+
+<p>So, now, we can be sure that we have the good version of our application’s dependencies on the system.</p>
+
+<p>But what if we host other applications on that system, that have conflicting requirements?</p>
+
+<p>Cpanm is able to install modules in a specific folder (thank you, <a href="https://metacpan.org/pod/local::lib">local::lib</a>), but wouldn’t it be convenient to install our dependencies in the directory of our application?
+We would always know where our dependencies are.</p>
+
+<h2>Here comes Carton</h2>
+
+<p><a href="https://metacpan.org/pod/Carton">Carton</a> is Perl module dependency manager. Think <code>bundler</code> in Ruby. Think <code>npm</code> in Node.js.</p>
+
+<p>Like <code>npm</code> does, Carton installs the dependencies in the directory of the application.</p>
+
+<h3>Deployment</h3>
+
+<p>First, install Carton:</p>
+
+<pre><code>cpanm Carton
+</code></pre>
+
+<p>Then, we can install our dependencies with:</p>
+
+<pre><code>carton install
+</code></pre>
+
+<p>Our dependencies will be installed in a directory named <code>local</code>.
+But there is more: Carton will generate a <code>cpanfile.snapshot</code> file, containing the exact version of our dependencies, allowing us to enforce those exact version (ship it with your application).</p>
+
+<p>In our <code>cpanfile</code> example, we asked for a Mojolicious version greater or equal than 7.0 and lesser than 8.0.
+Between the installation on our development server and the installation on the production server, some newer versions of modules we depend on may have been published.
+Let’s say that we have Mojolicious 7.77 in our development environment and 7.90 and that something has changed, which leads to problems (for example, the delay helper from <a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers">Mojolicious::Plugin::DefaultHelpers</a> has been <a href="https://github.com/mojolicious/mojo/blob/47d1369fd11b09af47a76f7f7192985a30ce2409/Changes#L243">deprecated in 7.78</a> and <a href="https://github.com/mojolicious/mojo/blob/47d1369fd11b09af47a76f7f7192985a30ce2409/Changes#L150">removed in 7.90</a>).</p>
+
+<p>Both 7.77 and 7.90 versions are in our range, but our application does not work on the production server… we need to make the production environment as identical as possible as the development one.</p>
+
+<p>For that, since we have a <code>cpanfile.snapshot</code> file from our development server, we can do:</p>
+
+<pre><code>carton install --deployment
+</code></pre>
+
+<p>That installs the exact versions of modules listed in your snapshot.</p>
+
+<h3>Features</h3>
+
+<p>Per default, <code>carton install</code> will install all the <em>features</em> dependencies, but we can deactivate some:</p>
+
+<pre><code>carton install --deployment --without-feature mysql
+</code></pre>
+
+<p>In order to provide the correct version for all modules, even the optional ones, do a <code>carton install</code> on the development server, and use <code>--without-feature</code> only while deploying your application: you need to have a <code>cpanfile.snapshot</code> containing all modules.</p>
+
+<h3>Start your application</h3>
+
+<p>In order to be able to use the <code>local</code> directory containing the dependencies, you can prefix your commands with <code>carton exec</code>.
+So, to start a Mojolicious application with the built-in server <a href="https://mojolicious.org/perldoc/Mojo/Server/Hypnotoad">hypnotoad</a>, do:</p>
+
+<pre><code>carton exec -- hypnotoad script/my_application
+</code></pre>
+
+<p>That works for all that you can do with your application. Example:</p>
+
+<pre><code>carton exec -- script/my_application routes
+</code></pre>
+
+<p>Note the two dashes: they avoid carton to interpret arguments passed to the script.
+This will show your application’s help message:</p>
+
+<pre><code>carton exec -- script/my_application --help
+</code></pre>
+
+<p>This will show carton’s help message:</p>
+
+<pre><code>carton exec script/my_application --help
+</code></pre>
+
+<p>See the difference? 😉</p>
+
+<h3>Bundling the dependencies</h3>
+
+<p>To make installation quicker, carton can bundle all the tarballs for your dependencies into a directory so that you can even install dependencies that are not available on CPAN, such as internal distribution aka DarkPAN:</p>
+
+<pre><code>carton bundle
+</code></pre>
+
+<p>This will bundle the tarballs in <code>vendor/cache</code>.
+You can now install your dependencies with:</p>
+
+<pre><code>carton install --cached
+</code></pre>
+
+<p>Combined with <code>--deployment</code> option, you can avoid querying for a database like CPAN Meta DB or downloading files from CPAN mirrors.</p>
+
+<p>You may even avoid the need to install Carton on the production server (but then you will need to add the <code>local</code> directory to <code>@INC</code> to start your application, since you can’t use <code>carton exec</code>):</p>
+
+<pre><code>cpanm -L local --from &quot;$PWD/vendor/cache&quot; --installdeps --notest --quiet .
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<p>Carton and cpanfile are a great way to ease Mojolicious apps deployment.
+Not only it avoids to list all the dependencies needed by your application in the README or the INSTALL file, but it speeds up deployments and make them more safer, since it sure lowers the risks of bugs due to bad versions of dependencies.</p>
+
+<p><small id="footnote-1">1: or INSTALL, or wherever you put your installation documentation <a href="https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#back-to-1">↩️</a><small></small></small></p>
+
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/deployment/">deployment</a>
+                        <a href="https://mojolicious.io/blog/tag/carton/">carton</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 22 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

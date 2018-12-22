@@ -104,6 +104,49 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/">Day 7: Using Template Variants For a Beta Landing Page</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-07">Dec  7, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Single yellow tulip in a field of red tulips" src="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/1280px-Single_yellow_tulip_in_a_field_of_red_tulips.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p><a href="http://cpantesters.org">CPAN Testers</a> is a pretty big project with a long,
+storied history. At its heart is a data warehouse holding all the test reports
+made by people installing CPAN modules. Around that exists an ecosystem of
+tools and visualizations that use this data to provide useful insight into the
+status of CPAN distributions.</p>
+
+<p>For the <a href="http://github.com/cpan-testers/cpantesters-web">CPAN Testers webapp
+project</a>, I needed a way to
+show off some pre-release tools with some context about what they are and how
+they might be made ready for release. I needed a &quot;beta&quot; website with a front
+page that introduced the beta projects. But, I also needed the same
+<a href="http://mojolicious.org">Mojolicious</a> application to serve (in the future) as a
+production website. The front page of the production website would be
+completely different from the front page of the beta testing website.</p>
+
+<p>To achieve this, I used <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Template-variants">Mojolicious&#39;s template variants
+feature</a>.</p>
+
+                  <p><a href="/blog/2017/12/07/day-7-using-template-variants-for-a-beta-landing-page/#section-2">Continue reading Day 7: Using Template Variants For a Beta Landing Page...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2017/12/06/day-6-adding-your-own-commands/">Day 6: Adding Your Own Commands</a></h1>
 
               <p class="post-meta">
@@ -250,43 +293,6 @@ Let&#39;s see how it works!</p>
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/02/day-2-the-stash/">Day 2: The Stash</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-02">Dec  2, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="leather bag" src="/blog/2017/12/02/day-2-the-stash/bag-1854148_1920.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In Mojolicious, when processing a request and preparing a response one of the most important concepts is &quot;the stash&quot;.
-Since it is a non-blocking framework, your code can&#39;t use global variables to store any state during processing.
-If you did and some other code were to run, it could very easily get cross-talk between requests.</p>
-
-<p>The stash is the place you can store information while you process it.
-It is just a simple hash reference that is attached to the controller object that is processing the request.
-It lives and dies with that one transaction.</p>
-
-<p>While you can and should use it as a scratchpad, it really is much more.
-The stash controls almost every aspect of the response that you generate.
-Let&#39;s look a little closer to see how it works</p>
-
-                  <p><a href="/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading Day 2: The Stash...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -317,10 +323,12 @@ Let&#39;s look a little closer to see how it works</p>
     <a href="/blog/tag/app/">app</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/caching/">caching</a>
+    <a href="/blog/tag/carton/">carton</a>
     <a href="/blog/tag/command/">command</a>
     <a href="/blog/tag/css/">css</a>
     <a href="/blog/tag/dancer/">dancer</a>
     <a href="/blog/tag/debugging/">debugging</a>
+    <a href="/blog/tag/deployment/">deployment</a>
     <a href="/blog/tag/development/">development</a>
     <a href="/blog/tag/documentation/">documentation</a>
     <a href="/blog/tag/example/">example</a>
