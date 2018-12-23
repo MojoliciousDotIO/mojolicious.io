@@ -20,6 +20,8 @@ You have a lovely Mojolicious app, it’s time to deploy it!
 
 But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?
 
+---
+
 Indeed, some modules evolve fast (Hello Mojolicious!) which is not bad but can lead to incompatible changes.
 
 There’s also the bugs which can be resolved or introduced in a version and that you encounter if you have the wrong version.

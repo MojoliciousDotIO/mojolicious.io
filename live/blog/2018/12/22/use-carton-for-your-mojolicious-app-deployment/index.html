@@ -234,10 +234,10 @@ Let’s say that we have Mojolicious 7.77 in our development environment and 7.9
 
 <p>Per default, <code>carton install</code> will install all the <em>features</em> dependencies, but we can deactivate some:</p>
 
-<pre><code>carton install --deployment --without-feature mysql
+<pre><code>carton install --deployment --without mysql
 </code></pre>
 
-<p>In order to provide the correct version for all modules, even the optional ones, do a <code>carton install</code> on the development server, and use <code>--without-feature</code> only while deploying your application: you need to have a <code>cpanfile.snapshot</code> containing all modules.</p>
+<p>In order to provide the correct version for all modules, even the optional ones, do a <code>carton install</code> on the development server, and use <code>--without</code> (note that this isn&#39;t <code>--without-feature</code> like <code>cpanm</code>) only while deploying your application: you need to have a <code>cpanfile.snapshot</code> containing all modules.</p>
 
 <h3>Start your application</h3>
 
@@ -286,7 +286,7 @@ You can now install your dependencies with:</p>
 </code></pre>
 
 <p>but then you will need to add the <code>local/lib/perl5</code> directory to <code>@INC</code> to start your application, since you can’t use <code>carton exec</code>.
-You can do so using the <a href="https://metacpan.org/pod/lib">lib</a> module, <a href="https://perldoc.pl/perlrun#PERL5LIB">PERL5LIB</a>, or <a href="https://perldoc.pl/perlrun#-Idirectory">-I</a>.</p>
+You can do so using the core <a href="https://metacpan.org/pod/lib">lib</a> module, the handy <a href="https://metacpan.org/pod/lib::relative">lib::relative</a> from CPAN, <a href="https://perldoc.pl/perlrun#PERL5LIB">PERL5LIB</a> environment variable, or <a href="https://perldoc.pl/perlrun#-Idirectory">-I</a> switch.</p>
 
 <h2>Conclusion</h2>
 
