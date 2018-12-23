@@ -120,9 +120,9 @@ That installs the exact versions of modules listed in your snapshot.
 
 Per default, `carton install` will install all the *features* dependencies, but we can deactivate some:
 
-    carton install --deployment --without-feature mysql
+    carton install --deployment --without mysql
 
-In order to provide the correct version for all modules, even the optional ones, do a `carton install` on the development server, and use `--without-feature` only while deploying your application: you need to have a `cpanfile.snapshot` containing all modules.
+In order to provide the correct version for all modules, even the optional ones, do a `carton install` on the development server, and use `--without` (note that this isn't `--without-feature` like `cpanm`) only while deploying your application: you need to have a `cpanfile.snapshot` containing all modules.
 
 ### Start your application
 
@@ -164,7 +164,7 @@ You may even avoid the need to install Carton on the production server,
     cpanm -L local --from "$PWD/vendor/cache" --installdeps --notest --quiet .
 
 but then you will need to add the `local/lib/perl5` directory to `@INC` to start your application, since you can’t use `carton exec`.
-You can do so using the [lib](https://metacpan.org/pod/lib) module, [PERL5LIB](https://perldoc.pl/perlrun#PERL5LIB), or [-I](https://perldoc.pl/perlrun#-Idirectory).
+You can do so using the core [lib](https://metacpan.org/pod/lib) module, the handy [lib::relative](https://metacpan.org/pod/lib::relative) from CPAN, [PERL5LIB](https://perldoc.pl/perlrun#PERL5LIB) environment variable, or [-I](https://perldoc.pl/perlrun#-Idirectory) switch.
 
 ## Conclusion
 
