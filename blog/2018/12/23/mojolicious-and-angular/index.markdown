@@ -1,5 +1,5 @@
 ---
-title: Day 23: Mojolicious serving Angular Web App
+title: Day 23: Mojolicious and Angular
 disable_content_template: 1
 tags:
   - advent
@@ -8,18 +8,16 @@ tags:
 author: Sachin Dangol
 images:
   banner:
-    src: '/blog/2018/12/23/mojolicious-serving-angular-web-app/banner.jpg'
-    alt: 'backend and frontend'
+    src: '/blog/2018/12/23/mojolicious-and-angular/banner.jpg'
+    alt: 'Spider in web'
     data:
       attribution: |-
-        photo by [https://commons.wikimedia.org/w/index.php?curid=646036](https://commons.wikimedia.org/w/index.php?curid=646036)
+        Banner [photo](https://commons.wikimedia.org/w/index.php?curid=646036) by [Vincent de Groot](http://www.videgro.net/), licensed [CC BY SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 data:
   bio: sachindangol
   description: 'Learn how to marry Mojolicious and Angular for building awesome web application'
 ---
-
-# Mojolicious and Angular
 
 [Angular](https://angular.io/) is one of the most popular front-end web application frameworks, helping you build modern applications for the web, mobile, or desktop.
 [Mojolicious](https://mojolicious.org/) is a next generation web framework for the Perl programming language.

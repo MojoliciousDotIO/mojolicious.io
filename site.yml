@@ -206,6 +206,7 @@ site:
                 sachindangol:
                     name: 'Sachin Dangol'
                     twitter: '@sachindangol'
+                    image: '/static/sachin.jpg'
                     text: |-
                         Sachin has been using Perl for 10 years plus and loves Perl and Mojolicious. Reading books on programming and technology, traveling, cooking are few of his hobbies.
 
