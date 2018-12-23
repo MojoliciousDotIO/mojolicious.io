@@ -130,8 +130,8 @@ data:
       alt: Day 22: Use Carton for your Mojolicious app deployment
     - date: 2018-12-23
       title: Mojolicious and Angular
-      href: '/blog/2018/12/23/mojolicious-and Angular/'
-      src: '/blog/2018/12/23/mojolicious-and Angular/banner.jpg'
+      href: '/blog/2018/12/23/mojolicious-and-angular/'
+      src: '/blog/2018/12/23/mojolicious-and-angular/banner.jpg'
       alt: Day 23: Mojolicious and Angular
     - date: 2018-12-24
     - date: 2018-12-25
