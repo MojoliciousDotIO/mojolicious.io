@@ -7,6 +7,64 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Day 25: Special Thanks</title>
+            <link>https://mojolicious.io/blog/2018/12/25/special-thanks/</link>
+            <guid>https://mojolicious.io/blog/2018/12/25/special-thanks/</guid>
+            <description><![CDATA[
+                <p>This advent calendar, I have special thanks to offer to all the people who helped make it possible.
+I&#39;ll list them shortly, but before I do, I&#39;d like to introduce you to the newest unofficial member of the Mojolicious Core Team: Jude Carl Berger!
+Jude was born on the first day of this calendar, December 1st, at 2:15 am Chicago time.
+If you&#39;re looking at timestamps, yes, that&#39;s about 4 hours after the first blog post went live.</p>
+
+<p>After a one week stay in the NICU for a relatively minor condition, he&#39;s now home with myself and his mother, my wonderful wife Carolyn, who I have to thank first.
+Not too many partners would put up with someone flitting out to edit a blog post or hit &quot;publish&quot; at the right moment during this time in our lives.
+And thanks for Jude.</p>
+
+<p>Armed with that knowledge, you can surely see that even more than usual I couldn&#39;t have done this without help!
+So, with no further ado, I want to thank all the authors,</p>
+
+<ul>
+<li>Boyd Duffee</li>
+<li>brian d foy</li>
+<li>Chris Seigman</li>
+<li>Doug Bell</li>
+<li>Jason Crome</li>
+<li>Joe Cooper</li>
+<li>Luc Didry</li>
+<li>Sachin Dangol</li>
+<li>Shawn Sorichetti</li>
+</ul>
+
+<p>I especially want to note that Doug Bell went above and beyond with eight (!) articles, brian d foy did more than his fair share with four, and Luc Didry and Boyd Duffee did two each!
+I also want to specially mention Jason Crome who, during a tough month of his own, administered the <a href="http://advent.perldancer.org/2018">Twelve Days of Dancer</a> and contributed a cross-over article to ours as well.
+The calendar is obviously nothing without the articles and so I&#39;m tremendously thankful that I had authors that I could lean on to help me when I wasn&#39;t able to fill extra space as I might have in other years.
+Spectacular work, one and all!</p>
+
+<p>We intend to publish more on this site throughout the year, including some pieces from two authors who submitted articles after all the days had been filled.
+Articles had been committed to the repo, but were not yet published, which let to a small confusion in which these authors to rise and meet a need they thought existed, so thank you Stefan Adams and Yuki Kimoto for stepping up!
+We&#39;ll get those and others articles out to you in the coming months!</p>
+
+<p>I want to thank Doug again for creating and maintaining <a href="http://preaction.me/statocles/">Statocles</a>, the static blog engine that powers this site.
+I want to thank my employer <a href="https://www.servercentral.com/">ServerCentral</a> who not only are great to work for and support open source, but who gave me lots of time to get settled in with my newest member of my family (and a few cute gifts for him too).
+I want to thank Sebastian Riedel for writing Mojolicious and for the outfit you see on Jude in the picture above (as far as I know, it is a unique piece), and the entire Mojolicious Core Team and community.</p>
+
+<p>I want to thank Jude for being a reasonably happy newborn and sleeping for longer-than-average stretches at night.</p>
+
+<p>Finally, I extend my warmest thanks to the doctors, nurses and staff of Norwest Community Hosptial in Arlington Heights, Illinois and especially the NICU nurses who are beyond amazing.</p>
+
+<p>Merry Christmas, Happy Holidays, Happy New Year, and Happy Perling!</p>
+
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 25 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 24: Async/Await the Mojo Way</title>
             <link>https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/</link>
             <guid>https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/</guid>
@@ -419,32 +477,6 @@ It has many plugins, including easy implementation of <a href="https://metacpan.
             ]]></description>
             <pubDate>
                 Fri, 21 Dec 2018 00:00:00 +0000
-            </pubDate>
-        </item>
-        <item>
-            <title>Day 20: Testing Dancer</title>
-            <link>https://mojolicious.io/blog/2018/12/20/testing-dancer/</link>
-            <guid>https://mojolicious.io/blog/2018/12/20/testing-dancer/</guid>
-            <description><![CDATA[
-                <p>Authors of Dancer (and other) PSGI applications are probably accustomed to <a href="https://metacpan.org/pod/distribution/Dancer2/lib/Dancer2/Manual.pod#TESTING">testing</a> with <a href="https://metacpan.org/pod/Plack::Test">Plack::Test</a>, and while that is a venerated option, it is pretty bare-bones.</p>
-
-<p>During advent last year, I wrote about <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, showing the many easy and (dare I say) fun ways that you can use it to test your Mojolicious applications.
-If you missed it, go <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/">check it out</a>.</p>
-
-<p>I expect there are at least a few of you out there who read that and think, &quot;I&#39;d love to use that, but I don&#39;t use Mojolicious!&quot;; well, you&#39;re in luck!
-With just a little role to bridge the gap, you can use Test::Mojo to test your PSGI applications too!</p>
-
-                    <p><a href="https://mojolicious.io/blog/2018/12/20/testing-dancer/#section-2">Continue reading...</a></p>
-
-                    <p>Tags:
-                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                        <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
-                        <a href="https://mojolicious.io/blog/tag/psgi/">psgi</a>
-                    </p>
-
-            ]]></description>
-            <pubDate>
-                Thu, 20 Dec 2018 00:00:00 +0000
             </pubDate>
         </item>
     </channel>

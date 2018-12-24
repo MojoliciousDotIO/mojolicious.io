@@ -10,7 +10,7 @@
     <entry>
         <id>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</id>
         <title>Day 14: A Practical Example of Mojo::DOM</title>
-        <author><name>maschine</name></author>
+        <author><name>Chris Seigman</name></author>
         <link href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/" rel="alternate" />
         <content type="html"><![CDATA[
             <p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
