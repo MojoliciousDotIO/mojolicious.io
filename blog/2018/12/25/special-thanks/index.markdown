@@ -44,16 +44,16 @@ The calendar is obviously nothing without the articles and so I'm tremendously t
 Spectacular work, one and all!
 
 We intend to publish more on this site throughout the year, including some pieces from two authors who submitted articles after all the days had been filled.
-Articles had been committed to the repo, but were not yet published, which let to a small confusion in which these authors to rise and meet a need they thought existed, so thank you Stefan Adams and Yuki Kimoto for stepping up!
+Articles had been committed to the repo, but were not yet published, which led to a small confusion in which these authors rose tp meet a need they thought existed, so thank you Stefan Adams and Yuki Kimoto for stepping up!
 We'll get those and others articles out to you in the coming months!
 
 I want to thank Doug again for creating and maintaining [Statocles](http://preaction.me/statocles/), the static blog engine that powers this site.
-I want to thank my employer [ServerCentral](https://www.servercentral.com/) who not only are great to work for and support open source, but who gave me lots of time to get settled in with my newest member of my family (and a few cute gifts for him too).
+I want to thank my employer [ServerCentral](https://www.servercentral.com/) who not only are great to work for and support open source, but who gave me lots of time to get settled in with the newest member of my family (and a few cute gifts for him too).
 I want to thank Sebastian Riedel for writing Mojolicious and for the outfit you see on Jude in the picture above (as far as I know, it is a unique piece), and the entire Mojolicious Core Team and community.
 
 I want to thank Jude for being a reasonably happy newborn and sleeping for longer-than-average stretches at night.
 
-Finally, I extend my warmest thanks to the doctors, nurses and staff of Norwest Community Hosptial in Arlington Heights, Illinois and especially the NICU nurses who are beyond amazing.
+Finally, I extend my warmest thanks to the doctors, nurses and staff of Northwest Community Hosptial in Arlington Heights, Illinois and especially the NICU nurses who are beyond amazing.
 
 Merry Christmas, Happy Holidays, Happy New Year, and Happy Perling!
 
