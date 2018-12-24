@@ -299,7 +299,7 @@ Where the example above would be at
 That code is almost exactly what you'd write for a blocking implementation except that it would block the server and it have to fetch the urls sequentially.
 And yet the code is very easy to follow.
 
-The [PromiseActions](https://metacpan.org/pod/Mojolicious::Plugin::PromiseActions) handles automatically attaching error handlers to the controller action for you, it is highly recommended when using async actions.
+Note: the [PromiseActions](https://metacpan.org/pod/Mojolicious::Plugin::PromiseActions) plugin automatically attaches error handlers to the controller action when it returns a promise; it is highly recommended when using async actions.
 
 ## A Word on Implementation
 

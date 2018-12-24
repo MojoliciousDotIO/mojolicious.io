@@ -312,7 +312,7 @@ app-&gt;start;
 <p>That code is almost exactly what you&#39;d write for a blocking implementation except that it would block the server and it have to fetch the urls sequentially.
 And yet the code is very easy to follow.</p>
 
-<p>The <a href="https://metacpan.org/pod/Mojolicious::Plugin::PromiseActions">PromiseActions</a> handles automatically attaching error handlers to the controller action for you, it is highly recommended when using async actions.</p>
+<p>Note: the <a href="https://metacpan.org/pod/Mojolicious::Plugin::PromiseActions">PromiseActions</a> plugin automatically attaches error handlers to the controller action when it returns a promise; it is highly recommended when using async actions.</p>
 
 <h2>A Word on Implementation</h2>
 
