@@ -220,7 +220,7 @@ $promise-&gt;then(sub ($title) {
 However, a few nice features emerge.
 The most important of which is that the promise object can be returned to the caller and the caller can choose what to do with it.</p>
 
-<p>In useful code you would also want to attach error handling thought I&#39;ve omitted it here for bevity.
+<p>In useful code you would also want to attach error handling, though I&#39;ve omitted it here for bevity.
 Mojolicious&#39; promise implementation also gives us the <code>wait</code> method to start the ioloop if necessary.</p>
 
 <p>Although it is interesting to see how a user can create a promise object to convert a callback api to promises, many libraries, including Mojolicious, now have promise variants built-in.
@@ -355,8 +355,8 @@ main()-&gt;wait;
 
 <h2>Real World Use</h2>
 
-<p>The above examples were neat, but there&#39;s since they only fetch one url, there&#39;s no reason to be async.
-Let&#39;s look at a few quick useful examples.</p>
+<p>The above examples were neat, but since they only fetch one url there&#39;s no reason to be async.
+Let&#39;s look at a few quick useful examples where async is a benefit.</p>
 
 <h3>Concurrent Requests</h3>
 
@@ -422,7 +422,8 @@ app-&gt;start;
 </code></pre>
 
 <p>That code is almost exactly what you&#39;d write for a blocking implementation except that it would block the server and it have to fetch the urls sequentially.
-And yet the code is very easy to follow.</p>
+Instead, since it is written nonblocking, the requests are all made concurrently and the server is still free to respond to new clients.
+And yet the code is still very easy to follow.</p>
 
 <p>Note: the <a href="https://metacpan.org/pod/Mojolicious::Plugin::PromiseActions">PromiseActions</a> plugin automatically attaches error handlers to the controller action when it returns a promise; it is highly recommended when using async actions.</p>
 

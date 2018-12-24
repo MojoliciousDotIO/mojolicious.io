@@ -106,7 +106,7 @@ At first glance this isn't too much better than the callback.
 However, a few nice features emerge.
 The most important of which is that the promise object can be returned to the caller and the caller can choose what to do with it.
 
-In useful code you would also want to attach error handling thought I've omitted it here for bevity.
+In useful code you would also want to attach error handling, though I've omitted it here for bevity.
 Mojolicious' promise implementation also gives us the `wait` method to start the ioloop if necessary.
 
 Although it is interesting to see how a user can create a promise object to convert a callback api to promises, many libraries, including Mojolicious, now have promise variants built-in.
@@ -233,8 +233,8 @@ And now that's what we've done too!
 
 ## Real World Use
 
-The above examples were neat, but there's since they only fetch one url, there's no reason to be async.
-Let's look at a few quick useful examples.
+The above examples were neat, but since they only fetch one url there's no reason to be async.
+Let's look at a few quick useful examples where async is a benefit.
 
 ### Concurrent Requests
 
@@ -297,7 +297,8 @@ Where the example above would be at
     localhost:3000?url=https%3A%2F%2Fmojolicious.org&url=https%3A%2F%2Fmojolicious.io&url=https%3A%2F%2Fmetacpan.org
 
 That code is almost exactly what you'd write for a blocking implementation except that it would block the server and it have to fetch the urls sequentially.
-And yet the code is very easy to follow.
+Instead, since it is written nonblocking, the requests are all made concurrently and the server is still free to respond to new clients.
+And yet the code is still very easy to follow.
 
 Note: the [PromiseActions](https://metacpan.org/pod/Mojolicious::Plugin::PromiseActions) plugin automatically attaches error handlers to the controller action when it returns a promise; it is highly recommended when using async actions.
 
