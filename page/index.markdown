@@ -139,6 +139,10 @@ data:
       image: '/blog/2018/12/24/async-await-the-mojo-way/banner.jpg'
       alt: Day 24: Async/Await the Mojo Way
     - date: 2018-12-25
+      title: Special Thanks
+      href: '/blog/2018/12/25/special-thanks/'
+      image: '/blog/2018/12/25/special-thanks/jude_mojo.jpg'
+      title: Day 25: Special Thanks
     - date: 2018-12-26
     - date: 2018-12-27
     - date: 2018-12-28

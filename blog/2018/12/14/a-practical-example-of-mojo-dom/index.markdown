@@ -5,7 +5,7 @@ tags:
     - advent
     - xml
     - non-web
-author: maschine
+author: Chris Seigman
 images:
   banner:
     src: '/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.png'
