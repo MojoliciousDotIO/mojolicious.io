@@ -28,3 +28,10 @@ code:not(.hljs) {
   white-space: nowrap;
 }
 
+.author-update {
+    border: 1px solid #313131;
+    border-radius: 5px;
+    background: #EFF1F0;
+    padding: 1em;
+}
+

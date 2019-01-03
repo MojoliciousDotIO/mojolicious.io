@@ -66,6 +66,11 @@ template](https://metacpan.org/pod/distribution/Mojolicious/lib/Mojolicious/Guid
 our browser, if the server is restarted, our browser will reload the page to
 see the new app!
 
+<aside class="author-update"><b>Author's update</b>: As of [Mojolicious::Plugin::AutoReload version
+0.004](https://metacpan.org/release/PREACTION/Mojolicious-Plugin-AutoReload-0.004),
+you no longer need to use the `auto_reload` helper. It will be added
+automatically just by loading the plugin!</aside>
+
 ## How It Works
 
 This plugin is sheer elegance in its simplicity: When the browser loads the
