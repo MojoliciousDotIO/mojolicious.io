@@ -44,6 +44,8 @@ schema](https://github.com/preaction/Mojolicious-Plugin-DBIC/tree/master/t/lib/L
 My schema has a couple tables: `notes` for storing simple notes, and
 `events` for storing calendar events.
 
+---
+
 In order to work with my data, I need to write some controller methods:
 
     package MyApp::Controller::Notes;

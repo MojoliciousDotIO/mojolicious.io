@@ -33,6 +33,8 @@ ourselves (unless we have a good reason, but we'll get to that later).
 The `render` method can only ever be called once, so we should only call
 it after we've gathered all the data we want.
 
+---
+
     # This method cannot easily be used by a subclass, since it explicitly
     # calls render()
     sub list {
