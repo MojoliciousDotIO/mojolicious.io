@@ -139,25 +139,26 @@ ourselves (unless we have a good reason, but we&#39;ll get to that later).
 The <code>render</code> method can only ever be called once, so we should only call
 it after we&#39;ve gathered all the data we want.</p>
 
-              </section>
-              <section id="section-2">
-                  <p># This method cannot easily be used by a subclass, since it explicitly
-    # calls render()
-    sub list {
-        my ( $c ) = @<em>;
-        my $resultset</em>class = $c-&gt;stash( &#39;resultset&#39; );
-        my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
-        $c-&gt;render(
-            resultset =&gt; $resultset,
-        );
-    }</p>
+<pre><code># This method cannot easily be used by a subclass, since it explicitly
+# calls render()
+sub list {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    $c-&gt;render(
+        resultset =&gt; $resultset,
+    );
+}
+</code></pre>
 
 <p>So, to make sure I don&#39;t call <code>render</code> too early, and to make sure
 subclasses can use the data from my superclass, I instead put all the
 data directly in to the stash with the <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#stash"><code>stash()</code>
 method</a>.</p>
 
-<p>Remember that <code>$c-&gt;render( %stash );</code> is the same as <code>$c-&gt;stash( %stash
+              </section>
+              <section id="section-2">
+                  <p>Remember that <code>$c-&gt;render( %stash );</code> is the same as <code>$c-&gt;stash( %stash
 ); $c-&gt;render();</code>. And, if we never call <code>render()</code> ourselves, that&#39;s
 okay, as Mojolicious will call it for us (unless we call
 <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#render_later"><code>render_later</code></a>,

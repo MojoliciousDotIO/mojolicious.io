@@ -33,8 +33,6 @@ ourselves (unless we have a good reason, but we'll get to that later).
 The `render` method can only ever be called once, so we should only call
 it after we've gathered all the data we want.
 
----
-
     # This method cannot easily be used by a subclass, since it explicitly
     # calls render()
     sub list {
@@ -50,6 +48,8 @@ So, to make sure I don't call `render` too early, and to make sure
 subclasses can use the data from my superclass, I instead put all the
 data directly in to the stash with the [`stash()`
 method](https://mojolicious.org/perldoc/Mojolicious/Controller#stash).
+
+---
 
 Remember that `$c->render( %stash );` is the same as `$c->stash( %stash
 ); $c->render();`. And, if we never call `render()` ourselves, that's
