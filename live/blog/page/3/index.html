@@ -104,6 +104,92 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/17/a-website-for-yancy/">Day 17: A Website For Yancy</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-17">Dec 17, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Code on a computer screen" src="/blog/2018/12/17/a-website-for-yancy/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>For this year, I decided that Yancy needed a website. Rather than build
+a website with a <a href="http://preaction.me/statocles">static site generator like
+Statocles</a>, which is so popular these
+days, I decided to do something wild and unpredictable: A dynamic
+website! Lucky for me, I have the perfect project to easily build
+a dynamic website: Yancy!</p>
+
+                  <p><a href="/blog/2018/12/17/a-website-for-yancy/#section-2">Continue reading Day 17: A Website For Yancy...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/16/browser-diet/">Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-16">Dec 16, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Too many nuts. I&#39;m gonna need to slim down" src="/blog/2018/12/16/browser-diet/squirrel.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>You&#39;ve just read
+<a href="https://browserdiet.com">How to lose Weight in the Browser</a>
+and you want to know to slim down your Mojo app.
+Part of that process is preventing the browser from requesting files
+that hardly change.
+I spent a well-caffeinated afternoon trying to do that with
+Mojolicious.
+I&#39;ve been &#39;round the houses, and <em>spoiler alert</em> I didn&#39;t find
+the answer until the very end, kind of like your favourite Christmas
+animated special with a small woodland creature narrating
+&quot;The Gruffalo&#39;s HTTP header&quot;.</p>
+
+<h1>A Children&#39;s Story</h1>
+
+<p>Our beloved small woodland creature needed to display a web calendar
+with forest events pulled from a database.
+Perl could get the event data and package it as a JSON feed.
+Mojolicious could prepare the webpages with the correct JSON feed for each user.
+With some JavaScript libraries to display the web calendar,
+all would be well in the forest.</p>
+
+<p>Everything except the JavaScript libraries are lightweight.
+And everyone knows a page reload goes <em>so</em> much faster if it doesn&#39;t have to download the
+JavaScript every time.  Those libraries won&#39;t change for months!
+If only the client browser knew that it could use the file that it had downloaded
+last time.</p>
+
+<p>The secret, of course, is to set the <code>Cache-Control</code> field of the HTTP header, but <em>how</em>?</p>
+
+                  <p><a href="/blog/2018/12/16/browser-diet/#section-2">Continue reading Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/15/practical-web-content-munging/">Day 15: Practical Web Content Munging</a></h1>
 
               <p class="post-meta">
@@ -185,76 +271,6 @@
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/12/dancer-and-minion/">Day 12: Using Minion in Dancer Apps</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-12">Dec 12, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Stylistic photograph of Disney-style minion toys" src="/blog/2018/12/12/dancer-and-minion/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>At <code>$work</code>, we have built an API with <a href="https://metacpan.org/pod/Dancer">Dancer</a> that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
-immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
-application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by <code>fork()</code>ing a process, tracking its pid, and hoping we can later successfully
-reap the completed process.</p>
-
-<p>There have been several problems with this approach:
-- it&#39;s fragile
-- it doesn&#39;t scale
-- it&#39;s too easy to screw something up as a developer</p>
-
-<p>In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter <a href="https://metacpan.org/pod/Minion">Minion</a>.</p>
-
-<p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
-
-                  <p><a href="/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading Day 12: Using Minion in Dancer Apps...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/11/who-watches-the-minions/">Day 11: Who Watches The Minions</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-11">Dec 11, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Minion logo in the middle of binocular circles, original artwork by Doug Bell" src="/blog/2018/12/11/who-watches-the-minions/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
-queue</a>, I need to take care of
-it properly. Are the workers working (have they seized the means of
-production)? Are jobs completing successfully? Are there any errors?
-What are they?</p>
-
-                  <p><a href="/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading Day 11: Who Watches The Minions...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -288,8 +304,10 @@ What are they?</p>
     <a href="/blog/tag/caching/">caching</a>
     <a href="/blog/tag/carton/">carton</a>
     <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/controller/">controller</a>
     <a href="/blog/tag/css/">css</a>
     <a href="/blog/tag/dancer/">dancer</a>
+    <a href="/blog/tag/dbix-class/">DBIx::Class</a>
     <a href="/blog/tag/debugging/">debugging</a>
     <a href="/blog/tag/deployment/">deployment</a>
     <a href="/blog/tag/development/">development</a>

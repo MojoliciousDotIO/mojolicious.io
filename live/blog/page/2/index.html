@@ -104,6 +104,62 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/">Day 22: Use Carton for your Mojolicious app deployment</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-22">Dec 22, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Brown cardboard boxes on a white floor" src="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>You have a lovely Mojolicious app, it’s time to deploy it!</p>
+
+<p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
+
+                  <p><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#section-2">Continue reading Day 22: Use Carton for your Mojolicious app deployment...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/21/a-little-christmas-template-cooking/">Day 21: A Little Christmas Template Cooking</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-21">Dec 21, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Peanut Butter Kisses cookies" src="/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
+
+                  <p><a href="/blog/2018/12/21/a-little-christmas-template-cooking/#section-2">Continue reading Day 21: A Little Christmas Template Cooking...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/20/testing-dancer/">Day 20: Testing Dancer</a></h1>
 
               <p class="post-meta">
@@ -206,92 +262,6 @@ plugin).</p>
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/17/a-website-for-yancy/">Day 17: A Website For Yancy</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-17">Dec 17, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Code on a computer screen" src="/blog/2018/12/17/a-website-for-yancy/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>For this year, I decided that Yancy needed a website. Rather than build
-a website with a <a href="http://preaction.me/statocles">static site generator like
-Statocles</a>, which is so popular these
-days, I decided to do something wild and unpredictable: A dynamic
-website! Lucky for me, I have the perfect project to easily build
-a dynamic website: Yancy!</p>
-
-                  <p><a href="/blog/2018/12/17/a-website-for-yancy/#section-2">Continue reading Day 17: A Website For Yancy...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/16/browser-diet/">Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-16">Dec 16, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Too many nuts. I&#39;m gonna need to slim down" src="/blog/2018/12/16/browser-diet/squirrel.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>You&#39;ve just read
-<a href="https://browserdiet.com">How to lose Weight in the Browser</a>
-and you want to know to slim down your Mojo app.
-Part of that process is preventing the browser from requesting files
-that hardly change.
-I spent a well-caffeinated afternoon trying to do that with
-Mojolicious.
-I&#39;ve been &#39;round the houses, and <em>spoiler alert</em> I didn&#39;t find
-the answer until the very end, kind of like your favourite Christmas
-animated special with a small woodland creature narrating
-&quot;The Gruffalo&#39;s HTTP header&quot;.</p>
-
-<h1>A Children&#39;s Story</h1>
-
-<p>Our beloved small woodland creature needed to display a web calendar
-with forest events pulled from a database.
-Perl could get the event data and package it as a JSON feed.
-Mojolicious could prepare the webpages with the correct JSON feed for each user.
-With some JavaScript libraries to display the web calendar,
-all would be well in the forest.</p>
-
-<p>Everything except the JavaScript libraries are lightweight.
-And everyone knows a page reload goes <em>so</em> much faster if it doesn&#39;t have to download the
-JavaScript every time.  Those libraries won&#39;t change for months!
-If only the client browser knew that it could use the file that it had downloaded
-last time.</p>
-
-<p>The secret, of course, is to set the <code>Cache-Control</code> field of the HTTP header, but <em>how</em>?</p>
-
-                  <p><a href="/blog/2018/12/16/browser-diet/#section-2">Continue reading Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -325,8 +295,10 @@ last time.</p>
     <a href="/blog/tag/caching/">caching</a>
     <a href="/blog/tag/carton/">carton</a>
     <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/controller/">controller</a>
     <a href="/blog/tag/css/">css</a>
     <a href="/blog/tag/dancer/">dancer</a>
+    <a href="/blog/tag/dbix-class/">DBIx::Class</a>
     <a href="/blog/tag/debugging/">debugging</a>
     <a href="/blog/tag/deployment/">deployment</a>
     <a href="/blog/tag/development/">development</a>

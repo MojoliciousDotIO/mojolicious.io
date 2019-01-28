@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/dbix-class/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/dbix-class.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.093</generator>
+        <item>
+            <title>Writing Extensible Controllers</title>
+            <link>https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/</link>
+            <guid>https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/</guid>
+            <description><![CDATA[
+                <p>Once I have a <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers">reusable
+controller</a>, how do
+I extend it? Object-oriented programming gives me a couple ways of
+extending a controller through code: Inheritance and composition. But,
+we need to write our controller so that it&#39;s easy to inherit or compose.</p>
+
+<h1>Don&#39;t Render, Stash</h1>
+
+<p>First, this means we shouldn&#39;t call <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#render">the <code>render</code>
+method</a>
+ourselves (unless we have a good reason, but we&#39;ll get to that later).
+The <code>render</code> method can only ever be called once, so we should only call
+it after we&#39;ve gathered all the data we want.</p>
+
+<pre><code># This method cannot easily be used by a subclass, since it explicitly
+# calls render()
+sub list {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    $c-&gt;render(
+        resultset =&gt; $resultset,
+    );
+}
+</code></pre>
+
+<p>So, to make sure I don&#39;t call <code>render</code> too early, and to make sure
+subclasses can use the data from my superclass, I instead put all the
+data directly in to the stash with the <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#stash"><code>stash()</code>
+method</a>.</p>
+
+<p>Remember that <code>$c-&gt;render( %stash );</code> is the same as <code>$c-&gt;stash( %stash
+); $c-&gt;render();</code>. And, if we never call <code>render()</code> ourselves, that&#39;s
+okay, as Mojolicious will call it for us (unless we call
+<a href="https://mojolicious.org/perldoc/Mojolicious/Controller#render_later"><code>render_later</code></a>,
+which we won&#39;t).</p>
+
+<pre><code># This method can be used by a subclass, which can get
+# the ResultSet object out of the stash
+sub list {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    $c-&gt;stash(
+        resultset =&gt; $resultset,
+    );
+}
+</code></pre>
+
+<h1>Return True to Continue</h1>
+
+<p>Since there are times where we do want to render a response in the
+superclass (in the case of a 404 not found error, for example), we need
+to be able to tell our caller that we did.</p>
+
+<pre><code># How can I tell that a 404 error is already rendered?
+sub get {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $id = $c-&gt;stash( &#39;id&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    my $row = $resultset-&gt;find( $id );
+    if ( !$row ) {
+        $c-&gt;reply-&gt;not_found();
+    }
+    else {
+        $c-&gt;stash(
+            row =&gt; $row,
+        );
+    }
+}
+</code></pre>
+
+<p>We can do so with a simple convention: Return true to continue the
+dispatch, and return false to stop. This is the same as <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Routing#Under"><code>under</code> route
+callbacks</a>.
+Since we&#39;re returning, we can also simplify the code a little bit to
+remove the need for the <code>else</code> block:</p>
+
+<pre><code>sub get {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $id = $c-&gt;stash( &#39;id&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    my $row = $resultset-&gt;find( $id );
+    if ( !$row ) {
+        $c-&gt;reply-&gt;not_found();
+        # stop dispatch
+        return;
+    }
+    # continue dispatch
+    return $c-&gt;stash(
+        row =&gt; $row,
+    );
+}
+</code></pre>
+
+<h1>Inheritance</h1>
+
+<p>With our superclass controller ready, I can now write a subclass. I have
+a section of my site that&#39;s dedicated to user content, so I&#39;ll filter
+the <code>list</code> ResultSet to only those results for the current user, and
+make sure that <code>get</code> only returns content for the current user
+(displaying a &quot;not found&quot; response if it&#39;s the wrong user).</p>
+
+<p>Remember our superclass method will return true if we&#39;re okay to
+continue working. So, we need to check the return value.</p>
+
+<pre><code>package My::Controller::DBIC::UserContent;
+use Mojo::Base &#39;My::Controller::DBIC&#39;;
+sub list {
+    my ( $c ) = @_;
+    $c-&gt;SUPER::list || return;
+    my $rs = $c-&gt;stash( &#39;resultset&#39; );
+    $rs = $rs-&gt;search( { user_id =&gt; $c-&gt;current_user-&gt;id } );
+    $c-&gt;stash( resultset =&gt; $rs );
+}
+sub get {
+    my ( $c ) = @_;
+    $c-&gt;SUPER::get || return;
+    my $row = $c-&gt;stash( &#39;row&#39; );
+    if ( $row-&gt;user_id ne $c-&gt;current_user-&gt;id ) {
+        $c-&gt;reply-&gt;not_found;
+        return;
+    }
+}
+</code></pre>
+
+<p>With reusable controllers, we can greatly reduce the amount of code we
+need to write. Less code means fewer bugs and more time spent writing
+new features and doing useful things!</p>
+
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
+                        <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 28 Jan 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Writing Reusable Controllers</title>
+            <link>https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/</link>
+            <guid>https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/</guid>
+            <description><![CDATA[
+                <p>In all the web applications I&#39;ve written with
+<a href="http://mojolicious.org">Mojolicious</a>, one of the most mis-used features
+are controllers. Mojolicious is
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">Model-View-Controller</a>
+framework, and the MVC pattern is intended to provide for code re-use.</p>
+
+<p>Models can be interchangeable and used by the same controllers and
+templates. With a common, consistent model API, the right controller can
+list any data, update any data. If all of our models have a method named
+&quot;search&quot;, I can make a single controller method that will run a search
+on any of them.</p>
+
+<p>The easiest way to demonstrate this is with
+<a href="http://metacpan.org/pod/DBIx::Class">DBIx::Class</a>. DBIx::Class provides
+a consistent API for a relational database. </p>
+
+<h2>The Problem</h2>
+
+<p>For this example, I&#39;ll use <a href="https://github.com/preaction/Mojolicious-Plugin-DBIC/tree/master/t/lib/Local">this DBIx::Class
+schema</a>.
+My schema has a couple tables: <code>notes</code> for storing simple notes, and
+<code>events</code> for storing calendar events.</p>
+
+<p>In order to work with my data, I need to write some controller methods:</p>
+
+<pre><code>package MyApp::Controller::Notes;
+sub list {
+    my ( $c ) = @_;
+    my $resultset = $c-&gt;schema-&gt;resultset( &#39;Notes&#39; );
+    $c-&gt;render(
+        template =&gt; &#39;notes/list&#39;,
+        resultset =&gt; $resultset,
+    );
+}
+
+package MyApp::Controller::Events;
+sub list {
+    my ( $c ) = @_;
+    my $resultset = $c-&gt;schema-&gt;resultset( &#39;Events&#39; );
+    $c-&gt;render(
+        template =&gt; &#39;events/list&#39;,
+        resultset =&gt; $resultset,
+    );
+}
+</code></pre>
+
+<p>Well, that&#39;s less-than-ideal: I&#39;ve just copy/pasted the same code and
+changed a few words. And now I need to do the same for looking at
+individual notes/events, creating, updating, and deleting.</p>
+
+<p>Copy/pasting code is tedious and makes code harder to maintain. It would
+be much nicer if we could write one controller and just configure it to
+use our different tables!</p>
+
+<h2>The Stash</h2>
+
+<p>The way to configure controllers is through the <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial#Stash-and-templates">Mojolicious
+stash</a>,
+the data store for a request. When setting up a route, I can add stash
+values that will be used by my controller. This includes the &quot;reserved&quot;
+stash values like &quot;template&quot; which tells Mojolicious what template to
+render by default.</p>
+
+<p>If, instead of above, I write a controller method that looks in the
+stash for its configuration, I can reuse it by changing those stash
+values.</p>
+
+<pre><code>package MyApp::Controller::DBIC;
+sub list {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    $c-&gt;render(
+        resultset =&gt; $resultset,
+    );
+}
+</code></pre>
+
+<p>Now I&#39;ve got a &quot;list&quot; method that accepts a ResultSet class in the
+<code>resultset</code> stash. </p>
+
+<p>Then I can configure a route (<code>/notes</code>) which will route to the DBIC
+controller I&#39;ve created and the <code>list</code> method inside it to list the
+Resultset I tell it to with the template I give it:</p>
+
+<pre><code>use Mojolicious::Lite;
+use Local::Schema;
+my $dsn = &#39;dbi:SQLite:data.db&#39;;
+# Controller will use this to get our schema
+helper schema =&gt; Local::Schema-&gt;connect( $dsn );
+# List all our notes
+get &#39;/notes&#39; =&gt; {
+    controller =&gt; &#39;DBIC&#39;,
+    action =&gt; &#39;list&#39;,
+    resultset =&gt; &#39;Notes&#39;,
+    template =&gt; &#39;notes/list&#39;,
+} =&gt; &#39;notes.list&#39;;
+app-&gt;start;
+__DATA__
+@@ notes/list.html.ep
+&lt;ul&gt;&lt;% for my $row ( $resultset-&gt;all ) { %&gt;
+    &lt;li&gt;&lt;%= $row-&gt;title %&gt;&lt;/li&gt;
+&lt;% } %&gt;&lt;/ul&gt;
+</code></pre>
+
+<h2>Route Placeholders</h2>
+
+<p>That&#39;s all fine and good for simple tasks like listing all the things,
+but what about when there&#39;s a variable involved, like looking up items
+by their ID? Again, we just need a little configuration, this time the
+row&#39;s ID:</p>
+
+<pre><code>package MyApp::Controller::DBIC;
+sub get {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $id = $c-&gt;stash( &#39;id&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    my $row = $resultset-&gt;find( $id );
+    $c-&gt;render(
+        row =&gt; $row,
+    );
+}
+</code></pre>
+
+<p>Now, since route placeholders are put into the stash, I can use them to
+configure my controller as well. So, when a user visits <code>/notes/34</code>,
+they will see the note with an ID of &#39;34&#39;:</p>
+
+<pre><code># ...
+get &#39;/notes/:id&#39; =&gt; {
+    controller =&gt; &#39;DBIC&#39;,
+    action =&gt; &#39;get&#39;,
+    resultset =&gt; &#39;Notes&#39;,
+    template =&gt; &#39;notes/get&#39;,
+} =&gt; &#39;notes.get&#39;;
+# ...
+__DATA__
+@@ notes/get.html.ep
+% title $row-&gt;title;
+&lt;h1&gt;&lt;%= $row-&gt;title %&gt;&lt;/h1&gt;
+%== $row-&gt;description
+</code></pre>
+
+<p>With this new named route, I can display the saved note.</p>
+
+<p><em>Note</em>: By exposing the stash to the URL, users can type in any ID they
+want. So, if you have data you don&#39;t want users to see, make sure to
+protect it!</p>
+
+<h2>... And more</h2>
+
+<p>I can continue doing this for &quot;create&quot;, &quot;update&quot;, and &quot;delete&quot; actions
+as well, making an application much easier to assemble: Most of my code
+will (rightly) be in my model classes and my templates.</p>
+
+<p>I can also add more features to my &quot;DBIC&quot; controller:</p>
+
+<ul>
+<li>Stash values to set <a href="https://metacpan.org/pod/DBIx::Class::ResultSet#search">ResultSet <code>search()</code> condition and options
+hashes</a>.</li>
+<li>Expose search columns and options to query parameters, safely</li>
+<li>Add JSON API responses using <a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#respond_to">the <code>respond_to</code>
+helper</a></li>
+<li>Pagination on the <code>list</code> method</li>
+</ul>
+
+<p>Once the features are added once, every route can take advantage of
+them.</p>
+
+<p>Since there&#39;s little point in multiple copies of the exact same &quot;DBIC&quot;
+controller, I wrote one and released it to CPAN as
+<a href="http://metacpan.org/pod/Mojolicious::Plugin::DBIC">Mojolicious::Plugin::DBIC</a>.
+The <a href="https://github.com/preaction/Mojolicious-Plugin-DBIC/tree/master/eg">code for this example is available on
+Github</a>.</p>
+
+<p>If DBIx::Class isn&#39;t your model layer, or even if it is,
+<a href="http://preaction.me/yancy">Yancy</a> provides <a href="http://preaction.me/yancy/perldoc/Yancy/Controller/Yancy">configurable
+controllers</a>
+like this, along with an <a href="http://preaction.me/yancy/perldoc/#DESCRIPTION">app to edit
+content</a>.</p>
+
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
+                        <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 21 Jan 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+
