@@ -2,11 +2,53 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/development/</id>
     <title>mojolicious.io</title>
-    <updated>2019-01-28T00:00:00Z</updated>
+    <updated>2019-02-18T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/development.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/development/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/</id>
+        <title>Mojolicious and DBIx::Class</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="http://mojolicious.org">Mojolicious</a> is an <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">MVC
+framework</a>.
+But, unlike <a href="http://www.catalystframework.org">Catalyst</a>, Mojolicious
+does not provide a model API. This is a good thing: Mojolicious works
+well with any model layer, including the existing models used by your
+current application.</p>
+
+<p><a href="https://metacpan.org/pod/DBIx::Class">DBIx::Class</a> is a popular model
+layer for Mojolicious applications. DBIx::Class (or &quot;DBIC&quot;) is an
+<a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object-Relational Mapper
+(ORM)</a> to map
+objects onto a relational database. This allows for a well-organized
+model layer, and a standard API to access the data.</p>
+
+<p>For those who read last month&#39;s posts on <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">Writing Reusable
+Controllers</a> and
+<a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">Writing Extensible
+Controllers</a>, this
+post introduces the end result of those posts: The <a href="http://metacpan.org/pod/Mojolicious::Plugin::DBIC">Mojolicious DBIC
+Plugin</a>. This plugin
+makes it easier to start using DBIx::Class with Mojolicious.</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                    <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
+                    <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-02-18T00:00:00Z</updated>
+        <category term="development" />
+        <category term="controller" />
+        <category term="DBIx::Class" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/</id>
         <title>Writing Extensible Controllers</title>
@@ -168,37 +210,6 @@ reap the completed process.</p>
         <category term="development" />
         <category term="openapi" />
         <category term="api" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/</id>
-        <title>Day 2: Automatic Reload for Rapid Development</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>Developing webapps with <a href="http://mojolicious.org">Mojolicious</a> is a lot of fun!
-Using <a href="https://mojolicious.org/perldoc/morbo">the <code>morbo</code> server</a> for
-development, every change to my webapp causes a restart to load my changes.
-This way the next request I make has all my new code!</p>
-
-<p>So, I change my code, the webapp restarts, and I go back to my browser window.
-Wait... Where&#39;s my new code? Why isn&#39;t the bug fixed? Did... Did I forget to
-reload my browser window again? Ugh! Of course!</p>
-
-<p>Does this happen to you? Probably not. But, it&#39;s still annoying to reload the
-browser window after every backend code change. It&#39;d be nice if my browser
-window automatically reloaded every time the web server restarted!</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/02/automatic-reload-for-rapid-development/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-02T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="development" />
     </entry>
 </feed>
 

@@ -16,7 +16,7 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/page/2/" property="og:url">
+  <meta content="https://mojolicious.io/blog/tag/development/page/2/" property="og:url">
   <meta content="mojolicious.io" property="og:title">
     <meta content="summary" name="twitter:card">
 
@@ -26,8 +26,8 @@
 
   <title>mojolicious.io</title>
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
+  <link href="/blog/tag/development.atom" rel="alternate" type="application/atom+xml">
+  <link href="/blog/tag/development.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +104,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/23/mojolicious-and-angular/">Day 23: Mojolicious and Angular</a></h1>
+            <h1><a href="/blog/2018/12/02/automatic-reload-for-rapid-development/">Day 2: Automatic Reload for Rapid Development</a></h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2018-12-23">Dec 23, 2018</time>
+                  <time class="date" datetime="2018-12-02">Dec  2, 2018</time>
                   
 
               </p>
@@ -117,163 +117,33 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Spider in web" src="/blog/2018/12/23/mojolicious-and-angular/banner.jpg">
+                <img alt="Mojolicious art and reload icon, original artwork by Doug Bell" src="/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p><a href="https://angular.io/">Angular</a> is one of the most popular front-end web application frameworks, helping you build modern applications for the web, mobile, or desktop.
-<a href="https://mojolicious.org/">Mojolicious</a> is a next generation web framework for the Perl programming language.
-Mojolicious and Angular together can certainly build a next generation web application.</p>
+              <p></p><p>Developing webapps with <a href="http://mojolicious.org">Mojolicious</a> is a lot of fun!
+Using <a href="https://mojolicious.org/perldoc/morbo">the <code>morbo</code> server</a> for
+development, every change to my webapp causes a restart to load my changes.
+This way the next request I make has all my new code!</p>
 
-<p>At work, we have been using these two to build a very responsive, scalable and fantastic web apps.
-Mojolicious as a backend gives a lot of fun to work stuffs like <a href="https://mojolicious.org/perldoc/Minion">Minion</a>, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a>, <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>.
-It has many plugins, including easy implementation of <a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">OpenAPI</a>, <a href="https://metacpan.org/pod/Mojolicious::Plugin::OAuth2">OAuth</a>, utility modules and of many others on CPAN.</p>
+<p>So, I change my code, the webapp restarts, and I go back to my browser window.
+Wait... Where&#39;s my new code? Why isn&#39;t the bug fixed? Did... Did I forget to
+reload my browser window again? Ugh! Of course!</p>
 
-<p>One of the reasons you want to have this kind of web development set up is that front-end Angular developers and backend Mojolicious developers can work independently.</p>
+<p>Does this happen to you? Probably not. But, it&#39;s still annoying to reload the
+browser window after every backend code change. It&#39;d be nice if my browser
+window automatically reloaded every time the web server restarted!</p>
 
-<p>Angular is backend agnostic. Node.js Express is often used as backend for Angular, but we love Perl and Mojolicious.</p>
-
-<p>We will see how these two can be married to make a web application today.</p>
-
-                  <p><a href="/blog/2018/12/23/mojolicious-and-angular/#section-2">Continue reading Day 23: Mojolicious and Angular...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/">Day 22: Use Carton for your Mojolicious app deployment</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-22">Dec 22, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Brown cardboard boxes on a white floor" src="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>You have a lovely Mojolicious app, it’s time to deploy it!</p>
-
-<p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
-
-                  <p><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#section-2">Continue reading Day 22: Use Carton for your Mojolicious app deployment...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/21/a-little-christmas-template-cooking/">Day 21: A Little Christmas Template Cooking</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-21">Dec 21, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Peanut Butter Kisses cookies" src="/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
-
-                  <p><a href="/blog/2018/12/21/a-little-christmas-template-cooking/#section-2">Continue reading Day 21: A Little Christmas Template Cooking...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/20/testing-dancer/">Day 20: Testing Dancer</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-20">Dec 20, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Dancers and judges at a dance competition" src="/blog/2018/12/20/testing-dancer/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Authors of Dancer (and other) PSGI applications are probably accustomed to <a href="https://metacpan.org/pod/distribution/Dancer2/lib/Dancer2/Manual.pod#TESTING">testing</a> with <a href="https://metacpan.org/pod/Plack::Test">Plack::Test</a>, and while that is a venerated option, it is pretty bare-bones.</p>
-
-<p>During advent last year, I wrote about <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, showing the many easy and (dare I say) fun ways that you can use it to test your Mojolicious applications.
-If you missed it, go <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/">check it out</a>.</p>
-
-<p>I expect there are at least a few of you out there who read that and think, &quot;I&#39;d love to use that, but I don&#39;t use Mojolicious!&quot;; well, you&#39;re in luck!
-With just a little role to bridge the gap, you can use Test::Mojo to test your PSGI applications too!</p>
-
-                  <p><a href="/blog/2018/12/20/testing-dancer/#section-2">Continue reading Day 20: Testing Dancer...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/19/you-only-export-twice/">Day 19: You Only Export Twice</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-19">Dec 19, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Container ship leaving port" src="/blog/2018/12/19/you-only-export-twice/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>With my Yancy documentation site built, with <a href="/blog/2018/12/17/a-website-for-yancy">a custom landing
-page</a> and <a href="/blog/2018/12/18/a-view-to-a-pod">a POD
-viewer</a>, I just need to deploy the site. I
-could deploy the site using <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Hypnotoad">hypnotoad, Mojolicious&#39;s preforking server with
-hot
-deployment</a>,
-but that would require me to have a server and keep it online. It&#39;d be a lot
-better if I could just deploy a <a href="https://pages.github.com">static website to
-Github</a> like all the cool people are doing.</p>
-
-<p>But to do that, I&#39;d need to take my dynamic website and turn it into a static
-one, and that&#39;s impossible! Or is it? Why am I asking me, when I&#39;m the one who
-wrote a way to do it: The <a href="https://metacpan.org/pod/Mojolicious::Command::export">Mojolicious export
-command</a>.</p>
-
-                  <p><a href="/blog/2018/12/19/you-only-export-twice/#section-2">Continue reading Day 19: You Only Export Twice...</a></p>
+                  <p><a href="/blog/2018/12/02/automatic-reload-for-rapid-development/#section-2">Continue reading Day 2: Automatic Reload for Rapid Development...</a></p>
             </div>
 
         </article>
 
         <nav class="col full pagination">
           <ul>
-              <li><a class="page-numbers prev" href="/blog/page/3/" rel="prev">Prev</a></li>
+              <li><span class="page-numbers prev inactive">Prev</span></li>
               
-              <li><a class="page-numbers next" href="/blog/" rel="next">Next</a></li>
+              <li><a class="page-numbers next" href="/blog/tag/development/" rel="next">Next</a></li>
           </ul>
         </nav>
 

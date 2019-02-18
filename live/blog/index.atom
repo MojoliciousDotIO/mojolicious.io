@@ -2,11 +2,53 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2019-01-28T00:00:00Z</updated>
+    <updated>2019-02-18T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/</id>
+        <title>Mojolicious and DBIx::Class</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="http://mojolicious.org">Mojolicious</a> is an <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">MVC
+framework</a>.
+But, unlike <a href="http://www.catalystframework.org">Catalyst</a>, Mojolicious
+does not provide a model API. This is a good thing: Mojolicious works
+well with any model layer, including the existing models used by your
+current application.</p>
+
+<p><a href="https://metacpan.org/pod/DBIx::Class">DBIx::Class</a> is a popular model
+layer for Mojolicious applications. DBIx::Class (or &quot;DBIC&quot;) is an
+<a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object-Relational Mapper
+(ORM)</a> to map
+objects onto a relational database. This allows for a well-organized
+model layer, and a standard API to access the data.</p>
+
+<p>For those who read last month&#39;s posts on <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">Writing Reusable
+Controllers</a> and
+<a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">Writing Extensible
+Controllers</a>, this
+post introduces the end result of those posts: The <a href="http://metacpan.org/pod/Mojolicious::Plugin::DBIC">Mojolicious DBIC
+Plugin</a>. This plugin
+makes it easier to start using DBIx::Class with Mojolicious.</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                    <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
+                    <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-02-18T00:00:00Z</updated>
+        <category term="development" />
+        <category term="controller" />
+        <category term="DBIx::Class" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/</id>
         <title>Writing Extensible Controllers</title>
@@ -501,40 +543,6 @@ Highly recommended.</em></p>
         <updated>2018-12-24T00:00:00Z</updated>
         <category term="advent" />
         <category term="non-blocking" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/23/mojolicious-and-angular/</id>
-        <title>Day 23: Mojolicious and Angular</title>
-        <author><name>Sachin Dangol</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/23/mojolicious-and-angular/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="https://angular.io/">Angular</a> is one of the most popular front-end web application frameworks, helping you build modern applications for the web, mobile, or desktop.
-<a href="https://mojolicious.org/">Mojolicious</a> is a next generation web framework for the Perl programming language.
-Mojolicious and Angular together can certainly build a next generation web application.</p>
-
-<p>At work, we have been using these two to build a very responsive, scalable and fantastic web apps.
-Mojolicious as a backend gives a lot of fun to work stuffs like <a href="https://mojolicious.org/perldoc/Minion">Minion</a>, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a>, <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>.
-It has many plugins, including easy implementation of <a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">OpenAPI</a>, <a href="https://metacpan.org/pod/Mojolicious::Plugin::OAuth2">OAuth</a>, utility modules and of many others on CPAN.</p>
-
-<p>One of the reasons you want to have this kind of web development set up is that front-end Angular developers and backend Mojolicious developers can work independently.</p>
-
-<p>Angular is backend agnostic. Node.js Express is often used as backend for Angular, but we love Perl and Mojolicious.</p>
-
-<p>We will see how these two can be married to make a web application today.</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/23/mojolicious-and-angular/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/angular/">Angular</a>
-                    <a href="https://mojolicious.io/blog/tag/javascript/">JavaScript</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-23T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="Angular" />
-        <category term="JavaScript" />
     </entry>
 </feed>
 
