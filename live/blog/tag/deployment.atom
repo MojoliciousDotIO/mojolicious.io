@@ -2,11 +2,45 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/deployment/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-22T00:00:00Z</updated>
+    <updated>2019-03-18T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/deployment.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/deployment/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/</id>
+        <title>Reverse Proxy With Path</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>It&#39;s extremely common for a <a href="http://mojolicious.org">Mojolicious</a> web
+application to be hosted behind some kind of HTTP proxy: A production website
+usually includes <a href="https://varnish-cache.org">Varnish</a>, or
+<a href="https://www.nginx.com">Nginx</a>, or a CDN (probably using Varnish or Nginx).</p>
+
+<p>In the most common case, a web application is the entire domain, so configuring
+the reverse proxy is very simple: Add the <code>-p</code> option to
+<a href="https://mojolicious.org/perldoc/hypnotoad"><code>hypnotoad</code></a> or <a href="https://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>myapp.pl
+daemon</code></a> command,
+or set the <code>MOJO_REVERSE_PROXY</code> environment variable to a true value. <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook">See the
+Mojolicious Cookbook for more
+details</a>.</p>
+
+<p>But what if my application doesn&#39;t have its own domain? How do I host a
+Mojolicious application as a reverse proxy from a path in another domain?</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/deployment/">deployment</a>
+                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-03-18T00:00:00Z</updated>
+        <category term="deployment" />
+        <category term="development" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/</id>
         <title>Day 22: Use Carton for your Mojolicious app deployment</title>

@@ -104,6 +104,47 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2019/03/18/reverse-proxy-with-path/">Reverse Proxy With Path</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-03-18">Mar 18, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Clouds with arrows pointing back and forth on a blue background" src="/blog/2019/03/18/reverse-proxy-with-path/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>It&#39;s extremely common for a <a href="http://mojolicious.org">Mojolicious</a> web
+application to be hosted behind some kind of HTTP proxy: A production website
+usually includes <a href="https://varnish-cache.org">Varnish</a>, or
+<a href="https://www.nginx.com">Nginx</a>, or a CDN (probably using Varnish or Nginx).</p>
+
+<p>In the most common case, a web application is the entire domain, so configuring
+the reverse proxy is very simple: Add the <code>-p</code> option to
+<a href="https://mojolicious.org/perldoc/hypnotoad"><code>hypnotoad</code></a> or <a href="https://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>myapp.pl
+daemon</code></a> command,
+or set the <code>MOJO_REVERSE_PROXY</code> environment variable to a true value. <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook">See the
+Mojolicious Cookbook for more
+details</a>.</p>
+
+<p>But what if my application doesn&#39;t have its own domain? How do I host a
+Mojolicious application as a reverse proxy from a path in another domain?</p>
+
+                  <p><a href="/blog/2019/03/18/reverse-proxy-with-path/#section-2">Continue reading Reverse Proxy With Path...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2019/02/18/mojolicious-and-dbix-class/">Mojolicious and DBIx::Class</a></h1>
 
               <p class="post-meta">
@@ -287,41 +328,6 @@ reap the completed process.</p>
 <p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
 
                   <p><a href="/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading Day 12: Using Minion in Dancer Apps...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/07/openapi/">Day 7: MetaCPAN, Mojolicious and OpenAPI</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-07">Dec  7, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Contract signing" src="/blog/2018/12/07/openapi/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
-
-<h2>What is it?</h2>
-
-<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
-
-<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
-
-<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
-
-                  <p><a href="/blog/2018/12/07/openapi/#section-2">Continue reading Day 7: MetaCPAN, Mojolicious and OpenAPI...</a></p>
             </div>
 
         </article>

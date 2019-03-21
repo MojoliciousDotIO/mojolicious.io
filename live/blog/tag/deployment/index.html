@@ -104,6 +104,47 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2019/03/18/reverse-proxy-with-path/">Reverse Proxy With Path</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-03-18">Mar 18, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Clouds with arrows pointing back and forth on a blue background" src="/blog/2019/03/18/reverse-proxy-with-path/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>It&#39;s extremely common for a <a href="http://mojolicious.org">Mojolicious</a> web
+application to be hosted behind some kind of HTTP proxy: A production website
+usually includes <a href="https://varnish-cache.org">Varnish</a>, or
+<a href="https://www.nginx.com">Nginx</a>, or a CDN (probably using Varnish or Nginx).</p>
+
+<p>In the most common case, a web application is the entire domain, so configuring
+the reverse proxy is very simple: Add the <code>-p</code> option to
+<a href="https://mojolicious.org/perldoc/hypnotoad"><code>hypnotoad</code></a> or <a href="https://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>myapp.pl
+daemon</code></a> command,
+or set the <code>MOJO_REVERSE_PROXY</code> environment variable to a true value. <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook">See the
+Mojolicious Cookbook for more
+details</a>.</p>
+
+<p>But what if my application doesn&#39;t have its own domain? How do I host a
+Mojolicious application as a reverse proxy from a path in another domain?</p>
+
+                  <p><a href="/blog/2019/03/18/reverse-proxy-with-path/#section-2">Continue reading Reverse Proxy With Path...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/">Day 22: Use Carton for your Mojolicious app deployment</a></h1>
 
               <p class="post-meta">

@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/page/5/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/" property="og:url">
+  <meta content="Reverse Proxy With Path" property="og:title">
+    <meta content="Host multiple Mojolicious applications on the same domain using reverse proxies" property="og:description">
+    <meta content="https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Reverse Proxy With Path - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/">Day 9: Add a theme system to your Mojolicious app</a></h1>
+              <h1>Reverse Proxy With Path</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2018-12-09">Dec  9, 2018</time>
+                  <time class="date" datetime="2019-03-18">Mar 18, 2019</time>
                   
 
               </p>
@@ -117,155 +119,153 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Four lines of paint drawn on a roller, in green, red, orange and blue" src="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/banner.jpg">
+                <img alt="Clouds with arrows pointing back and forth on a blue background" src="/blog/2019/03/18/reverse-proxy-with-path/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>You wrote an awesome Mojolicious app, and people use it.
-Marvellous!
-But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
 
-<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
-But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
+              <section id="section-1">
+                  <p>It&#39;s extremely common for a <a href="http://mojolicious.org">Mojolicious</a> web
+application to be hosted behind some kind of HTTP proxy: A production website
+usually includes <a href="https://varnish-cache.org">Varnish</a>, or
+<a href="https://www.nginx.com">Nginx</a>, or a CDN (probably using Varnish or Nginx).</p>
 
-<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
+<p>In the most common case, a web application is the entire domain, so configuring
+the reverse proxy is very simple: Add the <code>-p</code> option to
+<a href="https://mojolicious.org/perldoc/hypnotoad"><code>hypnotoad</code></a> or <a href="https://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>myapp.pl
+daemon</code></a> command,
+or set the <code>MOJO_REVERSE_PROXY</code> environment variable to a true value. <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook">See the
+Mojolicious Cookbook for more
+details</a>.</p>
 
-                  <p><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading Day 9: Add a theme system to your Mojolicious app...</a></p>
-            </div>
+<p>But what if my application doesn&#39;t have its own domain? How do I host a
+Mojolicious application as a reverse proxy from a path in another domain?</p>
 
-        </article>
-        <article class="post">
+              </section>
+              <section id="section-2">
+                  <p>Hosting a site as a reverse proxy from a path in a domain allows a bunch of
+individual applications to handle a single domain. Static content can be served
+by a simple server like <a href="https://httpd.apache.org">Apache HTTPD</a>, and a section
+of dynamic content can be a Mojolicious application.</p>
 
-            <div class="entry-header cf">
+<p>This presents a problem: If I host a blog application at
+<code>http://example.com/blog</code>, every URL in the application needs to start with
+<code>/blog</code>. I could fix this by adding the prefix to every link in every template
+and all the content in my application, but this creates some problems. First,
+since the <code>/blog</code> path is added by my proxy, trying to run the application
+locally for testing will break all the links (unless I also run a local proxy).
+Second, if I want to change the path, I need to change all my templates!</p>
 
-            <h1><a href="/blog/2018/12/08/authenticating-with-ldap/">Day 8: Authenticating with LDAP</a></h1>
+<p>There&#39;s an easier way. Every request in Mojolicious has a URL,
+a <a href="https://mojolicious.org/perldoc/Mojo/URL">Mojo::URL</a> object. Every
+Mojo::URL object has a <code>base</code>. When Mojolicious parses a request, it
+takes the request&#39;s path (<code>/blog</code>) and puts it in the URL. Then it takes
+the request&#39;s domain name (from the HTTP <code>Host</code> header) and puts it in
+the <code>base</code>.  Then, every time the app needs an absolute URL (like in the
+<a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/DefaultHelpers#url_for"><code>url_for</code>
+helper</a>),
+it combines the URL with the <code>base</code>.</p>
 
-              <p class="post-meta">
+<p>So, to solve the problem of hosting a Mojolicious app behind a proxy with a
+path, I need to add my proxy&#39;s path to the <code>base</code> of the request&#39;s URL. I can
+do that with the <a href="https://mojolicious.org/perldoc/Mojolicious#before_dispatch"><code>before_dispatch</code>
+hook</a>:</p>
 
-                  <time class="date" datetime="2018-12-08">Dec  8, 2018</time>
-                  
+<pre><code>app-&gt;hook( before_dispatch =&gt; sub {
+    my ( $c ) = @_;
+    my $url = $c-&gt;req-&gt;url;
+    my $base = $url-&gt;base;
+    # Append &quot;/blog&quot; to the base path
+    push @{ $base-&gt;path }, &#39;blog&#39;;
+    # The base must end with a slash, making
+    # http://example.com/blog/
+    $base-&gt;path-&gt;trailing_slash(1);
+    # and the URL must not, so that relative links 
+    # on the home page work correctly
+    $url-&gt;path-&gt;leading_slash(0);
+});
+</code></pre>
 
+<p>Except now I have the same problem as if I just added <code>/blog</code> to every
+link in my templates: My URLs always have <code>/blog</code> in front, even when
+I&#39;m running my application locally without a proxy. What I need is a way
+to configure the path in the production environment, but not in the
+development environment.</p>
+
+<p>I could use <a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/Config">the Config
+plugin</a> and
+different configuration files for production and development to enable
+and disable this behavior as needed, but I already have a way to detect
+if the application behind a reverse proxy: The <code>MOJO_REVERSE_PROXY</code>
+environment variable. If that&#39;s set, I want to add the hook.</p>
+
+<p>But I also have that magic string &quot;blog&quot; hanging out in our hook. This
+means the application knows what the reverse proxy&#39;s path is, and if the
+reverse proxy&#39;s path changes, so must the app. That&#39;s not good
+encapsulation. It&#39;d be better if I put the proxy path inside the
+<code>MOJO_REVERSE_PROXY</code> environment variable. That way the hook could see
+if it exists, and then use it to fix the base path if it does!</p>
+
+<pre><code>if ( my $path = $ENV{MOJO_REVERSE_PROXY} ) {
+    my @path_parts = grep /\S/, split m{/}, $path;
+    app-&gt;hook( before_dispatch =&gt; sub {
+        my ( $c ) = @_;
+        my $url = $c-&gt;req-&gt;url;
+        my $base = $url-&gt;base;
+        push @{ $base-&gt;path }, @path_parts;
+        $base-&gt;path-&gt;trailing_slash(1);
+        $url-&gt;path-&gt;leading_slash(0);
+    });
+}
+</code></pre>
+
+<p>Now I can add <code>MOJO_REVERSE_PROXY=/blog</code> to my environment and my
+application hosted behind my reverse proxy will work correctly! Without
+the environment variable, my application still works correctly. As long
+as I make sure to use the <code>url_for</code> helper (either directly or via
+<a href="https://mojolicious.org/perldoc/Mojolicious/Plugin/TagHelpers">Mojolicious tag
+helpers</a>),
+my application will work the same in both places.</p>
+
+<p>There are lots of different ways that reverse proxies can be configured,
+so you may have to do something slightly different in your hook. See
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Rewriting">the Rewriting section of the Mojolicious
+Cookbook</a>
+for other examples.</p>
+
+              </section>
+              <small><p>Original artwork by Doug Bell (licensed CC-BY-SA 4.0).</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/deployment/">deployment</a>,
+                  <a href="/blog/tag/development/">development</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Who goes there?" src="/blog/2018/12/08/authenticating-with-ldap/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>There are still quite a few people using LDAP in production,
-but for those who are new to it,
-LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
-It used to be very common as a centralised authentication system
-and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
-I wander through the wilderness of authentication,
-ending with my solution on how to add LDAP authentication to your App.</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-                  <p><a href="/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading Day 8: Authenticating with LDAP...</a></p>
-            </div>
+                      </div>
 
-        </article>
-        <article class="post">
+                  </div>
 
-            <div class="entry-header cf">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2019/02/18/mojolicious-and-dbix-class/index.html" rel="prev"><strong>Previous Article</strong> Mojolicious and DBIx::Class</a></li>
+              </ul>
 
-            <h1><a href="/blog/2018/12/07/openapi/">Day 7: MetaCPAN, Mojolicious and OpenAPI</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-07">Dec  7, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Contract signing" src="/blog/2018/12/07/openapi/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
-
-<h2>What is it?</h2>
-
-<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
-
-<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
-
-<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
-
-                  <p><a href="/blog/2018/12/07/openapi/#section-2">Continue reading Day 7: MetaCPAN, Mojolicious and OpenAPI...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/06/making-a-list-with-yancy/">Day 6: Making A List with Yancy</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-06">Dec  6, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Santa making a list" src="/blog/2018/12/06/making-a-list-with-yancy/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In these modern times, with billions of people in the world, Santa needs a
-modern system to keep track of his naughty/nice list. Lucky for Santa, modern
-Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
-
-                  <p><a href="/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading Day 6: Making A List with Yancy...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/05/compound-selectors/">Day 5: Compound Selectors are Easier than Regexes</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-05">Dec  5, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Sled dogs waiting to run" src="/blog/2018/12/05/compound-selectors/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>When people tell me that I can&#39;t (they mean shouldn&#39;t) parse HTML with a regex, I say &quot;hold my beer&quot;. It isn&#39;t a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I&#39;ve been using <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> to do it for me. It&#39;s easier than the old, expedient way.</p>
-
-                  <p><a href="/blog/2018/12/05/compound-selectors/#section-2">Continue reading Day 5: Compound Selectors are Easier than Regexes...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><a class="page-numbers prev" href="/blog/page/6/" rel="prev">Prev</a></li>
-              
-              <li><a class="page-numbers next" href="/blog/page/4/" rel="next">Next</a></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -341,7 +341,7 @@ Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 
