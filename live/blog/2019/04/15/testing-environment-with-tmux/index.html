@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/tag/yancy/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/" property="og:url">
+  <meta content="Testing Environment With Tmux" property="og:title">
+    <meta content="Use Tmux to build development environments for your projects" property="og:description">
+    <meta content="https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/banner.png" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Testing Environment With Tmux - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/tag/yancy.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/tag/yancy.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,7 +106,7 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2019/04/15/testing-environment-with-tmux/">Testing Environment With Tmux</a></h1>
+              <h1>Testing Environment With Tmux</h1>
 
               <p class="post-meta">
 
@@ -121,7 +123,9 @@
               </div>
 
             <div class="post-content">
-              <p></p><p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
+
+              <section id="section-1">
+                  <p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
 framework</a> currently supports three different
 database systems directly (and even more through <a href="http://dbix-class.org">the DBIx::Class
 ORM</a>). As a result, when doing development,
@@ -141,152 +145,100 @@ Using a shell script and Tmux, I can run a single command to set up all
 the databases, environment variables, and all the tabs I need to get to
 work quickly.</p>
 
-                  <p><a href="/blog/2019/04/15/testing-environment-with-tmux/#section-2">Continue reading Testing Environment With Tmux...</a></p>
-            </div>
+              </section>
+              <section id="section-2">
+                  <p><a href="http://tmux.github.io">Tmux</a> allows me to set up multiple &quot;windows&quot; in
+a single terminal, kind of like tabs in a browser. Each window can then
+be split into panes horizontally and vertically. Each pane has a program
+running inside, usually a shell (like bash) that I can run commands in
+(like vim, my editor). I can do all this by typing commands in the tmux
+session: <kbd>Ctrl+B C</kbd> to create a new window, <kbd>Ctrl+B %</kbd>
+to split the current pane vertically, <kbd>Ctrl+B &quot;</kbd> to split the
+current pane horizontally, etc...</p>
 
-        </article>
-        <article class="post">
+<p><img alt="A Tmux window showing three panes with Vim and other commands running" src="tmux-example.png"></p>
 
-            <div class="entry-header cf">
+<p>But, I can also interact with Tmux via the <code>tmux</code> command. Everything
+I can do by typing in the Tmux session I can do with the <code>tmux</code> command:
+<code>tmux new-window</code> creates a new window, <code>tmux split-pane -v</code> splits
+a pane vertically, <code>tmux split-pane -h</code> splits a pane horizontally. By
+using these commands, I can set up a complex set of windows and panes in
+Tmux inside a shell script:</p>
 
-            <h1><a href="/blog/2018/12/19/you-only-export-twice/">Day 19: You Only Export Twice</a></h1>
+<pre><code>tmux new-session -s yancy -d
+tmux new-window -t yancy:2
+tmux send-keys -t yancy:1 vim Enter
+tmux send-keys -t yancy:2.0 &quot;export TEST_YANCY_EXAMPLES=1&quot; Enter
+</code></pre>
 
-              <p class="post-meta">
+<p><img alt="A Tmux window showing the Vim editor" src="window-1.png"></p>
 
-                  <time class="date" datetime="2018-12-19">Dec 19, 2018</time>
-                  
+<p><img alt="A Tmux window showing a shell with TEST_YANCY_EXAMPLES environment
+variable set" src="window-2.png"></p>
 
+<p>First, I create a new Tmux session named &quot;yancy&quot; and create a new
+window. Then I run <code>vim</code>, my editor, in the first window, and set up an
+environment variable in the second window. Next I need to run my
+databases. I create a new window to run
+<a href="https://www.postgresql.org">Postgres</a> in one pane, and then split that
+pane to run <a href="https://www.mysql.com">MySQL</a> in the other pane.</p>
+
+<pre><code>tmux new-window -t yancy:3 postgres -D ~/perl/Yancy/db/pg
+tmux split-window -t yancy:3 mysqld --skip-grant-tables --datadir ~/perl/Yancy/db/mysql
+</code></pre>
+
+<p><img alt="A Tmux window with two panes showing Postgres and MySQL running" src="window-3.png"></p>
+
+<p>Finally, I need to attach to my session. But also, if my session is
+already running, I don&#39;t want to initialize it again. So, I wrap the
+entire thing in a shell conditional.</p>
+
+<pre><code>if ! tmux has-session -t yancy; then
+    tmux new-session -s yancy -d
+    # ... Initialize the session
+fi
+tmux attach -t yancy
+</code></pre>
+
+<p>Now with one command I&#39;m ready to develop! This script is available <a href="https://github.com/preaction/Yancy/blob/master/xt/tmux-layout.sh">in
+the Yancy repository for anyone to
+use</a>.
+Tmux makes working on Yancy easy!</p>
+
+              </section>
+              <small><p>Original artwork by Doug Bell (licensed CC-BY-SA 4.0).</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/development/">development</a>,
+                  <a href="/blog/tag/testing/">testing</a>,
+                  <a href="/blog/tag/yancy/">yancy</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Container ship leaving port" src="/blog/2018/12/19/you-only-export-twice/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>With my Yancy documentation site built, with <a href="/blog/2018/12/17/a-website-for-yancy">a custom landing
-page</a> and <a href="/blog/2018/12/18/a-view-to-a-pod">a POD
-viewer</a>, I just need to deploy the site. I
-could deploy the site using <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Hypnotoad">hypnotoad, Mojolicious&#39;s preforking server with
-hot
-deployment</a>,
-but that would require me to have a server and keep it online. It&#39;d be a lot
-better if I could just deploy a <a href="https://pages.github.com">static website to
-Github</a> like all the cool people are doing.</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-<p>But to do that, I&#39;d need to take my dynamic website and turn it into a static
-one, and that&#39;s impossible! Or is it? Why am I asking me, when I&#39;m the one who
-wrote a way to do it: The <a href="https://metacpan.org/pod/Mojolicious::Command::export">Mojolicious export
-command</a>.</p>
+                      </div>
 
-                  <p><a href="/blog/2018/12/19/you-only-export-twice/#section-2">Continue reading Day 19: You Only Export Twice...</a></p>
-            </div>
+                  </div>
 
-        </article>
-        <article class="post">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2019/03/18/reverse-proxy-with-path/index.html" rel="prev"><strong>Previous Article</strong> Reverse Proxy With Path</a></li>
+              </ul>
 
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/18/a-view-to-a-pod/">Day 18: A View To A POD</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-18">Dec 18, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Books on a library shelf" src="/blog/2018/12/18/a-view-to-a-pod/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In order for Yancy to have a good documentation site, it needs to
-actually render the documentation. To render Perl documentation in
-<a href="http://mojolicious.org">Mojolicious</a>, I can use the
-<a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">PODViewer</a>
-plugin (a fork of the now-deprecated
-<a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer">PODRenderer</a>
-plugin).</p>
-
-                  <p><a href="/blog/2018/12/18/a-view-to-a-pod/#section-2">Continue reading Day 18: A View To A POD...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/17/a-website-for-yancy/">Day 17: A Website For Yancy</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-17">Dec 17, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Code on a computer screen" src="/blog/2018/12/17/a-website-for-yancy/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>For this year, I decided that Yancy needed a website. Rather than build
-a website with a <a href="http://preaction.me/statocles">static site generator like
-Statocles</a>, which is so popular these
-days, I decided to do something wild and unpredictable: A dynamic
-website! Lucky for me, I have the perfect project to easily build
-a dynamic website: Yancy!</p>
-
-                  <p><a href="/blog/2018/12/17/a-website-for-yancy/#section-2">Continue reading Day 17: A Website For Yancy...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/06/making-a-list-with-yancy/">Day 6: Making A List with Yancy</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-06">Dec  6, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Santa making a list" src="/blog/2018/12/06/making-a-list-with-yancy/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In these modern times, with billions of people in the world, Santa needs a
-modern system to keep track of his naughty/nice list. Lucky for Santa, modern
-Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
-
-                  <p><a href="/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading Day 6: Making A List with Yancy...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><span class="page-numbers prev inactive">Prev</span></li>
-              
-              <li><span class="page-numbers next inactive">Next</span></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -362,7 +314,7 @@ Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 

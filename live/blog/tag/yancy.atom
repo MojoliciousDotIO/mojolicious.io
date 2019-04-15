@@ -2,11 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/yancy/</id>
     <title>mojolicious.io</title>
-    <updated>2018-12-19T00:00:00Z</updated>
+    <updated>2019-04-15T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/yancy.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/yancy/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/</id>
+        <title>Testing Environment With Tmux</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
+framework</a> currently supports three different
+database systems directly (and even more through <a href="http://dbix-class.org">the DBIx::Class
+ORM</a>). As a result, when doing development,
+I need to have two database daemons running locally, a bunch of
+different environment variables to tell the tests where those databases
+are, and a web daemon to test the front-end.</p>
+
+<p>Setting up these daemons is a pain, but I also do not want to run them
+all the time (to save on my laptop&#39;s battery). To me, it&#39;s easier to run
+a database daemon for a specific project than to try to manage all the
+databases I might need. But that means that every time I want to do some
+work on Yancy, I need to start up a bunch of things.</p>
+
+<p>Since I do all my development in a terminal window, <a href="http://tmux.github.io">the Tmux terminal
+multiplexer</a> has become an extremely useful tool.
+Using a shell script and Tmux, I can run a single command to set up all
+the databases, environment variables, and all the tabs I need to get to
+work quickly.</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-04-15T00:00:00Z</updated>
+        <category term="development" />
+        <category term="testing" />
+        <category term="yancy" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2018/12/19/you-only-export-twice/</id>
         <title>Day 19: You Only Export Twice</title>

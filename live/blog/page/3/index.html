@@ -104,6 +104,39 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/20/testing-dancer/">Day 20: Testing Dancer</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-20">Dec 20, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Dancers and judges at a dance competition" src="/blog/2018/12/20/testing-dancer/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Authors of Dancer (and other) PSGI applications are probably accustomed to <a href="https://metacpan.org/pod/distribution/Dancer2/lib/Dancer2/Manual.pod#TESTING">testing</a> with <a href="https://metacpan.org/pod/Plack::Test">Plack::Test</a>, and while that is a venerated option, it is pretty bare-bones.</p>
+
+<p>During advent last year, I wrote about <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, showing the many easy and (dare I say) fun ways that you can use it to test your Mojolicious applications.
+If you missed it, go <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/">check it out</a>.</p>
+
+<p>I expect there are at least a few of you out there who read that and think, &quot;I&#39;d love to use that, but I don&#39;t use Mojolicious!&quot;; well, you&#39;re in luck!
+With just a little role to bridge the gap, you can use Test::Mojo to test your PSGI applications too!</p>
+
+                  <p><a href="/blog/2018/12/20/testing-dancer/#section-2">Continue reading Day 20: Testing Dancer...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/19/you-only-export-twice/">Day 19: You Only Export Twice</a></h1>
 
               <p class="post-meta">
@@ -256,37 +289,6 @@ last time.</p>
 <p>The secret, of course, is to set the <code>Cache-Control</code> field of the HTTP header, but <em>how</em>?</p>
 
                   <p><a href="/blog/2018/12/16/browser-diet/#section-2">Continue reading Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/15/practical-web-content-munging/">Day 15: Practical Web Content Munging</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-15">Dec 15, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="An eyeball of alarming size" src="/blog/2018/12/15/practical-web-content-munging/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Following brian d foy&#39;s great <a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/">write-up of using Mojo::DOM selectors from Day 5</a>, I thought it&#39;d be fun to talk about some website migration scripts I recently built using <a href="https://mojolicious.org/perldoc/Mojo/UserAgent">Mojo::UserAgent</a> and <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a>, in order to show some basic practical usage of these modules. I&#39;ve never really used Mojo before, but I recently needed to migrate a website that hasn&#39;t had a redesign in about 15 years, and it seemed like a great fit for my content mangling needs. In the past I would have used regexes, and probably would have spent at least as much time manually massaging the input or output into the right shape as I spent writing code. Mojo::DOM made it easy for me, a Mojolicious beginner, to get the results I wanted really quickly.</p>
-
-<h2>From Static Site to Static Site Generator</h2>
-
-<p>The problem I set out to solve was taking an old static website that was once hosted on SourceForge.net and migrating it to an exciting new...um...static website. But, this time, it&#39;ll be a modern take on a static website. Instead of editing HTML by hand and using home-built page munging scripts that would do things like insert news items or changelog entries at the top of the content div using regexes, I&#39;ll be using a modern static website generator. There are several to choose from, including the well-known Jekyll, which is written in Ruby, Hugo, built with Go, and Statocles, which is in Perl and runs this site. For my project, I chose <a href="https://gohugo.io">Hugo</a>, for its speed and maturity.</p>
-
-                  <p><a href="/blog/2018/12/15/practical-web-content-munging/#section-2">Continue reading Day 15: Practical Web Content Munging...</a></p>
             </div>
 
         </article>

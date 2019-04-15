@@ -2,11 +2,51 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2019-03-18T00:00:00Z</updated>
+    <updated>2019-04-15T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/</id>
+        <title>Testing Environment With Tmux</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
+framework</a> currently supports three different
+database systems directly (and even more through <a href="http://dbix-class.org">the DBIx::Class
+ORM</a>). As a result, when doing development,
+I need to have two database daemons running locally, a bunch of
+different environment variables to tell the tests where those databases
+are, and a web daemon to test the front-end.</p>
+
+<p>Setting up these daemons is a pain, but I also do not want to run them
+all the time (to save on my laptop&#39;s battery). To me, it&#39;s easier to run
+a database daemon for a specific project than to try to manage all the
+databases I might need. But that means that every time I want to do some
+work on Yancy, I need to start up a bunch of things.</p>
+
+<p>Since I do all my development in a terminal window, <a href="http://tmux.github.io">the Tmux terminal
+multiplexer</a> has become an extremely useful tool.
+Using a shell script and Tmux, I can run a single command to set up all
+the databases, environment variables, and all the tabs I need to get to
+work quickly.</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-04-15T00:00:00Z</updated>
+        <category term="development" />
+        <category term="testing" />
+        <category term="yancy" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/</id>
         <title>Reverse Proxy With Path</title>
@@ -176,64 +216,6 @@ My schema has a couple tables: <code>notes</code> for storing simple notes, and
         <category term="development" />
         <category term="controller" />
         <category term="DBIx::Class" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/25/special-thanks/</id>
-        <title>Day 25: Special Thanks</title>
-        <author><name>Joel Berger</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/25/special-thanks/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>This advent calendar, I have special thanks to offer to all the people who helped make it possible.
-I&#39;ll list them shortly, but before I do, I&#39;d like to introduce you to the newest unofficial member of the Mojolicious Core Team: Jude Carl Berger!
-Jude was born on the first day of this calendar, December 1st, at 2:15 am Chicago time.
-If you&#39;re looking at timestamps, yes, that&#39;s about 4 hours after the first blog post went live.</p>
-
-<p>After a one week stay in the NICU for a relatively minor condition, he&#39;s now home with myself and his mother, my wonderful wife Carolyn, who I have to thank first.
-Not too many partners would put up with someone flitting out to edit a blog post or hit &quot;publish&quot; at the right moment during this time in our lives.
-And thanks for Jude.</p>
-
-<p>Armed with that knowledge, you can surely see that even more than usual I couldn&#39;t have done this without help!
-So, with no further ado, I want to thank all the authors,</p>
-
-<ul>
-<li>Boyd Duffee</li>
-<li>brian d foy</li>
-<li>Chris Seigman</li>
-<li>Doug Bell</li>
-<li>Jason Crome</li>
-<li>Joe Cooper</li>
-<li>Luc Didry</li>
-<li>Sachin Dangol</li>
-<li>Shawn Sorichetti</li>
-</ul>
-
-<p>I especially want to note that Doug Bell went above and beyond with eight (!) articles, brian d foy did more than his fair share with four, and Luc Didry and Boyd Duffee did two each!
-I also want to specially mention Jason Crome who, during a tough month of his own, administered the <a href="http://advent.perldancer.org/2018">Twelve Days of Dancer</a> and contributed a cross-over article to ours as well.
-The calendar is obviously nothing without the articles and so I&#39;m tremendously thankful that I had authors that I could lean on to help me when I wasn&#39;t able to fill extra space as I might have in other years.
-Spectacular work, one and all!</p>
-
-<p>We intend to publish more on this site throughout the year, including some pieces from two authors who submitted articles after all the days had been filled.
-Articles had been committed to the repo, but were not yet published, which led to a small confusion in which these authors rose to meet a need they thought existed, so thank you Stefan Adams and Yuki Kimoto for stepping up!
-We&#39;ll get those and other articles out to you in the coming months!</p>
-
-<p>I want to thank Doug again for creating and maintaining <a href="http://preaction.me/statocles/">Statocles</a>, the static blog engine that powers this site.
-I want to thank my employer <a href="https://www.servercentral.com/">ServerCentral</a> who not only are great to work for and support open source, but who gave me lots of time to get settled in with the newest member of my family (and a few cute gifts for him too).
-I want to thank Sebastian Riedel for writing Mojolicious and for the outfit you see on Jude in the picture above (as far as I know, it is a unique piece), and the entire Mojolicious Core Team and community.</p>
-
-<p>I want to thank Jude for being a reasonably happy newborn and sleeping for longer-than-average stretches at night.</p>
-
-<p>Finally, I extend my warmest thanks to the doctors, nurses and staff of Northwest Community Hospital in Arlington Heights, Illinois and especially the NICU nurses who are beyond amazing.</p>
-
-<p>Merry Christmas, Happy Holidays, Happy New Year, and Happy Perling!</p>
-
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-25T00:00:00Z</updated>
-        <category term="advent" />
     </entry>
 </feed>
 

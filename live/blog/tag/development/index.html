@@ -104,6 +104,51 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2019/04/15/testing-environment-with-tmux/">Testing Environment With Tmux</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-04-15">Apr 15, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Text saying &quot;Tmux&quot; in the middle of white, red, yellow, and blue boxes containing shell output separated by thick black lines. Original artwork by Doug Bell" src="/blog/2019/04/15/testing-environment-with-tmux/banner.png">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
+framework</a> currently supports three different
+database systems directly (and even more through <a href="http://dbix-class.org">the DBIx::Class
+ORM</a>). As a result, when doing development,
+I need to have two database daemons running locally, a bunch of
+different environment variables to tell the tests where those databases
+are, and a web daemon to test the front-end.</p>
+
+<p>Setting up these daemons is a pain, but I also do not want to run them
+all the time (to save on my laptop&#39;s battery). To me, it&#39;s easier to run
+a database daemon for a specific project than to try to manage all the
+databases I might need. But that means that every time I want to do some
+work on Yancy, I need to start up a bunch of things.</p>
+
+<p>Since I do all my development in a terminal window, <a href="http://tmux.github.io">the Tmux terminal
+multiplexer</a> has become an extremely useful tool.
+Using a shell script and Tmux, I can run a single command to set up all
+the databases, environment variables, and all the tabs I need to get to
+work quickly.</p>
+
+                  <p><a href="/blog/2019/04/15/testing-environment-with-tmux/#section-2">Continue reading Testing Environment With Tmux...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2019/03/18/reverse-proxy-with-path/">Reverse Proxy With Path</a></h1>
 
               <p class="post-meta">
@@ -289,45 +334,6 @@ My schema has a couple tables: <code>notes</code> for storing simple notes, and
 <code>events</code> for storing calendar events.</p>
 
                   <p><a href="/blog/2019/01/21/writing-reusable-controllers/#section-2">Continue reading Writing Reusable Controllers...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/12/dancer-and-minion/">Day 12: Using Minion in Dancer Apps</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-12">Dec 12, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Stylistic photograph of Disney-style minion toys" src="/blog/2018/12/12/dancer-and-minion/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>At <code>$work</code>, we have built an API with <a href="https://metacpan.org/pod/Dancer">Dancer</a> that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
-immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
-application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by <code>fork()</code>ing a process, tracking its pid, and hoping we can later successfully
-reap the completed process.</p>
-
-<p>There have been several problems with this approach:
-- it&#39;s fragile
-- it doesn&#39;t scale
-- it&#39;s too easy to screw something up as a developer</p>
-
-<p>In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter <a href="https://metacpan.org/pod/Minion">Minion</a>.</p>
-
-<p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
-
-                  <p><a href="/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading Day 12: Using Minion in Dancer Apps...</a></p>
             </div>
 
         </article>
