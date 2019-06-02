@@ -7,7 +7,7 @@ images:
         Original art by Doug Bell, released CC-BY-SA. Book image by
         [2happy](https://www.stockvault.net/photo/118906/grunge-background)
         (CC0)
-    src: /blog/2019/05/20/yancys-static-backend/banner.jpg
+    src: /blog/2019/06/02/yancys-static-backend/banner.jpg
 author: Doug Bell
 data:
   bio: preaction
