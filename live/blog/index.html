@@ -104,6 +104,56 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2019/06/02/yancys-static-backend/">Yancy&#39;s Static Backend</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-06-02">Jun  2, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="An old book with a cloud and &quot;Mojolicious&quot;" src="/blog/2019/06/02/yancys-static-backend/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Back a few months ago I wrote about <a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/">making a website for the Yancy
+CMS</a> that
+included a basic Markdown page editor, <a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/">adding a documentation viewer
+with the Mojolicious PODViewer
+plugin</a>, and
+<a href="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/">deploying a static version of the site using the Mojolicious <code>export</code>
+command</a>.
+The site uses a SQLite database, which makes it very easy to set up and
+use the Yancy editor, but very difficult to work with the data any other
+way...</p>
+
+<p>To solve this problem, many people have taken to writing their website
+as a set of static files and using a static site generator to add
+templates and plugins to build their website. Each page has a header
+section that defines some metadata about the page, like the title or the
+date it was posted. Instead of having each page be a row in a SQLite
+database, each page in a static site is a file on the filesystem!</p>
+
+<p>Yancy uses &quot;Backends&quot; to interface with a database. To make Yancy into
+a static site generator, I wrote a backend that works with a flat-file
+database made up of YAML and Markdown files:
+<a href="https://metacpan.org/pod/Yancy::Backend::Static">Yancy::Backend::Static</a>.
+I can use this new backend to make my Yancy documentation site even
+easier to edit!</p>
+
+                  <p><a href="/blog/2019/06/02/yancys-static-backend/#section-2">Continue reading Yancy&#39;s Static Backend...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2019/04/15/testing-environment-with-tmux/">Testing Environment With Tmux</a></h1>
 
               <p class="post-meta">
@@ -286,54 +336,6 @@ data directly in to the stash with the <a href="https://mojolicious.org/perldoc/
 method</a>.</p>
 
                   <p><a href="/blog/2019/01/28/writing-extensible-controllers/#section-2">Continue reading Writing Extensible Controllers...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2019/01/21/writing-reusable-controllers/">Writing Reusable Controllers</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2019-01-21">Jan 21, 2019</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Clouds with user icons raining gears" src="/blog/2019/01/21/writing-reusable-controllers/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In all the web applications I&#39;ve written with
-<a href="http://mojolicious.org">Mojolicious</a>, one of the most mis-used features
-are controllers. Mojolicious is
-a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">Model-View-Controller</a>
-framework, and the MVC pattern is intended to provide for code re-use.</p>
-
-<p>Models can be interchangeable and used by the same controllers and
-templates. With a common, consistent model API, the right controller can
-list any data, update any data. If all of our models have a method named
-&quot;search&quot;, I can make a single controller method that will run a search
-on any of them.</p>
-
-<p>The easiest way to demonstrate this is with
-<a href="http://metacpan.org/pod/DBIx::Class">DBIx::Class</a>. DBIx::Class provides
-a consistent API for a relational database. </p>
-
-<h2>The Problem</h2>
-
-<p>For this example, I&#39;ll use <a href="https://github.com/preaction/Mojolicious-Plugin-DBIC/tree/master/t/lib/Local">this DBIx::Class
-schema</a>.
-My schema has a couple tables: <code>notes</code> for storing simple notes, and
-<code>events</code> for storing calendar events.</p>
-
-                  <p><a href="/blog/2019/01/21/writing-reusable-controllers/#section-2">Continue reading Writing Reusable Controllers...</a></p>
             </div>
 
         </article>

@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/page/5/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2019/06/02/yancys-static-backend/" property="og:url">
+  <meta content="Yancy&#39;s Static Backend" property="og:title">
+    <meta content="How to make a static Markdown website with Yancy" property="og:description">
+    <meta content="https://mojolicious.io/blog/2019/06/02/yancys-static-backend/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>Yancy's Static Backend - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/11/who-watches-the-minions/">Day 11: Who Watches The Minions</a></h1>
+              <h1>Yancy&#39;s Static Backend</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2018-12-11">Dec 11, 2018</time>
+                  <time class="date" datetime="2019-06-02">Jun  2, 2019</time>
                   
 
               </p>
@@ -117,160 +119,142 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Minion logo in the middle of binocular circles, original artwork by Doug Bell" src="/blog/2018/12/11/who-watches-the-minions/banner.jpg">
+                <img alt="An old book with a cloud and &quot;Mojolicious&quot;" src="/blog/2019/06/02/yancys-static-backend/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
-queue</a>, I need to take care of
-it properly. Are the workers working (have they seized the means of
-production)? Are jobs completing successfully? Are there any errors?
-What are they?</p>
 
-                  <p><a href="/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading Day 11: Who Watches The Minions...</a></p>
-            </div>
+              <section id="section-1">
+                  <p>Back a few months ago I wrote about <a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/">making a website for the Yancy
+CMS</a> that
+included a basic Markdown page editor, <a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/">adding a documentation viewer
+with the Mojolicious PODViewer
+plugin</a>, and
+<a href="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/">deploying a static version of the site using the Mojolicious <code>export</code>
+command</a>.
+The site uses a SQLite database, which makes it very easy to set up and
+use the Yancy editor, but very difficult to work with the data any other
+way...</p>
 
-        </article>
-        <article class="post">
+<p>To solve this problem, many people have taken to writing their website
+as a set of static files and using a static site generator to add
+templates and plugins to build their website. Each page has a header
+section that defines some metadata about the page, like the title or the
+date it was posted. Instead of having each page be a row in a SQLite
+database, each page in a static site is a file on the filesystem!</p>
 
-            <div class="entry-header cf">
+<p>Yancy uses &quot;Backends&quot; to interface with a database. To make Yancy into
+a static site generator, I wrote a backend that works with a flat-file
+database made up of YAML and Markdown files:
+<a href="https://metacpan.org/pod/Yancy::Backend::Static">Yancy::Backend::Static</a>.
+I can use this new backend to make my Yancy documentation site even
+easier to edit!</p>
 
-            <h1><a href="/blog/2018/12/10/minion-stands-alone/">Day 10: Minion Stands Alone</a></h1>
+              </section>
+              <section id="section-2">
+                  <p>To start using
+<a href="https://metacpan.org/pod/Yancy::Backend::Static">Yancy::Backend::Static</a>,
+first I need to copy the data in my <code>pages</code> collection from my old
+SQLite database using <a href="https://metacpan.org/pod/Yancy::Command::backend::copy">the new Yancy <code>backend copy</code>
+command</a>. The
+directory I want to use for my Markdown pages is the same as my app, so
+I will use <code>static:.</code> as the URL for my new backend.</p>
 
-              <p class="post-meta">
+<pre><code>$ ./myapp.pl backend copy static:. pages
+</code></pre>
 
-                  <time class="date" datetime="2018-12-10">Dec 10, 2018</time>
-                  
+<p>Now I have an <code>index.markdown</code> file in my current directory, but there&#39;s
+a small problem: The <code>backend copy</code> command copied the old database&#39;s ID
+field, and did not add a <code>title</code> attribute (since the old schema didn&#39;t
+have a <code>title</code> field). I can change my <code>index.markdown</code> like this:</p>
 
+<p><img alt="A screenshot of Markdown with an &quot;id&quot; in the frontmatter" src="fix-index-1.png">
+<img alt="A screenshot of Markdown with the &quot;id&quot; changed to a &quot;title&quot;" src="fix-index-2.png"></p>
+
+<p>Then I need to make my app use my new backend. First, I can get rid of
+the database initialization helper.</p>
+
+<p><img alt="Removing the old documentation site backend" src="remove-backend.png"></p>
+
+<p>Then I can change the backend Yancy uses.</p>
+
+<p><img alt="The Yancy plugin configuration with SQLite backend" src="change-backend-1.png">
+<img alt="The Yancy plugin configuration with the backend changed to &quot;static&quot;" src="change-backend-2.png"></p>
+
+<p>Now I can run my site from my new markdown files!</p>
+
+<pre><code>$ ./myapp.pl daemon
+[Wed Apr 24 12:44:33 2019] [info] Listening at &quot;http://*:3000&quot;
+Server available at http://127.0.0.1:3000
+</code></pre>
+
+<p><img alt="Screenshot of the working Yancy documentation site" src="it-works.png"></p>
+
+<p>The best part of this is now I can use the <a href="https://mojolicious.org/perldoc/morbo"><code>morbo</code> development
+server</a> and the <a href="https://metacpan.org/pod/Mojolicious::Plugin::AutoReload">AutoReload
+plugin</a> to
+automatically update my browser when my content changes!</p>
+
+<pre><code># Watch the entire current directory for changes
+$ morbo myapp.pl -w .
+</code></pre>
+
+<p>Then when I change my <code>index.markdown</code>, my browser reloads to see the
+new content!</p>
+
+<p><img alt="" src="yancy-dancer-1.png">
+<img alt="" src="yancy-dancer-2.png">
+<img alt="" src="yancy-dancer-3.png"></p>
+
+<p>The <a href="https://metacpan.org/pod/Yancy::Backend::Static"><code>Yancy::Backend::Static</code></a>
+module (combined with
+<a href="https://metacpan.org/pod/Mojolicious::Command::export"><code>Mojolicious::Plugin::Export</code></a>)
+turns Yancy into a static site generator. I can use Yancy&#39;s editor, or
+any text editor, to edit the content in my site. This makes it even
+easier to rapidly build simple websites!</p>
+
+<p>(P.S.: Despite this new Yancy backend,
+<a href="http://preaction.me/statocles">Statocles</a>, my static site generator, is
+not going away. It is going to be rebuilt to use Yancy for content
+management. Statocles will keep its friendly deploy workflow, blog
+application, themes, and sanity checking. Yancy will just handle the
+content management. The result should be a faster generator with less
+code and better ways to add custom content and apps. Stay tuned!)</p>
+
+              </section>
+              <small><p>Original art by Doug Bell, released CC-BY-SA. Book image by
+<a href="https://www.stockvault.net/photo/118906/grunge-background">2happy</a>
+(CC0)</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/yancy/">yancy</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Minion logo in front of a faded Mojolicious cloud, original artwork by Doug Bell" src="/blog/2018/12/10/minion-stands-alone/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
-incredibly useful tool, but sometimes I need to use it for non-web
-projects. So, how can I use Minion without needing
-a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-                  <p><a href="/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading Day 10: Minion Stands Alone...</a></p>
-            </div>
+                      </div>
 
-        </article>
-        <article class="post">
+                  </div>
 
-            <div class="entry-header cf">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2019/04/15/testing-environment-with-tmux/index.html" rel="prev"><strong>Previous Article</strong> Testing Environment With Tmux</a></li>
+              </ul>
 
-            <h1><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/">Day 9: Add a theme system to your Mojolicious app</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-09">Dec  9, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Four lines of paint drawn on a roller, in green, red, orange and blue" src="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>You wrote an awesome Mojolicious app, and people use it.
-Marvellous!
-But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
-
-<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
-But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
-
-<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
-
-                  <p><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading Day 9: Add a theme system to your Mojolicious app...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/08/authenticating-with-ldap/">Day 8: Authenticating with LDAP</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-08">Dec  8, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Who goes there?" src="/blog/2018/12/08/authenticating-with-ldap/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>There are still quite a few people using LDAP in production,
-but for those who are new to it,
-LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
-It used to be very common as a centralised authentication system
-and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
-I wander through the wilderness of authentication,
-ending with my solution on how to add LDAP authentication to your App.</p>
-
-                  <p><a href="/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading Day 8: Authenticating with LDAP...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/07/openapi/">Day 7: MetaCPAN, Mojolicious and OpenAPI</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-07">Dec  7, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Contract signing" src="/blog/2018/12/07/openapi/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>During this years <a href="http://www.olafalders.com/2018/11/21/metahack-3-wrap-report/">meta::hack 3</a>, I was extremely fortunate to work with <a href="https://twitter.com/joelaberger">Joel Berger</a> on integrating/documenting OpenAPI with the MetaCPAN API via Mojolicious.</p>
-
-<h2>What is it?</h2>
-
-<p>OpenAPI is a specification for designing, documenting, validating and driving your RESTful API. It can be used to provide documentation to an existing API, or when creating a new one.</p>
-
-<p>The OpenAPI Specification originated as the Swagger specification and was renamed to separate the API description format (OpenAPI) from the open source tooling (Swagger). The specification moved into a new GitHub repository, but did not change.</p>
-
-<p>In the case of the MetaCPAN API, we set out to provide documentation to the existing API, but quickly moved into supporting validation to API calls as well.</p>
-
-                  <p><a href="/blog/2018/12/07/openapi/#section-2">Continue reading Day 7: MetaCPAN, Mojolicious and OpenAPI...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><a class="page-numbers prev" href="/blog/page/6/" rel="prev">Prev</a></li>
-              
-              <li><a class="page-numbers next" href="/blog/page/4/" rel="next">Next</a></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -346,7 +330,7 @@ ending with my solution on how to add LDAP authentication to your App.</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 

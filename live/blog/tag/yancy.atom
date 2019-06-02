@@ -2,11 +2,52 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/tag/yancy/</id>
     <title>mojolicious.io</title>
-    <updated>2019-04-15T00:00:00Z</updated>
+    <updated>2019-06-02T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/yancy.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/yancy/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2019/06/02/yancys-static-backend/</id>
+        <title>Yancy&#39;s Static Backend</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2019/06/02/yancys-static-backend/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Back a few months ago I wrote about <a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/">making a website for the Yancy
+CMS</a> that
+included a basic Markdown page editor, <a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/">adding a documentation viewer
+with the Mojolicious PODViewer
+plugin</a>, and
+<a href="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/">deploying a static version of the site using the Mojolicious <code>export</code>
+command</a>.
+The site uses a SQLite database, which makes it very easy to set up and
+use the Yancy editor, but very difficult to work with the data any other
+way...</p>
+
+<p>To solve this problem, many people have taken to writing their website
+as a set of static files and using a static site generator to add
+templates and plugins to build their website. Each page has a header
+section that defines some metadata about the page, like the title or the
+date it was posted. Instead of having each page be a row in a SQLite
+database, each page in a static site is a file on the filesystem!</p>
+
+<p>Yancy uses &quot;Backends&quot; to interface with a database. To make Yancy into
+a static site generator, I wrote a backend that works with a flat-file
+database made up of YAML and Markdown files:
+<a href="https://metacpan.org/pod/Yancy::Backend::Static">Yancy::Backend::Static</a>.
+I can use this new backend to make my Yancy documentation site even
+easier to edit!</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/06/02/yancys-static-backend/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-06-02T00:00:00Z</updated>
+        <category term="yancy" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/</id>
         <title>Testing Environment With Tmux</title>
@@ -134,30 +175,6 @@ a dynamic website: Yancy!</p>
         <updated>2018-12-17T00:00:00Z</updated>
         <category term="advent" />
         <category term="yancy" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/</id>
-        <title>Day 6: Making A List with Yancy</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>In these modern times, with billions of people in the world, Santa needs a
-modern system to keep track of his naughty/nice list. Lucky for Santa, modern
-Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a>.</p>
-
-                <p><a href="https://mojolicious.io/blog/2018/12/06/making-a-list-with-yancy/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
-                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
-                    <a href="https://mojolicious.io/blog/tag/example/">example</a>
-                </p>
-
-        ]]></content>
-        <updated>2018-12-06T00:00:00Z</updated>
-        <category term="advent" />
-        <category term="yancy" />
-        <category term="example" />
     </entry>
 </feed>
 

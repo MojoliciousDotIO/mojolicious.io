@@ -104,6 +104,54 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2019/01/21/writing-reusable-controllers/">Writing Reusable Controllers</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-01-21">Jan 21, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Clouds with user icons raining gears" src="/blog/2019/01/21/writing-reusable-controllers/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>In all the web applications I&#39;ve written with
+<a href="http://mojolicious.org">Mojolicious</a>, one of the most mis-used features
+are controllers. Mojolicious is
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">Model-View-Controller</a>
+framework, and the MVC pattern is intended to provide for code re-use.</p>
+
+<p>Models can be interchangeable and used by the same controllers and
+templates. With a common, consistent model API, the right controller can
+list any data, update any data. If all of our models have a method named
+&quot;search&quot;, I can make a single controller method that will run a search
+on any of them.</p>
+
+<p>The easiest way to demonstrate this is with
+<a href="http://metacpan.org/pod/DBIx::Class">DBIx::Class</a>. DBIx::Class provides
+a consistent API for a relational database. </p>
+
+<h2>The Problem</h2>
+
+<p>For this example, I&#39;ll use <a href="https://github.com/preaction/Mojolicious-Plugin-DBIC/tree/master/t/lib/Local">this DBIx::Class
+schema</a>.
+My schema has a couple tables: <code>notes</code> for storing simple notes, and
+<code>events</code> for storing calendar events.</p>
+
+                  <p><a href="/blog/2019/01/21/writing-reusable-controllers/#section-2">Continue reading Writing Reusable Controllers...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/25/special-thanks/">Day 25: Special Thanks</a></h1>
 
               <p class="post-meta">
@@ -582,33 +630,6 @@ It has many plugins, including easy implementation of <a href="https://metacpan.
 <p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
 
                   <p><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#section-2">Continue reading Day 22: Use Carton for your Mojolicious app deployment...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/21/a-little-christmas-template-cooking/">Day 21: A Little Christmas Template Cooking</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-21">Dec 21, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Peanut Butter Kisses cookies" src="/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
-
-                  <p><a href="/blog/2018/12/21/a-little-christmas-template-cooking/#section-2">Continue reading Day 21: A Little Christmas Template Cooking...</a></p>
             </div>
 
         </article>
