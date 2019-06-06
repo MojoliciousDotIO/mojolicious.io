@@ -63,7 +63,7 @@ retrieve our pages.
     plugin 'Yancy', {
         backend => { Sqlite => app->db },
         read_schema => 1,
-        collections => {
+        schema => {
             pages => {
                 'x-id-field' => 'path',
                 'x-list-columns' => [qw( path )],
@@ -106,7 +106,7 @@ page's HTML and a layout with some useful links and maybe some
         id => 'index', # Default to index page
         controller => 'yancy',
         action => 'get',
-        collection => 'pages',
+        schema => 'pages',
         template => 'pages',
     };
     # Start the app. Must be the last code of the script

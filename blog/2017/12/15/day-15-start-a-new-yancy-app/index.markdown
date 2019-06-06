@@ -41,11 +41,11 @@ some HTML.
 Next we add [the Yancy
 plugin](http://metacpan.org/pod/Mojolicious::Plugin::Yancy) and tell it
 about our backend and data. Yancy deals with data as a set of
-collections which contain items. For a relational database like
-Postgres, a collection is a table, and an item is a row in that table.
+schemas which contain items. For a relational database like
+Postgres, a schema is a table, and an item is a row in that table.
 
-Yancy uses a JSON schema to describe each item in a collection.
-For our `blog` collection, we have five fields:
+Yancy uses a JSON schema to describe each item. For our `blog`
+schema, we have five fields:
 
 1. `id` which is an auto-generated integer and should be read-only
 2. `title` which is a free-form string which is required
@@ -53,12 +53,12 @@ For our `blog` collection, we have five fields:
 4. `markdown` which is a required Markdown-formatted string
 5. `html`, a string which holds the rendered Markdown and is also required
 
-Here's our configured Yancy `blog` collection:
+Here's our configured Yancy `blog` schema:
 
 %= highlight Perl => begin
 plugin Yancy => {
     backend => 'pg://localhost/blog',
-    collections => {
+    schema => {
         blog => {
             required => [ 'title', 'markdown', 'html' ],
             properties => {
@@ -88,7 +88,7 @@ plugin Yancy => {
 };
 % end
 
-Yancy will build us a rich form for our collection from the field types
+Yancy will build us a rich form for our schema from the field types
 we tell it. Some fields, like the `markdown` field, take additional
 configuration: `x-html-field` tells the Markdown field where to save the
 rendered HTML. There's plenty of customization options in [the Yancy
@@ -107,7 +107,7 @@ Finally, we need some way to display our blog posts.  [Yancy provides
 helpers to access our
 data](http://metacpan.org/pod/Mojolicious::Plugin::Yancy#HELPERS). Let's
 use the `list` helper to display a list of blog posts. This helper takes
-a collection name and gives us a list of items in that collection. It
+a schema name and gives us a list of items in that schema. It
 also allows us to search for items and order them to our liking. Since
 we've got a blog, we will order by the creation date, descending.
 

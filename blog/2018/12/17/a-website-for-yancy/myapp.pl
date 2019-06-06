@@ -12,7 +12,7 @@ app->db->auto_migrate(1)->migrations->from_data();
 plugin 'Yancy', {
     backend => { Sqlite => app->db },
     read_schema => 1,
-    collections => {
+    schema => {
         pages => {
             'x-id-field' => 'path',
             'x-list-columns' => [qw( path )],
@@ -34,7 +34,7 @@ get '/*id' => {
     id => 'index', # Default to index page
     controller => 'yancy',
     action => 'get',
-    collection => 'pages',
+    schema => 'pages',
     template => 'pages',
 };
 

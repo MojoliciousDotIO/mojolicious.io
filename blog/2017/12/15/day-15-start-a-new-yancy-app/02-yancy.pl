@@ -6,7 +6,7 @@ $pg->migrations->from_data->migrate;
 
 plugin Yancy => {
     backend => 'pg://localhost/blog',
-    collections => {
+    schema => {
         blog => {
             required => [ 'title', 'markdown', 'html' ],
             properties => {
