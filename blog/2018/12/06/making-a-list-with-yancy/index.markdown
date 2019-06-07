@@ -68,7 +68,7 @@ also give it a few hints to make editing content easier.
         backend => { sqlite => $db },
         # Read the schema configuration from the database
         read_schema => 1,
-        collections => {
+        schema => {
             the_list => {
                 # Show these columns in the Yancy editor
                 'x-list-columns' => [qw( name address is_nice is_delivered )],
@@ -110,7 +110,7 @@ method](https://metacpan.org/pod/Yancy::Controller::Yancy#list):
         controller => 'yancy',
         action => 'list',
         template => 'the_list',
-        collection => 'the_list',
+        schema => 'the_list',
         filter => {
             is_nice => 0,
         },
@@ -166,7 +166,7 @@ in Yancy::Controller::Yancy](https://metacpan.org/pod/Yancy::Controller::Yancy#s
     post '/deliver/:id', {
         controller => 'yancy',
         action => 'set',
-        collection => 'the_list',
+        schema => 'the_list',
         properties => [qw( is_delivered )],
         forward_to => 'the_list.list',
     }, 'the_list.deliver';
