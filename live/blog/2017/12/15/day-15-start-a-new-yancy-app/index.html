@@ -171,11 +171,11 @@ DROP TABLE blog;
 <p>Next we add <a href="http://metacpan.org/pod/Mojolicious::Plugin::Yancy">the Yancy
 plugin</a> and tell it
 about our backend and data. Yancy deals with data as a set of
-collections which contain items. For a relational database like
-Postgres, a collection is a table, and an item is a row in that table.</p>
+schemas which contain items. For a relational database like
+Postgres, a schema is a table, and an item is a row in that table.</p>
 
-<p>Yancy uses a JSON schema to describe each item in a collection.
-For our <code>blog</code> collection, we have five fields:</p>
+<p>Yancy uses a JSON schema to describe each item. For our <code>blog</code>
+schema, we have five fields:</p>
 
 <ol>
 <li><code>id</code> which is an auto-generated integer and should be read-only</li>
@@ -185,11 +185,11 @@ For our <code>blog</code> collection, we have five fields:</p>
 <li><code>html</code>, a string which holds the rendered Markdown and is also required</li>
 </ol>
 
-<p>Here&#39;s our configured Yancy <code>blog</code> collection:</p>
+<p>Here&#39;s our configured Yancy <code>blog</code> schema:</p>
 
 <pre><code class="hljs">plugin Yancy =&gt; {
     backend =&gt; &#39;<span class="hljs-string">pg://localhost/blog</span>&#39;,
-    collections =&gt; {
+    schema =&gt; {
         blog =&gt; {
             required =&gt; [ &#39;<span class="hljs-string">title</span>&#39;, &#39;<span class="hljs-string">markdown</span>&#39;, &#39;<span class="hljs-string">html</span>&#39; ],
             properties =&gt; {
@@ -219,7 +219,7 @@ For our <code>blog</code> collection, we have five fields:</p>
 };
 </code></pre>
 
-<p>Yancy will build us a rich form for our collection from the field types
+<p>Yancy will build us a rich form for our schema from the field types
 we tell it. Some fields, like the <code>markdown</code> field, take additional
 configuration: <code>x-html-field</code> tells the Markdown field where to save the
 rendered HTML. There&#39;s plenty of customization options in <a href="http://metacpan.org/pod/Yancy#CONFIGURATION">the Yancy
@@ -239,7 +239,7 @@ Server available at http://127.0.0.1:3000
 helpers to access our
 data</a>. Let&#39;s
 use the <code>list</code> helper to display a list of blog posts. This helper takes
-a collection name and gives us a list of items in that collection. It
+a schema name and gives us a list of items in that schema. It
 also allows us to search for items and order them to our liking. Since
 we&#39;ve got a blog, we will order by the creation date, descending.</p>
 

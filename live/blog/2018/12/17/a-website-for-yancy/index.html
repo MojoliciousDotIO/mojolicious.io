@@ -173,7 +173,7 @@ retrieve our pages.</p>
 <pre><code>plugin &#39;Yancy&#39;, {
     backend =&gt; { Sqlite =&gt; app-&gt;db },
     read_schema =&gt; 1,
-    collections =&gt; {
+    schema =&gt; {
         pages =&gt; {
             &#39;x-id-field&#39; =&gt; &#39;path&#39;,
             &#39;x-list-columns&#39; =&gt; [qw( path )],
@@ -217,7 +217,7 @@ page&#39;s HTML and a layout with some useful links and maybe some
     id =&gt; &#39;index&#39;, # Default to index page
     controller =&gt; &#39;yancy&#39;,
     action =&gt; &#39;get&#39;,
-    collection =&gt; &#39;pages&#39;,
+    schema =&gt; &#39;pages&#39;,
     template =&gt; &#39;pages&#39;,
 };
 # Start the app. Must be the last code of the script

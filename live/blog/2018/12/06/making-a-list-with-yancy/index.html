@@ -177,7 +177,7 @@ plugin Yancy =&gt; {
     backend =&gt; { sqlite =&gt; $db },
     # Read the schema configuration from the database
     read_schema =&gt; 1,
-    collections =&gt; {
+    schema =&gt; {
         the_list =&gt; {
             # Show these columns in the Yancy editor
             &#39;x-list-columns&#39; =&gt; [qw( name address is_nice is_delivered )],
@@ -220,7 +220,7 @@ get &#39;/&#39;, {
     controller =&gt; &#39;yancy&#39;,
     action =&gt; &#39;list&#39;,
     template =&gt; &#39;the_list&#39;,
-    collection =&gt; &#39;the_list&#39;,
+    schema =&gt; &#39;the_list&#39;,
     filter =&gt; {
         is_nice =&gt; 0,
     },
@@ -278,7 +278,7 @@ in Yancy::Controller::Yancy</a>:</p>
 post &#39;/deliver/:id&#39;, {
     controller =&gt; &#39;yancy&#39;,
     action =&gt; &#39;set&#39;,
-    collection =&gt; &#39;the_list&#39;,
+    schema =&gt; &#39;the_list&#39;,
     properties =&gt; [qw( is_delivered )],
     forward_to =&gt; &#39;the_list.list&#39;,
 }, &#39;the_list.deliver&#39;;
