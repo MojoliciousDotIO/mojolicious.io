@@ -16,18 +16,20 @@
 
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
-  <meta content="https://mojolicious.io/blog/page/3/" property="og:url">
-  <meta content="mojolicious.io" property="og:title">
-    <meta content="summary" name="twitter:card">
+      <meta content="@preaction" name="twitter:creator">
+  <meta content="https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/" property="og:url">
+  <meta content="A Reusable View Layer" property="og:title">
+    <meta content="How to make generic, reusable templates for Mojolicious" property="og:description">
+    <meta content="https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/banner.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>mojolicious.io</title>
+  <title>A Reusable View Layer - mojolicious.io</title>
+  <meta content="Doug Bell" name="author">
   <meta content="Statocles 0.093" name="generator">
-  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
-  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -104,11 +106,11 @@
 
             <div class="entry-header cf">
 
-            <h1><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/">Day 22: Use Carton for your Mojolicious app deployment</a></h1>
+              <h1>A Reusable View Layer</h1>
 
               <p class="post-meta">
 
-                  <time class="date" datetime="2018-12-22">Dec 22, 2018</time>
+                  <time class="date" datetime="2019-07-01">Jul  1, 2019</time>
                   
 
               </p>
@@ -117,159 +119,180 @@
 
               <div class="post-thumb">
                 <!-- theme suggests 1300x500 -->
-                <img alt="Brown cardboard boxes on a white floor" src="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/banner.jpg">
+                <img alt="A brick wall embossed with a cloud image" src="/blog/2019/07/01/a-reusable-view-layer/banner.jpg">
               </div>
 
             <div class="post-content">
-              <p></p><p>You have a lovely Mojolicious app, it’s time to deploy it!</p>
 
-<p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
+              <section id="section-1">
+                  <p>In a well-designed
+<a href="https://en.wikipedia.org/wiki/Model–view–controller">Model-View-Controller</a>
+web application, most of the code and the development time will be in
+the model layer (which contains the <a href="https://en.wikipedia.org/wiki/Business_logic">business
+logic</a>). The other two
+layers are meant to be as re-usable as possible. Earlier this year
+I discussed how to build a <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">reusable controller for
+Mojolicious</a>
+and how to <a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">build an inheritable controller to increase code
+re-use</a>.
+Now, I&#39;d like to talk about how the <a href="https://mojolicious.org">Mojolicious web
+framework</a> provides ways to reuse, combine, and
+compose the view code: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial#Stash-and-templates">the
+stash</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">includes</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layout
+templates</a>,
+and <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named content
+blocks</a>.</p>
 
-                  <p><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#section-2">Continue reading Day 22: Use Carton for your Mojolicious app deployment...</a></p>
-            </div>
+<p>This week, I&#39;ll talk about how to make reusable, configurable,
+composable templates.</p>
 
-        </article>
-        <article class="post">
+              </section>
+              <section id="section-2">
+                  <h2>Configuration with the Stash</h2>
 
-            <div class="entry-header cf">
+<p>The stash is generally used to provide data for the templates to render,
+but it can also be used to configure templates. If I have to render
+a bunch of arrays of hashes in tables, I can make one template to do it.
+This template could have additional configuration for which keys to
+display in which order and whether or not to show column headers, like
+so:</p>
 
-            <h1><a href="/blog/2018/12/21/a-little-christmas-template-cooking/">Day 21: A Little Christmas Template Cooking</a></h1>
+<pre><code>@@ table.html.ep
+%# By default, show all the keys in the hash (by getting the keys of the
+%# first item)
+% my $properties = stash()-&gt;{properties} || [ sort keys %{ $items-&gt;[0] } ];
+%# Show the table heading by default, but allow disabling
+% my $thead = exists stash()-&gt;{thead} ? stash()-&gt;{thead} : 1;
+%# Allow adding classes to the table
+% my $class = stash(&#39;class&#39;) ? sprintf q{ class=&quot;%s&quot;}, stash(&#39;class&#39;) : &#39;&#39;;
+&lt;table&lt;%= $class %&gt;&gt;
+    % if ( $thead ) {
+        &lt;thead&gt;
+            % for my $key ( @$properties ) {
+                &lt;th&gt;&lt;%= $key %&gt;&lt;/th&gt;
+            % }
+        &lt;/thead&gt;
+    % }
+    &lt;tbody&gt;
+        % for my $item ( @$items ) {
+            &lt;tr&gt;
+                &lt;% for my $key ( @$properties ) { %&gt;
+                    &lt;td&gt;&lt;%= $item-&gt;{ $key } %&gt;&lt;/td&gt;
+                % }
+            &lt;/tr&gt;
+        % }
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
 
-              <p class="post-meta">
+<p>Then I can configure my template from my route:</p>
 
-                  <time class="date" datetime="2018-12-21">Dec 21, 2018</time>
-                  
+<pre><code>get &#39;/events&#39; =&gt; &#39;yancy#list&#39;,
+    schema =&gt; &#39;event&#39;,
+    template =&gt; &#39;table&#39;,
+    properties =&gt; [qw( title start_date end_date )];
 
+get &#39;/articles&#39; =&gt; &#39;yancy#list&#39;,
+    schema =&gt; &#39;article&#39;,
+    template =&gt; &#39;table&#39;,
+    thead =&gt; 0;
+</code></pre>
+
+<p>When my template is rendered, it gets the current value of the <code>thead</code>
+stash. I could even override that stash value in my route handler, so
+I can enable/disable parts of the template based on the user&#39;s
+preferences:</p>
+
+<pre><code>get &#39;/articles&#39; =&gt; sub {
+    my ( $c ) = @_;
+    # Send ?show_header=1 to show the table header
+    if ( $c-&gt;param( &#39;show_header&#39; ) ) {
+        $c-&gt;stash( thead =&gt; 1 );
+    }
+    return $c-&gt;render( &#39;table&#39; );
+};
+</code></pre>
+
+<h2>Includes</h2>
+
+<p>Any template can import another template. Like the calling template, the
+imported template has access to the entire <a href="https://mojolicious.io/blog/2017/12/02/day-2-the-stash/">request
+stash</a>. But,
+I can also pass in additional stash values that are only seen by the
+imported template.</p>
+
+<p>So, I could create a page that shows my most recent article as a big
+banner, and the rest of my articles as a table (using my table template
+from above):</p>
+
+<pre><code>@@ articles.html.ep
+% my $latest = $items-&gt;[0];
+&lt;h1&gt;Latest article: &lt;%= $latest-&gt;{title} %&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;%== $latest-&gt;{html} %&gt;&lt;/p&gt;
+
+&lt;h1&gt;Past Articles&lt;/h1&gt;
+%= include &#39;table&#39; =&gt; items =&gt; [ @{$items}[ 1..$#$items ] ]
+</code></pre>
+
+<p>Then, when I use my <code>articles</code> template in my route, I can configure the
+<code>table</code> template&#39;s columns and header using the <code>properties</code> stash key
+(just like above).</p>
+
+<pre><code>get &#39;/articles&#39; =&gt; &#39;yancy#list&#39;,
+    schema =&gt; &#39;article&#39;,
+    template =&gt; &#39;table&#39;,
+    properties =&gt; [qw( title published_date )],
+    thead =&gt; 0;
+</code></pre>
+
+<p>With these techniques I can create one template that satisfies multiple
+uses! If I add CSS classes to my template configuration, I can even make
+each table look completely different using a little bit of CSS. The cost
+here is extra complexity in the templates: The templates become more
+like a subroutine in a program and less like annotated HTML, so you&#39;ll
+have to find the right balance for your application and your team.</p>
+
+<p>Next week, I&#39;ll discuss named content blocks, layout templates, and
+template inheritance. Until then!</p>
+
+              </section>
+              <small><p>Image by Doug Bell. Brick background by Homero Chapa
+(https://www.stockvault.net/user/profile/3608)
+https://www.stockvault.net/photo/117550/brick-texture, used
+under StockVault Non-Commercial license.</p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/templates/">templates</a>,
+                  <a href="/blog/tag/rendering/">rendering</a>
               </p>
 
-            </div>
 
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Peanut Butter Kisses cookies" src="/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg">
-              </div>
+                  <div class="bio cf">
 
-            <div class="post-content">
-              <p></p><p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/4bdc4922059d58a0fcbf8f35652dc254.png">
+                      </div>
+                      <div class="about">
+                        <h5>Doug Bell</h5>
+                        <p>Doug (<a href="http://preaction.me">preaction</a>) is a long time Perl user.
+He is the current maintainer of <a href="http://www.cpantesters.org/">CPAN Testers</a> and the author of many <a href="https://metacpan.org/author/PREACTION">CPAN modules</a> including the <a href="http://preaction.me/statocles/">Statocles</a> blog engine that powers this site.</p>
 
-                  <p><a href="/blog/2018/12/21/a-little-christmas-template-cooking/#section-2">Continue reading Day 21: A Little Christmas Template Cooking...</a></p>
-            </div>
+                      </div>
 
-        </article>
-        <article class="post">
+                  </div>
 
-            <div class="entry-header cf">
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2019/06/02/yancys-static-backend/index.html" rel="prev"><strong>Previous Article</strong> Yancy&#39;s Static Backend</a></li>
+              </ul>
 
-            <h1><a href="/blog/2018/12/20/testing-dancer/">Day 20: Testing Dancer</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-20">Dec 20, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Dancers and judges at a dance competition" src="/blog/2018/12/20/testing-dancer/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Authors of Dancer (and other) PSGI applications are probably accustomed to <a href="https://metacpan.org/pod/distribution/Dancer2/lib/Dancer2/Manual.pod#TESTING">testing</a> with <a href="https://metacpan.org/pod/Plack::Test">Plack::Test</a>, and while that is a venerated option, it is pretty bare-bones.</p>
-
-<p>During advent last year, I wrote about <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, showing the many easy and (dare I say) fun ways that you can use it to test your Mojolicious applications.
-If you missed it, go <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/">check it out</a>.</p>
-
-<p>I expect there are at least a few of you out there who read that and think, &quot;I&#39;d love to use that, but I don&#39;t use Mojolicious!&quot;; well, you&#39;re in luck!
-With just a little role to bridge the gap, you can use Test::Mojo to test your PSGI applications too!</p>
-
-                  <p><a href="/blog/2018/12/20/testing-dancer/#section-2">Continue reading Day 20: Testing Dancer...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/19/you-only-export-twice/">Day 19: You Only Export Twice</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-19">Dec 19, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Container ship leaving port" src="/blog/2018/12/19/you-only-export-twice/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>With my Yancy documentation site built, with <a href="/blog/2018/12/17/a-website-for-yancy">a custom landing
-page</a> and <a href="/blog/2018/12/18/a-view-to-a-pod">a POD
-viewer</a>, I just need to deploy the site. I
-could deploy the site using <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Hypnotoad">hypnotoad, Mojolicious&#39;s preforking server with
-hot
-deployment</a>,
-but that would require me to have a server and keep it online. It&#39;d be a lot
-better if I could just deploy a <a href="https://pages.github.com">static website to
-Github</a> like all the cool people are doing.</p>
-
-<p>But to do that, I&#39;d need to take my dynamic website and turn it into a static
-one, and that&#39;s impossible! Or is it? Why am I asking me, when I&#39;m the one who
-wrote a way to do it: The <a href="https://metacpan.org/pod/Mojolicious::Command::export">Mojolicious export
-command</a>.</p>
-
-                  <p><a href="/blog/2018/12/19/you-only-export-twice/#section-2">Continue reading Day 19: You Only Export Twice...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/18/a-view-to-a-pod/">Day 18: A View To A POD</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-18">Dec 18, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Books on a library shelf" src="/blog/2018/12/18/a-view-to-a-pod/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In order for Yancy to have a good documentation site, it needs to
-actually render the documentation. To render Perl documentation in
-<a href="http://mojolicious.org">Mojolicious</a>, I can use the
-<a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">PODViewer</a>
-plugin (a fork of the now-deprecated
-<a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer">PODRenderer</a>
-plugin).</p>
-
-                  <p><a href="/blog/2018/12/18/a-view-to-a-pod/#section-2">Continue reading Day 18: A View To A POD...</a></p>
             </div>
 
         </article>
 
-        <nav class="col full pagination">
-          <ul>
-              <li><a class="page-numbers prev" href="/blog/page/4/" rel="prev">Prev</a></li>
-              
-              <li><a class="page-numbers next" href="/blog/page/2/" rel="next">Next</a></li>
-          </ul>
-        </nav>
 
       </div>
 
@@ -345,7 +368,7 @@ plugin).</p>
         </aside>
       </div>
 
-  </div>
+   </div>
 
 </div>
 

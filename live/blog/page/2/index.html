@@ -104,6 +104,62 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2019/01/28/writing-extensible-controllers/">Writing Extensible Controllers</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-01-28">Jan 28, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Clouds stacked inside clouds, mixed with gears. Original artwork by Doug Bell" src="/blog/2019/01/28/writing-extensible-controllers/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Once I have a <a href="/blog/2019/01/21/writing-reusable-controllers">reusable
+controller</a>, how do
+I extend it? Object-oriented programming gives me a couple ways of
+extending a controller through code: Inheritance and composition. But,
+we need to write our controller so that it&#39;s easy to inherit or compose.</p>
+
+<h1>Don&#39;t Render, Stash</h1>
+
+<p>First, this means we shouldn&#39;t call <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#render">the <code>render</code>
+method</a>
+ourselves (unless we have a good reason, but we&#39;ll get to that later).
+The <code>render</code> method can only ever be called once, so we should only call
+it after we&#39;ve gathered all the data we want.</p>
+
+<pre><code># This method cannot easily be used by a subclass, since it explicitly
+# calls render()
+sub list {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    $c-&gt;render(
+        resultset =&gt; $resultset,
+    );
+}
+</code></pre>
+
+<p>So, to make sure I don&#39;t call <code>render</code> too early, and to make sure
+subclasses can use the data from my superclass, I instead put all the
+data directly in to the stash with the <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#stash"><code>stash()</code>
+method</a>.</p>
+
+                  <p><a href="/blog/2019/01/28/writing-extensible-controllers/#section-2">Continue reading Writing Extensible Controllers...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2019/01/21/writing-reusable-controllers/">Writing Reusable Controllers</a></h1>
 
               <p class="post-meta">
@@ -601,35 +657,6 @@ It has many plugins, including easy implementation of <a href="https://metacpan.
 <p>We will see how these two can be married to make a web application today.</p>
 
                   <p><a href="/blog/2018/12/23/mojolicious-and-angular/#section-2">Continue reading Day 23: Mojolicious and Angular...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/">Day 22: Use Carton for your Mojolicious app deployment</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-22">Dec 22, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Brown cardboard boxes on a white floor" src="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>You have a lovely Mojolicious app, it’s time to deploy it!</p>
-
-<p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
-
-                  <p><a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#section-2">Continue reading Day 22: Use Carton for your Mojolicious app deployment...</a></p>
             </div>
 
         </article>

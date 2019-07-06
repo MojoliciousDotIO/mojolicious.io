@@ -7,6 +7,46 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>A Reusable View Layer</title>
+            <link>https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/</link>
+            <guid>https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/</guid>
+            <description><![CDATA[
+                <p>In a well-designed
+<a href="https://en.wikipedia.org/wiki/Model–view–controller">Model-View-Controller</a>
+web application, most of the code and the development time will be in
+the model layer (which contains the <a href="https://en.wikipedia.org/wiki/Business_logic">business
+logic</a>). The other two
+layers are meant to be as re-usable as possible. Earlier this year
+I discussed how to build a <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">reusable controller for
+Mojolicious</a>
+and how to <a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">build an inheritable controller to increase code
+re-use</a>.
+Now, I&#39;d like to talk about how the <a href="https://mojolicious.org">Mojolicious web
+framework</a> provides ways to reuse, combine, and
+compose the view code: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial#Stash-and-templates">the
+stash</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">includes</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layout
+templates</a>,
+and <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named content
+blocks</a>.</p>
+
+<p>This week, I&#39;ll talk about how to make reusable, configurable,
+composable templates.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                        <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 01 Jul 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>Day 21: A Little Christmas Template Cooking</title>
             <link>https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/</link>
             <guid>https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/</guid>
