@@ -19,10 +19,10 @@ data:
   description: Introducing template concepts with a group wishlist app.
 ---
 
-For today's article, I really wanted to demonstrate concepts using a practical example appliation.
-It is possible I let the exaxmple get away from me!
+For today's article, I really wanted to demonstrate concepts using a practical example application.
+It is possible I let the example get away from me!
 
-In today's article I indend to show how to use template composition techniques to produce a wishlist app.
+In today's article I intend to show how to use template composition techniques to produce a wishlist app.
 We will cover [layouts](http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts), [partial templates](http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates), [content blocks](http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks).
 
 The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
@@ -72,7 +72,7 @@ Therefore the content put into them must come from someplace else.
 
 ## A Primary Template
 
-I mentioned before the the layout was like a container that would hold some inner content.
+I mentioned before the layout was like a container that would hold some inner content.
 Let's consider the simplest such case.
 
 When a user first accesses the site, the will be greeted with a login page.
@@ -175,7 +175,7 @@ The third column's contents depends if the list is being shown is the user's own
 
 If not, they are likely considering buying one of these gifts for their friend or family member.
 They are given the option to mark an item as purchased or not.
-This is done by calling the `/update` method, the result of which will change the item's status and re-render the page.o
+This is done by calling the `/update` method, the result of which will change the item's status and re-render the page.
 
 If it is their own page, they don't want to have the surprise spoiled see that someone has bought their present.
 So we don't show the purchase state.
