@@ -104,6 +104,48 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2019/12/26/announcing-core-async-await/">Announcing Core async/await</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-12-26">Dec 26, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Radar dish at sunset" src="/blog/2019/12/26/announcing-core-async-await/radar.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>For years one of my primary tasks as a Mojolicious Core Team member has been to teach Mojolicious users the ins and outs of asynchronous programming.
+We have championed several patterns to tame the beast and clean up async code, including continuation passing, promises and now async/await.
+But while promises were a noted improvement over continuation passing, it is becoming more and more clear that the async/await pattern is a paradigm shift in asynchronous programming semantics.</p>
+
+<p>I personally believe that it is far and away the easiest way to do nonblocking code in modern languages.
+It might even reach the extent that languages and/or frameworks that do not support it are going to be in real trouble as new user will expect it to be available.
+Soon many may not have even been exposed to &quot;the old ways&quot; at all!</p>
+
+<p>Last year, during the 2018 Mojolicious Advent Calendar, I <a href="https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/">introduced</a> my <a href="https://metacpan.org/pod/Mojo::AsyncAwait">Mojo::AsyncAwait</a> library which was intended to address the immediate need for the Mojolicious community, based on the Mojolicious core promise module <a href="https://mojolicious.org/perldoc/Mojo/Promise">Mojo::Promise</a>.
+It did rely on a &quot;controversial&quot; module (<a href="https://metacpan.org/pod/Coro">Coro</a>) to accomplish its task, and therefore it was not a good candidate for all users.</p>
+
+<p>Meanwhile, others in the Perl community were noticing as well.
+Paul Evans (LeoNerd) applied for and received <a href="https://news.perlfoundation.org/post/grant_proposal_futureasyncawai">a grant</a> from The Perl Foundation to build a low-level async/await mechanism for his <a href="https://metacpan.org/pod/Future">Future</a> promise library.
+As that project has successfully culminated in <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> on CPAN, the Mojolicious team has been engaging with Paul on a collaboration to allow Mojo::Promise to hook directly into it.</p>
+
+<p>So without futher ado, the Mojolicious Core Team is very happy to announce that as of the most recent release of Mojolicious, async/await is now a built-in framework feature!</p>
+
+                  <p><a href="/blog/2019/12/26/announcing-core-async-await/#section-2">Continue reading Announcing Core async/await...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/05/compound-selectors/">Day 5: Compound Selectors are Easier than Regexes</a></h1>
 
               <p class="post-meta">
@@ -212,6 +254,7 @@
     <a href="/blog/tag/angular/">Angular</a>
     <a href="/blog/tag/api/">api</a>
     <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/caching/">caching</a>
     <a href="/blog/tag/carton/">carton</a>

@@ -4,13 +4,13 @@
         <loc>https://mojolicious.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2019-07-05</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -367,70 +367,88 @@
         <lastmod>2019-07-01</lastmod>
     </url>
     <url>
+        <loc>https://mojolicious.io/blog/2019/07/08/named-content-blocks/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2019-07-08</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/2019/12/26/announcing-core-async-await/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2019-12-26</lastmod>
+    </url>
+    <url>
         <loc>https://mojolicious.io/blog/page/10/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/11/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/12/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/page/13/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/7/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/9/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/administration/</loc>
@@ -515,6 +533,12 @@
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
         <lastmod>2017-12-15</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/async-await/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/authentication/</loc>
@@ -694,7 +718,7 @@
         <loc>https://mojolicious.io/blog/tag/non-blocking/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2018-12-24</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/non-web/</loc>
@@ -712,7 +736,7 @@
         <loc>https://mojolicious.io/blog/tag/promises/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2018-12-05</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/psgi/</loc>
@@ -724,7 +748,13 @@
         <loc>https://mojolicious.io/blog/tag/rendering/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-07-08</lastmod>
+    </url>
+    <url>
+        <loc>https://mojolicious.io/blog/tag/rendering/page/2/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.3</priority>
+        <lastmod>2019-07-08</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/rest/</loc>
@@ -760,7 +790,7 @@
         <loc>https://mojolicious.io/blog/tag/templates/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-07-01</lastmod>
+        <lastmod>2019-07-08</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/testing/</loc>
@@ -808,7 +838,7 @@
         <loc>https://mojolicious.io/page/advent/2017/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2019-07-05</lastmod>
+        <lastmod>2019-12-26</lastmod>
     </url>
 </urlset>
 

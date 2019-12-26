@@ -7,6 +7,35 @@
         <description>Blog feed of mojolicious.io</description>
         <generator>Statocles 0.093</generator>
         <item>
+            <title>Named Content Blocks</title>
+            <link>https://mojolicious.io/blog/2019/07/08/named-content-blocks/</link>
+            <guid>https://mojolicious.io/blog/2019/07/08/named-content-blocks/</guid>
+            <description><![CDATA[
+                <p><a href="https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/">Last week I went over how to configure and include
+templates</a>. This
+is a pretty standard procedural solution: My current template calls
+another template. But what if I need to pass additional data to my
+layout template? Perhaps in addition to the content in my template,
+I also have some <code>&lt;meta&gt;</code> or <code>&lt;script&gt;</code> tags to include, or some
+<code>&lt;style&gt;</code> specific to this page. This would involve somehow passing data
+&quot;up&quot;, or making the data available for the layout template to use.
+<a href="http://mojolicious.org">Mojolicious</a> provides a way to do this: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named
+content
+blocks</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2019/07/08/named-content-blocks/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                        <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 08 Jul 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
             <title>A Reusable View Layer</title>
             <link>https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/</link>
             <guid>https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/</guid>

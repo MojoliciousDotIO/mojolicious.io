@@ -104,6 +104,79 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/19/you-only-export-twice/">Day 19: You Only Export Twice</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-19">Dec 19, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Container ship leaving port" src="/blog/2018/12/19/you-only-export-twice/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>With my Yancy documentation site built, with <a href="/blog/2018/12/17/a-website-for-yancy">a custom landing
+page</a> and <a href="/blog/2018/12/18/a-view-to-a-pod">a POD
+viewer</a>, I just need to deploy the site. I
+could deploy the site using <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Hypnotoad">hypnotoad, Mojolicious&#39;s preforking server with
+hot
+deployment</a>,
+but that would require me to have a server and keep it online. It&#39;d be a lot
+better if I could just deploy a <a href="https://pages.github.com">static website to
+Github</a> like all the cool people are doing.</p>
+
+<p>But to do that, I&#39;d need to take my dynamic website and turn it into a static
+one, and that&#39;s impossible! Or is it? Why am I asking me, when I&#39;m the one who
+wrote a way to do it: The <a href="https://metacpan.org/pod/Mojolicious::Command::export">Mojolicious export
+command</a>.</p>
+
+                  <p><a href="/blog/2018/12/19/you-only-export-twice/#section-2">Continue reading Day 19: You Only Export Twice...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/18/a-view-to-a-pod/">Day 18: A View To A POD</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-18">Dec 18, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Books on a library shelf" src="/blog/2018/12/18/a-view-to-a-pod/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>In order for Yancy to have a good documentation site, it needs to
+actually render the documentation. To render Perl documentation in
+<a href="http://mojolicious.org">Mojolicious</a>, I can use the
+<a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">PODViewer</a>
+plugin (a fork of the now-deprecated
+<a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer">PODRenderer</a>
+plugin).</p>
+
+                  <p><a href="/blog/2018/12/18/a-view-to-a-pod/#section-2">Continue reading Day 18: A View To A POD...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/17/a-website-for-yancy/">Day 17: A Website For Yancy</a></h1>
 
               <p class="post-meta">
@@ -217,60 +290,6 @@ last time.</p>
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/14/a-practical-example-of-mojo-dom/">Day 14: A Practical Example of Mojo::DOM</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-14">Dec 14, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="A typical industrial platform model overlaid with a laser scan" src="/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.png">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
-
-                  <p><a href="/blog/2018/12/14/a-practical-example-of-mojo-dom/#section-2">Continue reading Day 14: A Practical Example of Mojo::DOM...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/13/taking-on-roles/">Day 13: Taking on Roles</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-13">Dec 13, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Elgin Theater" src="/blog/2018/12/13/taking-on-roles/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>In my previous Advent article, I created <a href="/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
-
-                  <p><a href="/blog/2018/12/13/taking-on-roles/#section-2">Continue reading Day 13: Taking on Roles...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -300,6 +319,7 @@ last time.</p>
     <a href="/blog/tag/angular/">Angular</a>
     <a href="/blog/tag/api/">api</a>
     <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/caching/">caching</a>
     <a href="/blog/tag/carton/">carton</a>

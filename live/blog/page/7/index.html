@@ -104,6 +104,74 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/04/testing-hooks-and-helpers/">Day 4: Testing Hooks and Helpers</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-04">Dec  4, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Scientific calculator on a mathematics textbook" src="/blog/2018/12/04/testing-hooks-and-helpers/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
+<a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
+applications</a>
+(even for <a href="https://metacpan.org/pod/Test::Mojo::Role::PSGI">testing in other web
+frameworks</a>).</p>
+
+<p>But what if what I need to test isn&#39;t a route? What if it&#39;s
+a <a href="https://mojolicious.org/perldoc/Mojolicious#HOOKS">hook</a>,
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-plugin-to-your-application">plugin</a>,
+or
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers">helper</a>?
+We can test all those things, too!</p>
+
+                  <p><a href="/blog/2018/12/04/testing-hooks-and-helpers/#section-2">Continue reading Day 4: Testing Hooks and Helpers...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/03/higher-order-promises/">Day 3: Higher Order Promises</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-03">Dec  3, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="fractal cauliflower" src="/blog/2018/12/03/higher-order-promises/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><h2>Create new, complex Promises by composing Promises</h2>
+
+<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
+
+                  <p><a href="/blog/2018/12/03/higher-order-promises/#section-2">Continue reading Day 3: Higher Order Promises...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/02/automatic-reload-for-rapid-development/">Day 2: Automatic Reload for Rapid Development</a></h1>
 
               <p class="post-meta">
@@ -195,77 +263,6 @@ window automatically reloaded every time the web server restarted!</p>
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/24/day-24-release-and-wrap-up/">Day 24: Release and Wrap-Up</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-24">Dec 24, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Out of focus image of lit Christmas tree" src="/blog/2017/12/24/day-24-release-and-wrap-up/tree_unfocused.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Over the course of this advent calendar, we have discussed the <a href="https://mojolicious.io/blog/tag/wishlist/">Wishlist example application</a> several times.
-We used it to motivate discussions about <a href="/blog/2017/12/17/day-17-the-wishlist-app/">templates</a>, <a href="/blog/2017/12/18/day-18-the-wishlist-model/">models</a>, <a href="/blog/2017/12/19/day-19-make-your-app-installable/">installable apps</a>, and <a href="/blog/2017/12/20/day-20-practical-testing/">testing</a>.
-In this post I want to use it somewhat differently.
-I would like to motivate you, the reader, into action in a few different ways.</p>
-
-                  <p><a href="/blog/2017/12/24/day-24-release-and-wrap-up/#section-2">Continue reading Day 24: Release and Wrap-Up...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/">Day 23: One-Liners for Fun and Profit</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2017-12-23">Dec 23, 2017</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Old man playing timed chess" src="/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/chess.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>Perl is well-known for its <a href="http://www.catonmat.net/download/perl1line.txt">one-liners</a>: short programs written as part of the <a href="http://perldoc.perl.org/perlrun.html">command line invocation of the interpreter</a>.
-Certainly every programmer or sysadmin has the need, from time to time, to do a quick one-off task programmatically.
-Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of actually doing so.</p>
-
-<p>These tasks may include removing unwanted lines from files, collecting data from logs, or even a quick proof-of-concept of something that would become a script later.
-They can read lines in files, even multiple files, can operate on files in-place, can read from STDIN as a pipe.
-But while one-liners have been tools of the trade for these activities, certainly no such thing would be practical for web tasks, right?</p>
-
-<p>But of course, on <a href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/">day 5</a> and <a href="https://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/">day 6</a> of this series that we saw that we can build command line tools with your app.
-We have even seen how to use the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval">eval</a> command to run a one-liner against your app.
-So could we take this further?</p>
-
-<p>Could we do remote data fetching and manipulation as a one-liner?
-Could we build an entire web application as a one-liner?
-Would I be asking if the answer was no?</p>
-
-                  <p><a href="/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/#section-2">Continue reading Day 23: One-Liners for Fun and Profit...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -295,6 +292,7 @@ Would I be asking if the answer was no?</p>
     <a href="/blog/tag/angular/">Angular</a>
     <a href="/blog/tag/api/">api</a>
     <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/caching/">caching</a>
     <a href="/blog/tag/carton/">carton</a>

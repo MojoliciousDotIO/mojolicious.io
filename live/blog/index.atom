@@ -2,11 +2,78 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mojolicious.io/blog/</id>
     <title>mojolicious.io</title>
-    <updated>2019-07-01T00:00:00Z</updated>
+    <updated>2019-12-26T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/index.atom" rel="self" />
     <link href="https://mojolicious.io/blog/" rel="alternate" />
     <generator version="0.093">Statocles</generator>
 
+    <entry>
+        <id>https://mojolicious.io/blog/2019/12/26/announcing-core-async-await/</id>
+        <title>Announcing Core async/await</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2019/12/26/announcing-core-async-await/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>For years one of my primary tasks as a Mojolicious Core Team member has been to teach Mojolicious users the ins and outs of asynchronous programming.
+We have championed several patterns to tame the beast and clean up async code, including continuation passing, promises and now async/await.
+But while promises were a noted improvement over continuation passing, it is becoming more and more clear that the async/await pattern is a paradigm shift in asynchronous programming semantics.</p>
+
+<p>I personally believe that it is far and away the easiest way to do nonblocking code in modern languages.
+It might even reach the extent that languages and/or frameworks that do not support it are going to be in real trouble as new user will expect it to be available.
+Soon many may not have even been exposed to &quot;the old ways&quot; at all!</p>
+
+<p>Last year, during the 2018 Mojolicious Advent Calendar, I <a href="https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/">introduced</a> my <a href="https://metacpan.org/pod/Mojo::AsyncAwait">Mojo::AsyncAwait</a> library which was intended to address the immediate need for the Mojolicious community, based on the Mojolicious core promise module <a href="https://mojolicious.org/perldoc/Mojo/Promise">Mojo::Promise</a>.
+It did rely on a &quot;controversial&quot; module (<a href="https://metacpan.org/pod/Coro">Coro</a>) to accomplish its task, and therefore it was not a good candidate for all users.</p>
+
+<p>Meanwhile, others in the Perl community were noticing as well.
+Paul Evans (LeoNerd) applied for and received <a href="https://news.perlfoundation.org/post/grant_proposal_futureasyncawai">a grant</a> from The Perl Foundation to build a low-level async/await mechanism for his <a href="https://metacpan.org/pod/Future">Future</a> promise library.
+As that project has successfully culminated in <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> on CPAN, the Mojolicious team has been engaging with Paul on a collaboration to allow Mojo::Promise to hook directly into it.</p>
+
+<p>So without futher ado, the Mojolicious Core Team is very happy to announce that as of the most recent release of Mojolicious, async/await is now a built-in framework feature!</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/12/26/announcing-core-async-await/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/async-await/">async/await</a>
+                    <a href="https://mojolicious.io/blog/tag/non-blocking/">non-blocking</a>
+                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-12-26T00:00:00Z</updated>
+        <category term="async/await" />
+        <category term="non-blocking" />
+        <category term="promises" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2019/07/08/named-content-blocks/</id>
+        <title>Named Content Blocks</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2019/07/08/named-content-blocks/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/">Last week I went over how to configure and include
+templates</a>. This
+is a pretty standard procedural solution: My current template calls
+another template. But what if I need to pass additional data to my
+layout template? Perhaps in addition to the content in my template,
+I also have some <code>&lt;meta&gt;</code> or <code>&lt;script&gt;</code> tags to include, or some
+<code>&lt;style&gt;</code> specific to this page. This would involve somehow passing data
+&quot;up&quot;, or making the data available for the layout template to use.
+<a href="http://mojolicious.org">Mojolicious</a> provides a way to do this: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named
+content
+blocks</a>.</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/07/08/named-content-blocks/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                    <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-07-08T00:00:00Z</updated>
+        <category term="templates" />
+        <category term="rendering" />
+    </entry>
     <entry>
         <id>https://mojolicious.io/blog/2019/07/01/a-reusable-view-layer/</id>
         <title>A Reusable View Layer</title>
@@ -128,82 +195,6 @@ work quickly.</p>
         <category term="development" />
         <category term="testing" />
         <category term="yancy" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/</id>
-        <title>Reverse Proxy With Path</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p>It&#39;s extremely common for a <a href="http://mojolicious.org">Mojolicious</a> web
-application to be hosted behind some kind of HTTP proxy: A production website
-usually includes <a href="https://varnish-cache.org">Varnish</a>, or
-<a href="https://www.nginx.com">Nginx</a>, or a CDN (probably using Varnish or Nginx).</p>
-
-<p>In the most common case, a web application is the entire domain, so configuring
-the reverse proxy is very simple: Add the <code>-p</code> option to
-<a href="https://mojolicious.org/perldoc/hypnotoad"><code>hypnotoad</code></a> or <a href="https://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>myapp.pl
-daemon</code></a> command,
-or set the <code>MOJO_REVERSE_PROXY</code> environment variable to a true value. <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook">See the
-Mojolicious Cookbook for more
-details</a>.</p>
-
-<p>But what if my application doesn&#39;t have its own domain? How do I host a
-Mojolicious application as a reverse proxy from a path in another domain?</p>
-
-                <p><a href="https://mojolicious.io/blog/2019/03/18/reverse-proxy-with-path/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/deployment/">deployment</a>
-                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
-                </p>
-
-        ]]></content>
-        <updated>2019-03-18T00:00:00Z</updated>
-        <category term="deployment" />
-        <category term="development" />
-    </entry>
-    <entry>
-        <id>https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/</id>
-        <title>Mojolicious and DBIx::Class</title>
-        <author><name>Doug Bell</name></author>
-        <link href="https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/" rel="alternate" />
-        <content type="html"><![CDATA[
-            <p><a href="http://mojolicious.org">Mojolicious</a> is an <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">MVC
-framework</a>.
-But, unlike <a href="http://www.catalystframework.org">Catalyst</a>, Mojolicious
-does not provide a model API. This is a good thing: Mojolicious works
-well with any model layer, including the existing models used by your
-current application.</p>
-
-<p><a href="https://metacpan.org/pod/DBIx::Class">DBIx::Class</a> is a popular model
-layer for Mojolicious applications. DBIx::Class (or &quot;DBIC&quot;) is an
-<a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object-Relational Mapper
-(ORM)</a> to map
-objects onto a relational database. This allows for a well-organized
-model layer, and a standard API to access the data.</p>
-
-<p>For those who read last month&#39;s posts on <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">Writing Reusable
-Controllers</a> and
-<a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">Writing Extensible
-Controllers</a>, this
-post introduces the end result of those posts: The <a href="http://metacpan.org/pod/Mojolicious::Plugin::DBIC">Mojolicious DBIC
-Plugin</a>. This plugin
-makes it easier to start using DBIx::Class with Mojolicious.</p>
-
-                <p><a href="https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/#section-2">Continue reading...</a></p>
-
-                <p>Tags:
-                    <a href="https://mojolicious.io/blog/tag/development/">development</a>
-                    <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
-                    <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
-                </p>
-
-        ]]></content>
-        <updated>2019-02-18T00:00:00Z</updated>
-        <category term="development" />
-        <category term="controller" />
-        <category term="DBIx::Class" />
     </entry>
 </feed>
 

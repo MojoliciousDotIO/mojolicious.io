@@ -104,6 +104,73 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/">Day 9: Add a theme system to your Mojolicious app</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-09">Dec  9, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Four lines of paint drawn on a roller, in green, red, orange and blue" src="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>You wrote an awesome Mojolicious app, and people use it.
+Marvellous!
+But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
+
+<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
+But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
+
+<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
+
+                  <p><a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading Day 9: Add a theme system to your Mojolicious app...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2018/12/08/authenticating-with-ldap/">Day 8: Authenticating with LDAP</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-12-08">Dec  8, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Who goes there?" src="/blog/2018/12/08/authenticating-with-ldap/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>There are still quite a few people using LDAP in production,
+but for those who are new to it,
+LDAP is a directory with a tree-structure that&#39;s optimised for very fast lookups.
+It used to be very common as a centralised authentication system
+and if you&#39;re using Active Directory, you&#39;re using LDAP (mostly).
+I wander through the wilderness of authentication,
+ending with my solution on how to add LDAP authentication to your App.</p>
+
+                  <p><a href="/blog/2018/12/08/authenticating-with-ldap/#section-2">Continue reading Day 8: Authenticating with LDAP...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2018/12/07/openapi/">Day 7: MetaCPAN, Mojolicious and OpenAPI</a></h1>
 
               <p class="post-meta">
@@ -191,74 +258,6 @@ Perl has a modern web framework, <a href="http://mojolicious.org">Mojolicious</a
             </div>
 
         </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/04/testing-hooks-and-helpers/">Day 4: Testing Hooks and Helpers</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-04">Dec  4, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Scientific calculator on a mathematics textbook" src="/blog/2018/12/04/testing-hooks-and-helpers/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><p><a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, the
-<a href="http://mojolicious.org">Mojolicious</a> testing tool, has a lot of ways to
-<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Testing">test routes in web
-applications</a>
-(even for <a href="https://metacpan.org/pod/Test::Mojo::Role::PSGI">testing in other web
-frameworks</a>).</p>
-
-<p>But what if what I need to test isn&#39;t a route? What if it&#39;s
-a <a href="https://mojolicious.org/perldoc/Mojolicious#HOOKS">hook</a>,
-a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Cookbook#Adding-a-plugin-to-your-application">plugin</a>,
-or
-a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Helpers">helper</a>?
-We can test all those things, too!</p>
-
-                  <p><a href="/blog/2018/12/04/testing-hooks-and-helpers/#section-2">Continue reading Day 4: Testing Hooks and Helpers...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2018/12/03/higher-order-promises/">Day 3: Higher Order Promises</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2018-12-03">Dec  3, 2018</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="fractal cauliflower" src="/blog/2018/12/03/higher-order-promises/banner.jpg">
-              </div>
-
-            <div class="post-content">
-              <p></p><h2>Create new, complex Promises by composing Promises</h2>
-
-<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
-
-                  <p><a href="/blog/2018/12/03/higher-order-promises/#section-2">Continue reading Day 3: Higher Order Promises...</a></p>
-            </div>
-
-        </article>
 
         <nav class="col full pagination">
           <ul>
@@ -288,6 +287,7 @@ We can test all those things, too!</p>
     <a href="/blog/tag/angular/">Angular</a>
     <a href="/blog/tag/api/">api</a>
     <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
     <a href="/blog/tag/authentication/">authentication</a>
     <a href="/blog/tag/caching/">caching</a>
     <a href="/blog/tag/carton/">carton</a>
