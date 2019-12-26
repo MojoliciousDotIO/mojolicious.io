@@ -16,7 +16,7 @@ images:
         Image: [michaelqiao13591 on pixabay.com](https://www.needpix.com/photo/1768752/radar-blue-cozy-gorgeous-free-pictures-free-photos-free-images-royalty-free-free-illustrations)
 data:
   bio: jberger
-  description: Wrap up the 2018 Calendar with news and gratitude.
+  description: Announcing the addition of async/await as an experimental core feature
 ---
 For years one of my primary tasks as a Mojolicious Core Team member has been to teach Mojolicious users the ins and outs of asynchronous programming.
 We have championed several patterns to tame the beast and clean up async code, including continuation passing, promises and now async/await.
