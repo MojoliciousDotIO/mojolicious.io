@@ -127,7 +127,7 @@ But while promises were a noted improvement over continuation passing, it is bec
 
 <p>I personally believe that it is far and away the easiest way to do nonblocking code in modern languages.
 It might even reach the extent that languages and/or frameworks that do not support it are going to be in real trouble as new user will expect it to be available.
-Soon many may not have even been exposed to &quot;the old ways&quot; at all!</p>
+With <a href="https://en.wikipedia.org/wiki/Async/await">so many different languages</a> adopting the pattern, soon many may not have even been exposed to &quot;the old ways&quot; at all!</p>
 
 <p>Last year, during the 2018 Mojolicious Advent Calendar, I <a href="https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/">introduced</a> my <a href="https://metacpan.org/pod/Mojo::AsyncAwait">Mojo::AsyncAwait</a> library which was intended to address the immediate need for the Mojolicious community, based on the Mojolicious core promise module <a href="https://mojolicious.org/perldoc/Mojo/Promise">Mojo::Promise</a>.
 It did rely on a &quot;controversial&quot; module (<a href="https://metacpan.org/pod/Coro">Coro</a>) to accomplish its task, and therefore it was not a good candidate for all users.</p>
