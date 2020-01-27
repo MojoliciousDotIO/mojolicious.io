@@ -251,7 +251,7 @@ blog_app:
         store: 'blog'
         data:
             title: 'Mojo Wonk Blog'
-            description: 'A semi-offical blog dedicated to the Mojolicious web framework'
+            description: 'A semi-official blog dedicated to the Mojolicious web framework'
 
 # page_app: These are the settings for the page application.
 page_app:
