@@ -99,10 +99,10 @@ composable templates.</p>
             <link>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</link>
             <guid>https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/</guid>
             <description><![CDATA[
-                <p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example appliation.
-It is possible I let the exaxmple get away from me!</p>
+                <p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example application.
+It is possible I let the example get away from me!</p>
 
-<p>In today&#39;s article I indend to show how to use template composition techniques to produce a wishlist app.
+<p>In today&#39;s article I intend to show how to use template composition techniques to produce a wishlist app.
 We will cover <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layouts</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">partial templates</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">content blocks</a>.</p>
 
 <p>The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
