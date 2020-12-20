@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - test #TODO remove
 
   workflow_dispatch:
 
