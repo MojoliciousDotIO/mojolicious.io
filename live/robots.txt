@@ -1,5 +1,0 @@
-Sitemap: https://mojolicious.io/sitemap.xml
-User-Agent: *
-Disallow:
-
-

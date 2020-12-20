@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+      - test #TODO remove
+
+  workflow_dispatch:
+
+  repository_dispatch:
+
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+    environment: Deploy
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.Deploy }}
+
+      - name: Install dependencies
+        run: |
+          curl -fsSL --compressed https://git.io/cpm | perl - install --show-build-log-on-failure
+
+      - name: Deploy
+        run: |
+          git config user.email "admin@mojolicious.io"
+          git config user.name "Mojolicious IO Admin"
+          PERL5LIB=./local/lib/perl5 ./local/bin/statocles deploy
+

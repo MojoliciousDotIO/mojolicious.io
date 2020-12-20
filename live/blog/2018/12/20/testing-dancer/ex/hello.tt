@@ -1,4 +1,0 @@
-<dl id="data">
-  <dt id="hello">hello</dt>
-  <dd><% name %></dd>
-</dl>

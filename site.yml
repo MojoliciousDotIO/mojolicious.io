@@ -228,9 +228,9 @@ theme:
 # deploy: These are the settings for the site's deploy. See Statocles::Deploy::File
 # for a full list of attributes and what they do.
 deploy:
-    class: 'Statocles::Deploy::File'
+    class: 'Statocles::Deploy::Git'
     args:
-        path: './live'
+        branch: gh-pages
 
 #----------------------------------------------------------------------------
 # Applications

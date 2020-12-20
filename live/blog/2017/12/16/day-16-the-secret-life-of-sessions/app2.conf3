@@ -1,9 +1,0 @@
-{
-  secrets => [
-    'w8S4b+90CWwf',
-    'yuIB7m88wS07',
-  ],
-  hypnotoad => {
-    listen => ['http://*:3000'],
-  },
-}
