@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta content="" name="description">
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+
+  <link href="/theme/css/default.css" rel="stylesheet">
+  <link href="/theme/css/layout.css" rel="stylesheet">
+  <link href="/theme/css/media-queries.css" rel="stylesheet">
+  <link href="/theme/css/statocles.css" rel="stylesheet">
+
+  <!-- twitter and opengraph -->
+  <meta content="summary" name="twitter:card">
+  <meta content="https://mojolicious.io/blog/page/9/" property="og:url">
+  <meta content="mojolicious.io" property="og:title">
+    <meta content="summary" name="twitter:card">
+
+  <script src="/theme/js/modernizr.js"></script>
+
+      <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
+
+  <title>mojolicious.io</title>
+  <meta content="Statocles 0.097" name="generator">
+  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
+  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
+  <link href="/static/favicon.ico" rel="shortcut icon">
+  
+  
+</head>
+
+<body>
+
+   <header>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <div class="logo">
+               <a href="/index.html">
+                 <h3 style="color: #fff">mojolicious.io</h3>
+               </a>
+            </div>
+
+            <nav id="nav-wrap">
+
+              <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+              <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+               <ul class="nav" id="nav">
+                 <!-- li.current is given a different styling -->
+                   <li><a href="/blog">Blog</a></li>
+                   <li><span><a href="/">Advent Calendar</a></span>
+                     <ul>
+                       <li><a href="/">2018</a></li>
+                       <li><a href="/page/advent/2017">2017</a></li>
+                      </ul>
+                   </li>
+                   <li><span><a href="https://mojolicious.org">mojolicious.org</a></span>
+                     <ul>
+                       <li><a href="http://mojolicious.org/perldoc">Documentation</a></li>
+                       <li><a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial">Tutorial</a></li>
+                      </ul>
+                   </li>
+
+               </ul>
+
+            </nav>
+
+         </div>
+
+      </div>
+
+   </header>
+
+     <div id="page-title">
+
+  <div class="row">
+
+      <div class="ten columns centered text-center">
+        <h1>Mojo Wonk Blog<span>.</span></h1>
+
+        <p>A semi-official blog dedicated to the Mojolicious web framework</p>
+      </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="content-outer">
+
+  <div class="row" id="page-content">
+
+      <div class="eight columns" id="primary">
+
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2017/12/19/day-19-make-your-app-installable/">Day 19: Make Your App Installable</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-19">Dec 19, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Container ship loading at the dock" src="/blog/2017/12/19/day-19-make-your-app-installable/container_ship.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Thus far we have always run our applications from the local directory.
+That is usually the project root directory and/or the repository checkout.
+But did you know that with only a few changes you can make your application installable like other Perl modules?</p>
+
+<p>While, you must do this if you want to upload your application to CPAN, even if you don&#39;t intend to do that, it still has benefits.
+You can install the application on your personal computer, especially if you want to be able to run the script while in other directories.
+Having an installable module also means that you can use a so-called &quot;DarkPAN&quot; and related tools to build yourself a local &quot;CPAN&quot;.
+If you have multiple Perl modules at your company (or as part of any project) using a DarkPAN can ease integration and deployment immensely!
+N.B. there is even a DarkPAN tool written using Mojolicious called <a href="https://metacpan.org/pod/App::opan">opan</a>.</p>
+
+<p>And hey if you needed even more more reason, it cleans up your project root directory somewhat too!</p>
+
+                  <p><a href="/blog/2017/12/19/day-19-make-your-app-installable/#section-2">Continue reading Day 19: Make Your App Installable...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2017/12/18/day-18-the-wishlist-model/">Day 18: The Wishlist Model</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-18">Dec 18, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Still Life: Vase with Pink Roses by Vincent van Gogh" src="/blog/2017/12/18/day-18-the-wishlist-model/van_gogh_still_life.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p><a href="https://mojolicious.io/blog/2017/12/17/day-17-the-wishlist-app/">Yesterday</a> we discussed templates features like layouts, partial templates, and content buffers.
+We motivated the discussion by introducing a fully functioning example application that tracked user&#39;s Christmas wishlists.
+That application did lack sophistication in the area of data storage, using <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> for quickly getting a basic persistence layer.
+While that worked well enough to demonstrate template functionality it was no triumph of the model layer.
+Indeed some very hack techniques are used, especially in manipulating wishlist items, since there was no unique record ids.</p>
+
+<p>Well as promised I have created a <a href="https://github.com/jberger/Wishlist">repository</a> for the application on Github.
+I have also added several tags.
+While development on the application may continue, those tags will remain for future readers.</p>
+
+<p>The initial form of the application (as seen in yesterday&#39;s post) is tagged <a href="https://github.com/jberger/Wishlist/tree/blog_post/dbm_deep"><code>blog_post/dbm_deep</code></a>.
+You are then invited to step through the commits <a href="https://github.com/jberger/Wishlist/compare/blog_post/dbm_deep...blog_post/full_app">from that one to <code>blog_post/full_app</code></a> to follow along as I port it from a Lite to a Full app; a practical demonstration of what we saw on <a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/">Day 4</a>.</p>
+
+<p>This article will briefly discuss the application as it exists in the next tag, <a href="https://github.com/jberger/Wishlist/tree/blog_post/sqlite_model"><code>blog_post/sqlite_model</code></a>.
+At this point I have replaced DBM::Deep with <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>, written a rudimentary model layer for it, and connected the two with the application via helpers.
+Let&#39;s see how that improves the application and in the meantime, get a look at idiomatic database access in Mojolicious!</p>
+
+                  <p><a href="/blog/2017/12/18/day-18-the-wishlist-model/#section-2">Continue reading Day 18: The Wishlist Model...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2017/12/17/day-17-the-wishlist-app/">Day 17: The Wishlist App</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-17">Dec 17, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Living room, Christmas tree, and presents" src="/blog/2017/12/17/day-17-the-wishlist-app/xmas_tree.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>For today&#39;s article, I really wanted to demonstrate concepts using a practical example application.
+It is possible I let the example get away from me!</p>
+
+<p>In today&#39;s article I intend to show how to use template composition techniques to produce a wishlist app.
+We will cover <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layouts</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">partial templates</a>, <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">content blocks</a>.</p>
+
+<p>The data model is admittedly rough, however I think my plan will be to make that a feature and not a bug.
+Today we will example concepts mostly relating to the templates, then in tomorrows post I will migrate the model from using the simplistic persistence of <a href="https://metacpan.org/pod/DBM::Deep">DBM::Deep</a> that it uses now to <a href="https://metacpan.org/pod/Mojo::SQLite">Mojo::SQLite</a>.</p>
+
+                  <p><a href="/blog/2017/12/17/day-17-the-wishlist-app/#section-2">Continue reading Day 17: The Wishlist App...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions/">Day 16: The Secret Life of Sessions</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-16">Dec 16, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Pile of Scrabble tiles" src="/blog/2017/12/16/day-16-the-secret-life-of-sessions/scrabble.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>As you all know, HTTP is a stateless protocol.
+In Mojolicious applications the session is used to maintain state between requests.
+These sessions are managed by the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious/#sessions">session manager</a>.</p>
+
+<p>During each request, the <a href="http://mojolicious.org/perldoc/Mojolicious/Controller#session">session</a> is just another hash reference attached to the controller, in some ways like the <a href="/blog/2017/12/02/day-2-the-stash">stash</a>, except this one persists between requests.
+Mojolicious does this by encoding the structure, first as JSON then Base64.
+It then signs the resulting string using HMAC-SHA1 and the application&#39;s <a href="http://mojolicious.org/perldoc/Mojolicious#secrets">secret</a> to prevent tampering and stores it as a cookie on the response to the client.</p>
+
+<p>On subsequent requests, the client sends the cookie along with the request (as cookies do).
+Mojolicious then checks if the document and signature validate against the secret, if so the cookie is decoded and made available again via the session method.</p>
+
+<p>Two important things to note.
+First, though the data is safe from tampering, it isn&#39;t encrypted; a savvy user can decode the cookie and see the stored data, so don&#39;t put anything in it that shouldn&#39;t be seen.
+Second, this is only useful if the secret is strong and safe.
+If not, the client could forge a cookie that appeared to come from your application, possibly with catastrophic results!
+So while Mojolicious makes it easy, a little care can go a long way toward keeping your session data safe and trusted.</p>
+
+                  <p><a href="/blog/2017/12/16/day-16-the-secret-life-of-sessions/#section-2">Continue reading Day 16: The Secret Life of Sessions...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2017/12/15/day-15-start-a-new-yancy-app/">Day 15: Start a New Yancy App</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2017-12-15">Dec 15, 2017</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Workers on a scaffold" src="/blog/2017/12/15/day-15-start-a-new-yancy-app/scaffold.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p><a href="http://metacpan.org/pod/Yancy">Yancy</a> is a new content management
+plugin for the <a href="http://mojolicious.org">Mojolicious web framework</a>.
+Yancy allows you to easily administrate your site’s content just by
+describing it using <a href="http://json-schema.org">JSON Schema</a>. Yancy
+supports <a href="http://metacpan.org/pod/Yancy::Backend">multiple backends</a>, so
+your site&#39;s content can be in
+<a href="http://metacpan.org/pod/Yancy::Backend::Pg">Postgres</a>,
+<a href="http://metacpan.org/pod/Yancy::Backend::Mysql">MySQL</a>, and
+<a href="http://metacpan.org/pod/Yancy::Backend::Dbic">DBIx::Class</a>.</p>
+
+                  <p><a href="/blog/2017/12/15/day-15-start-a-new-yancy-app/#section-2">Continue reading Day 15: Start a New Yancy App...</a></p>
+            </div>
+
+        </article>
+
+        <nav class="col full pagination">
+          <ul>
+              <li><a class="page-numbers prev" href="/blog/page/10/" rel="prev">Prev</a></li>
+              
+              <li><a class="page-numbers next" href="/blog/page/8/" rel="next">Next</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <div class="four columns end" id="secondary">
+        <aside id="sidebar">
+          
+
+
+
+
+
+
+
+<div class="widget widget_tag_cloud">
+  <h5 class="widget-title">Tags</h5>
+  <div class="tagcloud cf">
+    <a href="/blog/tag/administration/">administration</a>
+    <a href="/blog/tag/advent/">advent</a>
+    <a href="/blog/tag/angular/">Angular</a>
+    <a href="/blog/tag/api/">api</a>
+    <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
+    <a href="/blog/tag/authentication/">authentication</a>
+    <a href="/blog/tag/caching/">caching</a>
+    <a href="/blog/tag/carton/">carton</a>
+    <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/controller/">controller</a>
+    <a href="/blog/tag/css/">css</a>
+    <a href="/blog/tag/dancer/">dancer</a>
+    <a href="/blog/tag/dbix-class/">DBIx::Class</a>
+    <a href="/blog/tag/debugging/">debugging</a>
+    <a href="/blog/tag/deployment/">deployment</a>
+    <a href="/blog/tag/development/">development</a>
+    <a href="/blog/tag/documentation/">documentation</a>
+    <a href="/blog/tag/example/">example</a>
+    <a href="/blog/tag/fluent/">fluent</a>
+    <a href="/blog/tag/full/">full</a>
+    <a href="/blog/tag/graphql/">graphql</a>
+    <a href="/blog/tag/growing/">growing</a>
+    <a href="/blog/tag/headers/">headers</a>
+    <a href="/blog/tag/hello-world/">hello world</a>
+    <a href="/blog/tag/html/">html</a>
+    <a href="/blog/tag/installing/">installing</a>
+    <a href="/blog/tag/javascript/">JavaScript</a>
+    <a href="/blog/tag/ldap/">LDAP</a>
+    <a href="/blog/tag/lite/">lite</a>
+    <a href="/blog/tag/minion/">minion</a>
+    <a href="/blog/tag/mocking/">mocking</a>
+    <a href="/blog/tag/model/">model</a>
+    <a href="/blog/tag/mojoconf/">mojoconf</a>
+    <a href="/blog/tag/non-blocking/">non-blocking</a>
+    <a href="/blog/tag/non-web/">non-web</a>
+    <a href="/blog/tag/openapi/">openapi</a>
+    <a href="/blog/tag/promises/">promises</a>
+    <a href="/blog/tag/psgi/">psgi</a>
+    <a href="/blog/tag/rendering/">rendering</a>
+    <a href="/blog/tag/rest/">rest</a>
+    <a href="/blog/tag/roles/">roles</a>
+    <a href="/blog/tag/routing/">routing</a>
+    <a href="/blog/tag/session/">session</a>
+    <a href="/blog/tag/swagger/">swagger</a>
+    <a href="/blog/tag/templates/">templates</a>
+    <a href="/blog/tag/testing/">testing</a>
+    <a href="/blog/tag/theme/">theme</a>
+    <a href="/blog/tag/useragent/">useragent</a>
+    <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/xml/">xml</a>
+    <a href="/blog/tag/yancy/">yancy</a>
+  </div>
+</div>
+
+
+
+        </aside>
+      </div>
+
+  </div>
+
+</div>
+
+
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <ul class="footer-nav">
+                <li><a href="/blog">Blog.</a></li>
+                <li><a href="/">Advent Calendar.</a></li>
+                <li><a href="https://mojolicious.org">mojolicious.org.</a></li>
+            </ul>
+
+            <ul class="footer-social">
+               <li><a href="https://github.com/mojolicious/mojo"><i class="fa fa-github"></i></a></li>
+               <li><a href="https://twitter.com/search?q=%23mojolicious"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="/blog/index.rss"><i class="fa fa-rss"></i></a></li>
+            </ul>
+
+            <ul class="copyright">
+                 <li>Copyright © 2017 Joel Berger</li>
+                <li><a href="https://github.com/MojoliciousDotIO/mojolicious.io">Contribute to this site on Github</a></li>
+               <li>Design by <a href="http://www.styleshout.com/">Styleshout</a></li>
+               <li>Made with <a href="http://preaction.me/statocles">Statocles</a></li>
+               <li>Powered by <a href="http://www.perl.org">Perl</a></li>
+            </ul>
+
+         </div>
+
+         <div id="go-top" style="display: block;"><a href="#" title="Back to Top">Go To Top</a></div>
+
+      </div>
+
+   </footer>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="/theme/js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script src="/theme/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+   <script src="/theme/js/jquery.flexslider.js"></script>
+   <script src="/theme/js/doubletaptogo.js"></script>
+   <script src="/theme/js/init.js"></script>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/perl.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/xml.min.js"></script>
+      <script>
+        hljs.configure({"languages":["perl","bash","yaml","xml"]});
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-110569629-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+
+</html>

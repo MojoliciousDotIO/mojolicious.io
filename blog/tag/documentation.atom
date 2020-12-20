@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/documentation/</id>
+    <title>mojolicious.io</title>
+    <updated>2018-12-18T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/documentation.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/documentation/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/</id>
+        <title>Day 18: A View To A POD</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>In order for Yancy to have a good documentation site, it needs to
+actually render the documentation. To render Perl documentation in
+<a href="http://mojolicious.org">Mojolicious</a>, I can use the
+<a href="http://metacpan.org/pod/Mojolicious::Plugin::PODViewer">PODViewer</a>
+plugin (a fork of the now-deprecated
+<a href="http://mojolicious.org/perldoc/Mojolicious/Plugin/PODRenderer">PODRenderer</a>
+plugin).</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/documentation/">documentation</a>
+                    <a href="https://mojolicious.io/blog/tag/yancy/">yancy</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-18T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="documentation" />
+        <category term="yancy" />
+    </entry>
+</feed>
+

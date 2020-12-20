@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/minion/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/minion.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Day 12: Using Minion in Dancer Apps</title>
+            <link>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</link>
+            <guid>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</guid>
+            <description><![CDATA[
+                <p>At <code>$work</code>, we have built an API with <a href="https://metacpan.org/pod/Dancer">Dancer</a> that generates PDF documents and XML files. This API is a critical component of an insurance enrollment system: PDFs are generated to deliver to the client in a web browser
+immediately, and the XML is delivered to the carrier as soon as it becomes available. Since the XML often takes a significant amount of time to generate, the job is generated in the background so as not to tie up the
+application server for an extended amount of time. When this was done, a homegrown process management system was developed, and works by <code>fork()</code>ing a process, tracking its pid, and hoping we can later successfully
+reap the completed process.</p>
+
+<p>There have been several problems with this approach:
+- it&#39;s fragile
+- it doesn&#39;t scale
+- it&#39;s too easy to screw something up as a developer</p>
+
+<p>In 2019, we have to ramp up to take on a significantly larger workload. The current solution simply will not handle the amount of work we anticipate needing to handle. Enter <a href="https://metacpan.org/pod/Minion">Minion</a>.</p>
+
+<p><em>Note:</em> The techniques used in this article work equally well with Dancer or <a href="https://metacpan.org/pod/Dancer2">Dancer2</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/12/dancer-and-minion/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/dancer/">dancer</a>
+                        <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 12 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 11: Who Watches The Minions</title>
+            <link>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</link>
+            <guid>https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/</guid>
+            <description><![CDATA[
+                <p>Now that I have a <a href="https://mojolicious.org/perldoc/Minion">Minion job
+queue</a>, I need to take care of
+it properly. Are the workers working (have they seized the means of
+production)? Are jobs completing successfully? Are there any errors?
+What are they?</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/11/who-watches-the-minions/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 11 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 10: Minion Stands Alone</title>
+            <link>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</link>
+            <guid>https://mojolicious.io/blog/2018/12/10/minion-stands-alone/</guid>
+            <description><![CDATA[
+                <p>The <a href="https://mojolicious.org/perldoc/Minion">Minion job queue</a> is an
+incredibly useful tool, but sometimes I need to use it for non-web
+projects. So, how can I use Minion without needing
+a <a href="http://mojolicious.org">Mojolicious</a> web application?</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/10/minion-stands-alone/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/minion/">minion</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 10 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

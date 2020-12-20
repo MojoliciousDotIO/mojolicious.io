@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/full/</id>
+    <title>mojolicious.io</title>
+    <updated>2017-12-04T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/full.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/full/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</id>
+        <title>Day 4: Don&#39;t Fear the Full App</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>One of the most common misconceptions about Mojolicious is that there is a large difference between the declarative &quot;Lite&quot; apps that we have seen so far and large-scale structured &quot;Full&quot; apps.
+Nothing could be further from the truth.
+<a href="http://mojolicious.org/perldoc/Mojolicious/Lite">Mojolicious::Lite</a> is a very tiny wrapper around the so-called &quot;Full&quot; app architecture, giving it the approachable keyword syntax.</p>
+
+<p>Because it is much nicer to have concise single-file examples for documentation most of Mojolicious&#39; documentation uses Lite syntax most of the time.
+It is understandable that people worry about migrating (or as we call it &quot;growing&quot;) even once their apps would benefit from Object-Oriented structure; after all the docs seem geared towards Lite apps.
+However, let those fears go, the transition is easy.
+And once you understand it, the documentatation examples are trivial to translate.</p>
+
+<p>Plus, Mojolicious comes with two forms of help when transitioning.
+The first is the <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing">Growing Guide</a> which covers everything this post will but from the perspective of porting an existing application (which I won&#39;t duplicate here).
+The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate">inflate command</a> which can even start you on the process by moving your templates from the data section and into their own files.</p>
+
+<p>That said, in order to futher demystify things, I&#39;m going to cover some of the differences and pull back the curtain on the Lite syntax itself.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                    <a href="https://mojolicious.io/blog/tag/full/">full</a>
+                    <a href="https://mojolicious.io/blog/tag/growing/">growing</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-04T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="lite" />
+        <category term="full" />
+        <category term="growing" />
+    </entry>
+</feed>
+

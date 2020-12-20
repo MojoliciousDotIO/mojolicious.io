@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/debugging/</id>
+    <title>mojolicious.io</title>
+    <updated>2017-12-23T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/debugging.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/debugging/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/</id>
+        <title>Day 23: One-Liners for Fun and Profit</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Perl is well-known for its <a href="http://www.catonmat.net/download/perl1line.txt">one-liners</a>: short programs written as part of the <a href="http://perldoc.perl.org/perlrun.html">command line invocation of the interpreter</a>.
+Certainly every programmer or sysadmin has the need, from time to time, to do a quick one-off task programmatically.
+Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of actually doing so.</p>
+
+<p>These tasks may include removing unwanted lines from files, collecting data from logs, or even a quick proof-of-concept of something that would become a script later.
+They can read lines in files, even multiple files, can operate on files in-place, can read from STDIN as a pipe.
+But while one-liners have been tools of the trade for these activities, certainly no such thing would be practical for web tasks, right?</p>
+
+<p>But of course, on <a href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/">day 5</a> and <a href="https://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/">day 6</a> of this series that we saw that we can build command line tools with your app.
+We have even seen how to use the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval">eval</a> command to run a one-liner against your app.
+So could we take this further?</p>
+
+<p>Could we do remote data fetching and manipulation as a one-liner?
+Could we build an entire web application as a one-liner?
+Would I be asking if the answer was no?</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/command/">command</a>
+                    <a href="https://mojolicious.io/blog/tag/debugging/">debugging</a>
+                    <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-23T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="command" />
+        <category term="debugging" />
+        <category term="lite" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/</id>
+        <title>Day 5: Your App&#39;s Built-In Commands</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>I mentioned at the outset of this series that Mojolicious applications are more than just web servers.
+I then showed how you can start a web server using the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/daemon"><code>daemon</code></a> or <a href="http://mojolicious.org/perldoc/Mojolicious/Command/prefork"><code>prefork</code></a> commands.
+In the previous post, I mentioned an <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate"><code>inflate</code></a> command that can help you with growing your app from Lite to Full.</p>
+
+<p>But there are other commands, built right in to your app, that can help you be more productive right away!</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/command/">command</a>
+                    <a href="https://mojolicious.io/blog/tag/debugging/">debugging</a>
+                    <a href="https://mojolicious.io/blog/tag/administration/">administration</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-05T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="command" />
+        <category term="debugging" />
+        <category term="administration" />
+    </entry>
+</feed>
+

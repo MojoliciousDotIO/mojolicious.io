@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/advent/</id>
+    <title>mojolicious.io</title>
+    <updated>2018-12-25T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/advent.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/advent/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/25/special-thanks/</id>
+        <title>Day 25: Special Thanks</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/25/special-thanks/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>This advent calendar, I have special thanks to offer to all the people who helped make it possible.
+I&#39;ll list them shortly, but before I do, I&#39;d like to introduce you to the newest unofficial member of the Mojolicious Core Team: Jude Carl Berger!
+Jude was born on the first day of this calendar, December 1st, at 2:15 am Chicago time.
+If you&#39;re looking at timestamps, yes, that&#39;s about 4 hours after the first blog post went live.</p>
+
+<p>After a one week stay in the NICU for a relatively minor condition, he&#39;s now home with myself and his mother, my wonderful wife Carolyn, who I have to thank first.
+Not too many partners would put up with someone flitting out to edit a blog post or hit &quot;publish&quot; at the right moment during this time in our lives.
+And thanks for Jude.</p>
+
+<p>Armed with that knowledge, you can surely see that even more than usual I couldn&#39;t have done this without help!
+So, with no further ado, I want to thank all the authors,</p>
+
+<ul>
+<li>Boyd Duffee</li>
+<li>brian d foy</li>
+<li>Chris Seigman</li>
+<li>Doug Bell</li>
+<li>Jason Crome</li>
+<li>Joe Cooper</li>
+<li>Luc Didry</li>
+<li>Sachin Dangol</li>
+<li>Shawn Sorichetti</li>
+</ul>
+
+<p>I especially want to note that Doug Bell went above and beyond with eight (!) articles, brian d foy did more than his fair share with four, and Luc Didry and Boyd Duffee did two each!
+I also want to specially mention Jason Crome who, during a tough month of his own, administered the <a href="http://advent.perldancer.org/2018">Twelve Days of Dancer</a> and contributed a cross-over article to ours as well.
+The calendar is obviously nothing without the articles and so I&#39;m tremendously thankful that I had authors that I could lean on to help me when I wasn&#39;t able to fill extra space as I might have in other years.
+Spectacular work, one and all!</p>
+
+<p>We intend to publish more on this site throughout the year, including some pieces from two authors who submitted articles after all the days had been filled.
+Articles had been committed to the repo, but were not yet published, which led to a small confusion in which these authors rose to meet a need they thought existed, so thank you Stefan Adams and Yuki Kimoto for stepping up!
+We&#39;ll get those and other articles out to you in the coming months!</p>
+
+<p>I want to thank Doug again for creating and maintaining <a href="http://preaction.me/statocles/">Statocles</a>, the static blog engine that powers this site.
+I want to thank my employer <a href="https://www.servercentral.com/">ServerCentral</a> who not only are great to work for and support open source, but who gave me lots of time to get settled in with the newest member of my family (and a few cute gifts for him too).
+I want to thank Sebastian Riedel for writing Mojolicious and for the outfit you see on Jude in the picture above (as far as I know, it is a unique piece), and the entire Mojolicious Core Team and community.</p>
+
+<p>I want to thank Jude for being a reasonably happy newborn and sleeping for longer-than-average stretches at night.</p>
+
+<p>Finally, I extend my warmest thanks to the doctors, nurses and staff of Northwest Community Hospital in Arlington Heights, Illinois and especially the NICU nurses who are beyond amazing.</p>
+
+<p>Merry Christmas, Happy Holidays, Happy New Year, and Happy Perling!</p>
+
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-25T00:00:00Z</updated>
+        <category term="advent" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/</id>
+        <title>Day 24: Async/Await the Mojo Way</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h2>The Problems with Thinking in Asynchronous Code</h2>
+
+<p>I&#39;ve thought a lot about asynchronous code.
+Learning it, writing it, teaching it.
+Async is hard.</p>
+
+<blockquote>
+  <p>Learning async programming is about being completely confused and overcomplicating everything and eventually having an &#39;aha&#39; moment and then being utterly frustrated you don&#39;t have a way to teach other people without them needing to go through the same process.
+  <cite><a href="https://shadow.cat/blog/matt-s-trout/">Matt S. Trout</a></cite></p>
+</blockquote>
+
+<p>While Matt is right, I&#39;ve thought a lot about that quote and I think I&#39;ve come up with an underlying problem.
+This may sound trite and it may seem obvious, but the problem is that writing asynchronous code is just fundamentally different than writing blocking code.</p>
+
+<p>We&#39;ve always known how to make one instruction follow another, that&#39;s easy, it happens on the next line of code.
+Line one executes and then line two.
+If line two needs something from line one it will be there.</p>
+
+<p>Say you want to write &quot;get this web resource, then print the title&quot;.
+In blocking code that is easy!</p>
+
+<pre><code>use Mojo::Base -strict, -signatures;
+use Mojo::UserAgent;
+use Mojo::Util &#39;trim&#39;;
+my $ua = Mojo::UserAgent-&gt;new;
+
+my $title = trim $ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+say $title;
+</code></pre>
+
+<p>In asynchronous code, those two steps don&#39;t just follow in sequence, either in execution in the file nor in actual code flow.
+A newcomer to nonblocking is told that to make that nonblocking, you need a callback; a thing to do once the transaction is complete.
+So they might write this (non-working!) code instead.</p>
+
+<pre><code>use Mojo::Base -strict, -signatures;
+use Mojo::IOLoop;
+use Mojo::UserAgent;
+use Mojo::Util &#39;trim&#39;;
+my $ua = Mojo::UserAgent-&gt;new;
+my $url = &#39;https://mojolicious.org&#39;;
+
+my $title;
+$ua-&gt;get($url, sub ($ua, $tx) {
+  $title = trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+});
+say $title;
+
+Mojo::IOLoop-&gt;start;
+</code></pre>
+
+<p>The problem of course is, the print statement happens before the title is extracted.
+In fact the print statement happens before the request is even made!</p>
+
+<p><em>Because there are a lot of examples, I&#39;ll skip the first chunk of code.
+Assume those lines are always there going foward.</em></p>
+
+<p>The fix in this case is easy</p>
+
+<pre><code>$ua-&gt;get($url, sub ($ua, $tx) {
+  my $title = trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  say $title;
+});
+Mojo::IOLoop-&gt;start;
+</code></pre>
+
+<p>but that isn&#39;t always the case.
+What if you wanted to return the title rather than print it?
+What if wanted to fetch two resources rather than one, whether sequentially or in parallel?</p>
+
+<h2>An Important First Step</h2>
+
+<p>Several attempts have been made to organize and improve this situation.
+The pattern that seems to have emerged as the preferred choice is <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Promises</a>.</p>
+
+<p>Promises have a nice property that gets them closer to linear code.
+You create and return a promise object that represents the eventual result of the task, though the task itself may not have even started yet.
+In our example before we could say</p>
+
+<pre><code>use Mojo::Promise;
+
+my $promise = Mojo::Promise-&gt;new;
+$ua-&gt;get($url, sub ($ua, $tx) {
+  my $title = trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  $promise-&gt;resolve($title);
+});
+
+$promise-&gt;then(sub ($title) {
+  say $title;
+})-&gt;wait;
+</code></pre>
+
+<p>At first glance this isn&#39;t too much better than the callback.
+However, a few nice features emerge.
+The most important of which is that the promise object can be returned to the caller and the caller can choose what to do with it.</p>
+
+<p>In useful code you would also want to attach error handling, though I&#39;ve omitted it here for bevity.
+Mojolicious&#39; promise implementation also gives us the <code>wait</code> method to start the ioloop if necessary.</p>
+
+<p>Although it is interesting to see how a user can create a promise object to convert a callback api to promises, many libraries, including Mojolicious, now have promise variants built-in.
+Rather than depending on the user to create a promise to resolve in the callback, these libraries will just return a promise of their own.
+In the Mojolicious project, by convention methods that return promises end in <code>_p</code>.</p>
+
+<p>With that we can write similar code to the one above</p>
+
+<pre><code>my $promise = $ua-&gt;get_p($url);
+
+$promise-&gt;then(sub ($tx) {
+  my $title = trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  say $title;
+})-&gt;wait;
+</code></pre>
+
+<p>However that&#39;s slightly different.
+The promise above resolved with the title, this one resolves with the transaction.
+That brings us to the next interesting feature of promises: the return value of <code>then</code> is another promise that is resolved with the return value of the callback.
+Additionally, if that value is another promise then they chain, if not then it resolves with the value.</p>
+
+<p>We can use that property to replicate the original promise example above more directly like this</p>
+
+<pre><code>my $promise = $ua-&gt;get_p($url)-&gt;then(sub ($tx) {
+  return trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+});
+
+$promise-&gt;then(sub ($title) {
+  say $title;
+})-&gt;wait;
+</code></pre>
+
+<p>This is important if say you had a function that was intended to return a promise that resolved to a title.
+Perhaps you might have a function called <code>get_title_p</code> that needs to be called from elsewhere in your project.
+Rather than relying on the promise that the user-agent returned, you can now post-process and return the title rather than the HTTP response.</p>
+
+<pre><code>sub get_title_p ($url) {
+  my $promise = $ua-&gt;get_p($url)-&gt;then(sub ($tx) {
+    return trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  });
+  return $promise;
+}
+
+get_title_p($url)-&gt;then(sub ($title) {
+  say $title;
+})-&gt;wait;
+</code></pre>
+
+<p>All told, this is a step in the right direction, but it still involves a mental shift in style.
+Even if this is easier than using pure callbacks, you still have to keep track of promises, consider the implications of chaining.
+You still have to attach callbacks using <code>then</code>.
+And don&#39;t forget error handling callbacks too!</p>
+
+<p><em>Editor&#39;s note: to this point in the article, it is similar to the Perl Advent Calendar entry <a href="http://www.perladvent.org/2018/2018-12-19.html">posted just a few days before this one on 2018-12-19</a>, humorously presented by Mark Fowler.
+If you&#39;d like to see another take on promises and Mojo::Promise specifically, give it a read.
+Everything in it is applicable even as this article takes it one step further below ...</em></p>
+
+<h2>Async/Await</h2>
+
+<p>What we really wish we could tell the Perl interpreter to do is</p>
+
+<ul>
+<li>suspend execution until this promise resolves or is rejected</li>
+<li>then move on to handle tasks</li>
+<li>when it eventually does resolve or reject</li>
+<li>then resume processing right here or throw an exception</li>
+</ul>
+
+<p>It is a big ask, but if you could say that, you&#39;d basically get linearity back.
+Promises give us the control we&#39;d need for such a mechanism, but until now we in Perl-land lack the ability to suspend and resume the interpreter.
+Indeed, some languages already have this mechanism and the result is called the Async/Await pattern.
+With a little added magic, howver, we can do just that.</p>
+
+<p>That was a lot of introduction, but now I&#39;m finally ready to introduce <a href="https://metacpan.org/pod/Mojo::AsyncAwait">Mojo::AsyncAwait</a>!</p>
+
+<pre><code>use Mojo::AsyncAwait;
+
+async get_title_p =&gt; sub ($url) {
+  my $tx = await $ua-&gt;get_p($url);
+  return trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+};
+
+get_title_p($url)-&gt;then(sub ($title) {
+  say $title;
+})-&gt;wait;
+</code></pre>
+
+<p>This code behaves exactly the same as before, but there are some noticable differences.
+First we declared <code>get_title_p</code> using the <code>async</code> keyword.
+For our purposes this means two things: the function can use the <code>await</code> keyword and it must return a promise.
+Of course right away you&#39;ll see that I don&#39;t return a promise from that function.
+Don&#39;t worry, it gets wrapped in one automatically if needed.</p>
+
+<p>And what is that <code>await</code> keyword?
+That keyword is the magic suspend/resume that we had hoped for above.
+It receives a promise (or a value, which is automatically wrapped in a promise), and tells Perl that it can move on to other things until that promise is resolved or rejected.
+When it is the code extracts the value, in this case the transaction, and the execution continues as if it were blocking code!</p>
+
+<p>Now we wish we could do the same when calling <code>get_title_p</code>.
+Never fear, just wrap it in an async function too, let&#39;s call it <code>main</code>.</p>
+
+<pre><code>use Mojo::AsyncAwait;
+
+async get_title_p =&gt; sub ($url) {
+  my $tx = await $ua-&gt;get_p($url);
+  return trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+};
+
+async main =&gt; sub {
+  my $title = await get_title_p($url);
+  say $title;
+};
+
+main()-&gt;wait;
+</code></pre>
+
+<p>Of course, if we didn&#39;t need the intermediary function anymore, we could skip it.
+After all, the first example didn&#39;t have <code>get_title_p</code>, it just fetched the url, extracted the title, and printed it.</p>
+
+<pre><code>use Mojo::AsyncAwait;
+
+async main =&gt; sub {
+  my $tx = await $ua-&gt;get_p($url);
+  my $title = trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  say $title;
+};
+
+main()-&gt;wait;
+</code></pre>
+
+<p>And now that&#39;s what we&#39;ve done too!</p>
+
+<h2>Real World Use</h2>
+
+<p>The above examples were neat, but since they only fetch one url there&#39;s no reason to be async.
+Let&#39;s look at a few quick useful examples where async is a benefit.</p>
+
+<h3>Concurrent Requests</h3>
+
+<p>The first case might be to extend our example to fetching multiple urls concurrently.
+We can get the promises returned by calling <code>get_title_p</code> on each url, then await a new promise that represents all of them.
+We use <code>map</code> to take the first (only) resolve value from the result of each promise in <code>all</code>.</p>
+
+<pre><code>use Mojo::AsyncAwait;
+use Mojo::Promise;
+
+async get_title_p =&gt; sub ($url) {
+  my $tx = await $ua-&gt;get_p($url);
+  return trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+};
+
+async main =&gt; sub (@urls) {
+  my @promises = map { get_title_p($_) } @urls;
+  my @titles = await Mojo::Promise-&gt;all(@promises);
+  say for map { $_-&gt;[0] } @titles;
+};
+
+my @urls = (qw(
+  https://mojolicious.org
+  https://mojolicious.io
+  https://metacpan.org
+));
+main(@urls)-&gt;wait;
+</code></pre>
+
+<p>Were this code written sequentially, the time it would take to run would be the sum of the time to fetch each url.
+However, as written, this will run in approximately the time it takes for the slowest url to respond.</p>
+
+<h3>Web Apps</h3>
+
+<p>Now let&#39;s say you wanted to turn that script into a web API.
+If we had a webapp that accepted urls as query parameters and returned the responses as JSON it might look like this</p>
+
+<pre><code>use Mojolicious::Lite -signatures;
+use Mojo::AsyncAwait;
+use Mojo::Promise;
+use Mojo::Util &#39;trim&#39;;
+
+plugin &#39;PromiseActions&#39;;
+
+helper get_title_p =&gt; async sub ($c, $url) {
+  my $tx = await $c-&gt;ua-&gt;get_p($url);
+  return trim $tx-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+};
+
+any &#39;/&#39; =&gt; async sub ($c) {
+  my $urls = $c-&gt;every_param(&#39;url&#39;);
+  my @promises = map { $c-&gt;get_title_p($_) } @$urls;
+  my @titles = await Mojo::Promise-&gt;all(@promises);
+  $c-&gt;render(json =&gt; [ map { $_-&gt;[0] } @titles ]);
+};
+
+app-&gt;start;
+</code></pre>
+
+<p>Where the example above would be at</p>
+
+<pre><code>localhost:3000?url=https%3A%2F%2Fmojolicious.org&amp;url=https%3A%2F%2Fmojolicious.io&amp;url=https%3A%2F%2Fmetacpan.org
+</code></pre>
+
+<p>That code is almost exactly what you&#39;d write for a blocking implementation except that it would block the server and it have to fetch the urls sequentially.
+Instead, since it is written nonblocking, the requests are all made concurrently and the server is still free to respond to new clients.
+And yet the code is still very easy to follow.</p>
+
+<p>Note: the <a href="https://metacpan.org/pod/Mojolicious::Plugin::PromiseActions">PromiseActions</a> plugin automatically attaches error handlers to the controller action when it returns a promise; it is highly recommended when using async actions.</p>
+
+<h2>A Word on Implementation</h2>
+
+<p>As stated before Mojo::AsyncAwait requires some mechanism to suspend the interpreter and resume it at that point later on.
+Currently, the module uses the somewhat controversial module <a href="https://metacpan.org/pod/Coro">Coro</a> to do it.
+As a bulwark against future implimentation changes, it comes with a pluggable backend system, not unlike how Mojo::IOLoop&#39;s pluggable reactor system works.
+The default implementation may change and users may choose to use any available backend if they have a preference (once new ones come along, and others  <strong>are</strong> in the works).</p>
+
+<h2>Conclusion</h2>
+
+<p>So now the formula is simple.</p>
+
+<ul>
+<li>Use libraries that return promises rather than take callbacks.</li>
+<li>Use the <code>async</code> keyword when declaring functions that need to <code>await</code> promises.</li>
+<li>Organize your promises using <a href="https://mojolicious.org/perldoc/Mojo/Promise#all">all</a>, <a href="https://mojolicious.org/perldoc/Mojo/Promise#race">race</a> (only wait for the first resolved promise) or some <a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/">higher order promise</a> when needed.</li>
+</ul>
+
+<p>Hopefully with Mojo::AsyncAwait, writing asynchronous code is finally going to be accessible to those users that haven&#39;t yet had Matt&#39;s &quot;aha&quot; moment.
+And for those of us who have, don&#39;t worry, you&#39;ll love it too.</p>
+
+<p><em>Another excellent resource is <a href="https://www.youtube.com/watch?v=gB-OmN1egV8">The Evolution of Async JavaScript: From Callbacks, to Promises, to Async/Await</a> by Tyler McGinnis.
+It is for JavaScript, but nearly everything applies except they syntax.
+Highly recommended.</em></p>
+
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/non-blocking/">non-blocking</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-24T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="non-blocking" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/23/mojolicious-and-angular/</id>
+        <title>Day 23: Mojolicious and Angular</title>
+        <author><name>Sachin Dangol</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/23/mojolicious-and-angular/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p><a href="https://angular.io/">Angular</a> is one of the most popular front-end web application frameworks, helping you build modern applications for the web, mobile, or desktop.
+<a href="https://mojolicious.org/">Mojolicious</a> is a next generation web framework for the Perl programming language.
+Mojolicious and Angular together can certainly build a next generation web application.</p>
+
+<p>At work, we have been using these two to build a very responsive, scalable and fantastic web apps.
+Mojolicious as a backend gives a lot of fun to work stuffs like <a href="https://mojolicious.org/perldoc/Minion">Minion</a>, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a>, <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>.
+It has many plugins, including easy implementation of <a href="https://metacpan.org/pod/Mojolicious::Plugin::OpenAPI">OpenAPI</a>, <a href="https://metacpan.org/pod/Mojolicious::Plugin::OAuth2">OAuth</a>, utility modules and of many others on CPAN.</p>
+
+<p>One of the reasons you want to have this kind of web development set up is that front-end Angular developers and backend Mojolicious developers can work independently.</p>
+
+<p>Angular is backend agnostic. Node.js Express is often used as backend for Angular, but we love Perl and Mojolicious.</p>
+
+<p>We will see how these two can be married to make a web application today.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/23/mojolicious-and-angular/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/angular/">Angular</a>
+                    <a href="https://mojolicious.io/blog/tag/javascript/">JavaScript</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-23T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="Angular" />
+        <category term="JavaScript" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/</id>
+        <title>Day 22: Use Carton for your Mojolicious app deployment</title>
+        <author><name>Luc Didry</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>You have a lovely Mojolicious app, it’s time to deploy it!</p>
+
+<p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/deployment/">deployment</a>
+                    <a href="https://mojolicious.io/blog/tag/carton/">carton</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-22T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="deployment" />
+        <category term="carton" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/</id>
+        <title>Day 21: A Little Christmas Template Cooking</title>
+        <author><name>brian d foy</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>The Advent Calendar has shown you many great ways to use Mojolicious, and since you already have Mojo installed you can use it for things besides web processing. Today&#39;s recipe uses The templating rendering engine for something other than web responses.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/21/a-little-christmas-template-cooking/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/templates/">templates</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-21T00:00:00Z</updated>
+        <category term="templates" />
+        <category term="advent" />
+    </entry>
+</feed>
+

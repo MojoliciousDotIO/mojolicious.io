@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/carton/</id>
+    <title>mojolicious.io</title>
+    <updated>2018-12-22T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/carton.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/carton/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/</id>
+        <title>Day 22: Use Carton for your Mojolicious app deployment</title>
+        <author><name>Luc Didry</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>You have a lovely Mojolicious app, it’s time to deploy it!</p>
+
+<p>But… it’s not working on the production server! What is going on? Oh no, the modules you rely on are not on the same version that on your development server. What can you do?</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/deployment/">deployment</a>
+                    <a href="https://mojolicious.io/blog/tag/carton/">carton</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-22T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="deployment" />
+        <category term="carton" />
+    </entry>
+</feed>
+

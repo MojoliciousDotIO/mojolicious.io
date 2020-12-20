@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/psgi/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/psgi.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Day 20: Testing Dancer</title>
+            <link>https://mojolicious.io/blog/2018/12/20/testing-dancer/</link>
+            <guid>https://mojolicious.io/blog/2018/12/20/testing-dancer/</guid>
+            <description><![CDATA[
+                <p>Authors of Dancer (and other) PSGI applications are probably accustomed to <a href="https://metacpan.org/pod/distribution/Dancer2/lib/Dancer2/Manual.pod#TESTING">testing</a> with <a href="https://metacpan.org/pod/Plack::Test">Plack::Test</a>, and while that is a venerated option, it is pretty bare-bones.</p>
+
+<p>During advent last year, I wrote about <a href="https://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>, showing the many easy and (dare I say) fun ways that you can use it to test your Mojolicious applications.
+If you missed it, go <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test/">check it out</a>.</p>
+
+<p>I expect there are at least a few of you out there who read that and think, &quot;I&#39;d love to use that, but I don&#39;t use Mojolicious!&quot;; well, you&#39;re in luck!
+With just a little role to bridge the gap, you can use Test::Mojo to test your PSGI applications too!</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/20/testing-dancer/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                        <a href="https://mojolicious.io/blog/tag/psgi/">psgi</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 20 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

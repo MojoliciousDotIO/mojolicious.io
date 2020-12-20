@@ -1,0 +1,37 @@
+.post-content ul {
+  list-style-type: initial;
+  list-style-position: outside;
+  margin-left: 1.5em;
+}
+
+.post-content pre code {
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0px;
+}
+
+.hljs {
+  white-space: pre;
+  word-wrap: normal;
+}
+
+code:not(.hljs) {
+  /* color: black; */
+  background-color: #EEEEEE;
+  padding: 1px 3px;
+  margin: 0px 1px;
+  border-radius: 2px;
+  border-color: #DDDDDD;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+  white-space: nowrap;
+}
+
+.author-update {
+    border: 1px solid #313131;
+    border-radius: 5px;
+    background: #EFF1F0;
+    padding: 1em;
+}
+

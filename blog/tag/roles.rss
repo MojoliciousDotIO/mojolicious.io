@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/roles/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/roles.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Day 13: Taking on Roles</title>
+            <link>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</link>
+            <guid>https://mojolicious.io/blog/2018/12/13/taking-on-roles/</guid>
+            <description><![CDATA[
+                <p>In my previous Advent article, I created <a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/">higher-order promises</a> and showed you how to use them. I didn&#39;t show you the magic of how they work. Now I&#39;ll develop another example but from the other direction.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2018/12/13/taking-on-roles/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Thu, 13 Dec 2018 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 13: More About Roles</title>
+            <link>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</link>
+            <guid>https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/</guid>
+            <description><![CDATA[
+                <p>Before we get ahead of ourselves, what are roles?
+Briefly stated, roles enable composing functionality (usually methods) into a class without without implying a change of inheritence.
+Said another way, roles let you specify what a class does without changing what it is.
+For a better description, check out Toby Inkster&#39;s article <a href="http://radar.oreilly.com/2014/01/horizontal-reuse-an-alternative-to-inheritance.html">Horizontal Reuse: An Alternative to Inheritance</a>.</p>
+
+<p>An important utility of roles is that you can easily use more than one role at the same time in the same consuming class.
+With inheritance, especially of third-party functionality, you have to choose one set of extensions to utilize.
+This is because the author of the subclass establishes the inheritance.
+In roles, the user determines which roles to compose into the base class.</p>
+
+<p><a href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class">Yesterday</a> I ended the discussion of <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> before discussing the roles support.
+Added in several installments between Mojolicious versions <a href="https://metacpan.org/release/SRI/Mojolicious-7.40">7.40</a> and <a href="https://metacpan.org/release/SRI/Mojolicious-7.55">7.55</a>, this role support is one of the most recently added features in the ecosystem (along with <a href="http://mojolicious.org/perldoc/Mojo/Promise">promises</a>, which will be covered in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call">an upcoming article</a>).
+The role handling comes from <a href="https://metacpan.org/pod/Role::Tiny">Role::Tiny</a> which is an optional dependency in Mojolicious, but is required in order to use the functionality that I will describe.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/13/day-13-more-about-roles/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Wed, 13 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 12: More Than a Base Class</title>
+            <link>https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/</link>
+            <guid>https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/</guid>
+            <description><![CDATA[
+                <p>Through this series, you&#39;ve seen the module <a href="http://mojolicious.org/perldoc/Mojo/Base">Mojo::Base</a> referenced several times, though briefly and mostly in passing.
+It shouldn&#39;t be taken lightly however, it packs a lot of punch in one import statement!
+Nearly every file in the Mojolicious distribution uses it, either directly or indirectly.
+So what is it?</p>
+
+<p>First it imports several handy pragma that make your code safer and some features that are useful.
+Second, it can be a base class to the current package, or establish a parent class, or even define a role.
+Let&#39;s see how it does it.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/12/day-12-more-than-a-base-class/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/fluent/">fluent</a>
+                        <a href="https://mojolicious.io/blog/tag/roles/">roles</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Tue, 12 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

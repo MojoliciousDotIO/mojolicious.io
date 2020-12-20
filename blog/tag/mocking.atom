@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/mocking/</id>
+    <title>mojolicious.io</title>
+    <updated>2017-12-20T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/mocking.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/mocking/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/</id>
+        <title>Day 20: Practical Testing</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>Back on <a href="https://mojolicious.io/blog/2017/12/09/day-9-the-best-way-to-test">Day 9</a> we discussed testing and especially <a href="http://mojolicious.org/perldoc/Test/Mojo">Test::Mojo</a>.
+Today I want to just briefly talk about some practical things that can come up when testing real world applications.
+Once again the discussion will be motivated by the <a href="https://github.com/jberger/Wishlist">Wishlist</a> application that we&#39;ve been developing these past few days.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/20/day-20-practical-testing/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/mocking/">mocking</a>
+                    <a href="https://mojolicious.io/blog/tag/testing/">testing</a>
+                    <a href="https://mojolicious.io/blog/tag/wishlist/">wishlist</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-20T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="mocking" />
+        <category term="testing" />
+        <category term="wishlist" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/</id>
+        <title>Day 8: Mocking a REST API</title>
+        <author><name>Doug Bell</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>One of my applications is a pure-JavaScript UI for a JSON API. This UI
+is an entirely different project that communicates with a public API
+using an OpenAPI specification.</p>
+
+<p>Our public API is huge and complex: To set up the public API, I need
+a database, sample data, and three other private API servers that
+perform individual tasks as directed by the public API. Worse, I would
+need to set up a lot of different test scenarios with different kinds of
+data.</p>
+
+<p>It would be a lot easier to set up a mock public API that I could use to
+test my UI, and it turns out that Mojolicious makes this very easy.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/08/day-8-mocking-a-rest-api/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/mocking/">mocking</a>
+                    <a href="https://mojolicious.io/blog/tag/api/">api</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-08T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="mocking" />
+        <category term="api" />
+    </entry>
+</feed>
+

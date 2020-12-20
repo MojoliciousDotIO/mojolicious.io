@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta content="" name="description">
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+
+  <link href="/theme/css/default.css" rel="stylesheet">
+  <link href="/theme/css/layout.css" rel="stylesheet">
+  <link href="/theme/css/media-queries.css" rel="stylesheet">
+  <link href="/theme/css/statocles.css" rel="stylesheet">
+
+  <!-- twitter and opengraph -->
+  <meta content="summary" name="twitter:card">
+  <meta content="https://mojolicious.io/blog/2018/03/18/graphql-openapi/" property="og:url">
+  <meta content="Mojolicious, OpenAPI - and GraphQL" property="og:title">
+    <meta content="How to easily add a GraphQL interface to the public REST API of your Mojolicious application" property="og:description">
+    <meta content="https://mojolicious.io/blog/2018/03/18/graphql-openapi/1280px-Nanoscience_High-Performance_Computing_Facility.jpg" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
+
+  <script src="/theme/js/modernizr.js"></script>
+
+      <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
+
+  <title>Mojolicious, OpenAPI - and GraphQL - mojolicious.io</title>
+  <meta content="Ed J" name="author">
+  <meta content="Statocles 0.097" name="generator">
+  <link href="/static/favicon.ico" rel="shortcut icon">
+  
+  
+</head>
+
+<body>
+
+   <header>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <div class="logo">
+               <a href="/index.html">
+                 <h3 style="color: #fff">mojolicious.io</h3>
+               </a>
+            </div>
+
+            <nav id="nav-wrap">
+
+              <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+              <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+               <ul class="nav" id="nav">
+                 <!-- li.current is given a different styling -->
+                   <li><a href="/blog">Blog</a></li>
+                   <li><span><a href="/">Advent Calendar</a></span>
+                     <ul>
+                       <li><a href="/">2018</a></li>
+                       <li><a href="/page/advent/2017">2017</a></li>
+                      </ul>
+                   </li>
+                   <li><span><a href="https://mojolicious.org">mojolicious.org</a></span>
+                     <ul>
+                       <li><a href="http://mojolicious.org/perldoc">Documentation</a></li>
+                       <li><a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial">Tutorial</a></li>
+                      </ul>
+                   </li>
+
+               </ul>
+
+            </nav>
+
+         </div>
+
+      </div>
+
+   </header>
+
+     <div id="page-title">
+
+  <div class="row">
+
+      <div class="ten columns centered text-center">
+        <h1>Mojo Wonk Blog<span>.</span></h1>
+
+        <p>A semi-official blog dedicated to the Mojolicious web framework</p>
+      </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="content-outer">
+
+  <div class="row" id="page-content">
+
+      <div class="eight columns" id="primary">
+
+        <article class="post">
+
+            <div class="entry-header cf">
+
+              <h1>Mojolicious, OpenAPI - and GraphQL</h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2018-03-18">Mar 18, 2018</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="cables in a patch panel" src="/blog/2018/03/18/graphql-openapi/1280px-Nanoscience_High-Performance_Computing_Facility.jpg">
+              </div>
+
+            <div class="post-content">
+
+              <section id="section-1">
+                  <h2>How to easily add a GraphQL interface to the public REST API of your Mojolicious application</h2>
+
+<p>During the Mojolicious 2017 Advent calendar series, we looked at <a href="https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/">how to build a public REST API using Mojolicious</a>. A technology that is getting a lot of buzz is <a href="http://graphql.org/learn/">GraphQL</a>. Now that it has been <a href="https://metacpan.org/pod/GraphQL">ported to Perl 5</a>, what if there were an easy way to let people access your API using it?</p>
+
+              </section>
+              <section id="section-2">
+                  <h2>Why use GraphQL</h2>
+
+<p>GraphQL could be considered an evolution of OpenAPI. It not only allows, but forces you to clearly specify all of your types, inputs and outputs, and available queries and mutations, in a simple, clear way. When you make actual queries, you request everything that you want to get back, and you get back all of that, with no unnecessary extras, and with just one request. This saves both time and network bandwidth.</p>
+
+<p>To learn more about how to use it, there is a translation of the <a href="http://graphql.org/graphql-js/">JavaScript tutorial</a> for GraphQL into <a href="http://blogs.perl.org/users/ed_j/2017/10/graphql-perl---graphql-js-tutorial-translation-to-graphql-perl-and-mojoliciousplugingraphql.html">Perl using Mojolicious</a>.</p>
+
+<h2>Prerequisites</h2>
+
+<p>To run the example code below, you need to have gone through the &quot;build a public REST API&quot; article and installed its prerequisites, and made your app. Then install the following modules:</p>
+
+<pre><code>$ cpanm Mojolicious::Plugin::GraphQL      # server side plugin
+$ cpanm GraphQL::Plugin::Convert::OpenAPI # convert OpenAPI spec to GraphQL
+</code></pre>
+
+<h2>How to add GraphQL to your existing REST API</h2>
+
+<p>To do the bare minimum to get our miniature API going with GraphQL, we just need to change <code>lib/MyApp.pm</code> a little:</p>
+
+<pre><code># add this at the top:
+use Mojo::File &#39;path&#39;;
+
+# change the `OpenAPI` line to:
+my $path = $self-&gt;static-&gt;file(&quot;api.yaml&quot;)-&gt;path;
+my $api = $self-&gt;plugin(OpenAPI =&gt; {spec =&gt; $path});
+$self-&gt;plugin(GraphQL =&gt; {convert =&gt; [ qw(OpenAPI), $api-&gt;validator-&gt;bundle, $self ], graphiql =&gt; 1});
+</code></pre>
+
+<p>This gets the <code>plugin</code> object returned by the OpenAPI plugin, then uses that to pass the API spec along to the GraphQL plugin. The <code>graphiql</code> flag is to tell the plugin to deliver the &quot;GraphiQL&quot; interface if you request the <code>/graphql</code> interface with your browser. We&#39;ll talk more about that soon.</p>
+
+<p>We&#39;ll also add a tiny test this works to <code>t/basic.t</code>:</p>
+
+<pre><code>$t-&gt;post_ok(&#39;/graphql&#39;, json =&gt; {
+  query =&gt; &#39;mutation m {echo(body: [{key:&quot;one&quot;, value:&quot;two&quot;}]) { key value }}&#39;
+})-&gt;json_is(
+  { data =&gt; { echo =&gt; [{key=&gt;&quot;one&quot;, value=&gt;&quot;two&quot;}] } },
+)-&gt;or(sub { diag explain $t-&gt;tx-&gt;res-&gt;body });
+</code></pre>
+
+<p>Check it still all works right:</p>
+
+<pre><code>$ prove -l t
+</code></pre>
+
+<p>This makes a GraphQL request as conventionally done over HTTP. There are two points to note:</p>
+
+<ul>
+<li>it&#39;s a &quot;mutation&quot;, which probably sounds like it would change something, but here it doesn&#39;t - it&#39;s still just an &quot;echo&quot; service</li>
+<li>both the inputs and outputs look like hashes with <code>key</code> and <code>value</code> attributes</li>
+</ul>
+
+<p>The reason it&#39;s a mutation is because our basic REST API used a <code>POST</code> route so it could pass in an arbitrary JSON <code>object</code>. The GraphQL plugin treats all routes that aren&#39;t a <code>GET</code> as mutations. It also turns such an <code>object</code> into a list of &quot;hash pairs&quot;, which are turned to/from a real hash before passing to/getting back from the REST API.</p>
+
+<p>Let&#39;s add a slightly more realistic REST API, then we&#39;ll be able to use Facebook&#39;s excellent &quot;GraphiQL&quot; tool to talk to our API!</p>
+
+<h2>Adjusting the REST API specification</h2>
+
+<p>We&#39;re going to add a <code>GET</code> echo route, and a fake user-creation <code>POST</code> route, including the controller code and tests. We&#39;ll also add a <code>User</code> definition, which will be turned into a GraphQL type of the same name (the other &quot;pairs&quot; stuff gets turned into types as well). For simplicity, we&#39;ll modify our <code>index</code> so it works as the user-creating code in the <code>Echo</code> controller, but in real life you should already see how you&#39;d divide different things into different modules for easier maintenance.</p>
+
+<p>Make your <code>api.yaml</code> read:</p>
+
+<pre><code>swagger: &#39;2.0&#39;
+info:
+  version: &#39;0.42&#39;
+  title: Dummy example
+schemes: [ http ]
+basePath: &quot;/api&quot;
+paths:
+  /echo:
+    post:
+      x-mojo-to: &quot;echo#index&quot;
+      operationId: echo
+      parameters:
+      - in: body
+        name: body
+        schema:
+          type: object
+      responses:
+        200:
+          description: Echo response
+          schema:
+            type: object
+    get:
+      x-mojo-to: &quot;echo#index&quot;
+      operationId: echoGet
+      parameters:
+      - in: query
+        name: q
+        type: string
+      responses:
+        200:
+          description: Echo response
+          schema:
+            type: string
+  /user:
+    post:
+      x-mojo-to: &quot;echo#index&quot;
+      operationId: createUser
+      parameters:
+      - in: body
+        name: user
+        schema:
+          $ref: &quot;#/definitions/User&quot;
+      responses:
+        200:
+          description: Created User
+          schema:
+            $ref: &quot;#/definitions/User&quot;
+definitions:
+  User:
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+</code></pre>
+
+<p>Now change your <code>lib/MyApp/Controller/Echo.pm</code> so the index method is:</p>
+
+<pre><code>sub index {
+  # Validate input request or return an error document
+  my $self = shift-&gt;openapi-&gt;valid_input or return;
+  my $data = $self-&gt;req-&gt;method eq &#39;POST&#39;
+    ? $self-&gt;req-&gt;json
+    : $self-&gt;req-&gt;param(&#39;q&#39;);
+  # Render back the same data as you received using the &quot;openapi&quot; handler
+  $self-&gt;render(openapi =&gt; $data);
+}
+</code></pre>
+
+<p>Of course you&#39;ll want to update your tests, so add this to <code>t/basic.t</code>:</p>
+
+<pre><code>$t-&gt;get_ok(&#39;/api/echo?q=good&#39;)-&gt;status_is(200)-&gt;json_is(&quot;good&quot;);
+$t-&gt;post_ok(&#39;/api/user&#39;, json =&gt; {email=&gt;&#39;a@b&#39;,name=&gt;&#39;Bob&#39;})-&gt;json_is(
+  {email=&gt;&#39;a@b&#39;, name=&gt; &#39;Bob&#39;}
+);
+$t-&gt;post_ok(&#39;/graphql&#39;, json =&gt; {
+  query =&gt; &#39;{echoGet(q: &quot;Hello&quot;)}&#39;
+})-&gt;json_is(
+  { data =&gt; { echoGet =&gt; &#39;Hello&#39; } },
+)-&gt;or(sub { diag explain $t-&gt;tx-&gt;res-&gt;body });
+$t-&gt;post_ok(&#39;/graphql&#39;, json =&gt; {
+  query =&gt; &#39;mutation m {createUser(user: {email:&quot;one@a&quot;, name:&quot;Bob&quot;}) { email name }}&#39;
+})-&gt;json_is(
+  { data =&gt; { createUser =&gt; {email=&gt;&#39;one@a&#39;, name=&gt;&#39;Bob&#39;} } },
+)-&gt;or(sub { diag explain $t-&gt;tx-&gt;res-&gt;body });
+</code></pre>
+
+<p>By now you know how to run the tests!</p>
+
+<h2>How to use GraphiQL to interactively talk to your API</h2>
+
+<p>Start up your service:</p>
+
+<pre><code>$ ./script/my_app daemon -l &#39;http://*:5000&#39;
+</code></pre>
+
+<p>And connect your browser to http://localhost:5000/graphql and try this query:</p>
+
+<pre><code>{echoGet(q: &quot;hi&quot;)}
+</code></pre>
+
+<p>Now do a fake &quot;user creation&quot;:</p>
+
+<pre><code>mutation m {
+  createUser(user: {
+    email: &quot;one@two&quot;
+    name: &quot;Jan&quot;
+  }) {
+    email
+    name
+  }
+}
+</code></pre>
+
+<p>For further exploration, use the &quot;Docs&quot; button in the top-right of the window. It will show you the available types, starting from the root <code>Query</code> (whose fields are all the queries), and <code>Mutation</code>, which has our <code>createUser</code> with input that&#39;s a <code>UserInput</code> and output that&#39;s a <code>User</code>.</p>
+
+<h2>See also</h2>
+
+<p>Did you find GraphQL interesting? Check out these resources to find out more:</p>
+
+<ul>
+<li><a href="https://github.com/graphql-perl/sample-openapi-local">See the GitHub repo with the code for this app</a>.</li>
+<li><a href="https://metacpan.org/pod/GraphQL">GraphQL</a>&#39;s manual
+contains more information about how the core library works.</li>
+<li><a href="https://metacpan.org/pod/Mojolicious::Plugin::GraphQL">Mojolicious::Plugin::GraphQL</a> is how to hook Mojolicious apps up to the core library.</li>
+<li><a href="https://metacpan.org/pod/GraphQL::Plugin::Convert::OpenAPI">GraphQL::Plugin::Convert::OpenAPI</a> is how to hook an OpenAPI interface to GraphQL.</li>
+<li><a href="https://metacpan.org/pod/GraphQL::Plugin::Convert::DBIC">GraphQL::Plugin::Convert::DBIC</a> is how to hook an existing <code>DBIx::Class</code> interface to GraphQL.</li>
+<li><a href="http://graphql.org/">GraphQL&#39;s about page</a> has
+information about GraphQL and what it&#39;s all about.</li>
+</ul>
+
+              </section>
+              <small><p><a class="external text" href="https://www.flickr.com/photos/35734278@N05/3404663653/" rel="nofollow">Image</a> by <a href="https://www.flickr.com/people/35734278@N05">Matt Howard</a> <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a></p>
+</small>
+
+              <p class="tags">
+                <span>Tagged in </span>:
+                  <a href="/blog/tag/api/">api</a>,
+                  <a href="/blog/tag/openapi/">openapi</a>,
+                  <a href="/blog/tag/swagger/">swagger</a>,
+                  <a href="/blog/tag/graphql/">graphql</a>
+              </p>
+
+
+                  <div class="bio cf">
+
+                      <div class="gravatar">
+                        <img alt="author image" src="https://secure.gravatar.com/avatar/c6e74e4e0ab61c61db655f0e60c9f8a6.jpg">
+                      </div>
+                      <div class="about">
+                        <h5>Ed J</h5>
+                        <p>Ed J (aka &quot;mohawk&quot; on IRC) has been using Perl for a long time. He is currently porting the reference <a href="http://graphql.org/">GraphQL</a> implementation from the <a href="http://graphql.org/graphql-js/">JavaScript version</a> to <a href="https://metacpan.org/pod/GraphQL">Perl</a>. Find out more by <a href="https://chat.mibbit.com/?channel=%23graphql-perl&amp;server=irc.perl.org">joining the <code>#graphql-perl</code> channel on irc.perl.org</a>!</p>
+
+                      </div>
+
+                  </div>
+
+              <ul class="post-nav cf">
+                  <li class="prev"><a href="/blog/2017/12/24/day-24-release-and-wrap-up/index.html" rel="prev"><strong>Previous Article</strong> Day 24: Release and Wrap-Up</a></li>
+                  <li class="next"><a href="/blog/2018/12/01/welcome-mojoconf-recap/index.html" rel="next"><strong>Next Article</strong> Day 1: Welcome &amp; MojoConf Recap </a></li>
+              </ul>
+
+            </div>
+
+        </article>
+
+
+      </div>
+
+      <div class="four columns end" id="secondary">
+        <aside id="sidebar">
+          
+
+
+
+
+
+
+
+<div class="widget widget_tag_cloud">
+  <h5 class="widget-title">Tags</h5>
+  <div class="tagcloud cf">
+    <a href="/blog/tag/administration/">administration</a>
+    <a href="/blog/tag/advent/">advent</a>
+    <a href="/blog/tag/angular/">Angular</a>
+    <a href="/blog/tag/api/">api</a>
+    <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
+    <a href="/blog/tag/authentication/">authentication</a>
+    <a href="/blog/tag/caching/">caching</a>
+    <a href="/blog/tag/carton/">carton</a>
+    <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/controller/">controller</a>
+    <a href="/blog/tag/css/">css</a>
+    <a href="/blog/tag/dancer/">dancer</a>
+    <a href="/blog/tag/dbix-class/">DBIx::Class</a>
+    <a href="/blog/tag/debugging/">debugging</a>
+    <a href="/blog/tag/deployment/">deployment</a>
+    <a href="/blog/tag/development/">development</a>
+    <a href="/blog/tag/documentation/">documentation</a>
+    <a href="/blog/tag/example/">example</a>
+    <a href="/blog/tag/fluent/">fluent</a>
+    <a href="/blog/tag/full/">full</a>
+    <a href="/blog/tag/graphql/">graphql</a>
+    <a href="/blog/tag/growing/">growing</a>
+    <a href="/blog/tag/headers/">headers</a>
+    <a href="/blog/tag/hello-world/">hello world</a>
+    <a href="/blog/tag/html/">html</a>
+    <a href="/blog/tag/installing/">installing</a>
+    <a href="/blog/tag/javascript/">JavaScript</a>
+    <a href="/blog/tag/ldap/">LDAP</a>
+    <a href="/blog/tag/lite/">lite</a>
+    <a href="/blog/tag/minion/">minion</a>
+    <a href="/blog/tag/mocking/">mocking</a>
+    <a href="/blog/tag/model/">model</a>
+    <a href="/blog/tag/mojoconf/">mojoconf</a>
+    <a href="/blog/tag/non-blocking/">non-blocking</a>
+    <a href="/blog/tag/non-web/">non-web</a>
+    <a href="/blog/tag/openapi/">openapi</a>
+    <a href="/blog/tag/promises/">promises</a>
+    <a href="/blog/tag/psgi/">psgi</a>
+    <a href="/blog/tag/rendering/">rendering</a>
+    <a href="/blog/tag/rest/">rest</a>
+    <a href="/blog/tag/roles/">roles</a>
+    <a href="/blog/tag/routing/">routing</a>
+    <a href="/blog/tag/session/">session</a>
+    <a href="/blog/tag/swagger/">swagger</a>
+    <a href="/blog/tag/templates/">templates</a>
+    <a href="/blog/tag/testing/">testing</a>
+    <a href="/blog/tag/theme/">theme</a>
+    <a href="/blog/tag/useragent/">useragent</a>
+    <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/xml/">xml</a>
+    <a href="/blog/tag/yancy/">yancy</a>
+  </div>
+</div>
+
+
+
+        </aside>
+      </div>
+
+   </div>
+
+</div>
+
+
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <ul class="footer-nav">
+                <li><a href="/blog">Blog.</a></li>
+                <li><a href="/">Advent Calendar.</a></li>
+                <li><a href="https://mojolicious.org">mojolicious.org.</a></li>
+            </ul>
+
+            <ul class="footer-social">
+               <li><a href="https://github.com/mojolicious/mojo"><i class="fa fa-github"></i></a></li>
+               <li><a href="https://twitter.com/search?q=%23mojolicious"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="/blog/index.rss"><i class="fa fa-rss"></i></a></li>
+            </ul>
+
+            <ul class="copyright">
+                 <li>Copyright © 2017 Joel Berger</li>
+                <li><a href="https://github.com/MojoliciousDotIO/mojolicious.io">Contribute to this site on Github</a></li>
+               <li>Design by <a href="http://www.styleshout.com/">Styleshout</a></li>
+               <li>Made with <a href="http://preaction.me/statocles">Statocles</a></li>
+               <li>Powered by <a href="http://www.perl.org">Perl</a></li>
+            </ul>
+
+         </div>
+
+         <div id="go-top" style="display: block;"><a href="#" title="Back to Top">Go To Top</a></div>
+
+      </div>
+
+   </footer>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="/theme/js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script src="/theme/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+   <script src="/theme/js/jquery.flexslider.js"></script>
+   <script src="/theme/js/doubletaptogo.js"></script>
+   <script src="/theme/js/init.js"></script>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/perl.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/xml.min.js"></script>
+      <script>
+        hljs.configure({"languages":["perl","bash","yaml","xml"]});
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-110569629-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+
+</html>

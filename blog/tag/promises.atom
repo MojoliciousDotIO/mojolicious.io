@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/promises/</id>
+    <title>mojolicious.io</title>
+    <updated>2019-12-26T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/promises.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/promises/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2019/12/26/announcing-core-async-await/</id>
+        <title>Announcing Core async/await</title>
+        <author><name>Joel Berger</name></author>
+        <link href="https://mojolicious.io/blog/2019/12/26/announcing-core-async-await/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>For years one of my primary tasks as a Mojolicious Core Team member has been to teach Mojolicious users the ins and outs of asynchronous programming.
+We have championed several patterns to tame the beast and clean up async code, including continuation passing, promises and now async/await.
+But while promises were a noted improvement over continuation passing, it is becoming more and more clear that the async/await pattern is a paradigm shift in asynchronous programming semantics.</p>
+
+<p>I personally believe that it is far and away the easiest way to do nonblocking code in modern languages.
+It might even reach the extent that languages and/or frameworks that do not support it are going to be in real trouble as new user will expect it to be available.
+With <a href="https://en.wikipedia.org/wiki/Async/await">so many different languages</a> adopting the pattern, soon many may not have even been exposed to &quot;the old ways&quot; at all!</p>
+
+<p>Last year, during the 2018 Mojolicious Advent Calendar, I <a href="https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/">introduced</a> my <a href="https://metacpan.org/pod/Mojo::AsyncAwait">Mojo::AsyncAwait</a> library which was intended to address the immediate need for the Mojolicious community, based on the Mojolicious core promise module <a href="https://mojolicious.org/perldoc/Mojo/Promise">Mojo::Promise</a>.
+It did rely on a &quot;controversial&quot; module (<a href="https://metacpan.org/pod/Coro">Coro</a>) to accomplish its task, and therefore it was not a good candidate for all users.</p>
+
+<p>Meanwhile, others in the Perl community were noticing as well.
+Paul Evans (LeoNerd) applied for and received <a href="https://news.perlfoundation.org/post/grant_proposal_futureasyncawai">a grant</a> from The Perl Foundation to build a low-level async/await mechanism for his <a href="https://metacpan.org/pod/Future">Future</a> promise library.
+As that project has successfully culminated in <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> on CPAN, the Mojolicious team has been engaging with Paul on a collaboration to allow Mojo::Promise to hook directly into it.</p>
+
+<p>So without futher ado, the Mojolicious Core Team is very happy to announce that as of the most recent release of Mojolicious, async/await is now a built-in framework feature!</p>
+
+                <p><a href="https://mojolicious.io/blog/2019/12/26/announcing-core-async-await/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/async-await/">async/await</a>
+                    <a href="https://mojolicious.io/blog/tag/non-blocking/">non-blocking</a>
+                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                </p>
+
+        ]]></content>
+        <updated>2019-12-26T00:00:00Z</updated>
+        <category term="async/await" />
+        <category term="non-blocking" />
+        <category term="promises" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/05/compound-selectors/</id>
+        <title>Day 5: Compound Selectors are Easier than Regexes</title>
+        <author><name>brian d foy</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/05/compound-selectors/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>When people tell me that I can&#39;t (they mean shouldn&#39;t) parse HTML with a regex, I say &quot;hold my beer&quot;. It isn&#39;t a matter of skill or attitude so much as convenience. Doing it the right way was not always so easy (I remember HTML 0.9 being a big deal). Lately, though, I&#39;ve been using <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> to do it for me. It&#39;s easier than the old, expedient way.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/05/compound-selectors/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-05T00:00:00Z</updated>
+        <category term="promises" />
+        <category term="advent" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/03/higher-order-promises/</id>
+        <title>Day 3: Higher Order Promises</title>
+        <author><name>brian d foy</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <h2>Create new, complex Promises by composing Promises</h2>
+
+<p>Mojolicious 7.49 added an its own implementation of the <a href="https://promisesaplus.com">Promises/A+ specification</a>. mohawk wrote about these in <a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/">Day 14: You Promised To Call!</a> of the 2017 Mojolicious Advent Calender where he showed you how to fetch many webpages concurrently. This Advent entry extends that with  more Promise tricks.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/03/higher-order-promises/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-03T00:00:00Z</updated>
+        <category term="promises" />
+        <category term="advent" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/</id>
+        <title>Day 14: You Promised To Call!</title>
+        <author><name>Ed J</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>A new feature of <a href="http://mojolicious.org/">Mojolicious</a>, as of <a href="https://metacpan.org/release/SRI/Mojolicious-7.49">7.49</a>, is the implementation of the <a href="https://promisesaplus.com/implementations#in-other-languages">Promises/A+ specification</a>. In this posting, we&#39;re going to use promises to implement non-blocking, parallel fetching of a number of web pages.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/14/day-14-you-promised-to-call/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/non-blocking/">non-blocking</a>
+                    <a href="https://mojolicious.io/blog/tag/promises/">promises</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-14T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="non-blocking" />
+        <category term="promises" />
+    </entry>
+</feed>
+

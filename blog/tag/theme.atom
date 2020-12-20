@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/theme/</id>
+    <title>mojolicious.io</title>
+    <updated>2018-12-09T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/theme.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/theme/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/</id>
+        <title>Day 9: Add a theme system to your Mojolicious app</title>
+        <author><name>Luc Didry</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>You wrote an awesome Mojolicious app, and people use it.
+Marvellous!
+But users may want to modify the theme of your app: change the logo, use another CSS framework, such sort of things.</p>
+
+<p>Modifying the theme of a Mojolicious app is quite easy: add, modify or delete things in <code>public</code> and <code>templates</code>.
+But all those direct modifications may not survive on update of the app: they will simply be erased by the files of the new version.</p>
+
+<p>Let&#39;s see how we can provide a way to have a theme system in a Mojolicious application, that allows users to have a custom theme without pain and without risk of losing it on updates.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/theme/">theme</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-09T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="theme" />
+    </entry>
+</feed>
+

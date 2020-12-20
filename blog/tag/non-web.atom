@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mojolicious.io/blog/tag/non-web/</id>
+    <title>mojolicious.io</title>
+    <updated>2018-12-14T00:00:00Z</updated>
+    <link href="https://mojolicious.io/blog/tag/non-web.atom" rel="self" />
+    <link href="https://mojolicious.io/blog/tag/non-web/" rel="alternate" />
+    <generator version="0.097">Statocles</generator>
+
+    <entry>
+        <id>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</id>
+        <title>Day 14: A Practical Example of Mojo::DOM</title>
+        <author><name>Chris Seigman</name></author>
+        <link href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>With recent versions of Mojolicious, <a href="https://mojolicious.org/perldoc/Mojo/DOM">Mojo::DOM</a> gained a lot of power that I have been excited to try, but haven&#39;t had the time for.  Recently, I had a problem at my real job (in Engineering, Procurement, and Construction, or EPC for short) that I solved with Mojo::DOM (and other parts of Mojolicious) in a very short time – including learning how to use Mojo::DOM, which I had never done before.</p>
+
+                <p><a href="https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/xml/">xml</a>
+                    <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
+                </p>
+
+        ]]></content>
+        <updated>2018-12-14T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="xml" />
+        <category term="non-web" />
+    </entry>
+    <entry>
+        <id>https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/</id>
+        <title>Day 21: Virtual(ly a) Lumberjack</title>
+        <author><name>CandyAngel</name></author>
+        <link href="https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/" rel="alternate" />
+        <content type="html"><![CDATA[
+            <p>What do you do when you want to split up a stream of data in real-time while
+giving the user instructions?</p>
+
+<p>This is just what I wanted to do to aid in reverse-engineering the USB
+protocol of Virtual Reality devices known as Head Mounted Displays (HMD), for
+the <a href="http://www.openhmd.net/">OpenHMD</a> project.</p>
+
+<p>HMDs are used to create virtual reality environments. When worn, two slightly
+different images are drawn to each side of the screen, with each side visible
+to only one eye. This imitates binocular vision and creates an image with a
+feeling of depth. By tracking the rotation of the unit, the user can then look
+around this environment.</p>
+
+<p>The recent resurgence of Virtual Reality devices can be attributed to the Rift
+DK1, released by Oculus in March 2013.</p>
+
+<p>By logging the packets generated during each movement, we can compare the
+content of each log to identify which bytes are related to which action. Such
+movements include roll (tilting head side-to-side), pitch (looking up and
+down) and yaw (turning left/right). Though position isn&#39;t tracked, we also
+look for sway (left-right translation), surge (back and forth) and heave (up
+and down) information as this is used in combination with the other values for
+accurate tracking of rotation.</p>
+
+<p>Mojo is an amazing toolkit for web development, as shown in previous
+calendar entries, but using components of it can also solve problems in other
+non-web spaces like these. Why use Mojo for this? Because it makes it <em>easy</em>.</p>
+
+                <p><a href="https://mojolicious.io/blog/2017/12/21/day-21-virtually-a-lumberjack/#section-2">Continue reading...</a></p>
+
+                <p>Tags:
+                    <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                    <a href="https://mojolicious.io/blog/tag/non-web/">non-web</a>
+                </p>
+
+        ]]></content>
+        <updated>2017-12-21T00:00:00Z</updated>
+        <category term="advent" />
+        <category term="non-web" />
+    </entry>
+</feed>
+

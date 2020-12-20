@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/controller/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/controller.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Mojolicious and DBIx::Class</title>
+            <link>https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/</link>
+            <guid>https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/</guid>
+            <description><![CDATA[
+                <p><a href="http://mojolicious.org">Mojolicious</a> is an <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">MVC
+framework</a>.
+But, unlike <a href="http://www.catalystframework.org">Catalyst</a>, Mojolicious
+does not provide a model API. This is a good thing: Mojolicious works
+well with any model layer, including the existing models used by your
+current application.</p>
+
+<p><a href="https://metacpan.org/pod/DBIx::Class">DBIx::Class</a> is a popular model
+layer for Mojolicious applications. DBIx::Class (or &quot;DBIC&quot;) is an
+<a href="https://en.wikipedia.org/wiki/Object-relational_mapping">Object-Relational Mapper
+(ORM)</a> to map
+objects onto a relational database. This allows for a well-organized
+model layer, and a standard API to access the data.</p>
+
+<p>For those who read last month&#39;s posts on <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">Writing Reusable
+Controllers</a> and
+<a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">Writing Extensible
+Controllers</a>, this
+post introduces the end result of those posts: The <a href="http://metacpan.org/pod/Mojolicious::Plugin::DBIC">Mojolicious DBIC
+Plugin</a>. This plugin
+makes it easier to start using DBIx::Class with Mojolicious.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2019/02/18/mojolicious-and-dbix-class/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
+                        <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 18 Feb 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Writing Extensible Controllers</title>
+            <link>https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/</link>
+            <guid>https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/</guid>
+            <description><![CDATA[
+                <p>Once I have a <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers">reusable
+controller</a>, how do
+I extend it? Object-oriented programming gives me a couple ways of
+extending a controller through code: Inheritance and composition. But,
+we need to write our controller so that it&#39;s easy to inherit or compose.</p>
+
+<h1>Don&#39;t Render, Stash</h1>
+
+<p>First, this means we shouldn&#39;t call <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#render">the <code>render</code>
+method</a>
+ourselves (unless we have a good reason, but we&#39;ll get to that later).
+The <code>render</code> method can only ever be called once, so we should only call
+it after we&#39;ve gathered all the data we want.</p>
+
+<pre><code># This method cannot easily be used by a subclass, since it explicitly
+# calls render()
+sub list {
+    my ( $c ) = @_;
+    my $resultset_class = $c-&gt;stash( &#39;resultset&#39; );
+    my $resultset = $c-&gt;schema-&gt;resultset( $resultset_class );
+    $c-&gt;render(
+        resultset =&gt; $resultset,
+    );
+}
+</code></pre>
+
+<p>So, to make sure I don&#39;t call <code>render</code> too early, and to make sure
+subclasses can use the data from my superclass, I instead put all the
+data directly in to the stash with the <a href="https://mojolicious.org/perldoc/Mojolicious/Controller#stash"><code>stash()</code>
+method</a>.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
+                        <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 28 Jan 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Writing Reusable Controllers</title>
+            <link>https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/</link>
+            <guid>https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/</guid>
+            <description><![CDATA[
+                <p>In all the web applications I&#39;ve written with
+<a href="http://mojolicious.org">Mojolicious</a>, one of the most mis-used features
+are controllers. Mojolicious is
+a <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Model-View-Controller">Model-View-Controller</a>
+framework, and the MVC pattern is intended to provide for code re-use.</p>
+
+<p>Models can be interchangeable and used by the same controllers and
+templates. With a common, consistent model API, the right controller can
+list any data, update any data. If all of our models have a method named
+&quot;search&quot;, I can make a single controller method that will run a search
+on any of them.</p>
+
+<p>The easiest way to demonstrate this is with
+<a href="http://metacpan.org/pod/DBIx::Class">DBIx::Class</a>. DBIx::Class provides
+a consistent API for a relational database. </p>
+
+<h2>The Problem</h2>
+
+<p>For this example, I&#39;ll use <a href="https://github.com/preaction/Mojolicious-Plugin-DBIC/tree/master/t/lib/Local">this DBIx::Class
+schema</a>.
+My schema has a couple tables: <code>notes</code> for storing simple notes, and
+<code>events</code> for storing calendar events.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/development/">development</a>
+                        <a href="https://mojolicious.io/blog/tag/controller/">controller</a>
+                        <a href="https://mojolicious.io/blog/tag/dbix-class/">DBIx::Class</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 21 Jan 2019 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mojolicious.io</title>
+        <link>https://mojolicious.io/blog/tag/lite/</link>
+        <atom:link href="https://mojolicious.io/blog/tag/lite.rss" rel="self" type="application/rss+xml" />
+        <description>Blog feed of mojolicious.io</description>
+        <generator>Statocles 0.097</generator>
+        <item>
+            <title>Day 23: One-Liners for Fun and Profit</title>
+            <link>https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/</link>
+            <guid>https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/</guid>
+            <description><![CDATA[
+                <p>Perl is well-known for its <a href="http://www.catonmat.net/download/perl1line.txt">one-liners</a>: short programs written as part of the <a href="http://perldoc.perl.org/perlrun.html">command line invocation of the interpreter</a>.
+Certainly every programmer or sysadmin has the need, from time to time, to do a quick one-off task programmatically.
+Such tasks can be done with a full script, to be sure, but once you get the hang of writing them, one-liners can save the time and hassle of actually doing so.</p>
+
+<p>These tasks may include removing unwanted lines from files, collecting data from logs, or even a quick proof-of-concept of something that would become a script later.
+They can read lines in files, even multiple files, can operate on files in-place, can read from STDIN as a pipe.
+But while one-liners have been tools of the trade for these activities, certainly no such thing would be practical for web tasks, right?</p>
+
+<p>But of course, on <a href="https://mojolicious.io/blog/2017/12/05/day-5-your-apps-built-in-commands/">day 5</a> and <a href="https://mojolicious.io/blog/2017/12/06/day-6-adding-your-own-commands/">day 6</a> of this series that we saw that we can build command line tools with your app.
+We have even seen how to use the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/eval">eval</a> command to run a one-liner against your app.
+So could we take this further?</p>
+
+<p>Could we do remote data fetching and manipulation as a one-liner?
+Could we build an entire web application as a one-liner?
+Would I be asking if the answer was no?</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/23/day-23-one-liners-for-fun-and-profit/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/command/">command</a>
+                        <a href="https://mojolicious.io/blog/tag/debugging/">debugging</a>
+                        <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 23 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 4: Don&#39;t Fear the Full App</title>
+            <link>https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</link>
+            <guid>https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/</guid>
+            <description><![CDATA[
+                <p>One of the most common misconceptions about Mojolicious is that there is a large difference between the declarative &quot;Lite&quot; apps that we have seen so far and large-scale structured &quot;Full&quot; apps.
+Nothing could be further from the truth.
+<a href="http://mojolicious.org/perldoc/Mojolicious/Lite">Mojolicious::Lite</a> is a very tiny wrapper around the so-called &quot;Full&quot; app architecture, giving it the approachable keyword syntax.</p>
+
+<p>Because it is much nicer to have concise single-file examples for documentation most of Mojolicious&#39; documentation uses Lite syntax most of the time.
+It is understandable that people worry about migrating (or as we call it &quot;growing&quot;) even once their apps would benefit from Object-Oriented structure; after all the docs seem geared towards Lite apps.
+However, let those fears go, the transition is easy.
+And once you understand it, the documentatation examples are trivial to translate.</p>
+
+<p>Plus, Mojolicious comes with two forms of help when transitioning.
+The first is the <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing">Growing Guide</a> which covers everything this post will but from the perspective of porting an existing application (which I won&#39;t duplicate here).
+The second is the <a href="http://mojolicious.org/perldoc/Mojolicious/Command/inflate">inflate command</a> which can even start you on the process by moving your templates from the data section and into their own files.</p>
+
+<p>That said, in order to futher demystify things, I&#39;m going to cover some of the differences and pull back the curtain on the Lite syntax itself.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/04/day-4-dont-fear-the-full-app/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                        <a href="https://mojolicious.io/blog/tag/full/">full</a>
+                        <a href="https://mojolicious.io/blog/tag/growing/">growing</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Mon, 04 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 3: Using Named Routes</title>
+            <link>https://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/</link>
+            <guid>https://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/</guid>
+            <description><![CDATA[
+                <p>One of the things we know from years of programming is that you should never hard-code anything if you don&#39;t have to.
+And yet far too many web application hard-code their urls, especially internal ones.
+But what if you didn&#39;t have to?</p>
+
+<p>Each Mojolicious route has its own <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Routing#Named-routes">name</a> which can be used to generate urls.
+If you don&#39;t specify one, one is generated, but you shouldn&#39;t rely on that name, give it one that is meaningful and relevant to your purposes.
+In lite apps, the name is the last parameter, after any defaults or callbacks.
+(In a full app it is an attribute, but we&#39;ll talk about those in another post).</p>
+
+<p>Then when you need a url, rather than hard-coding it, use <a href="http://mojolicious.org/perldoc/Mojolicious/Controller#url_for"><code>url_for</code></a> or related functionality to generate a url by name, you can even pass placeholder values if needed.
+Let&#39;s see how it works!</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/03/day-3-using-named-routes/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                        <a href="https://mojolicious.io/blog/tag/routing/">routing</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sun, 03 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 2: The Stash</title>
+            <link>https://mojolicious.io/blog/2017/12/02/day-2-the-stash/</link>
+            <guid>https://mojolicious.io/blog/2017/12/02/day-2-the-stash/</guid>
+            <description><![CDATA[
+                <p>In Mojolicious, when processing a request and preparing a response one of the most important concepts is &quot;the stash&quot;.
+Since it is a non-blocking framework, your code can&#39;t use global variables to store any state during processing.
+If you did and some other code were to run, it could very easily get cross-talk between requests.</p>
+
+<p>The stash is the place you can store information while you process it.
+It is just a simple hash reference that is attached to the controller object that is processing the request.
+It lives and dies with that one transaction.</p>
+
+<p>While you can and should use it as a scratchpad, it really is much more.
+The stash controls almost every aspect of the response that you generate.
+Let&#39;s look a little closer to see how it works</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/02/day-2-the-stash/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                        <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                        <a href="https://mojolicious.io/blog/tag/rendering/">rendering</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Sat, 02 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+        <item>
+            <title>Day 1: Getting Started</title>
+            <link>https://mojolicious.io/blog/2017/12/01/day-1-getting-started/</link>
+            <guid>https://mojolicious.io/blog/2017/12/01/day-1-getting-started/</guid>
+            <description><![CDATA[
+                <h2>Start at the Beginning</h2>
+
+<p>In this Advent Calendar series, some posts will be introductory, some will be advanced, some will be on new features.
+Who knows what could be next?
+But for now let&#39;s ensure a level playing field by working out how to get started.</p>
+
+                    <p><a href="https://mojolicious.io/blog/2017/12/01/day-1-getting-started/#section-2">Continue reading...</a></p>
+
+                    <p>Tags:
+                        <a href="https://mojolicious.io/blog/tag/advent/">advent</a>
+                        <a href="https://mojolicious.io/blog/tag/installing/">installing</a>
+                        <a href="https://mojolicious.io/blog/tag/hello-world/">hello world</a>
+                        <a href="https://mojolicious.io/blog/tag/lite/">lite</a>
+                    </p>
+
+            ]]></description>
+            <pubDate>
+                Fri, 01 Dec 2017 00:00:00 +0000
+            </pubDate>
+        </item>
+    </channel>
+</rss>
+

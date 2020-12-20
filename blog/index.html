@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+  <meta content="" name="description">
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+
+  <link href="/theme/css/default.css" rel="stylesheet">
+  <link href="/theme/css/layout.css" rel="stylesheet">
+  <link href="/theme/css/media-queries.css" rel="stylesheet">
+  <link href="/theme/css/statocles.css" rel="stylesheet">
+
+  <!-- twitter and opengraph -->
+  <meta content="summary" name="twitter:card">
+  <meta content="https://mojolicious.io/blog/" property="og:url">
+  <meta content="mojolicious.io" property="og:title">
+    <meta content="summary" name="twitter:card">
+
+  <script src="/theme/js/modernizr.js"></script>
+
+      <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
+
+  <title>mojolicious.io</title>
+  <meta content="Statocles 0.097" name="generator">
+  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
+  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
+  <link href="/static/favicon.ico" rel="shortcut icon">
+  
+  
+</head>
+
+<body>
+
+   <header>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <div class="logo">
+               <a href="/index.html">
+                 <h3 style="color: #fff">mojolicious.io</h3>
+               </a>
+            </div>
+
+            <nav id="nav-wrap">
+
+              <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+              <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+               <ul class="nav" id="nav">
+                 <!-- li.current is given a different styling -->
+                   <li><a href="/blog">Blog</a></li>
+                   <li><span><a href="/">Advent Calendar</a></span>
+                     <ul>
+                       <li><a href="/">2018</a></li>
+                       <li><a href="/page/advent/2017">2017</a></li>
+                      </ul>
+                   </li>
+                   <li><span><a href="https://mojolicious.org">mojolicious.org</a></span>
+                     <ul>
+                       <li><a href="http://mojolicious.org/perldoc">Documentation</a></li>
+                       <li><a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial">Tutorial</a></li>
+                      </ul>
+                   </li>
+
+               </ul>
+
+            </nav>
+
+         </div>
+
+      </div>
+
+   </header>
+
+     <div id="page-title">
+
+  <div class="row">
+
+      <div class="ten columns centered text-center">
+        <h1>Mojo Wonk Blog<span>.</span></h1>
+
+        <p>A semi-official blog dedicated to the Mojolicious web framework</p>
+      </div>
+
+  </div>
+
+</div>
+
+
+
+<div class="content-outer">
+
+  <div class="row" id="page-content">
+
+      <div class="eight columns" id="primary">
+
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/12/26/announcing-core-async-await/">Announcing Core async/await</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-12-26">Dec 26, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Radar dish at sunset" src="/blog/2019/12/26/announcing-core-async-await/radar.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>For years one of my primary tasks as a Mojolicious Core Team member has been to teach Mojolicious users the ins and outs of asynchronous programming.
+We have championed several patterns to tame the beast and clean up async code, including continuation passing, promises and now async/await.
+But while promises were a noted improvement over continuation passing, it is becoming more and more clear that the async/await pattern is a paradigm shift in asynchronous programming semantics.</p>
+
+<p>I personally believe that it is far and away the easiest way to do nonblocking code in modern languages.
+It might even reach the extent that languages and/or frameworks that do not support it are going to be in real trouble as new user will expect it to be available.
+With <a href="https://en.wikipedia.org/wiki/Async/await">so many different languages</a> adopting the pattern, soon many may not have even been exposed to &quot;the old ways&quot; at all!</p>
+
+<p>Last year, during the 2018 Mojolicious Advent Calendar, I <a href="https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/">introduced</a> my <a href="https://metacpan.org/pod/Mojo::AsyncAwait">Mojo::AsyncAwait</a> library which was intended to address the immediate need for the Mojolicious community, based on the Mojolicious core promise module <a href="https://mojolicious.org/perldoc/Mojo/Promise">Mojo::Promise</a>.
+It did rely on a &quot;controversial&quot; module (<a href="https://metacpan.org/pod/Coro">Coro</a>) to accomplish its task, and therefore it was not a good candidate for all users.</p>
+
+<p>Meanwhile, others in the Perl community were noticing as well.
+Paul Evans (LeoNerd) applied for and received <a href="https://news.perlfoundation.org/post/grant_proposal_futureasyncawai">a grant</a> from The Perl Foundation to build a low-level async/await mechanism for his <a href="https://metacpan.org/pod/Future">Future</a> promise library.
+As that project has successfully culminated in <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> on CPAN, the Mojolicious team has been engaging with Paul on a collaboration to allow Mojo::Promise to hook directly into it.</p>
+
+<p>So without futher ado, the Mojolicious Core Team is very happy to announce that as of the most recent release of Mojolicious, async/await is now a built-in framework feature!</p>
+
+                  <p><a href="/blog/2019/12/26/announcing-core-async-await/#section-2">Continue reading Announcing Core async/await...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/07/08/named-content-blocks/">Named Content Blocks</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-07-08">Jul  8, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="A pen hovering over a drafting blueprint" src="/blog/2019/07/08/named-content-blocks/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p><a href="/blog/2019/07/01/a-reusable-view-layer/">Last week I went over how to configure and include
+templates</a>. This
+is a pretty standard procedural solution: My current template calls
+another template. But what if I need to pass additional data to my
+layout template? Perhaps in addition to the content in my template,
+I also have some <code>&lt;meta&gt;</code> or <code>&lt;script&gt;</code> tags to include, or some
+<code>&lt;style&gt;</code> specific to this page. This would involve somehow passing data
+&quot;up&quot;, or making the data available for the layout template to use.
+<a href="http://mojolicious.org">Mojolicious</a> provides a way to do this: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named
+content
+blocks</a>.</p>
+
+                  <p><a href="/blog/2019/07/08/named-content-blocks/#section-2">Continue reading Named Content Blocks...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/07/01/a-reusable-view-layer/">A Reusable View Layer</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-07-01">Jul  1, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="A brick wall embossed with a cloud image" src="/blog/2019/07/01/a-reusable-view-layer/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>In a well-designed
+<a href="https://en.wikipedia.org/wiki/Model–view–controller">Model-View-Controller</a>
+web application, most of the code and the development time will be in
+the model layer (which contains the <a href="https://en.wikipedia.org/wiki/Business_logic">business
+logic</a>). The other two
+layers are meant to be as re-usable as possible. Earlier this year
+I discussed how to build a <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">reusable controller for
+Mojolicious</a>
+and how to <a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">build an inheritable controller to increase code
+re-use</a>.
+Now, I&#39;d like to talk about how the <a href="https://mojolicious.org">Mojolicious web
+framework</a> provides ways to reuse, combine, and
+compose the view code: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial#Stash-and-templates">the
+stash</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">includes</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layout
+templates</a>,
+and <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named content
+blocks</a>.</p>
+
+<p>This week, I&#39;ll talk about how to make reusable, configurable,
+composable templates.</p>
+
+                  <p><a href="/blog/2019/07/01/a-reusable-view-layer/#section-2">Continue reading A Reusable View Layer...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/06/02/yancys-static-backend/">Yancy&#39;s Static Backend</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-06-02">Jun  2, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="An old book with a cloud and &quot;Mojolicious&quot;" src="/blog/2019/06/02/yancys-static-backend/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Back a few months ago I wrote about <a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/">making a website for the Yancy
+CMS</a> that
+included a basic Markdown page editor, <a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/">adding a documentation viewer
+with the Mojolicious PODViewer
+plugin</a>, and
+<a href="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/">deploying a static version of the site using the Mojolicious <code>export</code>
+command</a>.
+The site uses a SQLite database, which makes it very easy to set up and
+use the Yancy editor, but very difficult to work with the data any other
+way...</p>
+
+<p>To solve this problem, many people have taken to writing their website
+as a set of static files and using a static site generator to add
+templates and plugins to build their website. Each page has a header
+section that defines some metadata about the page, like the title or the
+date it was posted. Instead of having each page be a row in a SQLite
+database, each page in a static site is a file on the filesystem!</p>
+
+<p>Yancy uses &quot;Backends&quot; to interface with a database. To make Yancy into
+a static site generator, I wrote a backend that works with a flat-file
+database made up of YAML and Markdown files:
+<a href="https://metacpan.org/pod/Yancy::Backend::Static">Yancy::Backend::Static</a>.
+I can use this new backend to make my Yancy documentation site even
+easier to edit!</p>
+
+                  <p><a href="/blog/2019/06/02/yancys-static-backend/#section-2">Continue reading Yancy&#39;s Static Backend...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/04/15/testing-environment-with-tmux/">Testing Environment With Tmux</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-04-15">Apr 15, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Text saying &quot;Tmux&quot; in the middle of white, red, yellow, and blue boxes containing shell output separated by thick black lines. Original artwork by Doug Bell" src="/blog/2019/04/15/testing-environment-with-tmux/banner.png">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
+framework</a> currently supports three different
+database systems directly (and even more through <a href="http://dbix-class.org">the DBIx::Class
+ORM</a>). As a result, when doing development,
+I need to have two database daemons running locally, a bunch of
+different environment variables to tell the tests where those databases
+are, and a web daemon to test the front-end.</p>
+
+<p>Setting up these daemons is a pain, but I also do not want to run them
+all the time (to save on my laptop&#39;s battery). To me, it&#39;s easier to run
+a database daemon for a specific project than to try to manage all the
+databases I might need. But that means that every time I want to do some
+work on Yancy, I need to start up a bunch of things.</p>
+
+<p>Since I do all my development in a terminal window, <a href="http://tmux.github.io">the Tmux terminal
+multiplexer</a> has become an extremely useful tool.
+Using a shell script and Tmux, I can run a single command to set up all
+the databases, environment variables, and all the tabs I need to get to
+work quickly.</p>
+
+                  <p><a href="/blog/2019/04/15/testing-environment-with-tmux/#section-2">Continue reading Testing Environment With Tmux...</a></p>
+            </div>
+
+        </article>
+
+        <nav class="col full pagination">
+          <ul>
+              <li><a class="page-numbers prev" href="/blog/page/2/" rel="prev">Prev</a></li>
+              
+              <li><span class="page-numbers next inactive">Next</span></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <div class="four columns end" id="secondary">
+        <aside id="sidebar">
+          
+
+
+
+
+
+
+
+<div class="widget widget_tag_cloud">
+  <h5 class="widget-title">Tags</h5>
+  <div class="tagcloud cf">
+    <a href="/blog/tag/administration/">administration</a>
+    <a href="/blog/tag/advent/">advent</a>
+    <a href="/blog/tag/angular/">Angular</a>
+    <a href="/blog/tag/api/">api</a>
+    <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
+    <a href="/blog/tag/authentication/">authentication</a>
+    <a href="/blog/tag/caching/">caching</a>
+    <a href="/blog/tag/carton/">carton</a>
+    <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/controller/">controller</a>
+    <a href="/blog/tag/css/">css</a>
+    <a href="/blog/tag/dancer/">dancer</a>
+    <a href="/blog/tag/dbix-class/">DBIx::Class</a>
+    <a href="/blog/tag/debugging/">debugging</a>
+    <a href="/blog/tag/deployment/">deployment</a>
+    <a href="/blog/tag/development/">development</a>
+    <a href="/blog/tag/documentation/">documentation</a>
+    <a href="/blog/tag/example/">example</a>
+    <a href="/blog/tag/fluent/">fluent</a>
+    <a href="/blog/tag/full/">full</a>
+    <a href="/blog/tag/graphql/">graphql</a>
+    <a href="/blog/tag/growing/">growing</a>
+    <a href="/blog/tag/headers/">headers</a>
+    <a href="/blog/tag/hello-world/">hello world</a>
+    <a href="/blog/tag/html/">html</a>
+    <a href="/blog/tag/installing/">installing</a>
+    <a href="/blog/tag/javascript/">JavaScript</a>
+    <a href="/blog/tag/ldap/">LDAP</a>
+    <a href="/blog/tag/lite/">lite</a>
+    <a href="/blog/tag/minion/">minion</a>
+    <a href="/blog/tag/mocking/">mocking</a>
+    <a href="/blog/tag/model/">model</a>
+    <a href="/blog/tag/mojoconf/">mojoconf</a>
+    <a href="/blog/tag/non-blocking/">non-blocking</a>
+    <a href="/blog/tag/non-web/">non-web</a>
+    <a href="/blog/tag/openapi/">openapi</a>
+    <a href="/blog/tag/promises/">promises</a>
+    <a href="/blog/tag/psgi/">psgi</a>
+    <a href="/blog/tag/rendering/">rendering</a>
+    <a href="/blog/tag/rest/">rest</a>
+    <a href="/blog/tag/roles/">roles</a>
+    <a href="/blog/tag/routing/">routing</a>
+    <a href="/blog/tag/session/">session</a>
+    <a href="/blog/tag/swagger/">swagger</a>
+    <a href="/blog/tag/templates/">templates</a>
+    <a href="/blog/tag/testing/">testing</a>
+    <a href="/blog/tag/theme/">theme</a>
+    <a href="/blog/tag/useragent/">useragent</a>
+    <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/xml/">xml</a>
+    <a href="/blog/tag/yancy/">yancy</a>
+  </div>
+</div>
+
+
+
+        </aside>
+      </div>
+
+  </div>
+
+</div>
+
+
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            <ul class="footer-nav">
+                <li><a href="/blog">Blog.</a></li>
+                <li><a href="/">Advent Calendar.</a></li>
+                <li><a href="https://mojolicious.org">mojolicious.org.</a></li>
+            </ul>
+
+            <ul class="footer-social">
+               <li><a href="https://github.com/mojolicious/mojo"><i class="fa fa-github"></i></a></li>
+               <li><a href="https://twitter.com/search?q=%23mojolicious"><i class="fa fa-twitter"></i></a></li>
+               <li><a href="/blog/index.rss"><i class="fa fa-rss"></i></a></li>
+            </ul>
+
+            <ul class="copyright">
+                 <li>Copyright © 2017 Joel Berger</li>
+                <li><a href="https://github.com/MojoliciousDotIO/mojolicious.io">Contribute to this site on Github</a></li>
+               <li>Design by <a href="http://www.styleshout.com/">Styleshout</a></li>
+               <li>Made with <a href="http://preaction.me/statocles">Statocles</a></li>
+               <li>Powered by <a href="http://www.perl.org">Perl</a></li>
+            </ul>
+
+         </div>
+
+         <div id="go-top" style="display: block;"><a href="#" title="Back to Top">Go To Top</a></div>
+
+      </div>
+
+   </footer>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="/theme/js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script src="/theme/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+   <script src="/theme/js/jquery.flexslider.js"></script>
+   <script src="/theme/js/doubletaptogo.js"></script>
+   <script src="/theme/js/init.js"></script>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/perl.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/xml.min.js"></script>
+      <script>
+        hljs.configure({"languages":["perl","bash","yaml","xml"]});
+        hljs.initHighlightingOnLoad();
+      </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-110569629-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+</body>
+
+</html>
