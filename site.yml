@@ -123,7 +123,7 @@ site:
                     - yaml
                     - xml
             logo_text: 'mojolicious.io'
-            copyright: '2017 Joel Berger'
+            copyright: '2017-2020 Joel Berger'
             github: 'https://github.com/MojoliciousDotIO/mojolicious.io'
             social:
                 - icon: 'github'
