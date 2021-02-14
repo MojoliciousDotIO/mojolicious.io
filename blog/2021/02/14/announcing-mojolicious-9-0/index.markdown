@@ -17,7 +17,7 @@ data:
   bio: jberger
   description: Announcing release of Mojolicious version 9.0
 ---
-The Mojolicious Core Team is delighted to announce the release and immediate availability of Mojolicious 9.0, code name "Waffle" 🧇!
+The Mojolicious Core Team is delighted to announce the release and immediate availability of [Mojolicious](https://mojolicious.org) [9.0](https://metacpan.org/release/SRI/Mojolicious-9.0), [code named](https://docs.mojolicious.org/Mojolicious#CODE-NAMES) "Waffle" 🧇!
 
 Every major release I think that there can't be much more to add or change in Mojolicious and then when the next one arrives I reflect on how much has changed since I last thought that.
 In 9.0 there's far too much to discuss each at length, so I'm going to highlight some of my favorites and then include a distilled list of changes since 8.0.
