@@ -17,7 +17,7 @@ data:
   bio: jberger
   description: Announcing release of Mojolicious version 9.0
 ---
-The Mojolicious Core Team is delighted to announce the release and immediate availability of [Mojolicious](https://mojolicious.org) 9.0.
+The Mojolicious Core Team is delighted to announce the release and immediate availability of version 9.0 of the [Mojolicious](https://mojolicious.org) real-time web framework.
 Every Mojolicious major release has a [code name](https://docs.mojolicious.org/Mojolicious#CODE-NAMES) based on a unicode character and this one is lovingly named "Waffle" 🧇!
 
 Every major release I think that there can't be much more to add or change in Mojolicious and then when the next one arrives I reflect on how much has changed since I last thought that.
@@ -104,7 +104,7 @@ We've also made several cases throw exceptions when routing would fail that used
 When a route points to a missing controller, a namespace without a controller or a controller without an action, you now get an exception rather than a 404, which would often confuse people.
 Additionally, you get an exception when when auto-rendering fails or a call to render cannot render a response, which would often appear to hang (while it actually was trying to wait for a delayed response that was never going to happen).
 
-Finally we've simplified some of the routing method names themselves.
+We've even simplified some of the routing method names themselves.
 We've removed the lesser-used `detour` and `route` methods in favor of the more generic `any` method.
 We've renamed method that designates which HTTP methods to respond to (usually when picking several but not all of them, e.g. `GET` and `POST` but not `any`) from `via` to `methods`.
 We've also renamed the method that designates conditional routing from `over` to `requires`.
@@ -125,9 +125,11 @@ We've also improved logging performance in cases where generating the log messag
 If you pass a closure (code reference) to the logger's `debug`, `info`, `warn`, `error`, and `fatal` methods and the logger will only invoke that closure if the log level check is met.
 In fact this improved Mojolicious' own performance metrics by 10%!
 
+    $c->log->debug(sub{ 'Thought you might want to know: ' . generate_expensive_log_output() });
+
 Please note that we have changed the log format slightly so be aware if you care about such things.
 
-And finally, we've removed the confusing behavior of logging to a file if a `log` directory exists.
+And to simplify things, we've removed the confusing behavior of logging to a file if a `log` directory exists.
 While it sometimes did what people wanted, it more often than not confused newcomers who couldn't find their logs.
 The behavior now is to always log to `STDERR` but you can easily change it to point the file of your choice while your application is starting up.
 
