@@ -75,7 +75,7 @@ site:
             $ref: 'theme'
 
         # index: The path to the page that should be used for the site index.
-        index: '/page'
+        index: '/blog'
 
         # nav: These are lists of navigation links used by the theme.
         # Navigations are used to move between applications, or to go to
@@ -92,19 +92,19 @@ site:
                 - text: 'Blog'
                   href: '/blog'
                 - text: 'Advent Calendar'
-                  href: '/'
+                  href: '/page/advent/2018'
                   children:
                       - text: 2018
-                        href: '/'
+                        href: '/page/advent/2018'
                       - text: 2017
                         href: '/page/advent/2017'
                 - text: 'mojolicious.org'
                   href: 'https://mojolicious.org'
                   children:
                     - text: 'Documentation'
-                      href: 'http://mojolicious.org/perldoc'
+                      href: 'https://docs.mojolicious.org'
                     - text: 'Tutorial'
-                      href: 'http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial'
+                      href: 'https://docs.mojolicious.org/Mojolicious/Guides/Tutorial'
         images:
             icon:
                 src: '/static/favicon.ico'
@@ -250,7 +250,7 @@ blog_app:
         url_root: '/blog'
         store: 'blog'
         data:
-            title: 'Mojo Wonk Blog'
+            title: 'The Mojolicious Blog'
             description: 'A semi-official blog dedicated to the Mojolicious web framework'
 
 # page_app: These are the settings for the page application.
