@@ -205,7 +205,7 @@ Thanks for reading this!
 We hope you'll love Mojolicious 9.0!
 ___
 
-As promised here is a distillation of all the non-trivial [Changes](https://github.com/mojolicious/mojo/blob/master/Changes) since 8.0.
+As promised here is a distillation of all the non-trivial [Changes](https://github.com/mojolicious/mojo/blob/v9.0/Changes) since 8.0.
 
 - Increased Perl version requirement to 5.16.0. This is just a first step however, at some point in the not so distant future we will increase the Perl version requirement to 5.20.0 for full subroutine signatures support
 - Async/Await
@@ -310,7 +310,3 @@ As promised here is a distillation of all the non-trivial [Changes](https://gith
 - Cleaned up lesser used connection properties in `Mojo::UserAgent` and `Mojo::IOLoop::Client`
 - Removed `config` stash value
 - Removed `Mojo::Collection::slice`
-- Welcome to the Mojolicious core team CandyAngel, Christopher Rasch-Olsen Raa and Dan Book
-- Mergebot
-- Reviewers wanted!
-- Perltidy check
