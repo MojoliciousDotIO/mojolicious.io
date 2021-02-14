@@ -17,28 +17,20 @@
   <!-- twitter and opengraph -->
   <meta content="summary" name="twitter:card">
   <meta content="https://mojolicious.io/" property="og:url">
-  <meta content="Welcome To mojolicious.io!" property="og:title">
-    <meta content="A semi-official website dedicated to the Mojolicious web framework" property="og:description">
-    <meta content="https://mojolicious.io/static/2018.jpg" property="og:image">
-    <meta content="summary_large_image" name="twitter:card">
+  <meta content="mojolicious.io" property="og:title">
+    <meta content="summary" name="twitter:card">
 
   <script src="/theme/js/modernizr.js"></script>
 
       <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/sunburst.min.css" rel="stylesheet">
 
-  <title>Welcome To mojolicious.io! - mojolicious.io</title>
+  <title>mojolicious.io</title>
   <meta content="Statocles 0.097" name="generator">
+  <link href="/blog/index.atom" rel="alternate" type="application/atom+xml">
+  <link href="/blog/index.rss" rel="alternate" type="application/rss+xml">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
-  <link href="/theme/css/calendar.css" rel="stylesheet" type="text/css">
-<noscript>
-  <style>
-    .calendar .hidden {
-      opacity: initial;
-    };
-  </style>
-</noscript>
-
+  
 </head>
 
 <body>
@@ -62,17 +54,17 @@
 
                <ul class="nav" id="nav">
                  <!-- li.current is given a different styling -->
-                   <li><a href="/blog">Blog</a></li>
-                   <li><span><a href="/">Advent Calendar</a></span>
+                   <li><a href="/">Blog</a></li>
+                   <li><span><a href="/page/advent/2018">Advent Calendar</a></span>
                      <ul>
-                       <li><a href="/">2018</a></li>
+                       <li><a href="/page/advent/2018">2018</a></li>
                        <li><a href="/page/advent/2017">2017</a></li>
                       </ul>
                    </li>
                    <li><span><a href="https://mojolicious.org">mojolicious.org</a></span>
                      <ul>
-                       <li><a href="http://mojolicious.org/perldoc">Documentation</a></li>
-                       <li><a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial">Tutorial</a></li>
+                       <li><a href="https://docs.mojolicious.org">Documentation</a></li>
+                       <li><a href="https://docs.mojolicious.org/Mojolicious/Guides/Tutorial">Tutorial</a></li>
                       </ul>
                    </li>
 
@@ -86,14 +78,14 @@
 
    </header>
 
-   <div id="page-title">
+     <div id="page-title">
 
   <div class="row">
 
       <div class="ten columns centered text-center">
-        <h1>Welcome To mojolicious.io<span>!</span></h1>
+        <h1>The Mojolicious Blog<span>.</span></h1>
 
-        <p>A semi-official website dedicated to the Mojolicious web framework</p>
+        <p>A semi-official blog dedicated to the Mojolicious web framework</p>
       </div>
 
   </div>
@@ -101,231 +93,318 @@
 </div>
 
 
+
 <div class="content-outer">
 
-  <div class="row page" id="page-content">
+  <div class="row" id="page-content">
 
-    <section>
+      <div class="eight columns" id="primary">
 
-      <h1>2018 Mojolicious Advent Calendar</h1>
+        <article class="post">
 
-<!-- code from https://codepen.io/dudleystorey/pen/MagNaY -->
-<!-- build date: 2020-12-20T21:37:29 -->
+            <div class="entry-header cf">
 
-<div class="calendar">
-    <time class="blank" datetime="2018-11-25"><span class="caldate">25</span></time>
-    <time class="blank" datetime="2018-11-26"><span class="caldate">26</span></time>
-    <time class="blank" datetime="2018-11-27"><span class="caldate">27</span></time>
-    <time class="blank" datetime="2018-11-28"><span class="caldate">28</span></time>
-    <time class="blank" datetime="2018-11-29"><span class="caldate">29</span></time>
-    <time class="blank" datetime="2018-11-30"><span class="caldate">30</span></time>
-    <time class="hidden" datetime="2018-12-01">
-      <a href="/blog/2018/12/01/welcome-mojoconf-recap/">
-        <img alt="Day 1: Welcome &amp; MojoConf Recap" src="/blog/2018/12/01/welcome-mojoconf-recap/banner.jpg">
-        <span class="caldate">1</span>
-        <span class="title">Welcome &amp; MojoConf Recap</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-02">
-      <a href="/blog/2018/12/02/automatic-reload-for-rapid-development/">
-        <img alt="Day 2: Automatic Reload for Rapid Development" src="/blog/2018/12/02/automatic-reload-for-rapid-development/banner.jpg">
-        <span class="caldate">2</span>
-        <span class="title">Automatic Reload for Rapid Development</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-03">
-      <a href="/blog/2018/12/03/higher-order-promises/">
-        <img alt="Day 3: Higher Order Promises" src="/blog/2018/12/03/higher-order-promises/banner.jpg">
-        <span class="caldate">3</span>
-        <span class="title">Higher Order Promises</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-04">
-      <a href="/blog/2018/12/04/testing-hooks-and-helpers/">
-        <img alt="Day 4: Testing Hooks and Helpers" src="/blog/2018/12/04/testing-hooks-and-helpers/banner.jpg">
-        <span class="caldate">4</span>
-        <span class="title">Testing Hooks and Helpers</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-05">
-      <a href="/blog/2018/12/05/compound-selectors/">
-        <img alt="Day 7: Compound Selectors are Easier than Regexes" src="/blog/2018/12/05/compound-selectors/banner.jpg">
-        <span class="caldate">5</span>
-        <span class="title">Compound Selectors vs Regexes</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-06">
-      <a href="/blog/2018/12/06/making-a-list-with-yancy/">
-        <img alt="Day 6: Making A List with Yancy" src="/blog/2018/12/06/making-a-list-with-yancy/banner.jpg">
-        <span class="caldate">6</span>
-        <span class="title">Making A List with Yancy</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-07">
-      <a href="/blog/2018/12/07/openapi/">
-        <img alt="MetaCPAN, Mojolicious and OpenAPI" src="/blog/2018/12/07/openapi/banner.jpg">
-        <span class="caldate">7</span>
-        <span class="title">MetaCPAN, Mojolicious and OpenAPI</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-08">
-      <a href="/blog/2018/12/08/authenticating-with-ldap/">
-        <img alt="Day 8: Authenticating with LDAP" src="/blog/2018/12/08/authenticating-with-ldap/banner.jpg">
-        <span class="caldate">8</span>
-        <span class="title">Authenticating with LDAP</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-09">
-      <a href="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/">
-        <img alt="Day 9: Add a theme system to your Mojolicious app" src="/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/banner.jpg">
-        <span class="caldate">9</span>
-        <span class="title">Add a theme system</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-10">
-      <a href="/blog/2018/12/10/minion-stands-alone/">
-        <img alt="Day 10: Minion Stands Alone" src="/blog/2018/12/10/minion-stands-alone/banner.jpg">
-        <span class="caldate">10</span>
-        <span class="title">Minion Stands Alone</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-11">
-      <a href="/blog/2018/12/11/who-watches-the-minions/">
-        <img alt="Day 11: Who Watches The Minions" src="/blog/2018/12/11/who-watches-the-minions/banner.jpg">
-        <span class="caldate">11</span>
-        <span class="title">Who Watches The Minions</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-12">
-      <a href="/blog/2018/12/12/dancer-and-minion/">
-        <img alt="Day 12: Using Minion in Dancer Apps" src="/blog/2018/12/12/dancer-and-minion/banner.jpg">
-        <span class="caldate">12</span>
-        <span class="title">Minion in Dancer Apps</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-13">
-      <a href="/blog/2018/12/13/taking-on-roles/">
-        <img alt="Day 13: Taking on Roles" src="/blog/2018/12/13/taking-on-roles/banner.jpg">
-        <span class="caldate">13</span>
-        <span class="title">Taking on Roles</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-14">
-      <a href="/blog/2018/12/14/a-practical-example-of-mojo-dom/">
-        <img alt="Day 14: A Practical Example of Mojo::DOM" src="/blog/2018/12/14/a-practical-example-of-mojo-dom/banner.png">
-        <span class="caldate">14</span>
-        <span class="title">Practical Example of Mojo::DOM</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-15">
-      <a href="/blog/2018/12/15/practical-web-content-munging/">
-        <img alt="Day 15: Practical Web Content Munging" src="/blog/2018/12/15/practical-web-content-munging/banner.jpg">
-        <span class="caldate">15</span>
-        <span class="title">Practical Web Content Munging</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-16">
-      <a href="/blog/2018/12/16/browser-diet/">
-        <img alt="Day 16: A pre-Christmas Diet for Mojolicious - A Children&#39;s Story" src="/blog/2018/12/16/browser-diet/squirrel.jpg">
-        <span class="caldate">16</span>
-        <span class="title">A pre-Christmas Diet</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-17">
-      <a href="/blog/2018/12/17/a-website-for-yancy/">
-        <img alt="Day 17: A Website For Yancy" src="/blog/2018/12/17/a-website-for-yancy/banner.jpg">
-        <span class="caldate">17</span>
-        <span class="title">A Website For Yancy</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-18">
-      <a href="/blog/2018/12/18/a-view-to-a-pod/">
-        <img alt="Day 18: A View To A POD" src="/blog/2018/12/18/a-view-to-a-pod/banner.jpg">
-        <span class="caldate">18</span>
-        <span class="title">A View To A POD</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-19">
-      <a href="/blog/2018/12/19/you-only-export-twice/">
-        <img alt="Day 19: You Only Export Twice" src="/blog/2018/12/19/you-only-export-twice/banner.jpg">
-        <span class="caldate">19</span>
-        <span class="title">You Only Export Twice</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-20">
-      <a href="/blog/2018/12/20/testing-dancer/">
-        <img alt="Day 20: Testing Dancer" src="/blog/2018/12/20/testing-dancer/banner.jpg">
-        <span class="caldate">20</span>
-        <span class="title">Testing Dancer</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-21">
-      <a href="/blog/2018/12/21/a-little-christmas-template-cooking/">
-        <img alt="A Little Christmas Template Cooking" src="/blog/2018/12/21/a-little-christmas-template-cooking/banner.jpg">
-        <span class="caldate">21</span>
-        <span class="title">A Little Christmas Template Cooking</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-22">
-      <a href="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/">
-        <img alt="Day 22: Use Carton for your Mojolicious app deployment" src="/blog/2018/12/22/use-carton-for-your-mojolicious-app-deployment/banner.jpg">
-        <span class="caldate">22</span>
-        <span class="title">Use Carton for Mojo Deployment</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-23">
-      <a href="/blog/2018/12/23/mojolicious-and-angular/">
-        <img alt="Day 23: Mojolicious and Angular" src="/blog/2018/12/23/mojolicious-and-angular/banner.jpg">
-        <span class="caldate">23</span>
-        <span class="title">Mojolicious and Angular</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-24">
-      <a href="/blog/2018/12/24/async-await-the-mojo-way/">
-        <img alt="Day 24: Async/Await the Mojo Way" src="/blog/2018/12/24/async-await-the-mojo-way/banner.jpg">
-        <span class="caldate">24</span>
-        <span class="title">Async/Await the Mojo Way</span>
-      </a>
-    </time>
-    <time class="hidden" datetime="2018-12-25">
-      <a href="/blog/2018/12/25/special-thanks/">
-        <img alt="Special Thanks" src="/blog/2018/12/25/special-thanks/jude_mojo.jpg">
-        <span class="caldate">25</span>
-        <span class="title">Special Thanks</span>
-      </a>
-    </time>
-    <time class="blank" datetime="2018-12-26"><span class="caldate">26</span></time>
-    <time class="blank" datetime="2018-12-27"><span class="caldate">27</span></time>
-    <time class="blank" datetime="2018-12-28"><span class="caldate">28</span></time>
-    <time class="blank" datetime="2018-12-29"><span class="caldate">29</span></time>
+            <h1><a href="/blog/2019/12/26/announcing-core-async-await/">Announcing Core async/await</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-12-26">Dec 26, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Radar dish at sunset" src="/blog/2019/12/26/announcing-core-async-await/radar.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>For years one of my primary tasks as a Mojolicious Core Team member has been to teach Mojolicious users the ins and outs of asynchronous programming.
+We have championed several patterns to tame the beast and clean up async code, including continuation passing, promises and now async/await.
+But while promises were a noted improvement over continuation passing, it is becoming more and more clear that the async/await pattern is a paradigm shift in asynchronous programming semantics.</p>
+
+<p>I personally believe that it is far and away the easiest way to do nonblocking code in modern languages.
+It might even reach the extent that languages and/or frameworks that do not support it are going to be in real trouble as new user will expect it to be available.
+With <a href="https://en.wikipedia.org/wiki/Async/await">so many different languages</a> adopting the pattern, soon many may not have even been exposed to &quot;the old ways&quot; at all!</p>
+
+<p>Last year, during the 2018 Mojolicious Advent Calendar, I <a href="https://mojolicious.io/blog/2018/12/24/async-await-the-mojo-way/">introduced</a> my <a href="https://metacpan.org/pod/Mojo::AsyncAwait">Mojo::AsyncAwait</a> library which was intended to address the immediate need for the Mojolicious community, based on the Mojolicious core promise module <a href="https://mojolicious.org/perldoc/Mojo/Promise">Mojo::Promise</a>.
+It did rely on a &quot;controversial&quot; module (<a href="https://metacpan.org/pod/Coro">Coro</a>) to accomplish its task, and therefore it was not a good candidate for all users.</p>
+
+<p>Meanwhile, others in the Perl community were noticing as well.
+Paul Evans (LeoNerd) applied for and received <a href="https://news.perlfoundation.org/post/grant_proposal_futureasyncawai">a grant</a> from The Perl Foundation to build a low-level async/await mechanism for his <a href="https://metacpan.org/pod/Future">Future</a> promise library.
+As that project has successfully culminated in <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> on CPAN, the Mojolicious team has been engaging with Paul on a collaboration to allow Mojo::Promise to hook directly into it.</p>
+
+<p>So without futher ado, the Mojolicious Core Team is very happy to announce that as of the most recent release of Mojolicious, async/await is now a built-in framework feature!</p>
+
+                  <p><a href="/blog/2019/12/26/announcing-core-async-await/#section-2">Continue reading Announcing Core async/await...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/07/08/named-content-blocks/">Named Content Blocks</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-07-08">Jul  8, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="A pen hovering over a drafting blueprint" src="/blog/2019/07/08/named-content-blocks/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p><a href="/blog/2019/07/01/a-reusable-view-layer/">Last week I went over how to configure and include
+templates</a>. This
+is a pretty standard procedural solution: My current template calls
+another template. But what if I need to pass additional data to my
+layout template? Perhaps in addition to the content in my template,
+I also have some <code>&lt;meta&gt;</code> or <code>&lt;script&gt;</code> tags to include, or some
+<code>&lt;style&gt;</code> specific to this page. This would involve somehow passing data
+&quot;up&quot;, or making the data available for the layout template to use.
+<a href="http://mojolicious.org">Mojolicious</a> provides a way to do this: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named
+content
+blocks</a>.</p>
+
+                  <p><a href="/blog/2019/07/08/named-content-blocks/#section-2">Continue reading Named Content Blocks...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/07/01/a-reusable-view-layer/">A Reusable View Layer</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-07-01">Jul  1, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="A brick wall embossed with a cloud image" src="/blog/2019/07/01/a-reusable-view-layer/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>In a well-designed
+<a href="https://en.wikipedia.org/wiki/Model–view–controller">Model-View-Controller</a>
+web application, most of the code and the development time will be in
+the model layer (which contains the <a href="https://en.wikipedia.org/wiki/Business_logic">business
+logic</a>). The other two
+layers are meant to be as re-usable as possible. Earlier this year
+I discussed how to build a <a href="https://mojolicious.io/blog/2019/01/21/writing-reusable-controllers/">reusable controller for
+Mojolicious</a>
+and how to <a href="https://mojolicious.io/blog/2019/01/28/writing-extensible-controllers/">build an inheritable controller to increase code
+re-use</a>.
+Now, I&#39;d like to talk about how the <a href="https://mojolicious.org">Mojolicious web
+framework</a> provides ways to reuse, combine, and
+compose the view code: <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Tutorial#Stash-and-templates">the
+stash</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Partial-templates">includes</a>,
+<a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Layouts">layout
+templates</a>,
+and <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Rendering#Content-blocks">named content
+blocks</a>.</p>
+
+<p>This week, I&#39;ll talk about how to make reusable, configurable,
+composable templates.</p>
+
+                  <p><a href="/blog/2019/07/01/a-reusable-view-layer/#section-2">Continue reading A Reusable View Layer...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/06/02/yancys-static-backend/">Yancy&#39;s Static Backend</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-06-02">Jun  2, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="An old book with a cloud and &quot;Mojolicious&quot;" src="/blog/2019/06/02/yancys-static-backend/banner.jpg">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>Back a few months ago I wrote about <a href="https://mojolicious.io/blog/2018/12/17/a-website-for-yancy/">making a website for the Yancy
+CMS</a> that
+included a basic Markdown page editor, <a href="https://mojolicious.io/blog/2018/12/18/a-view-to-a-pod/">adding a documentation viewer
+with the Mojolicious PODViewer
+plugin</a>, and
+<a href="https://mojolicious.io/blog/2018/12/19/you-only-export-twice/">deploying a static version of the site using the Mojolicious <code>export</code>
+command</a>.
+The site uses a SQLite database, which makes it very easy to set up and
+use the Yancy editor, but very difficult to work with the data any other
+way...</p>
+
+<p>To solve this problem, many people have taken to writing their website
+as a set of static files and using a static site generator to add
+templates and plugins to build their website. Each page has a header
+section that defines some metadata about the page, like the title or the
+date it was posted. Instead of having each page be a row in a SQLite
+database, each page in a static site is a file on the filesystem!</p>
+
+<p>Yancy uses &quot;Backends&quot; to interface with a database. To make Yancy into
+a static site generator, I wrote a backend that works with a flat-file
+database made up of YAML and Markdown files:
+<a href="https://metacpan.org/pod/Yancy::Backend::Static">Yancy::Backend::Static</a>.
+I can use this new backend to make my Yancy documentation site even
+easier to edit!</p>
+
+                  <p><a href="/blog/2019/06/02/yancys-static-backend/#section-2">Continue reading Yancy&#39;s Static Backend...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
+            <h1><a href="/blog/2019/04/15/testing-environment-with-tmux/">Testing Environment With Tmux</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2019-04-15">Apr 15, 2019</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Text saying &quot;Tmux&quot; in the middle of white, red, yellow, and blue boxes containing shell output separated by thick black lines. Original artwork by Doug Bell" src="/blog/2019/04/15/testing-environment-with-tmux/banner.png">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
+framework</a> currently supports three different
+database systems directly (and even more through <a href="http://dbix-class.org">the DBIx::Class
+ORM</a>). As a result, when doing development,
+I need to have two database daemons running locally, a bunch of
+different environment variables to tell the tests where those databases
+are, and a web daemon to test the front-end.</p>
+
+<p>Setting up these daemons is a pain, but I also do not want to run them
+all the time (to save on my laptop&#39;s battery). To me, it&#39;s easier to run
+a database daemon for a specific project than to try to manage all the
+databases I might need. But that means that every time I want to do some
+work on Yancy, I need to start up a bunch of things.</p>
+
+<p>Since I do all my development in a terminal window, <a href="http://tmux.github.io">the Tmux terminal
+multiplexer</a> has become an extremely useful tool.
+Using a shell script and Tmux, I can run a single command to set up all
+the databases, environment variables, and all the tabs I need to get to
+work quickly.</p>
+
+                  <p><a href="/blog/2019/04/15/testing-environment-with-tmux/#section-2">Continue reading Testing Environment With Tmux...</a></p>
+            </div>
+
+        </article>
+
+        <nav class="col full pagination">
+          <ul>
+              <li><a class="page-numbers prev" href="/blog/page/2/" rel="prev">Prev</a></li>
+              
+              <li><span class="page-numbers next inactive">Next</span></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <div class="four columns end" id="secondary">
+        <aside id="sidebar">
+          
+
+
+
+
+
+
+
+<div class="widget widget_tag_cloud">
+  <h5 class="widget-title">Tags</h5>
+  <div class="tagcloud cf">
+    <a href="/blog/tag/administration/">administration</a>
+    <a href="/blog/tag/advent/">advent</a>
+    <a href="/blog/tag/angular/">Angular</a>
+    <a href="/blog/tag/api/">api</a>
+    <a href="/blog/tag/app/">app</a>
+    <a href="/blog/tag/async-await/">async/await</a>
+    <a href="/blog/tag/authentication/">authentication</a>
+    <a href="/blog/tag/caching/">caching</a>
+    <a href="/blog/tag/carton/">carton</a>
+    <a href="/blog/tag/command/">command</a>
+    <a href="/blog/tag/controller/">controller</a>
+    <a href="/blog/tag/css/">css</a>
+    <a href="/blog/tag/dancer/">dancer</a>
+    <a href="/blog/tag/dbix-class/">DBIx::Class</a>
+    <a href="/blog/tag/debugging/">debugging</a>
+    <a href="/blog/tag/deployment/">deployment</a>
+    <a href="/blog/tag/development/">development</a>
+    <a href="/blog/tag/documentation/">documentation</a>
+    <a href="/blog/tag/example/">example</a>
+    <a href="/blog/tag/fluent/">fluent</a>
+    <a href="/blog/tag/full/">full</a>
+    <a href="/blog/tag/graphql/">graphql</a>
+    <a href="/blog/tag/growing/">growing</a>
+    <a href="/blog/tag/headers/">headers</a>
+    <a href="/blog/tag/hello-world/">hello world</a>
+    <a href="/blog/tag/html/">html</a>
+    <a href="/blog/tag/installing/">installing</a>
+    <a href="/blog/tag/javascript/">JavaScript</a>
+    <a href="/blog/tag/ldap/">LDAP</a>
+    <a href="/blog/tag/lite/">lite</a>
+    <a href="/blog/tag/minion/">minion</a>
+    <a href="/blog/tag/mocking/">mocking</a>
+    <a href="/blog/tag/model/">model</a>
+    <a href="/blog/tag/mojoconf/">mojoconf</a>
+    <a href="/blog/tag/non-blocking/">non-blocking</a>
+    <a href="/blog/tag/non-web/">non-web</a>
+    <a href="/blog/tag/openapi/">openapi</a>
+    <a href="/blog/tag/promises/">promises</a>
+    <a href="/blog/tag/psgi/">psgi</a>
+    <a href="/blog/tag/rendering/">rendering</a>
+    <a href="/blog/tag/rest/">rest</a>
+    <a href="/blog/tag/roles/">roles</a>
+    <a href="/blog/tag/routing/">routing</a>
+    <a href="/blog/tag/session/">session</a>
+    <a href="/blog/tag/swagger/">swagger</a>
+    <a href="/blog/tag/templates/">templates</a>
+    <a href="/blog/tag/testing/">testing</a>
+    <a href="/blog/tag/theme/">theme</a>
+    <a href="/blog/tag/useragent/">useragent</a>
+    <a href="/blog/tag/wishlist/">wishlist</a>
+    <a href="/blog/tag/xml/">xml</a>
+    <a href="/blog/tag/yancy/">yancy</a>
+  </div>
 </div>
 
-<p><small>
-  <a href="http://thenewcode.com/355/Responsive-HTML5-Calendar-with-Flexbox">Calendar</a> <a href="https://codepen.io/dudleystorey/pen/MagNaY">code and style</a> courtesy of <a href="http://thenewcode.com/about.html">Dudley Storey</a>.
-  Content of his site is released (and thus used) under a <a href="https://creativecommons.org/licenses/by-nc-sa/2.5/ca" rel="license">Creative Commons license that permits non-commercial sharing with attribution</a>.
-</small></p>
-
-<script>
-  (function(){
-    var dates = document.querySelectorAll(".calendar time.hidden");
-    var i = 1;
-    Array.prototype.forEach.call(dates, function(caldate) {
-      setTimeout(function(){ caldate.classList.remove("hidden") }, 250*i)
-      i++;
-    });
-  })();
-</script>
-
-<h1>2017 Mojolicious Advent Calendar</h1>
-
-<p>Did you love the 2017 calendar? We did too! Don&#39;t worry, it isn&#39;t gone, it just has a <a href="/page/advent/2017">new home</a>.</p>
-
-<h1>The Blog</h1>
-
-<p>The Advent Calendar posts are actually blog posts. Head on over to the <a href="/blog">blog</a> to read it all.</p>
 
 
-    </section>
+        </aside>
+      </div>
 
   </div>
 
@@ -339,8 +418,8 @@
          <div class="twelve columns">
 
             <ul class="footer-nav">
-                <li><a href="/blog">Blog.</a></li>
-                <li><a href="/">Advent Calendar.</a></li>
+                <li><a href="/">Blog.</a></li>
+                <li><a href="/page/advent/2018">Advent Calendar.</a></li>
                 <li><a href="https://mojolicious.org">mojolicious.org.</a></li>
             </ul>
 
