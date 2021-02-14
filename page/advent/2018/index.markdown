@@ -1,5 +1,5 @@
 ---
-title: Welcome To mojolicious.io!
+title: The 2018 Mojolicious Advent Calendar
 template: page/full_width.html
 images:
   card:
@@ -10,7 +10,7 @@ images:
       attribution: |-
         Original image by Joel Berger.
 data:
-  subtitle: A semi-official website dedicated to the Mojolicious web framework
+  subtitle: Proving the sequel can be as good as the original
   calendar:
     - date: 2018-11-25
     - date: 2018-11-26

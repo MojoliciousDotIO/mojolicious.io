@@ -1,5 +1,5 @@
 ---
-title: Mojolicious Advent Calendar 2017
+title: The 2017 Mojolicious Advent Calendar
 template: page/full_width.html
 images:
   card:
