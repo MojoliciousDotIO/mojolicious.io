@@ -90,7 +90,7 @@ site:
         nav:
             main:
                 - text: 'Blog'
-                  href: '/blog'
+                  href: '/'
                 - text: 'Advent Calendar'
                   href: '/page/advent/2018'
                   children:
