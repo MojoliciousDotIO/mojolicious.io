@@ -33,7 +33,8 @@ We are already encouraging the use of signatures both in the documentation and i
 ## Asynchronous Functionality
 
 Clearly the highlight of the pre-9.0 development cycle has been the integration of Async/Await.
-Thanks to Paul Evans (LeoNerd)'s efforts installing [Future::AsyncAwait](https://metacpan.org/pod/Future::AsyncAwait) enables Mojolicious to provide the new keywords `async` and `await` to provide the most seamless asynchronous development possible, and which is becoming more and more the standard for asynchronous code in other languages.
+Thanks to Paul Evans (LeoNerd)'s efforts with [Future::AsyncAwait](https://metacpan.org/pod/Future::AsyncAwait), Async/Await enables Mojolicious to utilize the new keywords `async` and `await`, providing most seamless asynchronous development possible, something that is becoming more and more the standard for asynchronous code in other languages.
+
 Writing a non-blocking endpoint is now as simple as
 
     use Mojolicious::Lite -signatures, -async_await;
@@ -51,7 +52,7 @@ Writing a non-blocking endpoint is now as simple as
     app->start;
 
 When I teach non-blocking to people I can now tell them to follow a trivial recipe for most non-blocking tasks.
-Simply `await` any function that returns a promise and mark and function that uses `await` with the `async` keyword.
+Simply `await` any function that returns a promise and mark any function that uses `await` with the `async` keyword.
 Note also that all `async` functions return promises so `await` any calls to them.
 There are some optimizations you can make at times and top-level `await` (if you aren't in a Mojolicious webapp) can be a little strange but to a first approximation that's all you need to write a non-blocking webapp today!
 
@@ -88,20 +89,20 @@ Speaking of documentation, you might have noticed that both our [documentation s
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The Mojolicious 8.69 release brings redesigned exception and not_found pages with a fresh new look, enjoy. <a href="https://t.co/MHzvYnBJJw">pic.twitter.com/MHzvYnBJJw</a></p>&mdash; Mojolicious (@perlmojo) <a href="https://twitter.com/perlmojo/status/1343932370106392577?ref_src=twsrc%5Etfw">December 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 They're even prettier and easier to read than before, they're responsive, and they have a newer code library (highlight.js) to better render our code.
-Further the documentation site is now redeployed immediately on any push to master of the website or the main Mojolicious projects, `mojolicious`, `mojo-pg`, and `minion`, so that you always have the most up-to-date docs at your fingertips.
+Further, the documentation site is now redeployed immediately on any push to master of the website or the main Mojolicious projects, `mojolicious`, `mojo-pg`, and `minion`, so that you always have the most up-to-date docs at your fingertips.
 
 Along with the container and cloud-native changes I've already highlighted, we have updated our documentation to use of upcoming Perl native signatures throughout and paired it with updating our `app` and `lite-app` generators to generate applications with signatures too.
 
 ## Routing (and Rendering)
 
 The routing engine is an often overlooked part of a web framework but it really is at the heart of everything that it does.
-It often can often be a source of confusion or frustration, especially when it doesn't do what you expect.
+It can often be a source of confusion or frustration, especially when it doesn't do what you expect.
 For 9.0 we've made the router both safer and more closely aligned to user expectations.
 
 The biggest change is that Mojolicious now prevents applications from using reserved placeholders in routes.
 This was originally considered a "feature" because it allowed very terse route definitions for quick apps, but in practice most people that understood how that worked just used the long form while unsuspecting newcomers would trip on it from time to time.
 We've also made several cases throw exceptions when routing would fail that used to fail silently or unexpectedly.
-When a route points to a missing controller, a namespace without a controller or a controller without an action, you now get an exception rather than a 404, which would often confuse people.
+When a route points to a missing controller, a namespace without a controller or a controller without an action, you now get an exception rather than the 404 which often confused people.
 Additionally, you get an exception when when auto-rendering fails or a call to render cannot render a response, which would often appear to hang (while it actually was trying to wait for a delayed response that was never going to happen).
 
 Finally we've simplified some of the routing method names themselves.
@@ -154,7 +155,7 @@ See the linked documentation for an example.
 
 CSS Selectors are amazing, but one major failing is that you can only extract the last element in your selector, not something in the middle.
 Or to put it another way, thing they lack is the ability to conditionally match an element based on a property of its children.
-Well CSS4 proposes that lets you assert just such a condition, the `:has` pseudo-class.
+Well CSS4 proposes something that lets you assert just such a condition, the `:has` pseudo-class.
 
 Without it, if you wanted to find all the links that have images as their content, you'd have to match `a > img` and traverse back up to the parent (which gets even harder if it isn't a direct child, e.g. `a img`).
 However now you can simply do something like
