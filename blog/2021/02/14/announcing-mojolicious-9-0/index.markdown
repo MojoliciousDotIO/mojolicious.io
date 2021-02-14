@@ -17,10 +17,11 @@ data:
   bio: jberger
   description: Announcing release of Mojolicious version 9.0
 ---
-The Mojolicious Core Team is delighted to announce the release and immediate availability of [Mojolicious](https://mojolicious.org) [9.0](https://metacpan.org/release/SRI/Mojolicious-9.0), [code named](https://docs.mojolicious.org/Mojolicious#CODE-NAMES) "Waffle" 🧇!
+The Mojolicious Core Team is delighted to announce the release and immediate availability of [Mojolicious](https://mojolicious.org) 9.0.
+Every Mojolicious major release has a [code name](https://docs.mojolicious.org/Mojolicious#CODE-NAMES) based on a unicode character and this one is lovingly named "Waffle" 🧇!
 
 Every major release I think that there can't be much more to add or change in Mojolicious and then when the next one arrives I reflect on how much has changed since I last thought that.
-In 9.0 there's far too much to discuss each at length, so I'm going to highlight some of my favorites and then include a distilled list of changes since 8.0.
+In [9.0](https://metacpan.org/release/SRI/Mojolicious-9.0) there's far too much to discuss each at length, so I'm going to highlight some of my favorites and then include a distilled list of changes since 8.0.
 
 ## Perl 5.16 and beyond
 
@@ -83,6 +84,9 @@ If you have other common container or cloud recipes that you think should be add
 ## Documentation Improvements
 
 Speaking of documentation, you might have noticed that both our [documentation site](https://docs.mojolicious.org) and [built-in templates](https://twitter.com/perlmojo/status/1343932370106392577/photo/1) for 404 and 500 pages have gotten a face lift.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The Mojolicious 8.69 release brings redesigned exception and not_found pages with a fresh new look, enjoy. <a href="https://t.co/MHzvYnBJJw">pic.twitter.com/MHzvYnBJJw</a></p>&mdash; Mojolicious (@perlmojo) <a href="https://twitter.com/perlmojo/status/1343932370106392577?ref_src=twsrc%5Etfw">December 29, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 They're even prettier and easier to read than before, they're responsive, and they have a newer code library (highlight.js) to better render our code.
 Further the documentation site is now redeployed immediately on any push to master of the website or the main Mojolicious projects, `mojolicious`, `mojo-pg`, and `minion`, so that you always have the most up-to-date docs at your fingertips.
 
