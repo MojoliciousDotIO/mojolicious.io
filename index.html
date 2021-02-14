@@ -104,6 +104,72 @@
 
             <div class="entry-header cf">
 
+            <h1><a href="/blog/2021/02/14/announcing-mojolicious-9-0/">Announcing Mojolicious 9.0</a></h1>
+
+              <p class="post-meta">
+
+                  <time class="date" datetime="2021-02-14">Feb 14, 2021</time>
+                  
+
+              </p>
+
+            </div>
+
+              <div class="post-thumb">
+                <!-- theme suggests 1300x500 -->
+                <img alt="Mojolicious cloud with text &quot;nine point oh&quot;" src="/blog/2021/02/14/announcing-mojolicious-9-0/nine_point_oh.png">
+              </div>
+
+            <div class="post-content">
+              <p></p><p>The Mojolicious Core Team is delighted to announce the release and immediate availability of Mojolicious 9.0, code name &quot;Waffle&quot; 🧇!</p>
+
+<p>Every major release I think that there can&#39;t be much more to add or change in Mojolicious and then when the next one arrives I reflect on how much has changed since I last thought that.
+In 9.0 there&#39;s far too much to discuss each at length, so I&#39;m going to highlight some of my favorites and then include a distilled list of changes since 8.0.</p>
+
+<h2>Perl 5.16 and beyond</h2>
+
+<p>Mojolicious now requires Perl version 5.16. This change gives us useful tools to build Mojolicious including the <code>__SUB__</code> token for building self-referential callbacks without leaking.
+We were pleased that the community response since the change a few months ago has been ... well crickets.
+This is great news since we do hope to move to Perl 5.20 in the not so distant future so that we can use Perl&#39;s native signatures once that is a sound option for us.
+We are already encouraging the use of signatures both in the documentation and in our code generation commands.</p>
+
+<h2>Asynchronous Functionality</h2>
+
+<p>Clearly the highlight of the pre-9.0 development cycle has been the integration of Async/Await.
+Thanks to Paul Evans (LeoNerd)&#39;s efforts installing <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> enables Mojolicious to provide the new keywords <code>async</code> and <code>await</code> to provide the most seamless asynchronous development possible, and which is becoming more and more the standard for asynchronous code in other languages.
+Writing a non-blocking endpoint is now as simple as</p>
+
+<pre><code>use Mojolicious::Lite -signatures, -async_await;
+
+# Request HTML titles from two sites non-blocking
+get &#39;/&#39; =&gt; async sub ($c) {
+  my $mojo_tx    = await $c-&gt;ua-&gt;get_p(&#39;https://mojolicious.org&#39;);
+  my $mojo_title = $mojo_tx-&gt;result-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  my $cpan_tx    = await $c-&gt;ua-&gt;get_p(&#39;https://metacpan.org&#39;);
+  my $cpan_title = $cpan_tx-&gt;result-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+
+  $c-&gt;render(json =&gt; {mojo =&gt; $mojo_title, cpan =&gt; $cpan_title});
+};
+
+app-&gt;start;
+</code></pre>
+
+<p>When I teach non-blocking to people I can now tell them to follow a trivial recipe for most non-blocking tasks.
+Simply <code>await</code> any function that returns a promise and mark and function that uses <code>await</code> with the <code>async</code> keyword.
+Note also that all <code>async</code> functions return promises so <code>await</code> any calls to them.
+There are some optimizations you can make at times and top-level <code>await</code> (if you aren&#39;t in a Mojolicious webapp) can be a little strange but to a first approximation that&#39;s all you need to write a non-blocking webapp today!</p>
+
+<p>Speaking of promises (which are at the heart of Async/Await), Mojo::Promise has grown a lot this cycle too, adding <code>all_settled</code>, <code>any</code>, <code>map</code>, <code>timer</code>, and <code>timeout</code> class methods, changing its constructor to be more like the one in JavaScript and to warn when an unhandled rejected promise is destroyed.
+The latter can help in development where such cases used to hide errors, now, much like the browser, you can at least find where things are going wrong even if you didn&#39;t wire all your promises to a catch callback like you should.</p>
+
+                  <p><a href="/blog/2021/02/14/announcing-mojolicious-9-0/#section-2">Continue reading Announcing Mojolicious 9.0...</a></p>
+            </div>
+
+        </article>
+        <article class="post">
+
+            <div class="entry-header cf">
+
             <h1><a href="/blog/2019/12/26/announcing-core-async-await/">Announcing Core async/await</a></h1>
 
               <p class="post-meta">
@@ -274,51 +340,6 @@ I can use this new backend to make my Yancy documentation site even
 easier to edit!</p>
 
                   <p><a href="/blog/2019/06/02/yancys-static-backend/#section-2">Continue reading Yancy&#39;s Static Backend...</a></p>
-            </div>
-
-        </article>
-        <article class="post">
-
-            <div class="entry-header cf">
-
-            <h1><a href="/blog/2019/04/15/testing-environment-with-tmux/">Testing Environment With Tmux</a></h1>
-
-              <p class="post-meta">
-
-                  <time class="date" datetime="2019-04-15">Apr 15, 2019</time>
-                  
-
-              </p>
-
-            </div>
-
-              <div class="post-thumb">
-                <!-- theme suggests 1300x500 -->
-                <img alt="Text saying &quot;Tmux&quot; in the middle of white, red, yellow, and blue boxes containing shell output separated by thick black lines. Original artwork by Doug Bell" src="/blog/2019/04/15/testing-environment-with-tmux/banner.png">
-              </div>
-
-            <div class="post-content">
-              <p></p><p>The <a href="http://preaction.me/yancy">Yancy CMS</a> for the <a href="http://mojolicious.org">Mojolicious web
-framework</a> currently supports three different
-database systems directly (and even more through <a href="http://dbix-class.org">the DBIx::Class
-ORM</a>). As a result, when doing development,
-I need to have two database daemons running locally, a bunch of
-different environment variables to tell the tests where those databases
-are, and a web daemon to test the front-end.</p>
-
-<p>Setting up these daemons is a pain, but I also do not want to run them
-all the time (to save on my laptop&#39;s battery). To me, it&#39;s easier to run
-a database daemon for a specific project than to try to manage all the
-databases I might need. But that means that every time I want to do some
-work on Yancy, I need to start up a bunch of things.</p>
-
-<p>Since I do all my development in a terminal window, <a href="http://tmux.github.io">the Tmux terminal
-multiplexer</a> has become an extremely useful tool.
-Using a shell script and Tmux, I can run a single command to set up all
-the databases, environment variables, and all the tabs I need to get to
-work quickly.</p>
-
-                  <p><a href="/blog/2019/04/15/testing-environment-with-tmux/#section-2">Continue reading Testing Environment With Tmux...</a></p>
             </div>
 
         </article>

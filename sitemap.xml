@@ -4,7 +4,7 @@
         <loc>https://mojolicious.io/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/2017/11/30/introduction/</loc>
@@ -373,76 +373,82 @@
         <lastmod>2019-12-26</lastmod>
     </url>
     <url>
+        <loc>https://mojolicious.io/blog/2021/02/14/announcing-mojolicious-9-0/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+        <lastmod>2021-02-14</lastmod>
+    </url>
+    <url>
         <loc>https://mojolicious.io/blog/page/10/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/11/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/12/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/13/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/2/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/3/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/4/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/5/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/6/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/7/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/8/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/page/9/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/administration/</loc>
@@ -532,7 +538,7 @@
         <loc>https://mojolicious.io/blog/tag/async-await/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/authentication/</loc>
@@ -592,7 +598,7 @@
         <loc>https://mojolicious.io/blog/tag/deployment/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-03-18</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/development/</loc>
@@ -610,7 +616,7 @@
         <loc>https://mojolicious.io/blog/tag/documentation/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2018-12-18</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/example/</loc>
@@ -712,7 +718,7 @@
         <loc>https://mojolicious.io/blog/tag/non-blocking/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/non-web/</loc>
@@ -730,7 +736,7 @@
         <loc>https://mojolicious.io/blog/tag/promises/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2019-12-26</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/psgi/</loc>
@@ -766,7 +772,7 @@
         <loc>https://mojolicious.io/blog/tag/routing/</loc>
         <changefreq>daily</changefreq>
         <priority>0.3</priority>
-        <lastmod>2017-12-03</lastmod>
+        <lastmod>2021-02-14</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/blog/tag/session/</loc>
