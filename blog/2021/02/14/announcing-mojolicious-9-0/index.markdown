@@ -33,7 +33,7 @@ We are already encouraging the use of signatures both in the documentation and i
 ## Asynchronous Functionality
 
 Clearly the highlight of the pre-9.0 development cycle has been the integration of Async/Await.
-Thanks to Paul Evans (LeoNerd)'s efforts installing [Future::AsyncAwait](https://metacpan.org/pod/Future::AsyncAwait) enables Mojolicious to provide the new keywords `async` and `await` to provide the most seamless asynchronous development possible, and which is becoming more and more the standard for asynchronous code in other languages.
+Thanks to Paul Evans (LeoNerd)'s efforts, when you have [Future::AsyncAwait](https://metacpan.org/pod/Future::AsyncAwait) installed Mojolicious can use its new keywords `async` and `await` to provide the most seamless asynchronous development possible, something that is becoming more and more the standard for asynchronous code in other languages.
 Writing a non-blocking endpoint is now as simple as
 
     use Mojolicious::Lite -signatures, -async_await;
@@ -51,7 +51,7 @@ Writing a non-blocking endpoint is now as simple as
     app->start;
 
 When I teach non-blocking to people I can now tell them to follow a trivial recipe for most non-blocking tasks.
-Simply `await` any function that returns a promise and mark and function that uses `await` with the `async` keyword.
+Simply `await` any function that returns a promise and mark any function that uses `await` with the `async` keyword.
 Note also that all `async` functions return promises so `await` any calls to them.
 There are some optimizations you can make at times and top-level `await` (if you aren't in a Mojolicious webapp) can be a little strange but to a first approximation that's all you need to write a non-blocking webapp today!
 
@@ -95,7 +95,7 @@ Along with the container and cloud-native changes I've already highlighted, we h
 ## Routing (and Rendering)
 
 The routing engine is an often overlooked part of a web framework but it really is at the heart of everything that it does.
-It often can often be a source of confusion or frustration, especially when it doesn't do what you expect.
+It can also be a source of confusion or frustration, especially when it doesn't do what you expect.
 For 9.0 we've made the router both safer and more closely aligned to user expectations.
 
 The biggest change is that Mojolicious now prevents applications from using reserved placeholders in routes.
@@ -154,7 +154,7 @@ See the linked documentation for an example.
 
 CSS Selectors are amazing, but one major failing is that you can only extract the last element in your selector, not something in the middle.
 Or to put it another way, thing they lack is the ability to conditionally match an element based on a property of its children.
-Well CSS4 proposes that lets you assert just such a condition, the `:has` pseudo-class.
+Well CSS4 proposes something that lets you assert just such a condition, the `:has` pseudo-class.
 
 Without it, if you wanted to find all the links that have images as their content, you'd have to match `a > img` and traverse back up to the parent (which gets even harder if it isn't a direct child, e.g. `a img`).
 However now you can simply do something like
