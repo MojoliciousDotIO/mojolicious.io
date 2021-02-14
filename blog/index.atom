@@ -13,7 +13,7 @@
         <author><name>Joel Berger</name></author>
         <link href="https://mojolicious.io/blog/2021/02/14/announcing-mojolicious-9-0/" rel="alternate" />
         <content type="html"><![CDATA[
-            <p>The Mojolicious Core Team is delighted to announce the release and immediate availability of <a href="https://mojolicious.org">Mojolicious</a> 9.0.
+            <p>The Mojolicious Core Team is delighted to announce the release and immediate availability of version 9.0 of the <a href="https://mojolicious.org">Mojolicious</a> real-time web framework.
 Every Mojolicious major release has a <a href="https://docs.mojolicious.org/Mojolicious#CODE-NAMES">code name</a> based on a unicode character and this one is lovingly named &quot;Waffle&quot; 🧇!</p>
 
 <p>Every major release I think that there can&#39;t be much more to add or change in Mojolicious and then when the next one arrives I reflect on how much has changed since I last thought that.
@@ -29,7 +29,7 @@ We are already encouraging the use of signatures both in the documentation and i
 <h2>Asynchronous Functionality</h2>
 
 <p>Clearly the highlight of the pre-9.0 development cycle has been the integration of Async/Await.
-Thanks to Paul Evans (LeoNerd)&#39;s efforts installing <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> enables Mojolicious to provide the new keywords <code>async</code> and <code>await</code> to provide the most seamless asynchronous development possible, and which is becoming more and more the standard for asynchronous code in other languages.
+Thanks to Paul Evans (LeoNerd)&#39;s efforts, when you have <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> installed Mojolicious can use its new keywords <code>async</code> and <code>await</code> to provide the most seamless asynchronous development possible, something that is becoming more and more the standard for asynchronous code in other languages.
 Writing a non-blocking endpoint is now as simple as</p>
 
 <pre><code>use Mojolicious::Lite -signatures, -async_await;
@@ -48,7 +48,7 @@ app-&gt;start;
 </code></pre>
 
 <p>When I teach non-blocking to people I can now tell them to follow a trivial recipe for most non-blocking tasks.
-Simply <code>await</code> any function that returns a promise and mark and function that uses <code>await</code> with the <code>async</code> keyword.
+Simply <code>await</code> any function that returns a promise and mark any function that uses <code>await</code> with the <code>async</code> keyword.
 Note also that all <code>async</code> functions return promises so <code>await</code> any calls to them.
 There are some optimizations you can make at times and top-level <code>await</code> (if you aren&#39;t in a Mojolicious webapp) can be a little strange but to a first approximation that&#39;s all you need to write a non-blocking webapp today!</p>
 

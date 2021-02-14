@@ -125,7 +125,7 @@
             <div class="post-content">
 
               <section id="section-1">
-                  <p>The Mojolicious Core Team is delighted to announce the release and immediate availability of <a href="https://mojolicious.org">Mojolicious</a> 9.0.
+                  <p>The Mojolicious Core Team is delighted to announce the release and immediate availability of version 9.0 of the <a href="https://mojolicious.org">Mojolicious</a> real-time web framework.
 Every Mojolicious major release has a <a href="https://docs.mojolicious.org/Mojolicious#CODE-NAMES">code name</a> based on a unicode character and this one is lovingly named &quot;Waffle&quot; 🧇!</p>
 
 <p>Every major release I think that there can&#39;t be much more to add or change in Mojolicious and then when the next one arrives I reflect on how much has changed since I last thought that.
@@ -141,7 +141,7 @@ We are already encouraging the use of signatures both in the documentation and i
 <h2>Asynchronous Functionality</h2>
 
 <p>Clearly the highlight of the pre-9.0 development cycle has been the integration of Async/Await.
-Thanks to Paul Evans (LeoNerd)&#39;s efforts installing <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> enables Mojolicious to provide the new keywords <code>async</code> and <code>await</code> to provide the most seamless asynchronous development possible, and which is becoming more and more the standard for asynchronous code in other languages.
+Thanks to Paul Evans (LeoNerd)&#39;s efforts, when you have <a href="https://metacpan.org/pod/Future::AsyncAwait">Future::AsyncAwait</a> installed Mojolicious can use its new keywords <code>async</code> and <code>await</code> to provide the most seamless asynchronous development possible, something that is becoming more and more the standard for asynchronous code in other languages.
 Writing a non-blocking endpoint is now as simple as</p>
 
 <pre><code>use Mojolicious::Lite -signatures, -async_await;
@@ -160,7 +160,7 @@ app-&gt;start;
 </code></pre>
 
 <p>When I teach non-blocking to people I can now tell them to follow a trivial recipe for most non-blocking tasks.
-Simply <code>await</code> any function that returns a promise and mark and function that uses <code>await</code> with the <code>async</code> keyword.
+Simply <code>await</code> any function that returns a promise and mark any function that uses <code>await</code> with the <code>async</code> keyword.
 Note also that all <code>async</code> functions return promises so <code>await</code> any calls to them.
 There are some optimizations you can make at times and top-level <code>await</code> (if you aren&#39;t in a Mojolicious webapp) can be a little strange but to a first approximation that&#39;s all you need to write a non-blocking webapp today!</p>
 
@@ -206,7 +206,7 @@ Further the documentation site is now redeployed immediately on any push to mast
 <h2>Routing (and Rendering)</h2>
 
 <p>The routing engine is an often overlooked part of a web framework but it really is at the heart of everything that it does.
-It often can often be a source of confusion or frustration, especially when it doesn&#39;t do what you expect.
+It can also be a source of confusion or frustration, especially when it doesn&#39;t do what you expect.
 For 9.0 we&#39;ve made the router both safer and more closely aligned to user expectations.</p>
 
 <p>The biggest change is that Mojolicious now prevents applications from using reserved placeholders in routes.
@@ -215,7 +215,7 @@ We&#39;ve also made several cases throw exceptions when routing would fail that 
 When a route points to a missing controller, a namespace without a controller or a controller without an action, you now get an exception rather than a 404, which would often confuse people.
 Additionally, you get an exception when when auto-rendering fails or a call to render cannot render a response, which would often appear to hang (while it actually was trying to wait for a delayed response that was never going to happen).</p>
 
-<p>Finally we&#39;ve simplified some of the routing method names themselves.
+<p>We&#39;ve even simplified some of the routing method names themselves.
 We&#39;ve removed the lesser-used <code>detour</code> and <code>route</code> methods in favor of the more generic <code>any</code> method.
 We&#39;ve renamed method that designates which HTTP methods to respond to (usually when picking several but not all of them, e.g. <code>GET</code> and <code>POST</code> but not <code>any</code>) from <code>via</code> to <code>methods</code>.
 We&#39;ve also renamed the method that designates conditional routing from <code>over</code> to <code>requires</code>.
@@ -236,9 +236,12 @@ You can also pass these loggers (themselves an instance of <code>Mojo::Log</code
 If you pass a closure (code reference) to the logger&#39;s <code>debug</code>, <code>info</code>, <code>warn</code>, <code>error</code>, and <code>fatal</code> methods and the logger will only invoke that closure if the log level check is met.
 In fact this improved Mojolicious&#39; own performance metrics by 10%!</p>
 
+<pre><code>$c-&gt;log-&gt;debug(sub{ &#39;Thought you might want to know: &#39; . generate_expensive_log_output() });
+</code></pre>
+
 <p>Please note that we have changed the log format slightly so be aware if you care about such things.</p>
 
-<p>And finally, we&#39;ve removed the confusing behavior of logging to a file if a <code>log</code> directory exists.
+<p>And to simplify things, we&#39;ve removed the confusing behavior of logging to a file if a <code>log</code> directory exists.
 While it sometimes did what people wanted, it more often than not confused newcomers who couldn&#39;t find their logs.
 The behavior now is to always log to <code>STDERR</code> but you can easily change it to point the file of your choice while your application is starting up.</p>
 
@@ -266,7 +269,7 @@ See the linked documentation for an example.</p>
 
 <p>CSS Selectors are amazing, but one major failing is that you can only extract the last element in your selector, not something in the middle.
 Or to put it another way, thing they lack is the ability to conditionally match an element based on a property of its children.
-Well CSS4 proposes that lets you assert just such a condition, the <code>:has</code> pseudo-class.</p>
+Well CSS4 proposes something that lets you assert just such a condition, the <code>:has</code> pseudo-class.</p>
 
 <p>Without it, if you wanted to find all the links that have images as their content, you&#39;d have to match <code>a &gt; img</code> and traverse back up to the parent (which gets even harder if it isn&#39;t a direct child, e.g. <code>a img</code>).
 However now you can simply do something like</p>
