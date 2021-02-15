@@ -102,7 +102,7 @@ The biggest change is that Mojolicious now prevents applications from using rese
 This was originally considered a "feature" because it allowed very terse route definitions for quick apps, but in practice most people that understood how that worked just used the long form while unsuspecting newcomers would trip on it from time to time.
 We've also made several cases throw exceptions when routing would fail that used to fail silently or unexpectedly.
 When a route points to a missing controller, a namespace without a controller or a controller without an action, you now get an exception rather than a 404, which would often confuse people.
-Additionally, you get an exception when when auto-rendering fails or a call to render cannot render a response, which would often appear to hang (while it actually was trying to wait for a delayed response that was never going to happen).
+Additionally, you get an exception when when auto-rendering fails or a call to render cannot render a response, which would appear to hang (while it actually was trying to wait for a delayed response that was never going to happen).
 
 We've even simplified some of the routing method names themselves.
 We've removed the lesser-used `detour` and `route` methods in favor of the more generic `any` method.
@@ -137,7 +137,7 @@ The behavior now is to always log to `STDERR` but you can easily change it to po
 
 How often have you written an application which takes a request from a client, makes a request of another server, then responds back to the client with the result?
 I've done that quite often.
-While it may seem trivial to do, there can be some subtle problems like what do you do it the read and write speeds mismatch badly enough?
+While it may seem trivial to do, there can be some subtle problems like what do you do if the read and write speeds mismatch badly enough?
 Never thought about that?
 Well you don't have to anymore.
 
@@ -155,7 +155,7 @@ See the linked documentation for an example.
 ## Mojo::DOM
 
 CSS Selectors are amazing, but one major failing is that you can only extract the last element in your selector, not something in the middle.
-Or to put it another way, thing they lack is the ability to conditionally match an element based on a property of its children.
+Or to put it another way, they lack is the ability to conditionally match an element based on a property of its children.
 Well CSS4 proposes something that lets you assert just such a condition, the `:has` pseudo-class.
 
 Without it, if you wanted to find all the links that have images as their content, you'd have to match `a > img` and traverse back up to the parent (which gets even harder if it isn't a direct child, e.g. `a img`).
