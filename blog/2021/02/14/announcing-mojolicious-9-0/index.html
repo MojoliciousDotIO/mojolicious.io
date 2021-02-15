@@ -213,7 +213,7 @@ For 9.0 we&#39;ve made the router both safer and more closely aligned to user ex
 This was originally considered a &quot;feature&quot; because it allowed very terse route definitions for quick apps, but in practice most people that understood how that worked just used the long form while unsuspecting newcomers would trip on it from time to time.
 We&#39;ve also made several cases throw exceptions when routing would fail that used to fail silently or unexpectedly.
 When a route points to a missing controller, a namespace without a controller or a controller without an action, you now get an exception rather than a 404, which would often confuse people.
-Additionally, you get an exception when when auto-rendering fails or a call to render cannot render a response, which would often appear to hang (while it actually was trying to wait for a delayed response that was never going to happen).</p>
+Additionally, you get an exception when when auto-rendering fails or a call to render cannot render a response, which would appear to hang (while it actually was trying to wait for a delayed response that was never going to happen).</p>
 
 <p>We&#39;ve even simplified some of the routing method names themselves.
 We&#39;ve removed the lesser-used <code>detour</code> and <code>route</code> methods in favor of the more generic <code>any</code> method.
@@ -249,7 +249,7 @@ The behavior now is to always log to <code>STDERR</code> but you can easily chan
 
 <p>How often have you written an application which takes a request from a client, makes a request of another server, then responds back to the client with the result?
 I&#39;ve done that quite often.
-While it may seem trivial to do, there can be some subtle problems like what do you do it the read and write speeds mismatch badly enough?
+While it may seem trivial to do, there can be some subtle problems like what do you do if the read and write speeds mismatch badly enough?
 Never thought about that?
 Well you don&#39;t have to anymore.</p>
 
@@ -268,7 +268,7 @@ See the linked documentation for an example.</p>
 <h2>Mojo::DOM</h2>
 
 <p>CSS Selectors are amazing, but one major failing is that you can only extract the last element in your selector, not something in the middle.
-Or to put it another way, thing they lack is the ability to conditionally match an element based on a property of its children.
+Or to put it another way, they lack is the ability to conditionally match an element based on a property of its children.
 Well CSS4 proposes something that lets you assert just such a condition, the <code>:has</code> pseudo-class.</p>
 
 <p>Without it, if you wanted to find all the links that have images as their content, you&#39;d have to match <code>a &gt; img</code> and traverse back up to the parent (which gets even harder if it isn&#39;t a direct child, e.g. <code>a img</code>).
