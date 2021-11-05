@@ -5,7 +5,7 @@
     <updated>2018-12-14T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/non-web.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/non-web/" rel="alternate" />
-    <generator version="0.097">Statocles</generator>
+    <generator version="0.098">Statocles</generator>
 
     <entry>
         <id>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</id>

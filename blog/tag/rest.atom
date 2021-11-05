@@ -5,7 +5,7 @@
     <updated>2017-12-22T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/rest.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/rest/" rel="alternate" />
-    <generator version="0.097">Statocles</generator>
+    <generator version="0.098">Statocles</generator>
 
     <entry>
         <id>https://mojolicious.io/blog/2017/12/22/day-22-how-to-build-a-public-rest-api/</id>

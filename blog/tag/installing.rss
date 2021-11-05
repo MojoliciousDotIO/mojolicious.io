@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/installing/</link>
         <atom:link href="https://mojolicious.io/blog/tag/installing.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.097</generator>
+        <generator>Statocles 0.098</generator>
         <item>
             <title>Day 1: Getting Started</title>
             <link>https://mojolicious.io/blog/2017/12/01/day-1-getting-started/</link>

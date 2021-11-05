@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/xml/</link>
         <atom:link href="https://mojolicious.io/blog/tag/xml.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.097</generator>
+        <generator>Statocles 0.098</generator>
         <item>
             <title>Day 14: A Practical Example of Mojo::DOM</title>
             <link>https://mojolicious.io/blog/2018/12/14/a-practical-example-of-mojo-dom/</link>

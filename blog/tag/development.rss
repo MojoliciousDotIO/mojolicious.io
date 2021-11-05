@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/development/</link>
         <atom:link href="https://mojolicious.io/blog/tag/development.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.097</generator>
+        <generator>Statocles 0.098</generator>
         <item>
             <title>Testing Environment With Tmux</title>
             <link>https://mojolicious.io/blog/2019/04/15/testing-environment-with-tmux/</link>

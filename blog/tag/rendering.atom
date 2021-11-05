@@ -5,7 +5,7 @@
     <updated>2019-07-08T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/rendering.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/rendering/" rel="alternate" />
-    <generator version="0.097">Statocles</generator>
+    <generator version="0.098">Statocles</generator>
 
     <entry>
         <id>https://mojolicious.io/blog/2019/07/08/named-content-blocks/</id>

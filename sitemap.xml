@@ -838,13 +838,13 @@
         <loc>https://mojolicious.io/page/advent/2017/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-11-05</lastmod>
     </url>
     <url>
         <loc>https://mojolicious.io/page/advent/2018/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
-        <lastmod>2021-02-15</lastmod>
+        <lastmod>2021-11-05</lastmod>
     </url>
 </urlset>
 

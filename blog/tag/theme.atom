@@ -5,7 +5,7 @@
     <updated>2018-12-09T00:00:00Z</updated>
     <link href="https://mojolicious.io/blog/tag/theme.atom" rel="self" />
     <link href="https://mojolicious.io/blog/tag/theme/" rel="alternate" />
-    <generator version="0.097">Statocles</generator>
+    <generator version="0.098">Statocles</generator>
 
     <entry>
         <id>https://mojolicious.io/blog/2018/12/09/add-a-theme-system-to-your-mojolicious-app/</id>

@@ -29,7 +29,7 @@
 
   <title>Day 5: Your App's Built-In Commands - mojolicious.io</title>
   <meta content="Joel Berger" name="author">
-  <meta content="Statocles 0.097" name="generator">
+  <meta content="Statocles 0.098" name="generator">
   <link href="/static/favicon.ico" rel="shortcut icon">
   
   
@@ -269,7 +269,7 @@ The response is parsed as JSON and only the <code>version</code> element is outp
 <p>You can fetch the Perl headlines from reddit.
 To do so we fetch the url (following redirects with <code>-r</code>), then we give it a <a href="http://mojolicious.org/perldoc/Mojo/DOM/CSS">CSS3 selector</a>, and finally extract the text from each found element.</p>
 
-<pre><code>mojo get -r reddit.com/r/perl &#39;p.title &gt; a.title&#39; text
+<pre><code>mojo get -r old.reddit.com/r/perl &#39;p.title &gt; a.title&#39; text
 </code></pre>
 
 <p>How fun is that?!</p>

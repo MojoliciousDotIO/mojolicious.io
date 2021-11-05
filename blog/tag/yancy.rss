@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/yancy/</link>
         <atom:link href="https://mojolicious.io/blog/tag/yancy.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.097</generator>
+        <generator>Statocles 0.098</generator>
         <item>
             <title>Yancy&#39;s Static Backend</title>
             <link>https://mojolicious.io/blog/2019/06/02/yancys-static-backend/</link>

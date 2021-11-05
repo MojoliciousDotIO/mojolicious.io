@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/dancer/</link>
         <atom:link href="https://mojolicious.io/blog/tag/dancer.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.097</generator>
+        <generator>Statocles 0.098</generator>
         <item>
             <title>Day 12: Using Minion in Dancer Apps</title>
             <link>https://mojolicious.io/blog/2018/12/12/dancer-and-minion/</link>

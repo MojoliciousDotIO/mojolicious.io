@@ -5,7 +5,7 @@
         <link>https://mojolicious.io/blog/tag/promises/</link>
         <atom:link href="https://mojolicious.io/blog/tag/promises.rss" rel="self" type="application/rss+xml" />
         <description>Blog feed of mojolicious.io</description>
-        <generator>Statocles 0.097</generator>
+        <generator>Statocles 0.098</generator>
         <item>
             <title>Announcing Mojolicious 9.0</title>
             <link>https://mojolicious.io/blog/2021/02/14/announcing-mojolicious-9-0/</link>
