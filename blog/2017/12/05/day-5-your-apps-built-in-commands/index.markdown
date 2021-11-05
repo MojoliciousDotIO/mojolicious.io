@@ -152,7 +152,7 @@ The response is parsed as JSON and only the `version` element is output.
 You can fetch the Perl headlines from reddit.
 To do so we fetch the url (following redirects with `-r`), then we give it a [CSS3 selector](http://mojolicious.org/perldoc/Mojo/DOM/CSS), and finally extract the text from each found element.
 
-    mojo get -r reddit.com/r/perl 'p.title > a.title' text
+    mojo get -r old.reddit.com/r/perl 'p.title > a.title' text
 
 How fun is that?!
 
